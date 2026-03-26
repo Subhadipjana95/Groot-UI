@@ -6,7 +6,7 @@
   "files": [
     {
       "path": "registry/radix-nova/groot-starter/groot-starter.tsx",
-      "content": "import { Button } from \"@workspace/ui/components/button\"\r\n\r\nexport function ExampleComponent() {\r\n  return (\r\n    <Button className=\"rounded-full px-8\">\r\n      Hello from groot-ui\r\n    </Button>\r\n  )\r\n}",
+      "content": "import { Button } from \"@/components/ui/button\"\r\n\r\nexport function ExampleComponent() {\r\n  return (\r\n    <Button className=\"rounded-full px-8\">\r\n      Hello from groot-ui\r\n    </Button>\r\n  )\r\n}",
       "type": "registry:component"
     }
   ],
