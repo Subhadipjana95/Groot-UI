@@ -21,6 +21,6 @@
   "menuColor": "default",
   "menuAccent": "subtle",
   "registries": {
-    "@groot-ui": "http://localhost:3000/r/{name}.json"
+    "@groot-ui": "https://groot-ui.vercel.app/r/{name}.json"
   }
 }
