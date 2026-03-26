@@ -127,3 +127,20 @@
     @apply bg-background text-foreground;
     }
 }
+
+
+/* Custom CSS Variables */
+:root {
+  --brand: oklch(0.55 0.22 260);
+  --brand-foreground: oklch(0.98 0 0);
+}
+
+.dark {
+  --brand: oklch(0.65 0.22 260);
+  --brand-foreground: oklch(0.10 0 0);
+}
+
+@theme inline {
+  --color-brand: var(--brand);
+  --color-brand-foreground: var(--brand-foreground);
+}

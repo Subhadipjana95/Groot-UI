@@ -1,0 +1,31 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "groot-ui",
+  "homepage": "https://groot-ui.com",
+  "items": [
+    {
+      "name": "groot-starter",
+      "type": "registry:block",
+      "title": "Groot Starter Component",
+      "description": "A simple starter component for groot-ui.",
+      "files": [
+        {
+          "path": "registry/radix-nova/groot-starter/groot-starter.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "glow-card",
+      "type": "registry:block",
+      "title": "Glow Card",
+      "description": "A card with a glowing hover effect.",
+      "files": [
+        {
+          "path": "registry/radix-nova/glow-card/glow-card.tsx",
+          "type": "registry:component"
+        }
+      ]
+    }
+  ]
+}
