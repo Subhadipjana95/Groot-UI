@@ -51,7 +51,7 @@ export function Hero() {
             </div>
             <div className="flex items-center justify-between p-4 font-mono text-sm sm:text-base">
               <code className="text-white">
-                <span className="text-primary">npx</span> groot-ui@latest init
+                <span className="text-primary">npx</span> shadcn@latest add https://groot-ui.vercel.app/r/glow-card.json
               </code>
               <Button variant="ghost" size="icon" className="h-8 w-8 text-white/50 hover:text-white">
                 <Copy className="h-4 w-4" />
