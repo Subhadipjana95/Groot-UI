@@ -1,13 +1,16 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry.json",
   "name": "groot-ui",
-  "homepage": "https://groot-ui.com",
+  "homepage": "https://groot-ui.vercel.app",
   "items": [
     {
       "name": "groot-starter",
       "type": "registry:block",
-      "title": "Groot Starter Component",
+      "title": "Groot Starter",
       "description": "A simple starter component for groot-ui.",
+      "registryDependencies": [
+        "button"
+      ],
       "files": [
         {
           "path": "registry/radix-nova/groot-starter/groot-starter.tsx",
