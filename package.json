@@ -17,7 +17,7 @@
     "prettier": "^3.8.1",
     "prettier-plugin-tailwindcss": "^0.7.2",
     "shadcn": "^4.1.0",
-    "turbo": "^2.8.17",
+    "turbo": "^2.8.21",
     "typescript": "5.9.3"
   },
   "engines": {
