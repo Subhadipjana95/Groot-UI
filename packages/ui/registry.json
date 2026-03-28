@@ -29,6 +29,38 @@
           "type": "registry:component"
         }
       ]
+    },
+    {
+      "name": "github-stars",
+      "type": "registry:block",
+      "title": "GitHub Stars",
+      "description": "Displays a GitHub repo star count with auto-fetch, daily revalidation, compact formatting, and a tooltip.",
+      "registryDependencies": [
+        "button",
+        "tooltip"
+      ],
+      "files": [
+        {
+          "path": "registry/radix-nova/github-stars/github-stars.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "github-stars-react",
+      "type": "registry:block",
+      "title": "GitHub Stars (React / Vite)",
+      "description": "GitHub star count for Vite and non-Next.js React projects. Fetches client-side with localStorage caching for 24 hours.",
+      "registryDependencies": [
+        "button",
+        "tooltip"
+      ],
+      "files": [
+        {
+          "path": "registry/radix-nova/github-stars-react/github-stars-react.tsx",
+          "type": "registry:component"
+        }
+      ]
     }
   ]
 }
