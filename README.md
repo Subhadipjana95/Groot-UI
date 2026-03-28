@@ -1,15 +1,28 @@
 <div align="center">
-  <br />
-  <img src="https://avatars.githubusercontent.com/u/149944137?s=48&v=4" alt="Groot UI Logo" width="120" style="border-radius: 20px;" />
-  <br />
-  <h1><b>Groot UI</b></h1>
-  <p><i>The modern, accessible, and stunning UI component library for high-performing web apps.</i></p>
+  <img src="https://avatars.githubusercontent.com/u/149944137?s=48&v=4" alt="Groot UI" width="100" style="border-radius: 20px;" />
+  <h1>Groot UI</h1>
+  <p>A modern, accessible component library built on shadcn/ui, React 19, Next.js 16, and Tailwind CSS v4.<br/>Install any component directly into your project with a single CLI command.</p>
 
   <p>
-    <a href="https://github.com/Subhadipjana95/Groot-UI/stargazers"><img src="https://img.shields.io/github/stars/Subhadipjana95/Groot-UI?style=for-the-badge&color=8D44AD" alt="Stars" /></a>
-    <a href="https://github.com/Subhadipjana95/Groot-UI/network/members"><img src="https://img.shields.io/github/forks/Subhadipjana95/Groot-UI?style=for-the-badge&color=2ECC71" alt="Forks" /></a>
-    <a href="https://github.com/Subhadipjana95/Groot-UI/issues"><img src="https://img.shields.io/github/issues/Subhadipjana95/Groot-UI?style=for-the-badge&color=E74C3C" alt="Issues" /></a>
-    <a href="https://github.com/Subhadipjana95/Groot-UI/blob/main/LICENSE"><img src="https://img.shields.io/github/license/Subhadipjana95/Groot-UI?style=for-the-badge&color=3498DB" alt="License" /></a>
+    <a href="https://github.com/Subhadipjana95/Groot-UI/stargazers">
+      <img src="https://img.shields.io/github/stars/Subhadipjana95/Groot-UI?style=for-the-badge&color=8D44AD" alt="Stars" />
+    </a>
+    <a href="https://github.com/Subhadipjana95/Groot-UI/network/members">
+      <img src="https://img.shields.io/github/forks/Subhadipjana95/Groot-UI?style=for-the-badge&color=2ECC71" alt="Forks" />
+    </a>
+    <a href="https://github.com/Subhadipjana95/Groot-UI/issues">
+      <img src="https://img.shields.io/github/issues/Subhadipjana95/Groot-UI?style=for-the-badge&color=E74C3C" alt="Issues" />
+    </a>
+    <a href="https://github.com/Subhadipjana95/Groot-UI/blob/main/LICENSE">
+      <img src="https://img.shields.io/github/license/Subhadipjana95/Groot-UI?style=for-the-badge&color=3498DB" alt="License" />
+    </a>
+  </p>
+
+  <p>
+    <a href="https://groot-ui.vercel.app">Website</a> ·
+    <a href="https://groot-ui.vercel.app/docs">Documentation</a> ·
+    <a href="https://github.com/Subhadipjana95/Groot-UI/issues/new">Report a Bug</a> ·
+    <a href="https://github.com/Subhadipjana95/Groot-UI/issues/new">Request a Component</a>
   </p>
 
   <br />
@@ -17,101 +30,150 @@
 
 ---
 
-## ✨ Overview
+## What is Groot UI?
 
-**Groot UI** is a meticulously designed UI component library built on top of **React 19**, **Next.js 15**, and **Tailwind CSS v4**. It follows the "Shadcn Nova" architecture, providing a seamless DX for building high-performance, accessible, and breathtaking user interfaces.
+Groot UI is a component registry built on top of [shadcn/ui](https://ui.shadcn.com). Instead of installing a package, components are copied directly into your project — giving you full ownership of the code, full customizability, and zero version lock-in.
 
-### 🌟 Key Features
-
-- 🎨 **Modern Aesthetics**: Hand-crafted components with vibrant palettes and glassmorphism.
-- ⚡ **Lightning Fast**: Optimized for Next.js Server Components and SSR.
-- ♿ **Accessible by Design**: Full WAI-ARIA compliance across all components.
-- 🌗 **Dark Mode First**: Beautiful, refined dark modes come standard.
-- 🏗️ **Monorepo Ready**: Built using Turborepo for extreme scalability.
+Every component is:
+- Built with **React 19** and **TypeScript**
+- Styled with **Tailwind CSS v4**
+- Accessible with full **WAI-ARIA** compliance
+- Compatible with **Next.js App Router** and **Vite**
+- Dark mode ready out of the box
 
 ---
 
-## 🏗️ Project Structure
+## Components
 
-This monorepo is managed by [Turborepo](https://turbo.build/) and [npm workspaces](https://docs.npmjs.com/cli/v7/using-npm/workspaces).
+| Component | Description | Install |
+|---|---|---|
+| `groot-starter` | Starter template component | [Docs](https://groot-ui.vercel.app/docs/groot-starter) |
+| `glow-card` | Card with animated glow hover effect | [Docs](https://groot-ui.vercel.app/docs/glow-card) |
+| `github-stars` | GitHub star count for Next.js App Router | [Docs](https://groot-ui.vercel.app/docs/github-stars) |
+| `github-stars-react` | GitHub star count for Vite / React | [Docs](https://groot-ui.vercel.app/docs/github-stars-react) |
 
-```text
-.
-├── apps
-│   └── web          # Next.js 15 Landing Page & Marketing Site
-├── packages
-│   ├── ui           # Core UI Components Library (@workspace/ui)
-│   ├── typescript   # Shared TypeScript configurations
-│   └── eslint       # Shared ESLint linting rules
-├── turbo.json       # Turborepo configuration
-└── package.json     # Root workspace configuration
+> More components are added regularly. Star the repo to stay updated.
+
+---
+
+## Installation
+
+### Requirements
+
+- Next.js 15+ (Optional)
+- Node.js 18+
+- React 18 or 19
+- TypeScript
+- Tailwind CSS v4
+- shadcn/ui initialized in your project
+
+### Initialize shadcn/ui (if not already done)
+```bash
+npx shadcn@latest init
+```
+
+### Install a component
+
+Pick any component and run its install command:
+```bash
+# Glow Card
+npx shadcn@latest add https://groot-ui.vercel.app/r/glow-card.json
+
+# GitHub Stars (Next.js)
+npx shadcn@latest add https://groot-ui.vercel.app/r/github-stars.json
+
+# GitHub Stars (Vite / React)
+npx shadcn@latest add https://groot-ui.vercel.app/r/github-stars-react.json
+```
+
+The CLI copies the component source directly into your project under `components/`. No `node_modules`, no hidden abstractions.
+
+---
+
+## Usage
+```tsx
+import { GlowCard } from "@/components/glow-card"
+
+export default function Example() {
+  return (
+    <GlowCard>
+      <h2>Hello from Groot UI</h2>
+      <p>This card has a glowing hover effect.</p>
+    </GlowCard>
+  )
+}
+```
+```tsx
+// Next.js App Router
+import { GitHubStars } from "@/components/github-stars"
+
+export default function Navbar() {
+  return <GitHubStars repo="Subhadipjana95/Groot-UI" />
+}
 ```
 
 ---
 
-## 🚀 Quick Start
+## Project Structure
 
-### 1. Installation
+This is a Turborepo monorepo managed with npm workspaces.
+```
+groot-ui/
+├── apps/
+│   └── web/                  # Docs + landing page (Next.js 16)
+├── packages/
+│   ├── ui/                   # Component library
+│   │   ├── registry/
+│   │   │   └── radix-nova/   # All groot-ui components live here
+│   │   ├── src/
+│   │   │   └── components/   # shadcn base components
+│   │   └── registry.json     # Registry manifest
+│   ├── eslint-config/        # Shared ESLint config
+│   └── typescript-config/    # Shared TypeScript config
+├── turbo.json
+└── package.json
+```
 
-Clone the repository and install dependencies:
+---
 
+## Local Development
+
+Clone the repo and install dependencies:
 ```bash
 git clone https://github.com/Subhadipjana95/Groot-UI.git
 cd Groot-UI
 npm install
 ```
 
-### 2. Development
-
-Run the development server for both the web app and the component library:
-
+Start the development server:
 ```bash
 npm run dev
 ```
 
-Visit [http://localhost:3000](http://localhost:3000) to see the landing page in action.
+Visit `http://localhost:3000` for the docs site.
 
----
-
-## 🧩 Usage
-
-To use components in your applications, simply import them from the `@workspace/ui` package:
-
-```tsx
-import { Button } from "@workspace/ui/components/button";
-import { GlowCard } from "@workspace/ui/components/glow-card";
-
-export default function Example() {
-  return (
-    <GlowCard>
-      <Button>Click Me</Button>
-    </GlowCard>
-  );
-}
-```
-
-### 🛠️ Adding New Components
-
-To add pre-built Shadcn components to the UI library:
-
+Build the component registry:
 ```bash
-npx shadcn@latest add [component-name] --cwd packages/ui
+npm run registry
+```
+
+Build for production:
+```bash
+npm run build
 ```
 
 ---
 
-## 🤝 Contributing
+## Contributing
 
-We welcome contributions! Please feel free to submit a Pull Request or open an Issue.
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+Contributions are welcome. Please read [CONTRIBUTING.md](./CONTRIBUTING.md) before submitting a pull request.
 
 ---
 
-<p align="center">
-  Built with 💚 by Subhadip
-</p>
+## License
+
+MIT — see [LICENSE](./LICENSE) for details.
+
+---
+
+<p align="center">Built with 💚 by <a href="https://github.com/Subhadipjana95">Subhadip</a></p>
