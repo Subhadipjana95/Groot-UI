@@ -123,6 +123,22 @@
           "type": "registry:component"
         }
       ]
+    },
+    {
+      "name": "client-marquee",
+      "type": "registry:block",
+      "title": "Client Marquee",
+      "description": "Infinite marquee logo slider with mask fade edges and hover speed control.",
+      "dependencies": [
+        "motion",
+        "react-use-measure"
+      ],
+      "files": [
+        {
+          "path": "registry/radix-nova/client-marquee/client-marquee.tsx",
+          "type": "registry:component"
+        }
+      ]
     }
   ]
 }
