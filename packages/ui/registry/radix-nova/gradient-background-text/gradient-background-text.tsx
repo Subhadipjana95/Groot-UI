@@ -137,7 +137,7 @@ const GradientBackgroundText = memo(function GradientBackgroundText({
 
         <span
           aria-hidden
-          className="pointer-events-none absolute inset-0 mix-blend-darken dark:mix-blend-lighten"
+          className="pointer-events-none absolute inset-0 mix-blend-darken dark:mix-blend"
         >
           <span
             className={cn(
