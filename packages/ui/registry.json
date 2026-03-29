@@ -91,6 +91,38 @@
           "type": "registry:component"
         }
       ]
+    },
+    {
+      "name": "discord-online",
+      "type": "registry:block",
+      "title": "Discord Online (Next.js)",
+      "description": "Shows live Discord member presence count fetched server-side with 60s revalidation. Label shown on tooltip hover. Requires Next.js App Router.",
+      "registryDependencies": [
+        "button",
+        "tooltip"
+      ],
+      "files": [
+        {
+          "path": "registry/radix-nova/discord-online/discord-online.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "discord-online-react",
+      "type": "registry:block",
+      "title": "Discord Online (React / Vite)",
+      "description": "Shows live Discord member presence count fetched client-side with 60s localStorage cache. Label shown on tooltip hover.",
+      "registryDependencies": [
+        "button",
+        "tooltip"
+      ],
+      "files": [
+        {
+          "path": "registry/radix-nova/discord-online-react/discord-online-react.tsx",
+          "type": "registry:component"
+        }
+      ]
     }
   ]
 }
