@@ -90,6 +90,21 @@ npx shadcn@latest add https://groot-ui.vercel.app/r/gradient-text-fill.json
 
 # Gradient Background Text
 npx shadcn@latest add https://groot-ui.vercel.app/r/gradient-background-text.json
+
+# Client Grid
+npx shadcn@latest add https://groot-ui.vercel.app/r/client-grid.json
+
+# Client Marquee
+npx shadcn@latest add https://groot-ui.vercel.app/r/client-marquee.json
+
+# Client Marquee Blur
+npx shadcn@latest add https://groot-ui.vercel.app/r/client-marquee-blur.json
+
+# Discord Online (Next.js)
+npx shadcn@latest add https://groot-ui.vercel.app/r/discord-online.json
+
+# Discord Online (React / Vite)
+npx shadcn@latest add https://groot-ui.vercel.app/r/discord-online-react.json
 ```
 
 The CLI copies the component source directly into your project under `components/`. No `node_modules`, no hidden abstractions.
