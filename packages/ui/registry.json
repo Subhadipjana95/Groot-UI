@@ -156,6 +156,21 @@
           "type": "registry:component"
         }
       ]
+    },
+    {
+      "name": "client-grid",
+      "type": "registry:block",
+      "title": "Client Grid",
+      "description": "Grid of client logos with plus-sign separators and highlighted rows.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/radix-nova/client-grid/client-grid.tsx",
+          "type": "registry:component"
+        }
+      ]
     }
   ]
 }
