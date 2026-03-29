@@ -139,6 +139,23 @@
           "type": "registry:component"
         }
       ]
+    },
+    {
+      "name": "client-marquee-blur",
+      "type": "registry:block",
+      "title": "Client Marquee Blur",
+      "description": "Infinite marquee logo slider with mask blurred edges and hover speed control.",
+      "dependencies": [
+        "motion",
+        "react-use-measure",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/radix-nova/client-marquee-blur/client-marquee-blur.tsx",
+          "type": "registry:component"
+        }
+      ]
     }
   ]
 }
