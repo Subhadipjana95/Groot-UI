@@ -61,6 +61,19 @@
           "type": "registry:component"
         }
       ]
+    },
+    {
+      "name": "gradient-text-fill",
+      "type": "registry:block",
+      "title": "Gradient Text Fill",
+      "description": "Animated gradient fills the text itself with 3D depth. Works on any background color.",
+      "dependencies": ["motion"],
+      "files": [
+        {
+          "path": "registry/radix-nova/gradient-text-fill/gradient-text-fill.tsx",
+          "type": "registry:component"
+        }
+      ]
     }
   ]
 }
