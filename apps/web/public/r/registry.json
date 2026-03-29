@@ -67,10 +67,27 @@
       "type": "registry:block",
       "title": "Gradient Text Fill",
       "description": "Animated gradient fills the text itself with 3D depth. Works on any background color.",
-      "dependencies": ["motion"],
+      "dependencies": [
+        "motion"
+      ],
       "files": [
         {
           "path": "registry/radix-nova/gradient-text-fill/gradient-text-fill.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "gradient-background-text",
+      "type": "registry:block",
+      "title": "Gradient Background Text",
+      "description": "Animated gradient background orb text with 3D engraved effect. Works on any background color.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "registry/radix-nova/gradient-background-text/gradient-background-text.tsx",
           "type": "registry:component"
         }
       ]
