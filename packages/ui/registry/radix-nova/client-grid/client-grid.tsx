@@ -1,0 +1,105 @@
+"use client"
+
+import React, { memo, useMemo } from "react"
+import { cn } from "@/lib/utils"
+import { PlusIcon } from "lucide-react"
+
+export type Logo = {
+  src: string
+  alt: string
+  width?: number
+  height?: number
+}
+
+const LogoImage = memo(function LogoImage({ logo }: { logo: Logo }) {
+  return (
+    <img
+      alt={logo.alt}
+      src={logo.src}
+      width={logo.width ?? "auto"}
+      height={logo.height ?? "auto"}
+      loading="lazy"
+      className="pointer-events-none h-4 select-none md:h-5 dark:brightness-0 dark:invert"
+    />
+  )
+})
+
+type LogoCardProps = React.ComponentProps<"div"> & { logo: Logo }
+
+const LogoCard = memo(function LogoCard({
+  logo,
+  className,
+  children,
+  ...props
+}: LogoCardProps) {
+  return (
+    <div
+      className={cn(
+        "relative flex items-center justify-center bg-background px-4 py-8 md:p-8",
+        className
+      )}
+      {...props}
+    >
+      <LogoImage logo={logo} />
+      {children}
+    </div>
+  )
+})
+
+export const ClientGrid = memo(function ClientGrid({
+  logos,
+  className,
+}: {
+  logos: Logo[]
+  className?: string
+}) {
+  const gridLogos = useMemo(() => logos.slice(0, 8), [logos])
+
+  return (
+    <div
+      className={cn(
+        "relative grid grid-cols-2 border-x md:grid-cols-4",
+        className
+      )}
+    >
+      <div className="-translate-x-1/2 -top-px pointer-events-none absolute left-1/2 w-screen border-t" />
+
+      {gridLogos.map((logo, i) => {
+        const isHighlighted = i === 0 || i === 2 || i === 5 || i === 7
+
+        return (
+          <LogoCard
+            key={logo.alt}
+            logo={logo}
+            className={cn(
+              i < 4 && "border-b",
+              (i === 4 || i === 5) && "border-b md:border-b-0",
+              (i === 0 || i === 2 || i === 4 || i === 6) && "border-r",
+              (i === 1 || i === 5) && "md:border-r",
+              isHighlighted
+                ? "bg-secondary dark:bg-secondary/30"
+                : "bg-background"
+            )}
+          >
+            {(i === 0 || i === 1 || i === 2) && (
+              <PlusIcon
+                className="-right-[12.5px] -bottom-[12.5px] absolute z-10 hidden size-6 md:block text-slate-800 dark:text-slate-300"
+                strokeWidth={1}
+              />
+            )}
+            {(i === 0 || i === 2 || i === 4) && (
+              <PlusIcon
+                className="-right-[12.5px] -bottom-[12.5px] absolute z-10 size-6 md:hidden text-slate-800 dark:text-slate-300"
+                strokeWidth={1}
+              />
+            )}
+          </LogoCard>
+        )
+      })}
+
+      <div className="-translate-x-1/2 -bottom-px pointer-events-none absolute left-1/2 w-screen border-b" />
+    </div>
+  )
+})
+
+ClientGrid.displayName = "ClientGrid"
