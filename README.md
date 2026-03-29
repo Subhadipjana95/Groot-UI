@@ -84,6 +84,12 @@ npx shadcn@latest add https://groot-ui.vercel.app/r/github-stars.json
 
 # GitHub Stars (Vite / React)
 npx shadcn@latest add https://groot-ui.vercel.app/r/github-stars-react.json
+
+# Gradient Text Fill
+npx shadcn@latest add https://groot-ui.vercel.app/r/gradient-text-fill.json
+
+# Gradient Background Text
+npx shadcn@latest add https://groot-ui.vercel.app/r/gradient-background-text.json
 ```
 
 The CLI copies the component source directly into your project under `components/`. No `node_modules`, no hidden abstractions.
