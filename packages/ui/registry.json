@@ -171,6 +171,21 @@
           "type": "registry:component"
         }
       ]
+    },
+    {
+      "name": "github-calendar",
+      "type": "registry:block",
+      "title": "GitHub Calendar",
+      "description": "A Next.js/React component to display GitHub contributions in a calendar grid format.",
+      "registryDependencies": [
+        "tooltip"
+      ],
+      "files": [
+        {
+          "path": "registry/radix-nova/github-calendar/github-calendar.tsx",
+          "type": "registry:component"
+        }
+      ]
     }
   ]
 }
