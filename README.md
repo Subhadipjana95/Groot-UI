@@ -105,6 +105,9 @@ npx shadcn@latest add https://groot-ui.vercel.app/r/discord-online.json
 
 # Discord Online (React / Vite)
 npx shadcn@latest add https://groot-ui.vercel.app/r/discord-online-react.json
+
+# GitHub Calendar
+npx shadcn@latest add https://groot-ui.vercel.app/r/github-calendar.json
 ```
 
 The CLI copies the component source directly into your project under `components/`. No `node_modules`, no hidden abstractions.
