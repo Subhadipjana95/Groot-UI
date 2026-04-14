@@ -9,7 +9,7 @@ export default function Page() {
   return (
     <div className="relative flex flex-col font-sans selection:bg-primary selection:text-primary-foreground">
       <Navbar />
-      <main className="flex-1 overflow-x-hidden">
+      <main className="max-w-full flex-1 overflow-x-hidden">
         <Hero />
         <ComponentPreviews />
         <Pricing />

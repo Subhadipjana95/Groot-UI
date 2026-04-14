@@ -51,8 +51,8 @@
 }
 
 :root {
-    --background: oklch(1 0 0);
-    --foreground: oklch(0.145 0 0);
+    --background: oklch(94.309% 0.00011 271.152);
+    --foreground: oklch(18.674% 0.00002 271.152);
     --card: oklch(1 0 0);
     --card-foreground: oklch(0.145 0 0);
     --popover: oklch(1 0 0);
@@ -66,8 +66,8 @@
     --accent: oklch(0.97 0 0);
     --accent-foreground: oklch(0.205 0 0);
     --destructive: oklch(0.577 0.245 27.325);
-    --border: oklch(0.922 0 0);
-    --input: oklch(0.922 0 0);
+    --border: oklch(86.378% 0.0001 271.152);
+    --input: oklch(86.686% 0.0001 271.152);
     --ring: oklch(0.708 0 0);
     --chart-1: oklch(0.87 0 0);
     --chart-2: oklch(0.556 0 0);
@@ -87,12 +87,12 @@
 
 .dark {
     --background: oklch(0.145 0 0);
-    --foreground: oklch(0.985 0 0);
+    --foreground: oklch(82.816% 0.0022 14.849);
     --card: oklch(0.205 0 0);
     --card-foreground: oklch(0.985 0 0);
     --popover: oklch(0.205 0 0);
     --popover-foreground: oklch(0.985 0 0);
-    --primary: oklch(0.922 0 0);
+    --primary: oklch(88.609% 0.00107 11.989);
     --primary-foreground: oklch(0.205 0 0);
     --secondary: oklch(0.269 0 0);
     --secondary-foreground: oklch(0.985 0 0);
@@ -129,18 +129,27 @@
 }
 
 
-/* Custom CSS Variables */
+/* Custom Brand CSS */
 :root {
-  --brand: oklch(0.55 0.22 260);
-  --brand-foreground: oklch(0.98 0 0);
+  --brand1: #d0066b;
+  --brand2: #f4f472;
+  --brand-gradient: linear-gradient(to bottom, #f4f472, #d0066b);
+  --brand-background: oklch(94.309% 0.00011 271.152);
+  --brand-foreground: oklch(18.674% 0.00002 271.152);
 }
 
 .dark {
-  --brand: oklch(0.65 0.22 260);
-  --brand-foreground: oklch(0.10 0 0);
+  --brand1: #d41847;
+  --brand2: #f5f56b;
+  --brand-gradient: linear-gradient(to top, #f5f56b, #cc0066);
+  --brand-background: oklch(0.145 0 0);
+  --brand-foreground: oklch(82.816% 0.0022 14.849);
 }
 
 @theme inline {
-  --color-brand: var(--brand);
+  --color-brand1: var(--brand1);
+  --color-brand2: var(--brand2);
+  --color-brand-gradient: var(--brand-gradient);
+  --color-brand-background: var(--brand-background);
   --color-brand-foreground: var(--brand-foreground);
 }
