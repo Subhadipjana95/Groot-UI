@@ -1,5 +1,5 @@
-<div align="center">
-  <img src="https://avatars.githubusercontent.com/u/149944137?s=48&v=4" alt="Groot UI" width="100" style="border-radius: 20px;" />
+<div>
+  <img src="https://res.cloudinary.com/dfjuuwtr6/image/upload/v1776210402/Groot-UI_Preview_lys0bz.png" alt="Groot UI" width="100%" style="border-radius: 20px;" />
   <h1>Groot UI</h1>
   <p>A modern, accessible component library built on shadcn/ui, React 19, Next.js 16, and Tailwind CSS v4.<br/>Install any component directly into your project with a single CLI command.</p>
 
