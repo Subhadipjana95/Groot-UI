@@ -34,11 +34,13 @@ export function Navbar() {
         <div className="max-w-8xl mx-auto flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-8">
             {/* Brand Logo */}
-            <Link href="/" aria-label="Groot UI home" className="flex items-center gap-1">
-              <div className="flex h-6 w-6 items-center justify-center rounded-sm bg-primary font-bold text-primary-foreground" aria-hidden>
-                G
+            <Link href="/" aria-label="Groot UI home" className="flex items-center gap-2">
+              <div className="flex h-8 w-8 items-center justify-center rounded-md bg-brand-gradient p-[4px]">
+                <div className="flex h-full w-full items-center justify-center rounded-sm bg-background font-extrabold text-foreground text-lg" style={{ fontFamily: 'var(--font-gambarino)' }}>
+                  G
+                </div>
               </div>
-              <span className="text-xl font-semibold tracking-tighter">Groot UI</span>
+              <span className="text-xl font-medium tracking-tight">Groot UI</span>
             </Link>
 
             {/* Nav Links */}
@@ -61,14 +63,14 @@ export function Navbar() {
             <Button
               variant="outline"
               aria-label="Open search"
-              className="relative hidden h-9 w-60 cursor-pointer justify-between border-input bg-accent px-3 py-2 text-muted-foreground sm:flex"
+              className="relative hidden h-9 w-52 cursor-pointer justify-between border-input bg-accent pl-3 pr-1 py-1 text-muted-foreground sm:flex"
               onClick={() => setSearchOpen(true)}
             >
               <span className="inline-flex items-center gap-2">
                 <SearchIcon className="size-4" aria-hidden />
                 Search...
               </span>
-              <kbd className="pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border bg-background px-1.5 font-mono text-[10px] font-medium text-muted-foreground">
+              <kbd className="pointer-events-none inline-flex h-[26px] select-none items-center gap-1 rounded-sm border bg-background px-1.5 font-mono text-[10px] font-medium text-muted-foreground">
                 <span className="text-xs">⌘</span>K
               </kbd>
             </Button>

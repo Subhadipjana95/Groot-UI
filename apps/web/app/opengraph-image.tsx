@@ -1,7 +1,7 @@
 import { ImageResponse } from 'next/og';
 
 // Image metadata
-export const alt = 'Groot UI - Premium UI Components & Blocks';
+export const alt = 'Groot UI - High-performing, SEO friendly UI Components & Blocks';
 export const size = {
   width: 1200,
   height: 630,

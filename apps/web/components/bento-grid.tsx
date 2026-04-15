@@ -62,13 +62,13 @@ const BentoCard = memo(({ item }: { item: BentoItem }) => {
                             src={item.image} 
                             alt={item.title}
                             loading="lazy"
-                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[101%]"
+                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[101%] dark:opacity-80"
                         />
                     ) : item.content}
                     
                     {/* Subtle Overlay */}
                     <div 
-                        className="absolute inset-0 bg-linear-to-t from-background via-black/5 to-transparent opacity-60 group-hover:opacity-40 transition-opacity" 
+                        className="absolute inset-0 bg-linear-to-t from-background/60 via-background/10 to-transparent opacity-60 group-hover:opacity-40 transition-opacity" 
                         aria-hidden="true"
                     />
                 </div>

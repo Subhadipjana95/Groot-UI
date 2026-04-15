@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import { Geist, Geist_Mono } from "next/font/google"
+import localFont from "next/font/local"
 import "@workspace/ui/globals.css"
 import { ThemeProvider } from "@/components/utilities/theme-provider"
 import { LenisProvider } from "@/components/utilities/lenis-provider"
@@ -14,10 +15,15 @@ const fontMono = Geist_Mono({
   variable: "--font-mono",
 })
 
+const gambarino = localFont({
+  src: "../public/font/Gambarino-Regular.ttf",
+  variable: "--font-gambarino",
+})
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://groot-ui.vercel.app"),
   title: {
-    default: "Groot UI - Premium UI Components & Blocks for Modern Web",
+    default: "Groot UI - High-performing, SEO friendly UI Components & Blocks for Modern Web",
     template: "%s | Groot UI",
   },
   description:
@@ -40,7 +46,7 @@ export const metadata: Metadata = {
 
   // Open Graph
   openGraph: {
-    title: "Groot UI - Premium UI Components & Blocks",
+    title: "Groot UI - High-performing, SEO friendly UI Components & Blocks",
     description:
       "Hand-crafted, high-performing, SEO friendly & accessible components designed for modern developers.",
     url: "https://groot-ui.vercel.app",
@@ -98,7 +104,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={cn("antialiased", fontMono.variable, "font-sans", geist.variable)}
+      className={cn("antialiased", fontMono.variable, "font-sans", geist.variable, gambarino.variable)}
     >
       <body>
         <LenisProvider>

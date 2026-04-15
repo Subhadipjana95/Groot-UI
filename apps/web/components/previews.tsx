@@ -8,14 +8,14 @@ const PREVIEW_ITEMS: BentoItem[] = [
         id: 1,
         title: "Pro Landing Templates",
         description: "Deeply integrated SEO, analytics, and conversion-optimized sections built on top of high-performance primitives.",
-        image: "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1774162392/Brain.2.png",
+        image: "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1774298556/Screenshot_2026-03-24_005017_1_cduz1a.webp",
         className: "md:col-span-6 lg:col-span-8 lg:row-span-2 min-h-[500px]"
     },
     {
         id: 2,
         title: "Animated Headers",
         description: "Buttery smooth entrance animations and scroll-linked header effects using Framer Motion.",
-        image: "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1776210402/Groot-UI_Preview_lys0bz.png",
+        image: "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1776286826/Groot-UI_Preview_ojjktb.webp",
         className: "md:col-span-3 lg:col-span-4 min-h-[280px]"
     },
     {
@@ -29,21 +29,21 @@ const PREVIEW_ITEMS: BentoItem[] = [
         id: 4,
         title: "Dark Mode Support",
         description: "Seamless first-class support for dynamic themes with optimized color contrast.",
-        image: "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1776271919/Screenshot_2026-04-15_222144_izmp1o.png",
+        image: "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1776287226/printsyte_vertical_vx9mui.webp",
         className: "md:col-span-3 lg:col-span-3 min-h-[250px]"
     },
     {
         id: 5,
-        title: "Flexible Grid Layouts",
-        description: "Design dynamic, responsive layouts using our grid utilities and flex-based helpers that scale effortlessly.",
-        image: "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1776268852/Screenshot_2026-04-15_213026_qlofug.png",
+        title: "Responsive Previews",
+        description: "Test your build across all breakpoints with our integrated device simulator components.",
+        image: "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1768660890/w8_cx0svq.webp",
         className: "md:col-span-6 lg:col-span-5 min-h-[250px]"
     },
     {
         id: 6,
-        title: "Responsive Previews",
-        description: "Test your build across all breakpoints with our integrated device simulator components.",
-        image: "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1768510512/Screenshot_2026-01-16_021227_crgere.png",
+        title: "Flexible Grid Layouts",
+        description: "Design dynamic, responsive layouts using our grid utilities and flex-based helpers that scale effortlessly.",
+        image: "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1776287226/portfolio_light_ki9im5.webp",
         className: "md:col-span-6 lg:col-span-4 min-h-[250px]"
     }
 ]

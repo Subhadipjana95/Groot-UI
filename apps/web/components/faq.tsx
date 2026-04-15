@@ -41,9 +41,9 @@ const questions = [
 
 export function FAQ() {
   return (
-    <section className="container mx-auto px-4 py-20 pb-40 sm:px-6 lg:px-8">
-      <div className="mx-auto w-full max-w-4xl space-y-12">
-        <div className="space-y-4 text-center">
+    <section className="container mx-auto px-4 py-24 sm:px-6 lg:px-8">
+      <div className="mx-auto w-full max-w-4xl">
+        <div className="space-y-4 text-center mb-12">
           <h2 className="text-4xl font-medium tracking-tight sm:text-5xl">
             Frequently Asked <span className="bg-brand-gradient bg-clip-text text-transparent">Questions</span>
           </h2>
@@ -54,16 +54,16 @@ export function FAQ() {
         <Accordion
           type="single"
           collapsible
-          className="bg-card dark:bg-card/50 w-full rounded-2xl border-2 border-primary/10 shadow-xl overflow-hidden"
+          className="bg-card dark:bg-card/50 w-full rounded-2xl border border-border/70 shadow-xl overflow-hidden"
           defaultValue="item-1"
         >
           {questions.map((item) => (
             <AccordionItem
               value={item.id}
               key={item.id}
-              className="relative px-6 border-b-2 border-primary/10 last:border-0"
+              className="relative px-6 border-b border-border/70 last:border-0"
             >
-              <AccordionTrigger className="py-6 text-left text-[17px] font-semibold hover:underline">
+              <AccordionTrigger className="py-6 text-left text-[17px] font-medium hover:underline">
                 {item.title}
               </AccordionTrigger>
               <AccordionContent className="text-muted-foreground pb-6 text-[15px] leading-relaxed">
@@ -72,7 +72,7 @@ export function FAQ() {
             </AccordionItem>
           ))}
         </Accordion>
-        <p className="text-center text-muted-foreground font-medium mt-4">
+        <p className="text-center text-muted-foreground font-medium mt-8">
           Can't find what you're looking for? Contact our{' '}
           <a href="mailto:[codesubhadip95@gmail.com]" className="font-semibold bg-brand-gradient bg-clip-text text-transparent hover:underline transition-colors">
             customer support team
