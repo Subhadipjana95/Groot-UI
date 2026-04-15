@@ -45,12 +45,12 @@ Every component is:
 
 ## Components
 
-| Component | Description | Install |
-|---|---|---|
-| `groot-starter` | Starter template component | [Docs](https://groot-ui.vercel.app/docs/groot-starter) |
-| `glow-card` | Card with animated glow hover effect | [Docs](https://groot-ui.vercel.app/docs/glow-card) |
-| `github-stars` | GitHub star count for Next.js App Router | [Docs](https://groot-ui.vercel.app/docs/github-stars) |
-| `github-stars-react` | GitHub star count for Vite / React | [Docs](https://groot-ui.vercel.app/docs/github-stars-react) |
+| Component            | Description                              | Install                                                     |
+| -------------------- | ---------------------------------------- | ----------------------------------------------------------- |
+| `groot-starter`      | Starter template component               | [Docs](https://groot-ui.vercel.app/docs/groot-starter)      |
+| `glow-card`          | Card with animated glow hover effect     | [Docs](https://groot-ui.vercel.app/docs/glow-card)          |
+| `github-stars`       | GitHub star count for Next.js App Router | [Docs](https://groot-ui.vercel.app/docs/github-stars)       |
+| `github-stars-react` | GitHub star count for Vite / React       | [Docs](https://groot-ui.vercel.app/docs/github-stars-react) |
 
 > More components are added regularly. Star the repo to stay updated.
 

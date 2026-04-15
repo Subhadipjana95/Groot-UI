@@ -36,7 +36,7 @@ type SearchItem = {
 
 const SEARCH_DATA: SearchItem[] = [
   { id: "nav-home", title: "Go to Home", description: "Navigate to the home page", category: "Navigation", destination: "/", icon: Home },
-  { id: "nav-components", title: "Go to Components", description: "Browse all components", category: "Navigation", destination: "/components", icon: Info },
+  { id: "nav-components", title: "Go to Components", description: "Browse all components", category: "Navigation", destination: "/component", icon: Info },
   { id: "nav-pricing", title: "Go to Pricing", description: "Check out our pricing", category: "Navigation", destination: "/pricing", icon: Globe },
   { id: "theme-toggle", title: "Toggle Theme", description: "Switch between light and dark themes", category: "System", icon: Moon },
   { id: "copy-url", title: "Copy Current URL", description: "Copy the current page URL to clipboard", category: "Utility", icon: Copy },
