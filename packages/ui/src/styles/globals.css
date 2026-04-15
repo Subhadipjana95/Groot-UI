@@ -51,11 +51,11 @@
 }
 
 :root {
-    --background: oklch(94.309% 0.00011 271.152);
+    --background: oklch(96.115% 0.00011 271.152);
     --foreground: oklch(18.674% 0.00002 271.152);
     --card: oklch(1 0 0);
     --card-foreground: oklch(0.145 0 0);
-    --popover: oklch(1 0 0);
+    --popover: oklch(96.715% 0.00011 271.152);
     --popover-foreground: oklch(0.145 0 0);
     --primary: oklch(0.205 0 0);
     --primary-foreground: oklch(0.985 0 0);
@@ -134,7 +134,7 @@
   --brand1: #d0066b;
   --brand2: #f4f472;
   --brand-gradient: linear-gradient(to bottom, #f4f472, #d0066b);
-  --brand-background: oklch(94.309% 0.00011 271.152);
+  --brand-background: oklch(96.115% 0.00011 271.152);
   --brand-foreground: oklch(18.674% 0.00002 271.152);
 }
 

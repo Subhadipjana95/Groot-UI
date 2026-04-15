@@ -87,6 +87,10 @@ export const metadata: Metadata = {
   },
 };
 
+import { LenisProvider } from "@/components/lenis-provider"
+import { Navbar } from "@/components/navbar"
+import { Footer } from "@/components/footer"
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -99,7 +103,15 @@ export default function RootLayout({
       className={cn("antialiased", fontMono.variable, "font-sans", geist.variable)}
     >
       <body>
-        <ThemeProvider>{children}</ThemeProvider>
+        <LenisProvider>
+          <ThemeProvider>
+            <div className="relative flex min-h-screen flex-col font-sans bg-brand-background selection:bg-primary selection:text-primary-foreground">
+              <Navbar />
+              {children}
+              <Footer />
+            </div>
+          </ThemeProvider>
+        </LenisProvider>
       </body>
     </html>
   )

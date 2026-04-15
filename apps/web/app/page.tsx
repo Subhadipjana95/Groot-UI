@@ -1,21 +1,30 @@
-import { Navbar } from "@/components/navbar"
+
 import { Hero } from "@/components/hero"
 import { ComponentPreviews } from "@/components/previews"
 import { Pricing } from "@/components/pricing"
 import { CTAAndTestimonials } from "@/components/cta"
-import { Footer } from "@/components/footer"
 
 export default function Page() {
   return (
-    <div className="relative flex flex-col font-sans selection:bg-primary selection:text-primary-foreground">
-      <Navbar />
-      <main className="max-w-full flex-1 overflow-x-hidden">
-        <Hero />
-        <ComponentPreviews />
-        <Pricing />
-        <CTAAndTestimonials />
-      </main>
-      <Footer />
-    </div>
+    <>
+      <div className="relative w-full">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-y-0 left-0 border-r border-border/40 dark:border-border/60 bg-[repeating-linear-gradient(-45deg,rgb(0_0_0/0.08)_0,rgb(0_0_0/0.08)_1px,transparent_1px,transparent_8px)] dark:bg-[repeating-linear-gradient(-45deg,rgb(255_255_255/0.04)_0,rgb(255_255_255/0.04)_1px,transparent_1px,transparent_8px)]"
+          style={{ width: "max(0px, calc((100% - 80rem) / 2))" }}
+        />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-y-0 right-0 border-l border-border/40 dark:border-border/60 bg-[repeating-linear-gradient(-45deg,rgb(0_0_0/0.08)_0,rgb(0_0_0/0.08)_1px,transparent_1px,transparent_8px)] dark:bg-[repeating-linear-gradient(-45deg,rgb(255_255_255/0.04)_0,rgb(255_255_255/0.04)_1px,transparent_1px,transparent_8px)] "
+          style={{ width: "max(0px, calc((100% - 80rem) / 2))" }}
+        />
+        <main className="max-w-7xl mx-auto overflow-x-hidden">
+          <Hero />
+          <ComponentPreviews />
+          <Pricing />
+          <CTAAndTestimonials />
+        </main>
+      </div>
+    </>
   )
 }

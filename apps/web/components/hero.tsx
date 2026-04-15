@@ -10,7 +10,7 @@ import { HeroGlare } from "./hero-glare"
 
 export function Hero() {
   return (
-    <section className="relative flex flex-col flex-1 items-center justify-center font-sans bg-background gap-6 overflow-x-hidden pt-32 pb-20 md:pt-48 md:pb-32 lg:pt-48 lg:pb-48">
+    <section className="relative flex flex-1 flex-col items-center justify-center font-sans gap-6 overflow-x-hidden pt-24 pb-16 md:pt-32 md:pb-24 lg:pt-44 lg:pb-24 border-b border-border/40 dark:border-border/60">
       <HeroGlare />
 
       <Link href="/components">

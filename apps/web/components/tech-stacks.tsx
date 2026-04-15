@@ -39,7 +39,7 @@ const TechTooltipItem = ({ item }: { item: TechItem }) => {
         }
         transition={{ type: "spring", stiffness: 260, damping: 10 }}
         style={{ translateX, rotate }}
-        className="absolute -top-16 left-1/2 z-50 flex -translate-x-1/2 flex-col items-center rounded-md border bg-popover px-4 py-2 text-xs text-popover-foreground shadow-xl"
+        className="absolute -top-16 left-1/2 z-50 flex -translate-x-1/2 flex-col items-center rounded-md border bg-popover px-2 py-1 text-xs text-popover-foreground shadow-xl"
       >
         <p className="whitespace-nowrap text-sm font-medium">
           {item.name}
@@ -135,7 +135,7 @@ const TECH_STACK: TechItem[] = [
 export function TechStacks() {
   return (
     <div className="flex flex-col items-center gap-3 mt-4">
-      <p className="text-sm tracking-widest text-muted-foreground font-medium">
+      <p className="text-sm underline text-muted-foreground font-medium">
         Built With
       </p>
       <div className="flex items-center justify-center -space-x-2">
