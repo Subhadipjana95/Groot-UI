@@ -1,8 +1,8 @@
 
 import { Hero } from "@/components/hero"
 import { ComponentPreviews } from "@/components/previews"
-import { Pricing } from "@/components/pricing"
-import { CTAAndTestimonials } from "@/components/cta"
+import { Testimonials } from "@/components/testimonial"
+import { FAQ } from "@/components/faq"
 
 export default function Page() {
   return (
@@ -21,8 +21,8 @@ export default function Page() {
         <main className="max-w-7xl mx-auto overflow-x-hidden">
           <Hero />
           <ComponentPreviews />
-          <Pricing />
-          <CTAAndTestimonials />
+          <Testimonials />
+          <FAQ />
         </main>
       </div>
     </>
