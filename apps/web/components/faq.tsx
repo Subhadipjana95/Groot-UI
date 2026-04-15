@@ -72,7 +72,7 @@ export function FAQ() {
             </AccordionItem>
           ))}
         </Accordion>
-        <p className="text-center text-muted-foreground font-medium mt-8">
+        <p className="text-center text-muted-foreground font-medium mt-4">
           Can't find what you're looking for? Contact our{' '}
           <a href="mailto:[codesubhadip95@gmail.com]" className="font-semibold bg-brand-gradient bg-clip-text text-transparent hover:underline transition-colors">
             customer support team

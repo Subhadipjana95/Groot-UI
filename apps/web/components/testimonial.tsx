@@ -40,7 +40,7 @@ const testimonials: Testimonial[] = [
         image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&q=80',
         quote: 'Need a beautiful landing page? Use Cursor + Groot UI. Install components with 1-line of code and tag them with Cursor Composer to have AI do 100% of the work for you. Watch my workflow - it\'s this easy.',
         verified: true,
-        postImage: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80',
+        postImage: 'https://res.cloudinary.com/dfjuuwtr6/image/upload/v1776210402/Groot-UI_Preview_lys0bz.png',
         link: '#',
     },
     {
@@ -50,7 +50,7 @@ const testimonials: Testimonial[] = [
         image: 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=120&q=80',
         quote: 'Thanks, @grootui. This is my new favourite UI library, and their Pro templates look magical.',
         verified: true,
-        postImage: 'https://images.unsplash.com/photo-1614850523011-8f49ffc73908?auto=format&fit=crop&w=800&q=80',
+        postImage: 'https://res.cloudinary.com/dfjuuwtr6/image/upload/v1774162392/Brain.2.png',
         link: '#',
     },
     {
@@ -70,7 +70,7 @@ const testimonials: Testimonial[] = [
         image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=120&q=80',
         quote: 'grootui was a godsend when building the current langfuse.com x.com/marcklingen/st...',
         verified: true,
-        postImage: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80',
+        postImage: 'https://res.cloudinary.com/dfjuuwtr6/image/upload/v1776268945/Screenshot_2026-04-15_213211_twnngd.png',
         link: '#',
     },
     {
@@ -107,7 +107,7 @@ const testimonials: Testimonial[] = [
         image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=120&q=80',
         quote: 'Look at this clean UI! All built with @grootui in under an hour. Absolute game changer for my workflow.',
         verified: true,
-        postImage: 'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?auto=format&fit=crop&w=800&q=80',
+        postImage: 'https://res.cloudinary.com/dfjuuwtr6/image/upload/v1776268852/Screenshot_2026-04-15_213026_qlofug.png',
         link: '#',
     },
     {
@@ -142,8 +142,9 @@ const testimonialChunks = chunkArray(testimonials, 4)
 
 export function Testimonials() {
     return (
-        <section className="py-16 md:py-24 overflow-hidden select-none border-b border-border/40 dark:border-border/60">
+        <section className="py-16 md:py-24 overflow-hidden select-none border-b border-border/60">
             <div className="mx-auto max-w-7xl px-12">
+                {/* Title */}
                 <div className="text-center space-y-4 mb-16">
                     <h2 className="text-4xl font-medium tracking-tight sm:text-5xl">
                         Loved by the <span className="bg-brand-gradient bg-clip-text text-transparent">Community</span>
@@ -152,6 +153,7 @@ export function Testimonials() {
                         Build by makers, loved by thousands of developers around the globe.
                     </p>
                 </div>
+                {/* Testimonials */}
                 <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
                     {testimonialChunks.map((chunk, chunkIndex) => (
                         <div

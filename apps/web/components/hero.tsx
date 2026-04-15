@@ -10,7 +10,7 @@ import { HeroGlare } from "./hero-glare"
 
 export function Hero() {
   return (
-    <section className="relative flex flex-1 flex-col items-center justify-center font-sans gap-6 overflow-x-hidden pt-24 pb-16 md:pt-32 md:pb-24 lg:pt-44 lg:pb-24 border-b border-border/40 dark:border-border/60">
+    <section className="relative flex flex-1 flex-col items-center justify-center font-sans gap-6 overflow-x-hidden pt-24 pb-16 md:pt-32 md:pb-24 lg:pt-44 lg:pb-24 border-b border-border/60">
       <HeroGlare />
 
       <Link href="/components">
@@ -39,18 +39,22 @@ export function Hero() {
       </p>
 
       <div className="mt-4 flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-6">
-        <ButtonWithIcon
-          text="View Templates"
-          variant="outline"
-          iconPosition="left"
-          className="h-13 text-base shadow-sm"
-        />
-        <ButtonWithIcon
-          text="View Components"
-          variant="default"
-          iconPosition="right"
-          className="h-13 text-base shadow-sm"
-        />
+        <Link href="/templates">
+          <ButtonWithIcon
+            text="View Templates"
+            variant="outline"
+            iconPosition="left"
+            className="h-13 text-base shadow-sm"
+          />
+        </Link>
+        <Link href="/component">
+          <ButtonWithIcon
+            text="View Components"
+            variant="default"
+            iconPosition="right"
+            className="h-13 text-base shadow-sm"
+          />
+        </Link>
       </div>
       <TechStacks />
     </section>
