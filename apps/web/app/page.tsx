@@ -1,6 +1,6 @@
 
 import { Hero } from "@/components/hero"
-import { ComponentPreviews } from "@/components/previews"
+import { ComponentPreviews } from "@/components/componentPreviews"
 import { Testimonials } from "@/components/testimonial"
 import { FAQ } from "@/components/faq"
 

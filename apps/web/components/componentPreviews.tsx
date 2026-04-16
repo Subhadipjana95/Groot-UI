@@ -1,7 +1,7 @@
 "use client"
 
 import React from "react"
-import { BentoGrid, type BentoItem } from "./bento-grid"
+import { BentoGrid, type BentoItem } from "@workspace/ui/components/otherBlocks/bento-grid"
 
 const PREVIEW_ITEMS: BentoItem[] = [
     {
@@ -52,7 +52,7 @@ export function ComponentPreviews() {
     return (
         <section className="relative py-24 overflow-hidden border-b border-border/60">
             <div className="mx-auto max-w-7xl px-12 relative z-10">
-                <BentoGrid 
+                <BentoGrid
                     items={PREVIEW_ITEMS}
                     header={{
                         title: (

@@ -1,7 +1,7 @@
 "use client"
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@workspace/ui/components/tabs"
-import { GlowCard } from "@workspace/ui/components/glow-card"
+import { GlowCard } from "@workspace/ui/components/otherBlocks/glow-card"
 
 interface ComponentPreviewProps {
   component: React.ReactNode

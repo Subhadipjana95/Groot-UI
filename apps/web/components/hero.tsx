@@ -5,8 +5,8 @@ import { GradientText } from "@workspace/ui/components/textAnimations/gradient-t
 import { GradientBackgroundText } from "@workspace/ui/components/textAnimations/gradient-background-text"
 import { BadgeTag } from "@workspace/ui/components/badge-tag"
 import Link from "next/link"
-import { TechStacks } from "./tech-stacks"
-import { HeroGlare } from "./hero-glare"
+import { TechStacks } from "@workspace/ui/components/otherBlocks/tech-stacks"
+import { HeroGlare } from "@workspace/ui/components/otherBlocks/hero-glare"
 
 export function Hero() {
   return (
@@ -47,7 +47,7 @@ export function Hero() {
             className="h-13 text-base shadow-sm"
           />
         </Link>
-        <Link href="/component">
+        <Link href="/components">
           <ButtonWithIcon
             text="View Components"
             variant="default"

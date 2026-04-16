@@ -5,14 +5,15 @@ import Link from "next/link"
 import { useTheme } from "next-themes"
 import { SearchIcon } from "lucide-react"
 import { Button } from "@workspace/ui/components/button"
-import { GitHubStars } from "@workspace/ui/components/github-stars"
-import { DiscordOnline } from "@workspace/ui/components/discord-online"
-import { NavSearchDialog } from "./nav-search-dialog"
+import { GitHubStars } from "@workspace/ui/components/socialStats/github-stars"
+import { DiscordOnline } from "@workspace/ui/components/socialStats/discord-online"
+import { NavSearchDialog } from "@workspace/ui/components/dialogs/search-dialog"
 
 const NAV_LINKS = [
-  { href: "/component", label: "Components" },
-  { href: "/pricing", label: "Pricing" },
+  { href: "/components", label: "Components" },
+  { href: "/blocks", label: "Blocks" },
   { href: "/templates", label: "Templates" },
+  { href: "/pricing", label: "Pricing" },
   { href: "/changelog", label: "Changelog" },
 ]
 
@@ -57,7 +58,7 @@ export function Navbar() {
               ))}
             </ul>
           </div>
-          
+
           <div className="flex items-center gap-2">
             {/* Search Button */}
             <Button
@@ -74,7 +75,7 @@ export function Navbar() {
                 <span className="text-xs">⌘</span>K
               </kbd>
             </Button>
-            
+
             {/* Mode Toggler */}
             <Button
               variant="outline"
