@@ -1,9 +1,9 @@
+import { Sparkles } from "lucide-react";
+
 export function ComponentPreview({ slug }: { slug: string }) {
   return (
-    <div className="flex items-center justify-center min-h-[300px] w-full bg-grid-white/10">
-      <div className="text-muted-foreground italic">
-        Preview for <span className="text-foreground font-bold">{slug}</span> coming soon...
-      </div>
+    <div className="flex flex-col items-center justify-center gap-4 text-center p-12">
+      
     </div>
   );
 }
