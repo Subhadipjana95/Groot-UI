@@ -9,6 +9,7 @@ export interface Prop {
 export interface Component {
   title: string;
   slug: string;
+  label?: string;
   description: string;
   category: {
     name: string;

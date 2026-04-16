@@ -64,7 +64,7 @@ export function Navbar() {
             <Button
               variant="outline"
               aria-label="Open search"
-              className="relative hidden h-9 w-52 cursor-pointer justify-between border-input bg-accent pl-3 pr-1 py-1 text-muted-foreground sm:flex"
+              className="relative hidden h-9 w-52 cursor-pointer justify-between border-input bg-muted/60 pl-3 pr-1 py-1 text-muted-foreground sm:flex"
               onClick={() => setSearchOpen(true)}
             >
               <span className="inline-flex items-center gap-2">
@@ -78,11 +78,11 @@ export function Navbar() {
 
             {/* Mode Toggler */}
             <Button
-              variant="outline"
+              variant="secondary"
               size="icon"
               onClick={toggleTheme}
               aria-label="Toggle theme"
-              className="h-9 w-9 cursor-pointer rounded-full"
+              className="h-9 w-9 cursor-pointer rounded-full bg-secondary dark:bg-muted/80 hover:border hover:border-input"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
