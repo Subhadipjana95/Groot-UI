@@ -1,3 +1,23 @@
-export function Heading({ title }: { title: string }) {
-  return <h2 className="text-2xl font-bold mt-8 mb-4">{title}</h2>;
+import { cn } from "@workspace/ui/lib/utils";
+
+export function Heading({ 
+  title, 
+  id, 
+  className 
+}: { 
+  title: string; 
+  id?: string;
+  className?: string;
+}) {
+  return (
+    <h2
+      id={id}
+      className={cn(
+        "font-heading mt-12 scroll-m-20 text-2xl font-semibold tracking-tight first:mt-0",
+        className
+      )}
+    >
+        {title}
+    </h2>
+  );
 }

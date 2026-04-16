@@ -63,7 +63,7 @@ export function Sidebar() {
                   )}>
                     {item.title}
                     {item.label && (
-                      <span className="ml-2 rounded-full px-1.5 py-0.5 text-[9px] font-medium bg-brand-gradient text-[#1a1a1a] dark:text-background shrink-0 leading-none">
+                      <span className="ml-2 rounded-full px-1.5 py-[3px] text-[9px] font-medium bg-brand-gradient text-background dark:text-background shrink-0 leading-none">
                         {item.label}
                       </span>
                     )}

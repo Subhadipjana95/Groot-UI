@@ -3,10 +3,9 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/*": [
-        "./*"
-      ],
+      "@/*": ["./*"],
       "@workspace/ui/*": [
+        "../../packages/ui/*",
         "../../packages/ui/src/*"
       ]
     },
