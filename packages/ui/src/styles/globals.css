@@ -48,6 +48,7 @@
     --radius-3xl: calc(var(--radius) * 2.2);
     --radius-4xl: calc(var(--radius) * 2.6);
     --font-sans: var(--font-sans);
+    --width-8xl: 90rem;
 }
 
 :root {
@@ -59,9 +60,9 @@
     --popover-foreground: oklch(0.145 0 0);
     --primary: oklch(0.205 0 0);
     --primary-foreground: oklch(0.985 0 0);
-    --secondary: oklch(0.97 0 0);
+    --secondary: oklch(90.365% 0.0001 271.152);
     --secondary-foreground: oklch(0.205 0 0);
-    --muted: oklch(0.97 0 0);
+    --muted: oklch(86.844% 0.00218 14.701);
     --muted-foreground: oklch(0.556 0 0);
     --accent: oklch(0.97 0 0);
     --accent-foreground: oklch(0.205 0 0);
@@ -133,7 +134,7 @@
 :root {
   --brand1: #d0066b;
   --brand2: #f4f472;
-  --brand-gradient: linear-gradient(to bottom, #f4f472, #d0066b);
+  --brand-gradient: linear-gradient(to bottom, #eeee7a, #d3237b);
   --brand-background: oklch(96.115% 0.00011 271.152);
   --brand-foreground: oklch(18.674% 0.00002 271.152);
 }
@@ -171,5 +172,15 @@
   }
   to {
     height: 0;
+  }
+}
+
+@layer utilities {
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
 }

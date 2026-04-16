@@ -116,6 +116,7 @@ export const components: Component[] = [
   {
     title: "Gradient Text Fill",
     slug: "gradient-text-fill",
+    label: "New",
     description: "Animated gradient fills the text with 3D depth.",
     category: { name: "Animations", slug: "animations" },
     tags: ["text", "gradient", "animation"],
@@ -251,6 +252,7 @@ export const components: Component[] = [
   {
     title: "Client Marquee Blur",
     slug: "client-marquee-blur",
+    label: "New",
     description: "Infinite marquee logo slider with blurred edges.",
     category: { name: "Marquee", slug: "marquee" },
     tags: ["marquee", "logos", "blur"],
@@ -305,6 +307,7 @@ export const components: Component[] = [
   {
     title: "GitHub Calendar",
     slug: "github-calendar",
+    label: "New",
     description: "Display GitHub contributions in a calendar grid format.",
     category: { name: "Blocks", slug: "blocks" },
     tags: ["github", "calendar", "contributions"],
