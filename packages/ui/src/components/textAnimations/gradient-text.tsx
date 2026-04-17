@@ -66,7 +66,7 @@ const GradientText = memo(function GradientText({
   return (
     <MotionComponent
       className={cn(
-        "relative inline-flex overflow-hidden bg-foreground text-transparent bg-clip-text py-2 px-4 text-7xl md:text-8xl font-bold tracking-tighter",
+        "relative inline-flex overflow-hidden bg-foreground text-transparent bg-clip-text py-2 text-7xl md:text-8xl font-bold tracking-tighter",
         className
       )}
       style={style}
