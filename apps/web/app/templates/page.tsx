@@ -21,9 +21,9 @@ export default function TemplatesPage() {
             <Hammer className="h-8 w-8 text-brand1" />
           </div>
           <div className="p-4 rounded-2xl bg-background border border-border shadow-2xl z-10 relative">
-            <Box className="h-10 w-10 text-brand2" />
+            <Box className="h-10 w-10 text-amber-600 dark:text-brand2" />
           </div>
-          <div className="p-4 rounded-2xl bg-muted/50 border border-border/60 backdrop-blur-sm -rotate-12 animate-bounce">
+          <div className="p-4 rounded-2xl bg-muted/50 border border-border/60 backdrop-blur-sm rotate-12 animate-bounce">
             <Sparkles className="h-8 w-8 text-brand1" />
           </div>
         </div>
@@ -40,7 +40,7 @@ export default function TemplatesPage() {
 
         <div className="p-1 rounded-xl bg-linear-to-br from-brand1/40 via-border to-brand2/40 max-w-md mx-auto">
           <div className="bg-background rounded-lg p-3">
-            <p className="text-sm text-muted-foreground/60 max-w-sm mx-auto uppercase tracking-tighter">
+            <p className="text-sm text-muted-foreground/80 max-w-sm mx-auto uppercase tracking-tighter">
               Check back shortly. The workshop doors open soon.
             </p>
           </div>
