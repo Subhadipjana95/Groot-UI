@@ -29,15 +29,29 @@ export function Sidebar() {
             <Link
               href="/components"
               className={cn(
-                "w-full group",
+                "w-fit group",
                 pathname === "/components" ? "bg-muted text-primary" : "text-muted-foreground"
               )}
             >
               <div className={cn(
-                "w-full flex items-center rounded-md px-2 py-1.5 text-sm font-medium group-hover:bg-muted transition-colors",
+                "w-fit flex items-center rounded-md px-2 py-1.5 text-sm font-medium group-hover:bg-muted transition-colors",
                 pathname === `/components` ? "bg-muted text-primary" : "text-muted-foreground"
               )}>
                 Overview
+              </div>
+            </Link>
+            <Link
+              href="/components/installation"
+              className={cn(
+                "w-fit group",
+                pathname === "/components/installation" ? "bg-muted text-primary" : "text-muted-foreground"
+              )}
+            >
+              <div className={cn(
+                "w-fit flex items-center rounded-md px-2 py-1.5 text-sm font-medium group-hover:bg-muted transition-colors",
+                pathname === `/components/installation` ? "bg-muted text-primary" : "text-muted-foreground"
+              )}>
+                Installation
               </div>
             </Link>
           </div>

@@ -13,7 +13,7 @@ interface CodeBlockProps {
   language?: string;
 }
 
-function CodeBlock({ code, className, language = "tsx" }: CodeBlockProps) {
+export function CodeBlock({ code, className, language = "tsx" }: CodeBlockProps) {
   const { resolvedTheme } = useTheme();
   const [mounted, setMounted] = React.useState(false);
 
