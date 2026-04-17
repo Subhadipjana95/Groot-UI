@@ -24,7 +24,7 @@ function CodeBlock({ code, className, language = "tsx" }: CodeBlockProps) {
   const style = resolvedTheme === "dark" ? atelierForestDark : atelierForestLight;
 
   return (
-    <div className={cn("group relative my-4 overflow-hidden rounded-lg border border-input/60 bg-muted/50 px-1 py-3", className)}>
+    <div className={cn("group relative my-4 overflow-hidden rounded-lg border border-input/60 bg-muted/30 dark:bg-muted/50 px-1 py-3", className)}>
       <div className="absolute right-1 top-1 z-20">
         <CopyButton variant="outline" value={code} className="h-7 w-7 rounded-sm" />
       </div>

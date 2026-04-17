@@ -35,7 +35,7 @@ export function InstallBlock({ command: slug }: { command: string }) {
   const currentCommand = getCommand(selectedPm);
 
   return (
-    <div className="relative mt-6 overflow-hidden rounded-lg border border-input/60 bg-muted/50">
+    <div className="relative mt-6 overflow-hidden rounded-lg border border-input/60 bg-muted/30 dark:bg-muted/50">
       <div className="flex items-center justify-between border-b border-border/50 pl-3 pr-1 pt-1.5 pb-1">
         <div className="flex items-center gap-3">
           <div className="flex h-5 w-5 items-center justify-center rounded-xs bg-muted-foreground">

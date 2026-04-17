@@ -1,8 +1,8 @@
 "use client";
 
-import * as React from "react";
 import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@workspace/ui/lib/utils";
+import { useEffect, useState } from "react";
 import { Button } from "@workspace/ui/components/button";
 import {
   Tooltip,
@@ -25,9 +25,33 @@ const githubStarsVariants = cva("gap-1.5 pr-1.5 pl-2", {
 });
 
 interface GitHubStarsProps extends VariantProps<typeof githubStarsVariants> {
-  repo: string;
-  locales?: Intl.LocalesArgument;
-  className?: string;
+  repo: string; // GitHub repository in `owner/repo` format.
+  locales?: Intl.LocalesArgument; // Optional locales for number formatting. See [MDN - Intl - locales argument](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Intl#locales_argument).
+  className?: string; // Optional class name for Styling
+}
+
+const CACHE_KEY = (repo: string) => `groot-ui:github-stars:${repo}`;
+const CACHE_TTL = 86400 * 1000;
+
+function getCached(repo: string): number | null {
+  try {
+    const raw = localStorage.getItem(CACHE_KEY(repo));
+    if (!raw) return null;
+    const { value, timestamp } = JSON.parse(raw);
+    if (Date.now() - timestamp > CACHE_TTL) return null;
+    return value;
+  } catch {
+    return null;
+  }
+}
+
+function setCache(repo: string, value: number) {
+  try {
+    localStorage.setItem(
+      CACHE_KEY(repo),
+      JSON.stringify({ value, timestamp: Date.now() }),
+    );
+  } catch { }
 }
 
 export function GitHubStars({
@@ -36,36 +60,39 @@ export function GitHubStars({
   className,
   size
 }: GitHubStarsProps) {
-  const [count, setCount] = React.useState(0);
+  const [count, setCount] = useState<number | null>(null);
 
-  React.useEffect(() => {
-    let cancelled = false;
-    fetch(`https://api.github.com/repos/${repo}`, {
-      headers: { "Accept": "application/vnd.github.v3+json" },
-    })
-      .then((res) => {
-        if (!res.ok) throw new Error(`GitHub API ${res.status}`);
-        return res.json();
-      })
+  useEffect(() => {
+    const cached = getCached(repo);
+    if (cached !== null) {
+      setCount(cached);
+      return;
+    }
+
+    fetch(`https://api.github.com/repos/${repo}`)
+      .then((res) => res.json())
       .then((data) => {
-        if (!cancelled && data?.stargazers_count != null) {
-          setCount(Number(data.stargazers_count));
-        }
+        const stars = Number(data?.stargazers_count) || 0;
+        setCount(stars);
+        setCache(repo, stars);
       })
-      .catch((err) => {
-        console.warn("[GitHubStars] Failed to fetch:", err.message);
-      });
-    return () => { cancelled = true; };
+      .catch(() => setCount(0));
   }, [repo]);
 
-  const formatted = new Intl.NumberFormat(locales, {
-    notation: "compact",
-    compactDisplay: "short",
-  })
-    .format(count)
-    .toLowerCase();
+  const formatted =
+    count === null
+      ? "..."
+      : new Intl.NumberFormat(locales, {
+        notation: "compact",
+        compactDisplay: "short",
+      })
+        .format(count)
+        .toLowerCase();
 
-  const full = new Intl.NumberFormat(locales).format(count);
+  const full =
+    count === null
+      ? "Loading..."
+      : `${new Intl.NumberFormat(locales).format(count)} stars`;
 
   return (
     <TooltipProvider>
@@ -99,7 +126,7 @@ export function GitHubStars({
             </a>
           </Button>
         </TooltipTrigger>
-        <TooltipContent className="font-sans">{full} stars</TooltipContent>
+        <TooltipContent className="font-sans">{full}</TooltipContent>
       </Tooltip>
     </TooltipProvider>
   );

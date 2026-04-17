@@ -194,7 +194,7 @@ export function Footer() {
         <div className="relative pb-44">
           {/* Massive dipped text */}
           <div className="absolute -bottom-16 left-0 right-0 pointer-events-none select-none overflow-hidden mask-[linear-gradient(to_top,transparent_0%,black_60%)]">
-            <h2 className="text-[12vw] md:text-[16vw] font-bold text-center leading-none text-foreground/10 dark:text-foreground/20 tracking-tighter whitespace-nowrap translate-y-[15%]">
+            <h2 className="text-[12rem] md:text-[16rem] font-bold text-center leading-none text-foreground/10 dark:text-foreground/20 tracking-tighter whitespace-nowrap translate-y-[15%]">
               GROOT UI
             </h2>
           </div>

@@ -48,13 +48,13 @@
     --radius-3xl: calc(var(--radius) * 2.2);
     --radius-4xl: calc(var(--radius) * 2.6);
     --font-sans: var(--font-sans);
-    --width-8xl: 90rem;
+    --width-8xl: 1440px;
 }
 
 :root {
     --background: oklch(96.115% 0.00011 271.152);
     --foreground: oklch(18.674% 0.00002 271.152);
-    --card: oklch(1 0 0);
+    --card: oklch(97.614% 0.00011 271.152);
     --card-foreground: oklch(0.145 0 0);
     --popover: oklch(96.715% 0.00011 271.152);
     --popover-foreground: oklch(0.145 0 0);

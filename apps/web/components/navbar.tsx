@@ -11,7 +11,7 @@ import { NavSearchDialog } from "@workspace/ui/components/dialogs/search-dialog"
 
 const NAV_LINKS = [
   { href: "/components", label: "Components" },
-  { href: "/blocks", label: "Blocks" },
+  // { href: "/blocks", label: "Blocks" },
   { href: "/templates", label: "Templates" },
   { href: "/pricing", label: "Pricing" },
   { href: "/changelog", label: "Changelog" },
@@ -32,7 +32,7 @@ export function Navbar() {
   return (
     <>
       <nav className="fixed top-0 z-50 w-full border-b bg-background">
-        <div className="max-w-8xl mx-auto flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
+        <div className="max-w-[1440px] mx-auto flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-8">
             {/* Brand Logo */}
             <Link href="/" aria-label="Groot UI home" className="flex items-center gap-2">
@@ -109,8 +109,8 @@ export function Navbar() {
 
             {/* Social Stats */}
             <div className="flex gap-2 rounded-lg border border-input px-2">
-              <GitHubStars repo="Subhadipjana95/Groot-UI" />
-              <DiscordOnline guildId="1487752291602665574" inviteURL="https://discord.gg/BtXPr8aFf" />
+              <GitHubStars repo="Subhadipjana95/Groot-UI" className="border-none" />
+              <DiscordOnline guildId="1487752291602665574" inviteURL="https://discord.gg/BtXPr8aFf" className="border-none" />
             </div>
 
             {/* Auth & Pricing Button */}

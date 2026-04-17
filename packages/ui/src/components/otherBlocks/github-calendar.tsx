@@ -1,8 +1,8 @@
 "use client"
 
 import { memo, useMemo, useState, useEffect, useId, useRef } from "react"
-import { cn } from "@/lib/utils"
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
+import { cn } from "@workspace/ui/lib/utils"
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@workspace/ui/components/tooltip"
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -124,11 +124,11 @@ const DARK_THEMES: Record<string, ThemeColors> = {
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 
 function parseDate(dateStr: string): Date {
-    const parts = dateStr.split("-").map(Number)
-    const y = parts[0] ?? 0
-    const m = parts[1] ?? 1
-    const d = parts[2] ?? 1
-    return new Date(y, m - 1, d)
+    const parts = dateStr.split("-").map(Number);
+    const y = parts[0] ?? 0;
+    const m = parts[1] ?? 1;
+    const d = parts[2] ?? 1;
+    return new Date(y, m - 1, d);
 }
 
 function formatDate(date: Date): string {
@@ -202,7 +202,7 @@ function buildGrid(
 
             if (isInRange && current.getMonth() !== lastMonth) {
                 lastMonth = current.getMonth()
-                monthLabels.push({ label: MONTH_NAMES[current.getMonth()]!, weekIndex })
+                monthLabels.push({ label: MONTH_NAMES[current.getMonth()] || "", weekIndex })
             }
 
             current = addDays(current, 1)
@@ -211,7 +211,7 @@ function buildGrid(
         weeks.push(week)
         weekIndex++
 
-        if (current > end && weeks.length > 0 && (weeks[weeks.length - 1]?.every((d) => d === null || parseDate(d) > end) ?? false)) break
+        if (current > end && weeks[weeks.length - 1]?.every((d) => d === null || parseDate(d) > end)) break
     }
 
     return { weeks, monthLabels, gridStart: formatDate(gridStart) }
@@ -337,10 +337,11 @@ export const GithubCalendar = memo(function GithubCalendar({
     }, [startDate, resolvedEnd])
 
     // ── Resolve theme colors ───────────────────────────────────────────────
+    // ── Resolve theme colors ───────────────────────────────────────────────
     const lightColors: ThemeColors =
-        typeof theme === "object" ? theme : (THEMES[theme] ?? THEMES.github!)
+        (typeof theme === "object" ? theme : (THEMES[theme as string] || THEMES.github)) as ThemeColors
     const darkColors: ThemeColors =
-        typeof theme === "object" ? theme : (DARK_THEMES[theme] ?? DARK_THEMES.github!)
+        (typeof theme === "object" ? theme : (DARK_THEMES[theme as string] || DARK_THEMES.github)) as ThemeColors
 
     const activeColors = isDark ? darkColors : lightColors
 
@@ -374,8 +375,10 @@ export const GithubCalendar = memo(function GithubCalendar({
                 .sort()
             for (let i = 0; i < sorted.length; i++) {
                 if (i === 0) { cur = 1; max = 1; continue }
-                const prev = parseDate(sorted[i - 1]!)
-                const curr = parseDate(sorted[i]!)
+                const prevDateStr = sorted[i - 1]!
+                const currDateStr = sorted[i]!
+                const prev = parseDate(prevDateStr)
+                const curr = parseDate(currDateStr)
                 const diff = (curr.getTime() - prev.getTime()) / 86400000
                 if (diff === 1) { cur++; max = Math.max(max, cur) }
                 else cur = 1
@@ -471,7 +474,7 @@ export const GithubCalendar = memo(function GithubCalendar({
                                         width={cellSize}
                                         height={cellSize}
                                         rx={cellRx}
-                                        fill={activeColors[`level${level}` as keyof ThemeColors]}
+                                        fill={activeColors[`level${level}`]}
                                         style={{ transition: "opacity 0.1s" }}
                                         onMouseEnter={() => {
                                             if (!date) return
@@ -514,8 +517,8 @@ export const GithubCalendar = memo(function GithubCalendar({
                                             ? tooltip.label
                                             : tooltip.count !== undefined
                                                 ? `${tooltip.count} contribution${tooltip.count !== 1 ? "s" : ""}`
-                                        : data[tooltip.date]?.level !== undefined
-                                                    ? `Level ${data[tooltip.date]?.level}`
+                                                : data[tooltip.date]?.level
+                                                    ? `Level ${data[tooltip.date]!.level}`
                                                     : "No contributions"}
                                     </div>
                                     <div className="text-muted">{tooltip.date}</div>

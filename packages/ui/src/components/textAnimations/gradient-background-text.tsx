@@ -115,7 +115,7 @@ const GradientBackgroundText = memo(function GradientBackgroundText({
       <style dangerouslySetInnerHTML={{ __html: keyframesStyle }} />
       <MotionComponent
         className={cn(
-          "relative inline-flex overflow-hidden font-bold tracking-tight text-transparent bg-clip-text px-2 pb-1.5 rounded-xl",
+          "relative inline-flex overflow-hidden font-bold tracking-tight text-transparent bg-clip-text px-2 pb-1.5 rounded-lg text-6xl",
           className,
         )}
         style={mergedMotionStyle}

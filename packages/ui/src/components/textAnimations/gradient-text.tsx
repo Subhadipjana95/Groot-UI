@@ -46,7 +46,7 @@ const keyframesStyle = `
 `
 
 const ORB_BASE =
-  "groot-orb pointer-events-none absolute h-[30vw] w-[30vw] mix-blend-overlay blur-lg"
+  "groot-orb pointer-events-none absolute h-[150%] w-[150%] mix-blend-overlay blur-xl"
 
 const GradientText = memo(function GradientText({
   className,
@@ -66,7 +66,7 @@ const GradientText = memo(function GradientText({
   return (
     <MotionComponent
       className={cn(
-        "relative inline-flex overflow-hidden bg-foreground text-transparent bg-clip-text py-1",
+        "relative inline-flex overflow-hidden bg-foreground text-transparent bg-clip-text py-2 px-4 text-7xl md:text-8xl font-bold tracking-tighter",
         className
       )}
       style={style}

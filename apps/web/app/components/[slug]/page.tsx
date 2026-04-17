@@ -14,6 +14,43 @@ interface ComponentPageProps {
   }>;
 }
 
+export async function generateMetadata({ params }: ComponentPageProps) {
+  const { slug } = await params;
+  const component = components.find((c) => c.slug === slug);
+
+  if (!component) {
+    return {
+      title: "Component Not Found - Groot UI",
+    };
+  }
+
+  const title = `${component.title} - Groot UI`;
+  const description = component.description;
+
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      images: [
+        {
+          url: `https://groot-ui.vercel.app/api/og?title=${encodeURIComponent(component.title)}`,
+          width: 1200,
+          height: 630,
+        },
+      ],
+      type: "article",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [`https://groot-ui.vercel.app/api/og?title=${encodeURIComponent(component.title)}`],
+    },
+  };
+}
+
 export async function generateStaticParams() {
   return components.map((component) => ({
     slug: component.slug,
@@ -29,7 +66,7 @@ export default async function ComponentPage({ params }: ComponentPageProps) {
   }
 
   return (
-    <div className="container max-w-4xl py-10 lg:py-12">
+    <div className="container max-w-5xl py-10 lg:py-12">
       <div className="flex flex-col gap-2 mb-6">
         <div className="flex items-center gap-2 text-sm text-muted-foreground mb-1">
           <span className="hover:text-foreground transition-colors cursor-default">Components</span>
