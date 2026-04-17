@@ -1,7 +1,7 @@
 "use client"
 
 import React, { memo, useMemo } from "react"
-import { cn } from "@/lib/utils"
+import { cn } from "@workspace/ui/lib/utils"
 import { PlusIcon } from "lucide-react"
 
 export type Logo = {
@@ -16,8 +16,8 @@ const LogoImage = memo(function LogoImage({ logo }: { logo: Logo }) {
     <img
       alt={logo.alt}
       src={logo.src}
-      width={logo.width}
-      height={logo.height}
+      width={logo.width ?? "auto"}
+      height={logo.height ?? "auto"}
       loading="lazy"
       className="pointer-events-none h-4 select-none md:h-5 dark:brightness-0 dark:invert"
     />
@@ -46,14 +46,27 @@ const LogoCard = memo(function LogoCard({
   )
 })
 
+const DEFAULT_ITEMS: Logo[] = [
+  { src: "https://svgl.app/library/nvidia-wordmark-light.svg", alt: "Nvidia" },
+  { src: "https://svgl.app/library/supabase_wordmark_light.svg", alt: "Supabase" },
+  { src: "https://svgl.app/library/openai_wordmark_light.svg", alt: "OpenAI" },
+  { src: "https://svgl.app/library/vercel_wordmark.svg", alt: "Vercel" },
+  { src: "https://svgl.app/library/github_wordmark_light.svg", alt: "GitHub" },
+  { src: "https://svgl.app/library/clerk-wordmark-light.svg", alt: "Clerk" },
+  { src: "https://svgl.app/library/turso-wordmark-light.svg", alt: "Turso" },
+  { src: "https://svgl.app/library/claude-ai-wordmark-icon_light.svg", alt: "Claude" },
+]
+
 export const ClientGrid = memo(function ClientGrid({
-  logos,
+  items = DEFAULT_ITEMS,
   className,
 }: {
-  logos: Logo[]
+  items?: Logo[]
   className?: string
 }) {
-  const gridLogos = useMemo(() => logos.slice(0, 8), [logos])
+  const displayItems = useMemo(() => items.length > 0 ? items : DEFAULT_ITEMS, [items])
+
+  const gridLogos = useMemo(() => (displayItems || []).slice(0, 8), [displayItems])
 
   return (
     <div

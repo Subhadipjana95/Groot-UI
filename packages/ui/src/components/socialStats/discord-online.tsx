@@ -51,7 +51,7 @@ export function DiscordOnline({
         <TooltipTrigger asChild>
           <Button
             variant="ghost"
-            className={cn("h-9 gap-1.5 pr-1.5 pl-2 hover:bg-primary/10", className)}
+            className={cn("h-9 gap-1.5 pr-1.5 pl-2 border-border dark:border-input hover:bg-input", className)}
             asChild
           >
             <a

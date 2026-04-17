@@ -19,13 +19,13 @@ export function Sidebar() {
   }, {} as Record<string, typeof components>);
 
   return (
-    <div className="w-full h-full">
-      <div className="space-y-4 py-2">
-        <div className="px-3 py-2">
+    <div className="w-full h-full overflow-x-hidden">
+      <div className="space-y-4 -pt-2 pb-2">
+        <div className="px-3 pb-2">
           <h2 className="mb-2 px-2 text-sm font-medium text-muted-foreground/60">
             Getting Started
           </h2>
-          <div className="space-y-1">
+          <div className="space-y-1.5">
             <Link
               href="/components"
               className={cn(
@@ -34,7 +34,7 @@ export function Sidebar() {
               )}
             >
               <div className={cn(
-                "w-fit flex items-center rounded-md px-2 py-1 text-sm font-medium group-hover:bg-muted transition-colors",
+                "w-full flex items-center rounded-md px-2 py-1.5 text-sm font-medium group-hover:bg-muted transition-colors",
                 pathname === `/components` ? "bg-muted text-primary" : "text-muted-foreground"
               )}>
                 Overview
@@ -53,15 +53,15 @@ export function Sidebar() {
                 <Link
                   key={item.slug}
                   href={`/components/${item.slug}`}
-                  className={cn("group w-full",
+                  className={cn("group w-full mb-1",
                     pathname === `/components/${item.slug}` ? "bg-muted text-primary" : "text-muted-foreground"
                   )}
                 >
                   <div className={cn(
-                    "w-fit flex items-center rounded-md px-2 py-1 text-sm font-medium group-hover:bg-muted transition-colors",
+                    "w-fit flex items-center rounded-md px-2 py-1.5 text-sm font-medium group-hover:bg-muted transition-colors",
                     pathname === `/components/${item.slug}` ? "bg-muted text-primary" : "text-muted-foreground"
                   )}>
-                    {item.title}
+                    <span className="flex-1 truncate">{item.title}</span>
                     {item.label && (
                       <span className="ml-2 rounded-full px-1.5 py-[3px] text-[9px] font-medium bg-brand-gradient text-background dark:text-background shrink-0 leading-none">
                         {item.label}

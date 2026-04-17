@@ -4,11 +4,14 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./*"],
+      "@/lib/utils": ["../../packages/ui/src/lib/utils"],
+      "@/components/ui/*": ["../../packages/ui/src/components/*"],
       "@workspace/ui/*": [
         "../../packages/ui/*",
         "../../packages/ui/src/*"
       ]
     },
+    "typeRoots": ["./node_modules/@types", "./types"],
     "plugins": [
       {
         "name": "next"
@@ -27,6 +30,7 @@
     "../../packages/ui/src/components/otherBlocks/hero-glare.tsx"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "../../packages/ui/registry/**/*"
   ]
 }

@@ -14,8 +14,8 @@ export default function ComponentsPage() {
 
   return (
     <div className="container max-w-5xl py-10">
-      <div className="flex flex-col gap-4 mb-10">
-        <h1 className="text-4xl font-black tracking-tight lg:text-5xl">Components</h1>
+      <div className="flex flex-col gap-3 mb-10">
+        <h1 className="text-4xl font-semibold tracking-tight lg:text-5xl">Components</h1>
         <p className="text-xl text-muted-foreground">
           Premium UI components built with Radix UI and Tailwind CSS.
         </p>
@@ -24,13 +24,13 @@ export default function ComponentsPage() {
       <div className="grid gap-12">
         {Object.entries(categories).map(([category, items]) => (
           <section key={category}>
-            <h2 className="text-2xl font-bold mb-6 pb-2 border-b">{category}</h2>
+            <h2 className="text-2xl font-medium mb-3 pb-1">{category}</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {items.map((component) => (
                 <Link
                   key={component.slug}
                   href={`/components/${component.slug}`}
-                  className="group relative flex flex-col gap-2 rounded-xl border p-6 hover:bg-muted/50 transition-colors"
+                  className="group relative flex flex-col gap-2 rounded-xl border p-3 hover:bg-muted/50 transition-colors"
                 >
                   <h3 className="font-bold text-lg group-hover:text-primary transition-colors">
                     {component.title}
@@ -42,7 +42,7 @@ export default function ComponentsPage() {
                     {component.tags.slice(0, 3).map((tag) => (
                       <span
                         key={tag}
-                        className="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-full bg-secondary text-secondary-foreground"
+                        className="text-xs tracking-wider px-2 py-0.5 rounded-sm bg-secondary text-secondary-foreground"
                       >
                         {tag}
                       </span>
