@@ -14,21 +14,27 @@ const packageManagers: { id: PackageManager; label: string }[] = [
   { id: "bun", label: "bun" },
 ];
 
-export function InstallBlock({ command: slug }: { command: string }) {
+export function InstallBlock({ 
+  command: slug, 
+  type = "add" 
+}: { 
+  command: string; 
+  type?: "add" | "init" 
+}) {
   const [selectedPm, setSelectedPm] = React.useState<PackageManager>("npm");
 
   const getCommand = (pm: PackageManager) => {
     switch (pm) {
       case "npm":
-        return `npx shadcn@latest add ${slug}`;
+        return `npx shadcn@latest ${type} ${slug}`.trim();
       case "pnpm":
-        return `pnpm dlx shadcn@latest add ${slug}`;
+        return `pnpm dlx shadcn@latest ${type} ${slug}`.trim();
       case "yarn":
-        return `yarn shadcn@latest add ${slug}`;
+        return `yarn shadcn@latest ${type} ${slug}`.trim();
       case "bun":
-        return `bunx --bun shadcn@latest add ${slug}`;
+        return `bunx --bun shadcn@latest ${type} ${slug}`.trim();
       default:
-        return `npx shadcn@latest add ${slug}`;
+        return `npx shadcn@latest ${type} ${slug}`.trim();
     }
   };
 
