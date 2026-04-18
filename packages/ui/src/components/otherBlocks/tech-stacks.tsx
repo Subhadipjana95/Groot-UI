@@ -6,7 +6,7 @@ import { motion, useTransform, useMotionValue, useSpring } from "motion/react";
 type TechItem = {
   id: number;
   name: string;
-  designation: string;
+  designation?: string;
   icon: React.ReactNode;
 };
 
@@ -39,7 +39,7 @@ const TechTooltipItem = ({ item }: { item: TechItem }) => {
         }
         transition={{ type: "spring", stiffness: 260, damping: 10 }}
         style={{ translateX, rotate }}
-        className="absolute -top-16 left-1/2 z-50 flex -translate-x-1/2 flex-col items-center rounded-md border bg-popover px-2 py-1 text-xs text-popover-foreground shadow-xl"
+        className="absolute bottom-14 left-1/2 z-50 flex -translate-x-1/2 flex-col items-center rounded-md border bg-popover px-2 py-1 text-xs text-popover-foreground shadow-xl"
       >
         <p className="whitespace-nowrap text-sm font-medium">
           {item.name}
