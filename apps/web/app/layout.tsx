@@ -107,15 +107,15 @@ export default function RootLayout({
       className={cn("antialiased", fontMono.variable, "font-sans", geist.variable, gambarino.variable)}
     >
       <body>
-        <LenisProvider>
-          <ThemeProvider>
+        <ThemeProvider>
+          <LenisProvider>
+            <Navbar />
             <div className="relative flex min-h-screen flex-col font-sans bg-brand-background selection:bg-primary selection:text-primary-foreground">
-              <Navbar />
               {children}
               <Footer />
             </div>
-          </ThemeProvider>
-        </LenisProvider>
+          </LenisProvider>
+        </ThemeProvider>
       </body>
     </html>
   )

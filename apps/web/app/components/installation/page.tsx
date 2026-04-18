@@ -81,11 +81,11 @@ export default function InstallationPage() {
           <div className="flex flex-col gap-4 w-full">
             <h2 className="text-2xl font-semibold tracking-tight">Import component</h2>
             <p className="text-muted-foreground">
-              The command above will add the <code className="bg-muted px-1.5 py-0.5 rounded-sm font-mono text-sm font-medium text-foreground">HeroGlare</code> component to your project. You can then import it like this:
+              The command above will add the <code className="bg-muted px-1.5 py-0.5 rounded-sm font-mono text-sm">HeroGlare</code> component to your project. You can then import it like this:
             </p>
             <div className="mt-2 text-sm">
               <CodeBlock 
-                code={`import { HeroGlare } from "@/components/ui/hero-glare"
+                code={`import { HeroGlare } from "@/components/hero-glare"
 
 export default function Demo() {
   return (
