@@ -3,7 +3,7 @@
 import React from "react"
 import Link from "next/link"
 import { Mail, ChevronLeft } from "lucide-react"
-import { DATA } from "@/lib/data/homeData"
+import { DATA } from "@/lib/data/Data"
 
 
 interface FooterLink {
@@ -113,8 +113,8 @@ export function Footer() {
           <div className="flex flex-col space-y-1">
             <p className="text-muted-foreground group">A product by <span className="text-foreground font-medium underline underline-offset-4 decoration-border/50 group-hover:decoration-foreground">Groot Labs</span></p>
             <Link href="https://x.com/Subhadip53874" target="_blank" rel="noopener noreferrer" className="text-right text-muted-foreground hover:text-foreground transition-colors">
-            Designed & Built by <span className="bg-brand-gradient bg-clip-text text-transparent font-medium">@Subhadip</span>
-          </Link>
+              Designed & Built by <span className="bg-brand-gradient bg-clip-text text-transparent font-medium">@Subhadip</span>
+            </Link>
             <p>© {new Date().getFullYear()} Groot UI Inc.</p>
           </div>
         </div>

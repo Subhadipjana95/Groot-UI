@@ -5,7 +5,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@workspace/ui/components/accordion";
-import { DATA } from "@/lib/data/homeData"
+import { DATA } from "@/lib/data/Data"
 
 export function FAQ() {
   return (
