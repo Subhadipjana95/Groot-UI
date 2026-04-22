@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { TestimonialCard } from "@/components/ui/otherBlocks/testimonial-card"
-import { DATA } from "@/lib/data/homeData"
+import { DATA } from "@/lib/data/Data"
 import { ChevronDown } from "lucide-react"
 
 export function Testimonials() {
@@ -29,7 +29,7 @@ export function Testimonials() {
                         "lg:max-h-none lg:overflow-visible lg:mask-none",
                         expanded
                             ? "max-h-[9999px] overflow-visible"
-                            : "max-h-[640px] overflow-hidden mask-[linear-gradient(to_bottom,black_75%,transparent_100%)]",
+                            : "max-h-[550px] overflow-hidden mask-[linear-gradient(to_bottom,black_75%,transparent_100%)]",
                         "transition-[max-height] duration-700 ease-in-out",
                     ].join(" ")}
                 >
