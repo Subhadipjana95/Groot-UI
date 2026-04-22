@@ -65,8 +65,8 @@ export const DATA = {
         link: '#',
     },
     {
-        name: 'Mckay Wrigley',
-        username: '@mckaywrigley',
+        name: 'Mckay Wigley',
+        username: '@mckaywigley',
         role: 'Developer',
         image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&q=80',
         quote: 'Need a beautiful landing page? Use Cursor + Groot UI. Install components with 1-line of code and tag them with Cursor Composer to have AI do 100% of the work for you. Watch my workflow - it\'s this easy.',
