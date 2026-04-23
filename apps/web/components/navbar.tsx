@@ -7,9 +7,10 @@ import { useTheme } from "next-themes"
 import { SearchIcon, Menu } from "lucide-react"
 import { cn } from "@workspace/ui/lib/utils"
 import { Button } from "@workspace/ui/components/button"
+import { GradientButton } from "@workspace/ui/components/buttonVarients/gradient-button"
 import { GitHubStars } from "@workspace/ui/components/socialStats/github-stars"
 import { DiscordOnline } from "@workspace/ui/components/socialStats/discord-online"
-import { NavSearchDialog } from "@workspace/ui/components/dialogs/search-dialog"
+import { NavSearchDialog } from "@/components/search-dialog"
 import {
   Drawer,
   DrawerContent,
@@ -18,17 +19,7 @@ import {
   DrawerTrigger,
   DrawerClose,
 } from "@workspace/ui/components/drawer"
-
-const NAV_LINKS = [
-  { href: "/components", label: "Components" },
-  { href: "/templates", label: "Templates" },
-  { href: "/pricing", label: "Pricing" },
-  { href: "/changelog", label: "Changelog" },
-]
-
-const GITHUB_REPO_LINK = "Subhadipjana95/Groot-UI"
-const DISCORD_SERVER_ID = "1487752291602665574"
-const DISCORD_INVITE_LINK = "https://discord.gg/BtXPr8aFf"
+import { DATA } from "@/lib/data/Data"
 
 export function Navbar() {
   const pathname = usePathname()
@@ -95,8 +86,8 @@ export function Navbar() {
 
             {/* Nav Links - Desktop */}
             <ul className="hidden list-none items-center gap-4 md:flex">
-              {NAV_LINKS.map(({ href, label }) => {
-                const isActive = pathname === href || (href !== "/" && pathname.startsWith(href))
+              {DATA.NAV_LINKS.map(({ href, label }) => {
+                const isActive = pathname === href || ((href as string) !== "/" && pathname.startsWith(href))
                 return (
                   <li key={href}>
                     <Link
@@ -121,7 +112,7 @@ export function Navbar() {
             <Button
               variant="outline"
               aria-label="Open search"
-              className="relative hidden h-9 w-52 cursor-pointer justify-between border-input bg-muted/60 pl-3 pr-1 py-1 text-muted-foreground md:flex lg:flex"
+              className="relative hidden h-9 w-20 lg:w-36 xl:w-52 cursor-pointer justify-between border-input bg-muted/60 pl-3 pr-1 py-1 text-muted-foreground md:flex lg:flex"
               onClick={() => setSearchOpen(true)}
             >
               <span className="inline-flex items-center gap-2">
@@ -136,16 +127,15 @@ export function Navbar() {
             {/* Mode Toggler - Shared */}
             {ModeToggler}
 
-            {/* Desktop Only Right Side */}
             <div className="hidden items-center gap-2 md:flex">
-              {/* Social Stats */}
+              {/* Social Stats- Desktop Only */}
               <div className="flex gap-2 rounded-lg border border-input px-2">
-                <GitHubStars repo={GITHUB_REPO_LINK} className="border-none hover:bg-transparent" />
-                <DiscordOnline guildId={DISCORD_SERVER_ID} inviteURL={DISCORD_INVITE_LINK} className="border-none hover:bg-transparent" />
+                <GitHubStars repo={DATA.GITHUB_REPO_LINK} className="border-none hover:bg-transparent dark:hover:bg-transparent" />
+                <DiscordOnline guildId={DATA.DISCORD_SERVER_ID} inviteURL={DATA.DISCORD_INVITE_LINK} className="border-none hover:bg-transparent dark:hover:bg-transparent" />
               </div>
 
-              {/* Auth & Pricing Button */}
-              <div className="flex gap-2">
+              {/* Auth & Pricing Button - hidden until auth implemented */}
+              <div className="gap-2 hidden">
                 <Link href="/auth">
                   <Button variant="secondary" className="h-10 cursor-pointer">Login</Button>
                 </Link>
@@ -153,6 +143,15 @@ export function Navbar() {
                   <Button className="h-10 cursor-pointer">Get All Access</Button>
                 </Link>
               </div>
+
+              {/* Donate Button */}
+              <GradientButton 
+                href={DATA.donateURL!}
+                openInNewTab={true}
+                aria-label="Support Groot UI"
+              >
+                Donate
+              </GradientButton>
             </div>
 
             {/* Mobile Hamburger Menu */}
@@ -175,8 +174,8 @@ export function Navbar() {
                     </DrawerHeader>
 
                     <nav className="flex flex-col border rounded-lg mt-4 mx-6 overflow-hidden">
-                      {NAV_LINKS.map(({ href, label }) => {
-                        const isActive = pathname === href || (href !== "/" && pathname.startsWith(href))
+                      {DATA.NAV_LINKS.map(({ href, label }) => {
+                        const isActive = pathname === href || ((href as string) !== "/" && pathname.startsWith(href))
                         return (
                           <DrawerClose key={href} asChild>
                             <Link
@@ -197,11 +196,12 @@ export function Navbar() {
 
                     <div className="mt-auto space-y-2 mx-6 pt-8 pb-10">
                       <div className="w-full flex justify-end gap-2">
-                        <GitHubStars repo="Subhadipjana95/Groot-UI" className="px-2 h-9" />
-                        <DiscordOnline guildId="1487752291602665574" inviteURL="https://discord.gg/BtXPr8aFf" className="px-2 h-9" />
+                        <GitHubStars repo={DATA.GITHUB_REPO_LINK} className="px-2 h-9" />
+                        <DiscordOnline guildId={DATA.DISCORD_SERVER_ID} inviteURL={DATA.DISCORD_INVITE_LINK} className="px-2 h-9" />
                       </div>
 
-                      <div className="flex flex-col gap-3">
+                      {/* Auth & Pricing Button - hidden until auth implemented */}
+                      <div className="hidden gap-3 flex-col">
                         <DrawerClose asChild>
                           <Link href="/auth" className="w-full">
                             <Button variant="secondary" className="w-full h-11 text-base">Login</Button>
@@ -213,6 +213,19 @@ export function Navbar() {
                           </Link>
                         </DrawerClose>
                       </div>
+
+                      {/* Donate Button */}
+                      <DrawerClose asChild>
+                        <Link href={DATA.donateURL!}>
+                          <GradientButton
+                            href={DATA.donateURL!}
+                            openInNewTab={true}
+                            aria-label="Support Groot UI"
+                          >
+                            Donate
+                          </GradientButton>
+                        </Link>
+                      </DrawerClose>
                     </div>
                   </div>
                 </DrawerContent>
