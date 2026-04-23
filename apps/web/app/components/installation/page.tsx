@@ -44,7 +44,7 @@ export default function InstallationPage() {
             </div>
             <div className="absolute top-8 bottom-[-48px] w-px bg-border" />
           </div>
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-4 w-full min-w-0">
             <h2 className="text-2xl font-semibold tracking-tight">Create project</h2>
             <p className="text-muted-foreground">
               Run the <code className="bg-muted px-1.5 py-0.5 rounded-sm font-mono text-sm leading-none">init</code> command to create a new Next.js project or to setup an existing one:
@@ -61,7 +61,7 @@ export default function InstallationPage() {
             </div>
             <div className="absolute top-8 bottom-[-48px] w-px bg-border" />
           </div>
-          <div className="flex flex-col gap-4 w-full">
+          <div className="flex flex-col gap-4 w-full min-w-0">
             <h2 className="text-2xl font-semibold tracking-tight">Add components</h2>
             <p className="text-muted-foreground">
               You can now start adding components to your project.
@@ -78,7 +78,7 @@ export default function InstallationPage() {
             </div>
             {/* No line after the last step */}
           </div>
-          <div className="flex flex-col gap-4 w-full">
+          <div className="flex flex-col gap-4 w-full min-w-0">
             <h2 className="text-2xl font-semibold tracking-tight">Import component</h2>
             <p className="text-muted-foreground">
               The command above will add the <code className="bg-muted px-1.5 py-0.5 rounded-sm font-mono text-sm">HeroGlare</code> component to your project. You can then import it like this:

@@ -92,18 +92,18 @@ export default async function ComponentPage({ params }: ComponentPageProps) {
       </div>
 
       <div className="grid gap-12">
-        <section className="scroll-m-20">
+        <section className="scroll-m-20 w-full min-w-0">
           <PreviewContainer>
             <ComponentPreview slug={component.slug} />
           </PreviewContainer>
         </section>
 
-        <section className="scroll-m-20">
+        <section className="scroll-m-20 w-full min-w-0">
           <Heading title="Installation" />
           <InstallBlock command={component.registryUrl} />
         </section>
 
-        <section className="scroll-m-20">
+        <section className="scroll-m-20 w-full min-w-0">
           <Heading title="Usage" />
           <UsageBlock 
             importCode={component.usage.import} 
@@ -111,13 +111,13 @@ export default async function ComponentPage({ params }: ComponentPageProps) {
           />
         </section>
 
-        <section className="scroll-m-20">
+        <section className="scroll-m-20 w-full min-w-0">
           <Heading title="Props" />
           <PropsTable props={component.props} />
         </section>
 
         {component.dependencies && component.dependencies.length > 0 && (
-          <section className="scroll-m-20">
+          <section className="scroll-m-20 w-full min-w-0">
             <Heading title="Dependencies" />
             <DependenciesBlock dependencies={component.dependencies} />
           </section>
