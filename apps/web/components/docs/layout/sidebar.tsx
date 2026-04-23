@@ -19,7 +19,7 @@ export function Sidebar() {
   }, {} as Record<string, typeof components>);
 
   return (
-    <div className="w-full h-full overflow-x-hidden scrollbar-hide">
+    <div className="w-full h-full overflow-x-hidden scrollbar-hide pb-6">
       <div className="space-y-4 -pt-2 pb-2">
         <div className="px-3 pb-2">
           <h2 className="mb-2 px-2 text-sm font-medium text-muted-foreground/60">

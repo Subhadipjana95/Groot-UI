@@ -9,7 +9,7 @@ export function DocsLayout({ children }: { children: ReactNode }) {
         {/* Navigation Sidebar */}
         <aside
           data-lenis-prevent
-          className="sticky top-16 hidden h-[calc(100vh-4rem)] w-full md:block overflow-y-auto scrollbar-hide border-r border-border/60 pr-6 pt-10"
+          className="sticky top-16 hidden h-[calc(100vh-4rem)] w-full md:block overflow-y-auto scrollbar-hide border-r border-border/60 pr-6 pt-10 mask-[linear-gradient(to_bottom,black_85%,transparent)]"
         >
           <div className="w-full">
             <Sidebar />
