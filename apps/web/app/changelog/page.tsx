@@ -1,3 +1,5 @@
+import { PageWrapper } from "@/components/utilities/page-wrapper";
+
 export default function ChangelogPage() {
   const changelog = [
     {
@@ -14,18 +16,8 @@ export default function ChangelogPage() {
   ];
 
   return (
-    <div className="relative w-full">
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-y-0 left-0 border-r border-border/40 dark:border-border/60 bg-[repeating-linear-gradient(-45deg,rgb(0_0_0/0.08)_0,rgb(0_0_0/0.08)_1px,transparent_1px,transparent_8px)] dark:bg-[repeating-linear-gradient(-45deg,rgb(255_255_255/0.04)_0,rgb(255_255_255/0.04)_1px,transparent_1px,transparent_8px)]"
-        style={{ width: "max(0px, calc((100% - 80rem) / 2))" }}
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-y-0 right-0 border-l border-border/40 dark:border-border/60 bg-[repeating-linear-gradient(-45deg,rgb(0_0_0/0.08)_0,rgb(0_0_0/0.08)_1px,transparent_1px,transparent_8px)] dark:bg-[repeating-linear-gradient(-45deg,rgb(255_255_255/0.04)_0,rgb(255_255_255/0.04)_1px,transparent_1px,transparent_8px)] "
-        style={{ width: "max(0px, calc((100% - 80rem) / 2))" }}
-      />
-      <div className="max-w-7xl mx-auto py-12 pt-32  px-6 flex flex-col gap-16">
+    <PageWrapper>
+      <div className="max-w-7xl mx-auto py-12 pt-32 px-6 md:px-12 flex flex-col gap-16">
         <div className="flex flex-col gap-3">
           <h1 className="text-4xl font-semibold tracking-tight lg:text-5xl">Changelog</h1>
           <p className="text-xl text-muted-foreground">
@@ -70,6 +62,6 @@ export default function ChangelogPage() {
           ))}
         </div>
       </div>
-    </div>
+    </PageWrapper>
   );
 }

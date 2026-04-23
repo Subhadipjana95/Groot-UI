@@ -9,23 +9,19 @@ interface PageWrapperProps {
   className?: string;
 }
 
-/**
- * Wraps every page with the decorative diagonal-stripe side panels
- * that are used consistently across the site.
- */
 export function PageWrapper({ children, className }: PageWrapperProps) {
   return (
     <div className={`relative w-full ${className ?? ""}`}>
       {/* Left stripe panel */}
       <div
         aria-hidden
-        className={`pointer-events-none absolute inset-y-0 left-0 border-r border-border/40 dark:border-border/60 ${STRIPE_LIGHT} ${STRIPE_DARK}`}
+        className={`hidden md:block pointer-events-none absolute inset-y-0 left-0 border-r border-border/40 dark:border-border/60 ${STRIPE_LIGHT} ${STRIPE_DARK}`}
         style={{ width: STRIPE_WIDTH }}
       />
       {/* Right stripe panel */}
       <div
         aria-hidden
-        className={`pointer-events-none absolute inset-y-0 right-0 border-l border-border/40 dark:border-border/60 ${STRIPE_LIGHT} ${STRIPE_DARK}`}
+        className={`hidden md:block pointer-events-none absolute inset-y-0 right-0 border-l border-border/40 dark:border-border/60 ${STRIPE_LIGHT} ${STRIPE_DARK}`}
         style={{ width: STRIPE_WIDTH }}
       />
       {children}

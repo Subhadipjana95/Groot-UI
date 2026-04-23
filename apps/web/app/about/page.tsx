@@ -1,21 +1,10 @@
 import Link from "next/link"
 import { DATA } from "@/lib/data/Data"
+import { PageWrapper } from "@/components/utilities/page-wrapper"
 
 export default function AboutPage() {
     return (
-        <div className="relative w-full overflow-hidden">
-            {/* Side hatching — matches all other pages */}
-            <div
-                aria-hidden
-                className="pointer-events-none absolute inset-y-0 left-0 border-r border-border/40 dark:border-border/60 bg-[repeating-linear-gradient(-45deg,rgb(0_0_0/0.08)_0,rgb(0_0_0/0.08)_1px,transparent_1px,transparent_8px)] dark:bg-[repeating-linear-gradient(-45deg,rgb(255_255_255/0.04)_0,rgb(255_255_255/0.04)_1px,transparent_1px,transparent_8px)]"
-                style={{ width: "max(0px, calc((100% - 80rem) / 2))" }}
-            />
-            <div
-                aria-hidden
-                className="pointer-events-none absolute inset-y-0 right-0 border-l border-border/40 dark:border-border/60 bg-[repeating-linear-gradient(-45deg,rgb(0_0_0/0.08)_0,rgb(0_0_0/0.08)_1px,transparent_1px,transparent_8px)] dark:bg-[repeating-linear-gradient(-45deg,rgb(255_255_255/0.04)_0,rgb(255_255_255/0.04)_1px,transparent_1px,transparent_8px)]"
-                style={{ width: "max(0px, calc((100% - 80rem) / 2))" }}
-            />
-
+        <PageWrapper className="overflow-hidden">
             <main className="max-w-4xl mx-auto px-6 md:px-12 relative pt-20 pb-20 md:pt-28 lg:pt-36">
 
                 {/* Hero */}
@@ -94,6 +83,6 @@ export default function AboutPage() {
                     </Link>
                 </p>
             </main>
-        </div>
+        </PageWrapper>
     )
 }

@@ -1,20 +1,9 @@
 import { Layout, Layers, Puzzle, Wand2 } from "lucide-react";
+import { PageWrapper } from "@/components/utilities/page-wrapper";
 
 export default function BlocksPage() {
   return (
-    <div className="relative w-full min-h-[calc(100vh-12rem)] flex flex-col items-center justify-center overflow-hidden">
-      {/* Background patterns */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-y-0 left-0 border-r border-border/40 dark:border-border/60 bg-[repeating-linear-gradient(-45deg,rgb(0_0_0/0.08)_0,rgb(0_0_0/0.08)_1px,transparent_1px,transparent_8px)] dark:bg-[repeating-linear-gradient(-45deg,rgb(255_255_255/0.04)_0,rgb(255_255_255/0.04)_1px,transparent_1px,transparent_8px)]"
-        style={{ width: "max(0px, calc((100% - 80rem) / 2))" }}
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-y-0 right-0 border-l border-border/40 dark:border-border/60 bg-[repeating-linear-gradient(-45deg,rgb(0_0_0/0.08)_0,rgb(0_0_0/0.08)_1px,transparent_1px,transparent_8px)] dark:bg-[repeating-linear-gradient(-45deg,rgb(255_255_255/0.04)_0,rgb(255_255_255/0.04)_1px,transparent_1px,transparent_8px)]"
-        style={{ width: "max(0px, calc((100% - 80rem) / 2))" }}
-      />
-
+    <PageWrapper className="min-h-[calc(100vh-12rem)] flex flex-col items-center justify-center overflow-hidden">
       <div className="relative z-10 max-w-2xl px-6 text-center space-y-8">
         {/* Icon trio */}
         <div className="flex justify-center space-x-[-12px] mb-8">
@@ -46,6 +35,6 @@ export default function BlocksPage() {
           </div>
         </div>
       </div>
-    </div>
+    </PageWrapper>
   );
 }

@@ -5,6 +5,7 @@ import Link from "next/link"
 import { Mail, ChevronLeft } from "lucide-react"
 import { DATA } from "@/lib/data/Data"
 
+import { PageWrapper } from "@/components/utilities/page-wrapper"
 
 interface FooterLink {
   name: string
@@ -125,17 +126,7 @@ export function Footer() {
 
 
       {/* --- Lower Portion - Desktop Specific --- */}
-      <div className="hidden md:block relative w-full">
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-y-0 left-0 border-r border-border/40 dark:border-border/60 bg-[repeating-linear-gradient(-45deg,rgb(0_0_0/0.08)_0,rgb(0_0_0/0.08)_1px,transparent_1px,transparent_8px)] dark:bg-[repeating-linear-gradient(-45deg,rgb(255_255_255/0.04)_0,rgb(255_255_255/0.04)_1px,transparent_1px,transparent_8px)]"
-          style={{ width: "max(0px, calc((100% - 80rem) / 2))" }}
-        />
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-y-0 right-0 border-l border-border/40 dark:border-border/60 bg-[repeating-linear-gradient(-45deg,rgb(0_0_0/0.08)_0,rgb(0_0_0/0.08)_1px,transparent_1px,transparent_8px)] dark:bg-[repeating-linear-gradient(-45deg,rgb(255_255_255/0.04)_0,rgb(255_255_255/0.04)_1px,transparent_1px,transparent_8px)] "
-          style={{ width: "max(0px, calc((100% - 80rem) / 2))" }}
-        />
+      <PageWrapper className="hidden md:block">
         <div className="relative pb-22 md:pb-44">
           {/* Massive dipped text */}
           <div className="absolute -bottom-5 md:-bottom-16 left-0 right-0 pointer-events-none select-none overflow-hidden mask-[linear-gradient(to_top,transparent_0%,black_60%)]">
@@ -144,7 +135,7 @@ export function Footer() {
             </h2>
           </div>
         </div>
-      </div>
+      </PageWrapper>
     </footer>
   )
 }

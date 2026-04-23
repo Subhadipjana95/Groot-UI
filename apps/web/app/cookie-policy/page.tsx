@@ -1,20 +1,9 @@
 import { DATA } from "@/lib/data/Data"
+import { PageWrapper } from "@/components/utilities/page-wrapper"
 
 export default function CookiePolicyPage() {
     return (
-        <div className="relative w-full overflow-hidden min-h-screen">
-            {/* Side background patterns */}
-            <div
-                aria-hidden
-                className="pointer-events-none absolute inset-y-0 left-0 border-r border-border/40 dark:border-border/60 bg-[repeating-linear-gradient(-45deg,rgb(0_0_0/0.08)_0,rgb(0_0_0/0.08)_1px,transparent_1px,transparent_8px)] dark:bg-[repeating-linear-gradient(-45deg,rgb(255_255_255/0.04)_0,rgb(255_255_255/0.04)_1px,transparent_1px,transparent_8px)]"
-                style={{ width: "max(0px, calc((100% - 80rem) / 2))" }}
-            />
-            <div
-                aria-hidden
-                className="pointer-events-none absolute inset-y-0 right-0 border-l border-border/40 dark:border-border/60 bg-[repeating-linear-gradient(-45deg,rgb(0_0_0/0.08)_0,rgb(0_0_0/0.08)_1px,transparent_1px,transparent_8px)] dark:bg-[repeating-linear-gradient(-45deg,rgb(255_255_255/0.04)_0,rgb(255_255_255/0.04)_1px,transparent_1px,transparent_8px)]"
-                style={{ width: "max(0px, calc((100% - 80rem) / 2))" }}
-            />
-
+        <PageWrapper className="overflow-hidden min-h-screen">
             <main className="max-w-4xl mx-auto px-6 md:px-12 relative pt-20 pb-16 md:pt-24 md:pb-24 lg:pt-32">
 
                 {/* Header */}
@@ -67,6 +56,6 @@ export default function CookiePolicyPage() {
                     </a>
                 </p>
             </main>
-        </div>
+        </PageWrapper>
     )
 }
