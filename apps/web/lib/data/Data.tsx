@@ -1,5 +1,5 @@
 import { Twitter, Github, MessageCircle, Youtube } from "@workspace/ui/components/icons/icon"
-import { Shield, Eye, Share2, Lock, RefreshCw, Mail, FileText, Cpu, ShieldAlert, Scale, GitFork, Users, Cookie, BarChart2, Settings } from "lucide-react"
+import { Shield, Eye, Share2, Lock, RefreshCw, Mail, FileText, Cpu, ShieldAlert, Scale, GitFork, Users, Cookie, BarChart2, Settings, Sparkles, Zap, ShieldCheck } from "lucide-react"
 
 export const DATA = {
     title: "Groot UI",
@@ -18,6 +18,68 @@ export const DATA = {
             title: "Beta Testing",
             description: "Finalized the core animation engine and stabilized the documentation system for public use.",
         }
+    ],
+
+    // Pricing Plans Data
+
+    plans: [
+      {
+        name: "Free",
+        price: "0",
+        originalPrice: "0",
+        description: "Access to all free components",
+        features: [
+          "Access to all free components",
+          "Copy and paste, no complexity",
+          "Built with Next.js, React, Tailwind CSS & Framer Motion",
+          "Fully responsive and customizable",
+          "Documentation and examples included"
+        ],
+        cta: "Browse free components",
+        variant: "outline",
+        icon: Sparkles
+      },
+      {
+        name: "Annual Access",
+        price: "169",
+        originalPrice: "249",
+        description: "Paid yearly",
+        features: [
+          "Access to 200+ premium Component Blocks",
+          "Access to 12+ ready-to-use Templates",
+          "1 year of updates and new features",
+          "AI-ready prompts for Lovable, V0 and more",
+          "Private Discord community access",
+          "Copy and paste, no complexity",
+          "Built with Next.js, React, Tailwind CSS & Framer Motion",
+          "Fully responsive and customizable"
+        ],
+        cta: "Get Annual Access",
+        variant: "outline",
+        icon: Zap
+      },
+      {
+        name: "Lifetime Access",
+        price: "199",
+        originalPrice: "299",
+        description: "One-time Purchase",
+        features: [
+          "Access to 200+ premium Blocks",
+          "Access to 12+ ready-to-use Templates",
+          "Lifetime updates for all content",
+          "Access to all future releases",
+          "Private Discord community access",
+          "48-hour dedicated support turnaround",
+          "AI-ready prompts for Lovable, V0 and more",
+          "Copy and paste, no complexity",
+          "Built with Next.js, React, Tailwind CSS & Framer Motion",
+          "Fully responsive and customizable"
+        ],
+        cta: "Get Lifetime Access",
+        featured: true,
+        variant: "default",
+        icon: ShieldCheck
+      }
     ],
 
     // Testimonial Reviews
