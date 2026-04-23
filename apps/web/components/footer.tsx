@@ -130,7 +130,7 @@ export function Footer() {
         <div className="relative pb-22 md:pb-44">
           {/* Massive dipped text */}
           <div className="absolute -bottom-5 md:-bottom-16 left-0 right-0 pointer-events-none select-none overflow-hidden mask-[linear-gradient(to_top,transparent_0%,black_60%)]">
-            <h2 className="text-[20vw] sm:text-[16vw] md:text-[14rem] lg:text-[16rem] font-bold uppercase text-center leading-none text-foreground/10 dark:text-foreground/20 tracking-tighter whitespace-nowrap md:translate-y-[15%]">
+            <h2 className="text-[20vw] sm:text-[16vw] md:text-[14rem] xl:text-[16rem] font-bold uppercase text-center leading-none text-foreground/10 dark:text-foreground/20 tracking-tighter whitespace-nowrap md:translate-y-[12%] xl:translate-y-[15%]">
               {DATA.title}
             </h2>
           </div>
