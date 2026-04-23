@@ -5,6 +5,21 @@ export const DATA = {
     title: "Groot UI",
     description: "Hand-crafted, high-performing, SEO friendly & accessible components designed for modern developers.",
 
+    // Changelog Data
+    changelog: [
+        {
+            date: "Apr 16, 2026",
+            title: "Initial release",
+            description: "Added the first public release with core components and blocks.",
+            image: "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1776286826/Groot-UI_Preview_ojjktb.webp"
+        },
+        {
+            date: "Apr 15, 2026",
+            title: "Beta Testing",
+            description: "Finalized the core animation engine and stabilized the documentation system for public use.",
+        }
+    ],
+
     // Testimonial Reviews
     testimonials: [
         {
@@ -173,7 +188,7 @@ export const DATA = {
         { name: "About Us", href: "/about" },
         { name: "Cookie Policy", href: "/cookie-policy" },
         { name: "Privacy Policy", href: "/privacy" },
-        { name: "Terms of Service", href: "/terms" },
+        { name: "Service Terms", href: "/terms" },
     ],
     socials: [
         { name: "Twitter", href: "https://x.com/Subhadip53874", icon: Twitter },
