@@ -15,37 +15,47 @@ export function PropsTable({ props }: { props: Prop[] }) {
       <table className="w-full text-sm text-left border-collapse">
         <thead className="bg-card">
           <tr className="border-b bg-muted/50 transition-colors">
-            <th className="h-12 px-4 text-left align-middle font-medium text-muted-foreground tracking-wider text-sm">Prop</th>
-            <th className="h-12 px-4 text-left align-middle font-medium text-muted-foreground tracking-wider text-sm">Type</th>
-            <th className="h-12 px-4 text-left align-middle font-medium text-muted-foreground tracking-wider text-sm">Default</th>
-            <th className="h-12 px-4 text-center align-middle font-medium text-muted-foreground tracking-wider text-sm">Required</th>
-            <th className="h-12 px-4 text-left align-middle font-medium text-muted-foreground tracking-wider text-sm">Description</th>
+            <th className="h-12 px-2 md:px-4 text-left align-middle font-medium text-muted-foreground tracking-wider text-sm">Prop</th>
+            <th className="h-12 px-2 md:px-4 text-left align-middle font-medium text-muted-foreground tracking-wider text-sm">Type</th>
+            <th className="h-12 px-2 md:px-4 text-left align-middle font-medium text-muted-foreground tracking-wider text-sm">Default</th>
+            <th className="h-12 px-2 md:px-4 text-center align-middle font-medium text-muted-foreground tracking-wider text-sm">Required</th>
+            <th className="h-12 px-2 md:px-4 text-left align-middle font-medium text-muted-foreground tracking-wider text-sm">Description</th>
           </tr>
         </thead>
         <tbody className="[&_tr:last-child]:border-0 bg-card/40">
           {props.map((prop) => (
             <tr key={prop.name} className="border-b transition-colors hover:bg-muted/30">
-              <td className="p-4 align-middle font-mono font-bold text-primary">{prop.name}</td>
-              <td className="p-4 align-middle">
+              <td className="p-2 md:p-4 align-middle font-mono font-bold text-primary">{prop.name}</td>
+              <td className="p-2 md:p-4 align-middle">
                 <code className="rounded bg-muted px-1.5 py-0.5 font-mono text-xs text-secondary-foreground">
                   {prop.type}
                 </code>
               </td>
-              <td className="p-4 align-middle font-mono text-xs text-muted-foreground">
+              <td className="p-2 md:p-4 align-middle font-mono text-xs text-muted-foreground">
                 {prop.default !== "-" ? (
                   <code className="rounded bg-muted/50 px-1.5 py-0.5">{prop.default}</code>
                 ) : (
                   "-"
                 )}
               </td>
-              <td className="p-4 align-middle text-center">
+              <td className="p-2 md:p-4 align-middle text-center">
                 {prop.required ? (
-                  <Check className="mx-auto h-4 w-4 text-emerald-500" />
+                  <span className="relative mx-auto flex h-4 w-4 items-center justify-center">
+                    <svg className="absolute h-0 w-0 overflow-hidden" aria-hidden="true">
+                      <defs>
+                        <linearGradient id="brand-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                          <stop offset="0%" stopColor="var(--brand2)" />
+                          <stop offset="100%" stopColor="var(--brand1)" />
+                        </linearGradient>
+                      </defs>
+                    </svg>
+                    <Check className="h-4 w-4 stroke-[url(#brand-gradient)]" />
+                  </span>
                 ) : (
                   <X className="mx-auto h-4 w-4 text-muted-foreground/30" />
                 )}
               </td>
-              <td className="p-4 align-middle text-muted-foreground leading-relaxed">
+              <td className="p-2 md:p-4 align-middle text-muted-foreground leading-relaxed">
                 {prop.description}
               </td>
             </tr>
