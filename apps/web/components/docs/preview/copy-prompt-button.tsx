@@ -2,20 +2,21 @@
 
 import * as React from "react";
 import { cn } from "@workspace/ui/lib/utils";
-import { ChevronDown, Sparkles, Box, Heart, Zap, Triangle } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@workspace/ui/components/dropdown-menu";
+import { ClaudeIcon, CursorIcon, LovableIcon } from "@workspace/ui/components/icons/icon";
+
+
 
 const PROMPT_OPTIONS = [
-  { id: "claude", name: "Claude Code", icon: Sparkles },
-  { id: "cursor", name: "Cursor (or any AI IDE)", icon: Box },
-  { id: "lovable", name: "Lovable", icon: Heart },
-  { id: "bolt", name: "Bolt", icon: Zap },
-  { id: "v0", name: "v0", icon: Triangle },
+  { id: "claude", name: "Claude Code", icon: ClaudeIcon },
+  { id: "cursor", name: "Cursor (or any IDE)", icon: CursorIcon },
+  { id: "lovable", name: "Lovable", icon: LovableIcon }
 ];
 
 export function CopyPromptButton() {
@@ -34,7 +35,7 @@ export function CopyPromptButton() {
       
       <DropdownMenuContent 
         align="end" 
-        className="w-fit rounded-lg border border-input/60 bg-card text-muted-foreground shadow-md p-1.5"
+        className="w-fit rounded-lg border border-input/60 bg-card text-muted-foreground shadow-md p-1"
       >
         <div className="flex flex-col gap-0.5">
           {PROMPT_OPTIONS.map((option) => (
@@ -43,7 +44,7 @@ export function CopyPromptButton() {
               onClick={() => setSelected(option.id)}
               className={cn(
                 "relative flex w-full cursor-default select-none items-center rounded-md p-2 text-xs font-medium outline-none transition-colors",
-                "focus:bg-background focus:text-foreground"
+                "focus:bg-muted dark:focus:bg-background focus:text-foreground"
               )}
             >
               <div className="flex items-center gap-2.5">
