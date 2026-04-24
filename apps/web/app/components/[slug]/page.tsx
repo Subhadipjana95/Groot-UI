@@ -93,7 +93,7 @@ export default async function ComponentPage({ params }: ComponentPageProps) {
 
       <div className="grid gap-12">
         <section className="scroll-m-20 w-full min-w-0">
-          <PreviewContainer>
+          <PreviewContainer code={component.usage.code}>
             <ComponentPreview slug={component.slug} />
           </PreviewContainer>
         </section>
