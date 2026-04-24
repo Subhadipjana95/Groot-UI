@@ -2,39 +2,47 @@
 
 import { useEffect, useState } from "react";
 import { cn } from "@workspace/ui/lib/utils";
-import { ArrowRight } from "lucide-react";
 
 import { SponsorCard } from "./sponsor-card";
 
-const sections = [
-  { id: "preview", title: "Preview" },
-  { id: "installation", title: "Installation" },
-  { id: "usage", title: "Usage" },
-  { id: "props", title: "Props" },
-  { id: "dependencies", title: "Dependencies" },
-];
-
 export function TOC() {
   const [activeId, setActiveId] = useState<string>("");
+  const [headings, setHeadings] = useState<{ id: string; title: string; level: number }[]>([]);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveId(entry.target.id);
-          }
-        });
-      },
-      { rootMargin: "0% 0% -80% 0%" }
-    );
+    // 1. Gather all h2 and h3 elements within the main content area after mount.
+    // Timeout helps ensure the page content has fully rendered.
+    const timer = setTimeout(() => {
+      const elements = Array.from(document.querySelectorAll("main h2, main h3"))
+        .filter((el) => el.id)
+        .map((el) => ({
+          id: el.id,
+          title: el.textContent || "",
+          level: Number(el.tagName.charAt(1)),
+        }));
+      setHeadings(elements);
 
-    sections.forEach((section) => {
-      const element = document.getElementById(section.id);
-      if (element) observer.observe(element);
-    });
+      // 2. Set up observer to track scroll position
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              setActiveId(entry.target.id);
+            }
+          });
+        },
+        { rootMargin: "0% 0% -80% 0%" }
+      );
 
-    return () => observer.disconnect();
+      elements.forEach((heading) => {
+        const element = document.getElementById(heading.id);
+        if (element) observer.observe(element);
+      });
+
+      return () => observer.disconnect();
+    }, 100);
+
+    return () => clearTimeout(timer);
   }, []);
 
   const handleClick = (id: string) => {
@@ -51,23 +59,25 @@ export function TOC() {
         <p className="font-semibold text-[11px] uppercase tracking-wider text-muted-foreground/50 mb-3 px-1">
           On This Page
         </p>
-        <ul className="space-y-1">
-          {sections.map((section) => (
-            <li key={section.id}>
-              <button
-                onClick={() => handleClick(section.id)}
-                className={cn(
-                  "block w-full text-left px-2 py-1.5 text-xs transition-all duration-200 rounded-md",
-                  activeId === section.id
-                    ? "bg-primary/5 text-primary font-medium"
-                    : "text-muted-foreground hover:text-foreground hover:bg-muted/30"
-                )}
-              >
-                {section.title}
-              </button>
-            </li>
-          ))}
-        </ul>
+        {headings.length > 0 ? (
+          <ul className="space-y-1">
+            {headings.map((heading) => (
+              <li key={heading.id} className={cn(heading.level === 3 ? "pl-4" : "")}>
+                <button
+                  onClick={() => handleClick(heading.id)}
+                  className={cn(
+                    "block w-fit text-left px-4 py-1.5 text-xs transition-all duration-200 rounded-md",
+                    activeId === heading.id
+                      ? "bg-primary/5 dark:bg-primary/10 text-primary font-medium"
+                      : "text-muted-foreground hover:text-foreground hover:bg-muted/30"
+                  )}
+                >
+                  {heading.title}
+                </button>
+              </li>
+            ))}
+          </ul>
+        ) : null}
       </div>
 
       {/* Sponsor Card */}

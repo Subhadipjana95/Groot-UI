@@ -9,9 +9,10 @@ export function Heading({
   id?: string;
   className?: string;
 }) {
+  const generatedId = id || title.toLowerCase().replace(/\s+/g, '-');
   return (
     <h2
-      id={id}
+      id={generatedId}
       className={cn(
         "font-heading mt-12 scroll-m-20 text-2xl font-semibold tracking-tight first:mt-0",
         className
