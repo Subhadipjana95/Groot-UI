@@ -22,7 +22,7 @@ export function Hero() {
 
       <h1 className="text-center text-4xl font-bold tracking-tighter md:text-5xl lg:text-6xl max-w-3xl">
         Build{" "}
-        <GradientText colors="#cc0066, #1aff53, #004d99, #f5f56b, #a600e6">
+        <GradientText colors="#cc0066, #1aff53, #004d99, #f5f56b, #a600e6" className="text-4xl lg:text-6xl">
           Stunning
         </GradientText>
         {" "}interfaces with{" "}

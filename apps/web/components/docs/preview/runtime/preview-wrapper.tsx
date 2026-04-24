@@ -14,17 +14,13 @@ import { cn } from "@workspace/ui/lib/utils";
 export function PreviewWrapper({ slug, className }: { slug: string; className?: string }) {
   const [error, setError] = React.useState<string | null>(null);
 
-  // 1. Resolve configuration from registry
-  const componentConfig = React.useMemo(() => {
-    return components.find((c) => c.slug === slug);
-  }, [slug]);
-
-  // 2. Load the dynamic component
-  const DynamicComponent = React.useMemo(() => {
+  // 1. Resolve configuration and handle initial component setup
+  const { DynamicComponent, configError, componentConfig } = React.useMemo(() => {
     try {
+      const config = components.find((c) => c.slug === slug);
       const preview = resolvePreviewLoader(slug);
 
-      return dynamic(
+      const Comp = dynamic(
         async () => {
           try {
             const module = await preview.loader();
@@ -34,7 +30,6 @@ export function PreviewWrapper({ slug, className }: { slug: string; className?: 
             return module.default || module;
           } catch (err: any) {
             console.error(`Failed to load component "${slug}":`, err);
-            setError(err.message);
             throw err;
           }
         },
@@ -47,11 +42,21 @@ export function PreviewWrapper({ slug, className }: { slug: string; className?: 
           ),
         }
       );
+
+      return { DynamicComponent: Comp, configError: null, componentConfig: config };
     } catch (err: any) {
-      setError(err.message);
-      return null;
+      return { DynamicComponent: null, configError: err.message, componentConfig: null };
     }
   }, [slug]);
+
+  // Handle configuration errors via effect to avoid illegal state updates during render
+  React.useEffect(() => {
+    if (configError) {
+      setError(configError);
+    } else {
+      setError(null);
+    }
+  }, [configError]);
 
   if (error) {
     return (

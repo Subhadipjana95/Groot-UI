@@ -31,7 +31,7 @@ export const components: Component[] = [
     status: "stable",
     registryUrl: "https://groot-ui.vercel.app/r/hero-glare.json",
     usage: {
-      import: `import { HeroGlare } from "@/components/otherBlocks/hero-glare"`,
+      import: `import { HeroGlare } from "@/components/hero-glare"`,
       code: `export default function Demo() {
   return (
     <div className="relative w-full h-[500px] overflow-hidden bg-background">
@@ -57,13 +57,26 @@ export const components: Component[] = [
     status: "stable",
     registryUrl: "https://groot-ui.vercel.app/r/tech-stacks.json",
     usage: {
-      import: `import { TechStacks } from "@/components/otherBlocks/tech-stacks"`,
+      import: `import { TechStacks } from "@/components/tech-stacks"`,
       code: `export default function Demo() {
   return <TechStacks />
 }`,
     },
     preview: { type: "component", props: {} },
-    props: [],
+    props: [
+      {
+        name: "items",
+        type: "TechItem[]",
+        default: "DEFAULT_ITEMS",
+        required: true,
+        description: "Array of tech items (name, designation(optional), icon)",
+      },
+      {
+        name: "className",
+        type: "string",
+        description: "Container styling",
+      },
+    ],
     dependencies: ["motion/react"],
   },
   {
@@ -76,7 +89,7 @@ export const components: Component[] = [
     status: "stable",
     registryUrl: "https://groot-ui.vercel.app/r/glow-card.json",
     usage: {
-      import: `import { GlowCard } from "@/components/otherBlocks/glow-card"`,
+      import: `import { GlowCard } from "@/components/glow-card"`,
       code: `export default function Demo() {
   return (
     <GlowCard className="p-6">
@@ -119,7 +132,7 @@ export const components: Component[] = [
     status: "stable",
     registryUrl: "https://groot-ui.vercel.app/r/bento-grid.json",
     usage: {
-      import: `import { BentoGrid } from "@/components/otherBlocks/bento-grid"`,
+      import: `import { BentoGrid } from "@/components/bento-grid"`,
       code: `const items = [
   { id: 1, title: "Feature One", description: "Awesome details", className: "md:col-span-1" },
   { id: 2, title: "Feature Two", description: "More info here", className: "md:col-span-2" },
@@ -169,7 +182,7 @@ export default function Demo() {
     status: "stable",
     registryUrl: "https://groot-ui.vercel.app/r/client-grid.json",
     usage: {
-      import: `import { ClientGrid } from "@/components/otherBlocks/client-grid"`,
+      import: `import { ClientGrid } from "@/components/client-grid"`,
       code: `export default function Demo() {
   return <ClientGrid />
 }`,
@@ -180,6 +193,7 @@ export default function Demo() {
         name: "items",
         type: "Logo[]",
         default: "DEFAULT_ITEMS",
+        required: true,
         description: "Array of logos (src, alt, width, height)",
       },
       {
@@ -201,7 +215,7 @@ export default function Demo() {
     status: "stable",
     registryUrl: "https://groot-ui.vercel.app/r/github-calendar.json",
     usage: {
-      import: `import { GitHubCalendar } from "@/components/otherBlocks/github-calendar"`,
+      import: `import { GitHubCalendar } from "@/components/github-calendar"`,
       code: `export default function Demo() {
   return <GitHubCalendar username="Subhadipjana95" />
 }`,
@@ -211,6 +225,7 @@ export default function Demo() {
       {
         name: "username",
         type: "string",
+        required: true,
         description: "GitHub username to fetch data for",
       },
       {
@@ -277,7 +292,7 @@ export default function Demo() {
         description: "Display the Less/More color legend",
       },
     ],
-    dependencies: ["motion/react", "date-fns", "lucide-react"],
+    dependencies: ["lucide-react"],
   },
   {
     title: "GitHub Stars",
@@ -289,7 +304,7 @@ export default function Demo() {
     status: "stable",
     registryUrl: "https://groot-ui.vercel.app/r/github-stars.json",
     usage: {
-      import: `import { GitHubStars } from "@/components/socialStats/github-stars"`,
+      import: `import { GitHubStars } from "@/components/github-stars"`,
       code: `export default function Demo() {
   return <GitHubStars repo="Subhadipjana95/Groot-UI" />
 }`,
@@ -302,8 +317,18 @@ export default function Demo() {
         required: true,
         description: "Repository path (owner/repo)",
       },
+      {
+        name: "label",
+        type: "string",
+        description: "Label to display",
+      },
+      {
+        name: "className",
+        type: "string",
+        description: "Optional Class name to style the component",
+      },
     ],
-    dependencies: ["lucide-react", "motion/react"],
+    dependencies: ["lucide-react", "Tooltip(shadcn)", "Button(shadcn)"],
   },
   {
     title: "GitHub Stars (React)",
@@ -315,7 +340,7 @@ export default function Demo() {
     status: "stable",
     registryUrl: "https://groot-ui.vercel.app/r/github-stars-react.json",
     usage: {
-      import: `import { GitHubStarsReact } from "@/components/socialStats/github-stars-react"`,
+      import: `import { GitHubStarsReact } from "@/components/github-stars-react"`,
       code: `export default function Demo() {
   return <GitHubStarsReact repo="Subhadipjana95/Groot-UI" />
 }`,
@@ -328,8 +353,18 @@ export default function Demo() {
         required: true,
         description: "Repository path (owner/repo)",
       },
+      {
+        name: "label",
+        type: "string",
+        description: "Label to display",
+      },
+      {
+        name: "className",
+        type: "string",
+        description: "Optional Class name to style the component",
+      },
     ],
-    dependencies: ["lucide-react"],
+    dependencies: ["lucide-react", "Tooltip(shadcn)", "Button(shadcn)"],
   },
   {
     title: "Discord Online",
@@ -341,21 +376,38 @@ export default function Demo() {
     status: "stable",
     registryUrl: "https://groot-ui.vercel.app/r/discord-online.json",
     usage: {
-      import: `import { DiscordOnline } from "@/components/socialStats/discord-online"`,
+      import: `import { DiscordOnline } from "@/components/discord-online"`,
       code: `export default function Demo() {
-  return <DiscordOnline serverId="123456789" />
+  return <DiscordOnline guildId="1234567891487752291602665574" />
 }`,
     },
-    preview: { type: "component", props: { serverId: "123456789" } },
+    preview: { type: "component", props: { guildId: "1234567891487752291602665574" } },
     props: [
       {
-        name: "serverId",
+        name: "guildId",
         type: "string",
         required: true,
         description: "Target Discord Guild ID",
       },
+      {
+        name: "inviteURL",
+        type: "string",
+        required: true,
+        description: "Target Discord Guild Invite URL",
+      },
+      {
+        name: "label",
+        type: "string",
+        description: "Label to display",
+      },
+      {
+        name: "className",
+        type: "string",
+        description: "Optional Class name to style the component",
+      },
+
     ],
-    dependencies: ["lucide-react"],
+    dependencies: ["lucide-react", "Button(shadcn)", "Tooltip(shadcn)"],
   },
   {
     title: "Discord Online (React)",
@@ -367,21 +419,38 @@ export default function Demo() {
     status: "stable",
     registryUrl: "https://groot-ui.vercel.app/r/discord-online-react.json",
     usage: {
-      import: `import { DiscordOnlineReact } from "@/components/socialStats/discord-online-react"`,
+      import: `import { DiscordOnlineReact } from "@/components/discord-online-react"`,
       code: `export default function Demo() {
-  return <DiscordOnlineReact serverId="123456789" />
+  return <DiscordOnlineReact guildId="1234567891487752291602665574" />
 }`,
     },
-    preview: { type: "component", props: { serverId: "123456789" } },
+    preview: { type: "component", props: { guildId: "1234567891487752291602665574" } },
     props: [
       {
-        name: "serverId",
+        name: "guildId",
         type: "string",
         required: true,
         description: "Target Discord Guild ID",
       },
+      {
+        name: "inviteURL",
+        type: "string",
+        required: true,
+        description: "Target Discord Guild Invite URL",
+      },
+      {
+        name: "label",
+        type: "string",
+        description: "Label to display",
+      },
+      {
+        name: "className",
+        type: "string",
+        description: "Optional Class name to style the component",
+      },
+
     ],
-    dependencies: ["lucide-react"],
+    dependencies: ["lucide-react", "Button(shadcn)", "Tooltip(shadcn)"],
   },
   {
     title: "Gradient Text",
@@ -394,7 +463,7 @@ export default function Demo() {
     status: "stable",
     registryUrl: "https://groot-ui.vercel.app/r/gradient-text.json",
     usage: {
-      import: `import { GradientText } from "@/components/textAnimations/gradient-text"`,
+      import: `import { GradientText } from "@/components/gradient-text"`,
       code: `export default function Demo() {
   return <GradientText>Groot UI</GradientText>
 }`,
@@ -437,7 +506,7 @@ export default function Demo() {
     status: "stable",
     registryUrl: "https://groot-ui.vercel.app/r/gradient-background-text.json",
     usage: {
-      import: `import { GradientBackgroundText } from "@/components/textAnimations/gradient-background-text"`,
+      import: `import { GradientBackgroundText } from "@/components/gradient-background-text"`,
       code: `export default function Demo() {
   return <GradientBackgroundText>Groot UI</GradientBackgroundText>
 }`,
@@ -474,7 +543,7 @@ export default function Demo() {
     status: "stable",
     registryUrl: "https://groot-ui.vercel.app/r/client-marquee.json",
     usage: {
-      import: `import { ClientMarquee } from "@/components/marquee/client-marquee"`,
+      import: `import { ClientMarquee } from "@/components/client-marquee"`,
       code: `export default function Demo() {
   return <ClientMarquee />
 }`,
@@ -485,8 +554,10 @@ export default function Demo() {
         name: "items",
         type: "Logo[]",
         default: "DEFAULT_ITEMS",
-        description: "Array of items (falls back to premium set if empty)",
+        required: true,
+        description: "Array of logo items (src, alt, width, height)",
       },
+
       {
         name: "className",
         type: "string",
@@ -506,7 +577,7 @@ export default function Demo() {
     status: "stable",
     registryUrl: "https://groot-ui.vercel.app/r/client-marquee-blur.json",
     usage: {
-      import: `import { ClientMarqueeBlur } from "@/components/marquee/client-marquee-blur"`,
+      import: `import { ClientMarqueeBlur } from "@/components/client-marquee-blur"`,
       code: `export default function Demo() {
   return <ClientMarqueeBlur />
 }`,
@@ -517,7 +588,8 @@ export default function Demo() {
         name: "items",
         type: "Logo[]",
         default: "DEFAULT_ITEMS",
-        description: "Array of logo objects",
+        required: true,
+        description: "Array of logo objects (src, alt, width, height)",
       },
       {
         name: "className",
