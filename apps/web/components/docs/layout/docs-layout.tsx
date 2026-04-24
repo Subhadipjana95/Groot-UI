@@ -16,7 +16,7 @@ export function DocsLayout({ children }: { children: ReactNode }) {
           </div>
         </aside>
 
-        <main className="relative mx-auto w-full max-w-3xl py-6 lg:py-12 pb-20 overflow-x-clip min-w-0">
+        <main className="relative mx-auto w-full max-w-3xl pt-12 pb-6 lg:py-12 md:pb-20 px-2 md:px-0 overflow-x-clip min-w-0">
           {children}
         </main>
         
