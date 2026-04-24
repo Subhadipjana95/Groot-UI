@@ -9,11 +9,13 @@ import { CopyPromptButton } from "./copy-prompt-button";
 export function PreviewContainer({ 
   children,
   className,
-  code
+  code,
+  registryUrl
 }: { 
   children: React.ReactNode;
   className?: string;
   code?: string;
+  registryUrl?: string;
 }) {
   const [view, setView] = React.useState<"preview" | "code">("preview");
 
@@ -25,7 +27,7 @@ export function PreviewContainer({
             <PreviewToggle view={view} onViewChange={setView} />
           </div>
           <div className="flex items-center gap-2">
-            <CopyPromptButton />
+            <CopyPromptButton registryUrl={registryUrl} />
           </div>
         </div>
       )}

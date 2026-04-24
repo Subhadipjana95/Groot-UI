@@ -35,7 +35,7 @@ export async function generateMetadata({ params }: ComponentPageProps) {
       description,
       images: [
         {
-          url: `https://groot-ui.vercel.app/api/og?title=${encodeURIComponent(component.title)}`,
+          url: `https://grootui.vercel.app/api/og?title=${encodeURIComponent(component.title)}`,
           width: 1200,
           height: 630,
         },
@@ -46,7 +46,7 @@ export async function generateMetadata({ params }: ComponentPageProps) {
       card: "summary_large_image",
       title,
       description,
-      images: [`https://groot-ui.vercel.app/api/og?title=${encodeURIComponent(component.title)}`],
+      images: [`https://grootui.vercel.app/api/og?title=${encodeURIComponent(component.title)}`],
     },
   };
 }
@@ -93,7 +93,7 @@ export default async function ComponentPage({ params }: ComponentPageProps) {
 
       <div className="grid gap-12">
         <section className="scroll-m-20 w-full min-w-0">
-          <PreviewContainer code={component.usage.code}>
+          <PreviewContainer code={component.usage.code} registryUrl={component.registryUrl}>
             <ComponentPreview slug={component.slug} />
           </PreviewContainer>
         </section>
