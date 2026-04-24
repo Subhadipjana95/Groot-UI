@@ -12,7 +12,6 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@react-three/fiber": "^9.6.0",
     "@types/react-syntax-highlighter": "^15.5.13",
     "@workspace/ui": "*",
     "clsx": "^2.1.1",
