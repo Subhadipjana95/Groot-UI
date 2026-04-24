@@ -92,7 +92,8 @@ export default async function ComponentPage({ params }: ComponentPageProps) {
       </div>
 
       <div className="grid gap-12">
-        <section className="scroll-m-20 w-full min-w-0">
+        <section className="scroll-m-20 w-full min-w-0" id="preview">
+          <Heading id="preview" title="Preview" className="sr-only" />
           <PreviewContainer code={component.usage.code} registryUrl={component.registryUrl}>
             <ComponentPreview slug={component.slug} />
           </PreviewContainer>
