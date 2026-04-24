@@ -56,7 +56,7 @@ export function SponsorCard({ target = 120000, duration = 2000 }: { target?: num
           <p className="mb-5 text-xs leading-relaxed text-muted-foreground/80">
             Support the development of Groot UI and get your <span className="text-transparent bg-clip-text bg-brand-gradient">Logo & Name</span> featured here.
           </p>
-          <GradientButton href="#" openInNewTab={true} className="mt-3 opacity-60 hover:opacity-80 transition-all duration-200 ease-in-out">
+          <GradientButton href="https://github.com/sponsors/Subhadipjana95?o=esb" openInNewTab={true} className="mt-3 opacity-60 hover:opacity-80 transition-all duration-200 ease-in-out">
             Sponsor us<ArrowRight className="ml-1 h-4 w-4" />
           </GradientButton>
         </div>
