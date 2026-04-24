@@ -9,7 +9,7 @@ export const components: Component[] = [
     tags: ["starter", "groot"],
     version: "1.0.0",
     status: "stable",
-    registryUrl: "https://groot-ui.vercel.app/r/groot-starter.json",
+    registryUrl: "https://grootui.vercel.app/r/groot-starter.json",
     usage: {
       import: `import { GrootStarter } from "@/components/groot-starter"`,
       code: `export default function Demo() {
@@ -29,7 +29,7 @@ export const components: Component[] = [
     tags: ["hero", "glare", "animation", "ambient"],
     version: "1.0.0",
     status: "stable",
-    registryUrl: "https://groot-ui.vercel.app/r/hero-glare.json",
+    registryUrl: "https://grootui.vercel.app/r/hero-glare.json",
     usage: {
       import: `import { HeroGlare } from "@/components/hero-glare"`,
       code: `export default function Demo() {
@@ -55,7 +55,7 @@ export const components: Component[] = [
     tags: ["tech", "stack", "icons", "tooltip"],
     version: "1.0.0",
     status: "stable",
-    registryUrl: "https://groot-ui.vercel.app/r/tech-stacks.json",
+    registryUrl: "https://grootui.vercel.app/r/tech-stacks.json",
     usage: {
       import: `import { TechStacks } from "@/components/tech-stacks"`,
       code: `export default function Demo() {
@@ -87,7 +87,7 @@ export const components: Component[] = [
     tags: ["card", "glow", "effect"],
     version: "1.0.0",
     status: "stable",
-    registryUrl: "https://groot-ui.vercel.app/r/glow-card.json",
+    registryUrl: "https://grootui.vercel.app/r/glow-card.json",
     usage: {
       import: `import { GlowCard } from "@/components/glow-card"`,
       code: `export default function Demo() {
@@ -130,7 +130,7 @@ export const components: Component[] = [
     tags: ["grid", "bento", "layout"],
     version: "1.0.0",
     status: "stable",
-    registryUrl: "https://groot-ui.vercel.app/r/bento-grid.json",
+    registryUrl: "https://grootui.vercel.app/r/bento-grid.json",
     usage: {
       import: `import { BentoGrid } from "@/components/bento-grid"`,
       code: `const items = [
@@ -180,7 +180,7 @@ export default function Demo() {
     tags: ["grid", "logos", "layout"],
     version: "1.0.1",
     status: "stable",
-    registryUrl: "https://groot-ui.vercel.app/r/client-grid.json",
+    registryUrl: "https://grootui.vercel.app/r/client-grid.json",
     usage: {
       import: `import { ClientGrid } from "@/components/client-grid"`,
       code: `export default function Demo() {
@@ -213,7 +213,7 @@ export default function Demo() {
     tags: ["github", "calendar", "contributions"],
     version: "1.0.0",
     status: "stable",
-    registryUrl: "https://groot-ui.vercel.app/r/github-calendar.json",
+    registryUrl: "https://grootui.vercel.app/r/github-calendar.json",
     usage: {
       import: `import { GitHubCalendar } from "@/components/github-calendar"`,
       code: `export default function Demo() {
@@ -302,7 +302,7 @@ export default function Demo() {
     tags: ["github", "stars"],
     version: "1.0.0",
     status: "stable",
-    registryUrl: "https://groot-ui.vercel.app/r/github-stars.json",
+    registryUrl: "https://grootui.vercel.app/r/github-stars.json",
     usage: {
       import: `import { GitHubStars } from "@/components/github-stars"`,
       code: `export default function Demo() {
@@ -338,7 +338,7 @@ export default function Demo() {
     tags: ["github", "stars", "react"],
     version: "1.0.0",
     status: "stable",
-    registryUrl: "https://groot-ui.vercel.app/r/github-stars-react.json",
+    registryUrl: "https://grootui.vercel.app/r/github-stars-react.json",
     usage: {
       import: `import { GitHubStarsReact } from "@/components/github-stars-react"`,
       code: `export default function Demo() {
@@ -374,7 +374,7 @@ export default function Demo() {
     tags: ["discord", "presence"],
     version: "1.0.0",
     status: "stable",
-    registryUrl: "https://groot-ui.vercel.app/r/discord-online.json",
+    registryUrl: "https://grootui.vercel.app/r/discord-online.json",
     usage: {
       import: `import { DiscordOnline } from "@/components/discord-online"`,
       code: `export default function Demo() {
@@ -417,7 +417,7 @@ export default function Demo() {
     tags: ["discord", "presence", "react"],
     version: "1.0.0",
     status: "stable",
-    registryUrl: "https://groot-ui.vercel.app/r/discord-online-react.json",
+    registryUrl: "https://grootui.vercel.app/r/discord-online-react.json",
     usage: {
       import: `import { DiscordOnlineReact } from "@/components/discord-online-react"`,
       code: `export default function Demo() {
@@ -461,7 +461,7 @@ export default function Demo() {
     tags: ["text", "gradient", "animation", "motion"],
     version: "1.1.0",
     status: "stable",
-    registryUrl: "https://groot-ui.vercel.app/r/gradient-text.json",
+    registryUrl: "https://grootui.vercel.app/r/gradient-text-fill.json",
     usage: {
       import: `import { GradientText } from "@/components/gradient-text"`,
       code: `export default function Demo() {
@@ -504,7 +504,7 @@ export default function Demo() {
     tags: ["text", "gradient", "background", "3d"],
     version: "1.1.0",
     status: "stable",
-    registryUrl: "https://groot-ui.vercel.app/r/gradient-background-text.json",
+    registryUrl: "https://grootui.vercel.app/r/gradient-background-text.json",
     usage: {
       import: `import { GradientBackgroundText } from "@/components/gradient-background-text"`,
       code: `export default function Demo() {
@@ -541,7 +541,7 @@ export default function Demo() {
     tags: ["marquee", "logos", "slider"],
     version: "1.0.2",
     status: "stable",
-    registryUrl: "https://groot-ui.vercel.app/r/client-marquee.json",
+    registryUrl: "https://grootui.vercel.app/r/client-marquee.json",
     usage: {
       import: `import { ClientMarquee } from "@/components/client-marquee"`,
       code: `export default function Demo() {
@@ -575,7 +575,7 @@ export default function Demo() {
     tags: ["marquee", "logos", "blur"],
     version: "1.0.2",
     status: "stable",
-    registryUrl: "https://groot-ui.vercel.app/r/client-marquee-blur.json",
+    registryUrl: "https://grootui.vercel.app/r/client-marquee-blur.json",
     usage: {
       import: `import { ClientMarqueeBlur } from "@/components/client-marquee-blur"`,
       code: `export default function Demo() {

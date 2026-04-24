@@ -19,8 +19,8 @@
   </p>
 
   <p>
-    <a href="https://groot-ui.vercel.app">Website</a> ·
-    <a href="https://groot-ui.vercel.app/docs">Documentation</a> ·
+    <a href="https://grootui.vercel.app">Website</a> ·
+    <a href="https://grootui.vercel.app/docs">Documentation</a> ·
     <a href="https://github.com/Subhadipjana95/Groot-UI/issues/new">Report a Bug</a> ·
     <a href="https://github.com/Subhadipjana95/Groot-UI/issues/new">Request a Component</a>
   </p>
@@ -45,12 +45,12 @@ Every component is:
 
 ## Components
 
-| Component            | Description                              | Install                                                     |
-| -------------------- | ---------------------------------------- | ----------------------------------------------------------- |
-| `groot-starter`      | Starter template component               | [Docs](https://groot-ui.vercel.app/docs/groot-starter)      |
-| `glow-card`          | Card with animated glow hover effect     | [Docs](https://groot-ui.vercel.app/docs/glow-card)          |
-| `github-stars`       | GitHub star count for Next.js App Router | [Docs](https://groot-ui.vercel.app/docs/github-stars)       |
-| `github-stars-react` | GitHub star count for Vite / React       | [Docs](https://groot-ui.vercel.app/docs/github-stars-react) |
+| Component            | Description                              | Install                                                    |
+| -------------------- | ---------------------------------------- | ---------------------------------------------------------- |
+| `groot-starter`      | Starter template component               | [Docs](https://grootui.vercel.app/docs/groot-starter)      |
+| `glow-card`          | Card with animated glow hover effect     | [Docs](https://grootui.vercel.app/docs/glow-card)          |
+| `github-stars`       | GitHub star count for Next.js App Router | [Docs](https://grootui.vercel.app/docs/github-stars)       |
+| `github-stars-react` | GitHub star count for Vite / React       | [Docs](https://grootui.vercel.app/docs/github-stars-react) |
 
 > More components are added regularly. Star the repo to stay updated.
 
@@ -77,37 +77,37 @@ npx shadcn@latest init
 Pick any component and run its install command:
 ```bash
 # Glow Card
-npx shadcn@latest add https://groot-ui.vercel.app/r/glow-card.json
+npx shadcn@latest add https://grootui.vercel.app/r/glow-card.json
 
 # GitHub Stars (Next.js)
-npx shadcn@latest add https://groot-ui.vercel.app/r/github-stars.json
+npx shadcn@latest add https://grootui.vercel.app/r/github-stars.json
 
 # GitHub Stars (Vite / React)
-npx shadcn@latest add https://groot-ui.vercel.app/r/github-stars-react.json
+npx shadcn@latest add https://grootui.vercel.app/r/github-stars-react.json
 
 # Gradient Text Fill
-npx shadcn@latest add https://groot-ui.vercel.app/r/gradient-text-fill.json
+npx shadcn@latest add https://grootui.vercel.app/r/gradient-text-fill.json
 
 # Gradient Background Text
-npx shadcn@latest add https://groot-ui.vercel.app/r/gradient-background-text.json
+npx shadcn@latest add https://grootui.vercel.app/r/gradient-background-text.json
 
 # Client Grid
-npx shadcn@latest add https://groot-ui.vercel.app/r/client-grid.json
+npx shadcn@latest add https://grootui.vercel.app/r/client-grid.json
 
 # Client Marquee
-npx shadcn@latest add https://groot-ui.vercel.app/r/client-marquee.json
+npx shadcn@latest add https://grootui.vercel.app/r/client-marquee.json
 
 # Client Marquee Blur
-npx shadcn@latest add https://groot-ui.vercel.app/r/client-marquee-blur.json
+npx shadcn@latest add https://grootui.vercel.app/r/client-marquee-blur.json
 
 # Discord Online (Next.js)
-npx shadcn@latest add https://groot-ui.vercel.app/r/discord-online.json
+npx shadcn@latest add https://grootui.vercel.app/r/discord-online.json
 
 # Discord Online (React / Vite)
-npx shadcn@latest add https://groot-ui.vercel.app/r/discord-online-react.json
+npx shadcn@latest add https://grootui.vercel.app/r/discord-online-react.json
 
 # GitHub Calendar
-npx shadcn@latest add https://groot-ui.vercel.app/r/github-calendar.json
+npx shadcn@latest add https://grootui.vercel.app/r/github-calendar.json
 ```
 
 The CLI copies the component source directly into your project under `components/`. No `node_modules`, no hidden abstractions.

@@ -66,7 +66,7 @@ export default function InstallationPage() {
             <p className="text-muted-foreground">
               You can now start adding components to your project.
             </p>
-            <InstallBlock command="https://groot-ui.vercel.app/r/hero-glare.json" type="add" />
+            <InstallBlock command="https://grootui.vercel.app/r/hero-glare.json" type="add" />
           </div>
         </section>
 
@@ -84,7 +84,7 @@ export default function InstallationPage() {
               The command above will add the <code className="bg-muted px-1.5 py-0.5 rounded-sm font-mono text-sm">HeroGlare</code> component to your project. You can then import it like this:
             </p>
             <div className="mt-2 text-sm">
-              <CodeBlock 
+              <CodeBlock
                 code={`import { HeroGlare } from "@/components/hero-glare"
 
 export default function Demo() {

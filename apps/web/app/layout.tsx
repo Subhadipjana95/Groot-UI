@@ -21,7 +21,7 @@ const gambarino = localFont({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://groot-ui.vercel.app"),
+  metadataBase: new URL("https://grootui.vercel.app"),
   title: {
     default: "Groot UI - High-performing, SEO friendly UI Components & Blocks for Modern Web",
     template: "%s | Groot UI",
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     "web development",
     "design system",
   ],
-  authors: [{ name: "Groot UI", url: "https://groot-ui.vercel.app" }],
+  authors: [{ name: "Groot UI", url: "https://grootui.vercel.app" }],
   creator: "Groot UI",
   publisher: "Groot UI",
 
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     title: "Groot UI - High-performing, SEO friendly UI Components & Blocks",
     description:
       "Hand-crafted, high-performing, SEO friendly & accessible components designed for modern developers.",
-    url: "https://groot-ui.vercel.app",
+    url: "https://grootui.vercel.app",
     siteName: "Groot UI",
     locale: "en_US",
     type: "website",
@@ -91,7 +91,7 @@ export const metadata: Metadata = {
 
   // Alternates
   alternates: {
-    canonical: "https://groot-ui.vercel.app",
+    canonical: "https://grootui.vercel.app",
   },
 };
 

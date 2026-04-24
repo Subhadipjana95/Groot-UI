@@ -1,7 +1,7 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry.json",
   "name": "groot-ui",
-  "homepage": "https://groot-ui.vercel.app",
+  "homepage": "https://grootui.vercel.app",
   "items": [
     {
       "name": "groot-starter",

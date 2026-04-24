@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: '*',
       allow: '/',
     },
-    sitemap: 'https://groot-ui.vercel.app/sitemap.xml',
+    sitemap: 'https://grootui.vercel.app/sitemap.xml',
   }
 }
