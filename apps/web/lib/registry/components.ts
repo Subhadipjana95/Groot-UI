@@ -23,7 +23,7 @@ export const components: Component[] = [
   {
     title: "Hero Glare",
     slug: "hero-glare",
-    label: "Magic",
+    label: "new",
     description: "Full-width animated ambient light glare with blob morphing and horizontal drift.",
     category: { name: "General", slug: "general" },
     tags: ["hero", "glare", "animation", "ambient"],
@@ -455,7 +455,7 @@ export default function Demo() {
   {
     title: "Gradient Text",
     slug: "gradient-text",
-    label: "Magic",
+    label: "new",
     description: "High-impact text component with moving color orbs and 3D depth.",
     category: { name: "Animations", slug: "animations" },
     tags: ["text", "gradient", "animation", "motion"],
