@@ -83,7 +83,7 @@ export default async function ComponentPage({ params }: ComponentPageProps) {
           {component.tags.map((tag) => (
             <span 
               key={tag} 
-              className="px-2 py-0.5 rounded-md bg-secondary/50 text-secondary-foreground text-xs tracking-wider border border-border"
+              className="px-2 py-0.5 rounded-md bg-secondary/50 text-muted-foreground text-xs tracking-wider border border-border"
             >
               {tag}
             </span>
