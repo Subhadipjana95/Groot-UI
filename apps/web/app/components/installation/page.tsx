@@ -19,21 +19,6 @@ export default function InstallationPage() {
         </p>
       </div>
 
-      {/* Callout */}
-      {/* <div className="rounded-lg border border-border/60 bg-muted/30 dark:bg-muted/50 p-4 text-sm leading-relaxed">
-        <p>
-          <span className="font-semibold text-foreground">Note:</span> We have the exact same installation process as{" "}
-          <a
-            href="https://ui.shadcn.com"
-            target="_blank"
-            rel="noreferrer"
-            className="font-medium underline underline-offset-4 hover:text-primary transition-colors"
-          >
-            shadcn/ui
-          </a>.
-        </p>
-      </div> */}
-
       {/* Steps */}
       <div className="flex flex-col gap-12 mt-4 pb-20">
         {/* Step 1 */}
@@ -45,7 +30,7 @@ export default function InstallationPage() {
             <div className="absolute top-8 bottom-[-48px] w-px bg-border" />
           </div>
           <div className="flex flex-col gap-4 w-full min-w-0">
-            <h2 className="text-2xl font-semibold tracking-tight">Create project</h2>
+            <h2 id="create-project" className="text-2xl font-semibold tracking-tight scroll-m-20">Create project</h2>
             <p className="text-muted-foreground">
               Run the <code className="bg-muted px-1.5 py-0.5 rounded-sm font-mono text-sm leading-none">init</code> command to create a new Next.js project or to setup an existing one:
             </p>
@@ -62,7 +47,7 @@ export default function InstallationPage() {
             <div className="absolute top-8 bottom-[-48px] w-px bg-border" />
           </div>
           <div className="flex flex-col gap-4 w-full min-w-0">
-            <h2 className="text-2xl font-semibold tracking-tight">Add components</h2>
+            <h2 id="add-components" className="text-2xl font-semibold tracking-tight scroll-m-20">Add components</h2>
             <p className="text-muted-foreground">
               You can now start adding components to your project.
             </p>
@@ -79,7 +64,7 @@ export default function InstallationPage() {
             {/* No line after the last step */}
           </div>
           <div className="flex flex-col gap-4 w-full min-w-0">
-            <h2 className="text-2xl font-semibold tracking-tight">Import component</h2>
+            <h2 id="import-component" className="text-2xl font-semibold tracking-tight scroll-m-20">Import component</h2>
             <p className="text-muted-foreground">
               The command above will add the <code className="bg-muted px-1.5 py-0.5 rounded-sm font-mono text-sm">HeroGlare</code> component to your project. You can then import it like this:
             </p>
