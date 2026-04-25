@@ -1,15 +1,48 @@
 "use client"
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
+import { usePathname } from "next/navigation";
 import { cn } from "@workspace/ui/lib/utils";
+import { InnerLenisScroll } from "@/components/utilities/lenis-provider";
+import { ChevronDown } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
-import { SponsorCard } from "@/components/sponsor-card";
 
 export function TOC() {
+  const pathname = usePathname();
   const [activeId, setActiveId] = useState<string>("");
   const [headings, setHeadings] = useState<{ id: string; title: string; level: number }[]>([]);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [collapsedHeadings, setCollapsedHeadings] = useState<Set<string>>(new Set());
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+
+  const toggleCollapse = (e: React.MouseEvent, id: string) => {
+    e.stopPropagation();
+    setCollapsedHeadings((prev) => {
+      const next = new Set(prev);
+      if (next.has(id)) {
+        next.delete(id);
+      } else {
+        next.add(id);
+      }
+      return next;
+    });
+  };
+
+  // Auto-scroll TOC to active item
+  useEffect(() => {
+    if (activeId) {
+      const activeElement = document.getElementById(`toc-item-${activeId}`);
+      if (activeElement) {
+        activeElement.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      }
+    }
+  }, [activeId]);
 
   useEffect(() => {
+    // Reset active ID on route change
+    setActiveId("");
+    
     const timer = setTimeout(() => {
       const elements = Array.from(document.querySelectorAll("main h2, main h3"))
         .filter((el) => el.id)
@@ -41,7 +74,7 @@ export function TOC() {
     }, 100);
 
     return () => clearTimeout(timer);
-  }, []);
+  }, [pathname]);
 
   const handleClick = (id: string) => {
     const element = document.getElementById(id);
@@ -50,36 +83,112 @@ export function TOC() {
     }
   };
 
+  const handleScroll = (e: React.UIEvent<HTMLDivElement>) => {
+    setIsScrolled(e.currentTarget.scrollTop > 10);
+  };
+
   return (
-    <div className="h-[calc(100vh-8rem)] flex flex-col justify-between gap-6 pr-2">
+    <InnerLenisScroll
+      onScroll={handleScroll}
+      className={cn(
+        "w-full flex-1 overflow-y-auto scrollbar-hide pr-2",
+        isScrolled 
+          ? "mask-[linear-gradient(to_bottom,transparent,black_5%,black_85%,transparent)]" 
+          : "mask-[linear-gradient(to_bottom,black_85%,transparent)]"
+      )}
+    >
+      <div className="flex flex-col gap-6 pb-4">
       {/* Table of Contents Section */}
       <div className="space-y-2">
         <p className="flex items-center rounded-md px-2 text-sm font-medium text-muted-foreground/80 hover:text-muted-foreground/60 active:text-muted-foreground/60 text-shadow-sm cursor-default bg-muted/50 border w-fit h-7 mb-1">
           On This Page
         </p>
-        {headings.length > 0 ? (
-          <ul className="mx-3.5 flex flex-col gap-1 border-l border-sidebar-border px-2.5 pt-2 pb-0.5">
-            {headings.map((heading) => (
-              <li key={heading.id} className={cn(heading.level === 3 ? "pl-4" : "")}>
-                <button
-                  onClick={() => handleClick(heading.id)}
-                  className={cn(
-                    "flex h-7 w-full items-center gap-2 overflow-hidden rounded-md px-2 text-left text-sm transition-all",
-                    activeId === heading.id
-                      ? "bg-sidebar-accent text-sidebar-accent-foreground font-medium"
-                      : "text-muted-foreground hover:text-sidebar-accent-foreground hover:bg-sidebar-accent"
-                  )}
-                >
-                  <span>{heading.title}</span>
-                </button>
-              </li>
-            ))}
-          </ul>
-        ) : null}
-      </div>
+        {headings.length > 0 ? (() => {
+          const groupedHeadings: { id: string; title: string; level: number; children: { id: string; title: string; level: number }[] }[] = [];
+          let currentGroup: { id: string; title: string; level: number; children: { id: string; title: string; level: number }[] } | null = null;
+          
+          headings.forEach(h => {
+            if (h.level === 2) {
+              currentGroup = { ...h, children: [] };
+              groupedHeadings.push(currentGroup);
+            } else if (h.level === 3 && currentGroup) {
+              currentGroup.children.push(h);
+            }
+          });
 
-      {/* Sponsor Card */}
-      <SponsorCard />
-    </div>
+          return (
+            <ul className="mx-3.5 flex flex-col gap-1 border-l border-sidebar-border px-2.5 pt-2 pb-0.5">
+              {groupedHeadings.map((group) => {
+                const isCollapsed = collapsedHeadings.has(group.id);
+                const hasChildren = group.children.length > 0;
+
+                return (
+                  <li key={group.id} className="flex flex-col gap-1">
+                    <div id={`toc-item-${group.id}`}>
+                      <button
+                        onClick={() => handleClick(group.id)}
+                        className={cn(
+                          "flex h-7 w-full justify-between items-center gap-2 overflow-hidden rounded-md pl-2 pr-1 text-left text-sm transition-all group",
+                          activeId === group.id
+                            ? "bg-sidebar-accent text-sidebar-accent-foreground font-medium"
+                            : "text-muted-foreground hover:text-sidebar-accent-foreground hover:bg-sidebar-accent"
+                        )}
+                      >
+                        <span className="truncate">{group.title}</span>
+                        {hasChildren && (
+                          <div
+                            role="button"
+                            onClick={(e) => toggleCollapse(e, group.id)}
+                            className="flex shrink-0 items-center justify-center h-5 w-5 group-hover:bg-background rounded-sm transition-colors text-muted-foreground"
+                          >
+                            <ChevronDown
+                              className={cn(
+                                "h-3.5 w-3.5 transition-transform duration-200",
+                                isCollapsed && "-rotate-90"
+                              )}
+                            />
+                          </div>
+                        )}
+                      </button>
+                    </div>
+                    
+                    <AnimatePresence initial={false}>
+                      {!isCollapsed && hasChildren && (
+                        <motion.li
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: "auto", opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.2, ease: "easeInOut" }}
+                          className="overflow-hidden"
+                        >
+                          <ul className="flex flex-col gap-1">
+                            {group.children.map((child) => (
+                              <li id={`toc-item-${child.id}`} key={child.id} className="pl-4">
+                                <button
+                                  onClick={() => handleClick(child.id)}
+                                  className={cn(
+                                    "flex h-7 w-full justify-between items-center gap-2 overflow-hidden rounded-md px-2 text-left text-sm transition-all",
+                                    activeId === child.id
+                                      ? "bg-sidebar-accent text-sidebar-accent-foreground font-medium"
+                                      : "text-muted-foreground hover:text-sidebar-accent-foreground hover:bg-sidebar-accent"
+                                  )}
+                                >
+                                  <span className="truncate text-muted-foreground/90">{child.title}</span>
+                                </button>
+                              </li>
+                            ))}
+                          </ul>
+                        </motion.li>
+                      )}
+                    </AnimatePresence>
+                  </li>
+                );
+              })}
+            </ul>
+          );
+        })() : null}
+      </div>
+      </div>
+    </InnerLenisScroll>
   );
 }

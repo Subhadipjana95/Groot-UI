@@ -2,6 +2,7 @@ import { ReactNode } from "react";
 import { Sidebar } from "./sidebar";
 import { TOC } from "./toc";
 import { InnerLenisScroll } from "@/components/utilities/lenis-provider";
+import { SponsorCard } from "@/components/sponsor-card";
 
 export function DocsLayout({ children }: { children: ReactNode }) {
   return (
@@ -21,14 +22,13 @@ export function DocsLayout({ children }: { children: ReactNode }) {
           {children}
         </main>
 
-        {/* Table of Contents */}
-        <InnerLenisScroll
-          className="sticky top-16 hidden text-sm xl:block h-[calc(100vh-4rem)] w-[260px] shrink-0 overflow-y-auto pt-8 scrollbar-hide border-l border-border/60 pl-6"
-        >
-          <div className="w-full">
-            <TOC />
+        {/* Table of Contents & Sponsor Card */}
+        <div className="sticky top-16 hidden text-sm xl:flex flex-col h-[calc(100vh-4rem)] w-[260px] shrink-0 border-l border-border/60 pl-6 pt-8 pb-6 gap-8">
+          <TOC />
+          <div className="w-full shrink-0">
+            <SponsorCard />
           </div>
-        </InnerLenisScroll>
+        </div>
       </div>
     </div>
   );
