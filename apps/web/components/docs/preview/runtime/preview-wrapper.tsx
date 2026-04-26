@@ -1,83 +1,98 @@
 "use client";
 
 import * as React from "react";
-import dynamic from "next/dynamic";
-import { resolvePreviewLoader } from "./preview-loader";
-import { components } from "@/lib/registry/components";
+import { previewRegistry } from "@/registry/preview-registry";
+import { registry } from "@/lib/registry";
 import { Loader2, AlertCircle } from "lucide-react";
 import { cn } from "@workspace/ui/lib/utils";
 
 /**
- * PreviewWrapper handles the dynamic loading, prop injection,
- * and error handling for component previews.
+ * PreviewWrapper — mounts the correct dynamically-loaded preview component
+ * for a given component name. Uses the auto-generated previewRegistry which
+ * applies the correct next/dynamic options (ssr:true|false) per component.
+ *
+ * This is the shadcn pattern: each preview is a self-contained *.preview.tsx
+ * file that renders the component with realistic demo props.
  */
 export function PreviewWrapper({ slug, className }: { slug: string; className?: string }) {
-  const [error, setError] = React.useState<string | null>(null);
+  const [hasError, setHasError] = React.useState(false);
 
-  // 1. Resolve configuration and handle initial component setup
-  const { DynamicComponent, configError, componentConfig } = React.useMemo(() => {
-    try {
-      const config = components.find((c) => c.slug === slug);
-      const preview = resolvePreviewLoader(slug);
+  const Preview = previewRegistry[slug as keyof typeof previewRegistry];
 
-      const Comp = dynamic(
-        async () => {
-          try {
-            const module = await preview.loader();
-            if (preview.componentName) {
-              return module[preview.componentName];
-            }
-            return module.default || module;
-          } catch (err: any) {
-            console.error(`Failed to load component "${slug}":`, err);
-            throw err;
-          }
-        },
-        {
-          ssr: false,
-          loading: () => (
-            <div className="flex items-center justify-center p-8">
-              <Loader2 className="h-6 w-6 animate-spin text-muted-foreground/50" />
-            </div>
-          ),
-        }
-      );
+  // Find the config from the generated registry for the preview height
+  const config = React.useMemo(
+    () => registry.find((c) => c.name === slug),
+    [slug]
+  );
 
-      return { DynamicComponent: Comp, configError: null, componentConfig: config };
-    } catch (err: any) {
-      return { DynamicComponent: null, configError: err.message, componentConfig: null };
-    }
-  }, [slug]);
-
-  // Handle configuration errors via effect to avoid illegal state updates during render
-  React.useEffect(() => {
-    if (configError) {
-      setError(configError);
-    } else {
-      setError(null);
-    }
-  }, [configError]);
-
-  if (error) {
+  if (!Preview) {
     return (
       <div className="flex flex-col items-center justify-center gap-2 p-8 text-center border border-destructive/20 rounded-lg bg-destructive/5">
         <AlertCircle className="h-6 w-6 text-destructive/50" />
         <p className="text-sm font-medium text-destructive/80">
-          Failed to load preview: {error}
+          Preview not registered for &quot;{slug}&quot;
         </p>
       </div>
     );
   }
 
-  if (!DynamicComponent) return null;
-
-  const previewProps = componentConfig?.preview?.props || {};
+  if (hasError) {
+    return (
+      <div className="flex flex-col items-center justify-center gap-2 p-8 text-center border border-destructive/20 rounded-lg bg-destructive/5">
+        <AlertCircle className="h-6 w-6 text-destructive/50" />
+        <p className="text-sm font-medium text-destructive/80">
+          Failed to render preview for &quot;{slug}&quot;
+        </p>
+      </div>
+    );
+  }
 
   return (
-    <div className={cn("relative flex items-center justify-center w-full min-h-[inherit]", className)}>
-      <React.Suspense fallback={<Loader2 className="h-6 w-6 animate-spin" />}>
-        <DynamicComponent {...previewProps} />
-      </React.Suspense>
+    <div
+      className={cn(
+        "relative flex items-center justify-center w-full min-h-[inherit]",
+        className
+      )}
+    >
+      <ErrorBoundary onError={() => setHasError(true)}>
+        <React.Suspense
+          fallback={
+            <div className="flex items-center justify-center p-8">
+              <Loader2 className="h-6 w-6 animate-spin text-muted-foreground/50" />
+            </div>
+          }
+        >
+          <Preview />
+        </React.Suspense>
+      </ErrorBoundary>
     </div>
   );
+}
+
+/**
+ * Simple error boundary to catch render errors in preview components
+ * without crashing the entire docs page.
+ */
+class ErrorBoundary extends React.Component<
+  { children: React.ReactNode; onError: () => void },
+  { hasError: boolean }
+> {
+  constructor(props: { children: React.ReactNode; onError: () => void }) {
+    super(props);
+    this.state = { hasError: false };
+  }
+
+  static getDerivedStateFromError() {
+    return { hasError: true };
+  }
+
+  componentDidCatch(error: Error) {
+    console.error("PreviewWrapper render error:", error);
+    this.props.onError();
+  }
+
+  render() {
+    if (this.state.hasError) return null;
+    return this.props.children;
+  }
 }
