@@ -1,0 +1,45 @@
+import type { ComponentConfig } from "@workspace/ui/types/registry";
+
+export const config: ComponentConfig = {
+  name: "glow-card",
+  title: "Glow Card",
+  description: "A card with a dynamic glowing cursor-tracking hover effect.",
+  category: { name: "Blocks", slug: "blocks" },
+  tier: "free",
+  status: "stable",
+  tags: ["card", "glow", "effect"],
+  preview: { disableSSR: true, height: 400 },
+  registryUrl: "https://grootui.vercel.app/r/glow-card.json",
+  npmDependencies: [],
+  registryDependencies: [],
+  usage: {
+    import: `import { GlowCard } from "@/components/glow-card"`,
+    code: `export default function Demo() {
+  return (
+    <GlowCard className="p-6">
+      <h3 className="text-xl font-bold">Groot UI</h3>
+      <p className="text-muted-foreground">Interactive glowing cards.</p>
+    </GlowCard>
+  )
+}`,
+  },
+  props: [
+    {
+      name: "children",
+      type: "ReactNode",
+      required: true,
+      description: "Content inside the card",
+    },
+    {
+      name: "glowColor",
+      type: "string",
+      default: "rgba(var(--primary), 0.2)",
+      description: "Radial gradient color for the glow effect",
+    },
+    {
+      name: "className",
+      type: "string",
+      description: "Custom CSS classes",
+    },
+  ],
+};
