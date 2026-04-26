@@ -6,7 +6,10 @@
   "scripts": {
     "build": "turbo build",
     "dev": "turbo dev",
-    "registry": "npm run registry:build --workspace=packages/ui",
+    "registry:build": "npm run registry:build --workspace=packages/ui",
+    "registry:index": "tsx scripts/build-registry-index.ts",
+    "registry:previews": "tsx scripts/build-preview-registry.ts",
+    "registry": "npm run registry:build && npm run registry:index && npm run registry:previews",
     "lint": "turbo lint",
     "format": "turbo format",
     "typecheck": "turbo typecheck"
@@ -17,6 +20,7 @@
     "prettier": "^3.8.1",
     "prettier-plugin-tailwindcss": "^0.7.2",
     "shadcn": "^4.1.0",
+    "tsx": "^4.21.0",
     "turbo": "^2.8.21",
     "typescript": "5.9.3"
   },

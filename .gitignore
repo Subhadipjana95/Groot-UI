@@ -34,3 +34,6 @@ npm-debug.log*
 # Misc
 .DS_Store
 *.pem
+
+# Claude Suggestions and Improvement Plans
+Conversation.md

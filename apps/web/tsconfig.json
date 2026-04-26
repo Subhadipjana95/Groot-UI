@@ -29,8 +29,5 @@
     "../../packages/ui/src/components/otherBlocks/bento-grid.tsx",
     "../../packages/ui/src/components/otherBlocks/hero-glare.tsx"
   ],
-  "exclude": [
-    "node_modules",
-    "../../packages/ui/registry/**/*"
-  ]
+  "exclude": ["node_modules"]
 }
