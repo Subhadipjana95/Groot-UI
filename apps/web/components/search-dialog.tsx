@@ -14,7 +14,7 @@ import { SearchIcon } from "lucide-react"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
 import { DATA } from "@/lib/data/Data"
-import { components } from "@/lib/registry/components"
+import { registry } from "@/lib/registry"
 
 
 interface NavSearchDialogProps {
@@ -91,9 +91,9 @@ export function NavSearchDialog({ open, onOpenChange }: NavSearchDialogProps) {
             </CommandGroup>
             
             <CommandGroup heading="Components">
-              {components.map((component) => {
-                const { slug, title, description, category, tags } = component;
-                const destination = `/components/${slug}`;
+              {registry.map((component) => {
+                const { name, title, description, category, tags } = component;
+                const destination = `/components/${name}`;
                 const content = (
                   <CommandItem
                     value={`${title} ${description} ${category.name} ${tags.join(" ")}`}
@@ -118,7 +118,7 @@ export function NavSearchDialog({ open, onOpenChange }: NavSearchDialogProps) {
                   </CommandItem>
                 );
 
-                return <React.Fragment key={slug}>{content}</React.Fragment>;
+                return <React.Fragment key={name}>{content}</React.Fragment>;
               })}
             </CommandGroup>
           </CommandList>

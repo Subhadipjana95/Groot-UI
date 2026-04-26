@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { components } from "@/lib/registry/components";
+import { registry } from "@/lib/registry";
 import {
   Sidebar as BaseSidebar,
   SidebarContent,
@@ -20,14 +20,14 @@ export function Sidebar() {
   const pathname = usePathname();
 
   // Group components by category
-  const categories = components.reduce((acc, component) => {
+  const categories = registry.reduce((acc, component) => {
     const categoryName = component.category.name;
     if (!acc[categoryName]) {
       acc[categoryName] = [];
     }
     acc[categoryName].push(component);
     return acc;
-  }, {} as Record<string, typeof components>);
+  }, {} as Record<string, typeof registry>);
 
   return (
     <SidebarProvider className="min-h-0 w-full items-start">
@@ -64,9 +64,9 @@ export function Sidebar() {
                   </SidebarMenuButton>
                   <SidebarMenuSub>
                     {items.map((item) => (
-                      <SidebarMenuSubItem key={item.slug}>
-                        <SidebarMenuSubButton asChild isActive={pathname === `/components/${item.slug}`} className="overflow-visible">
-                          <Link href={`/components/${item.slug}`} className="w-full flex justify-between">
+                      <SidebarMenuSubItem key={item.name}>
+                        <SidebarMenuSubButton asChild isActive={pathname === `/components/${item.name}`} className="overflow-visible">
+                          <Link href={`/components/${item.name}`} className="w-full flex justify-between">
                             <span className="whitespace-nowrap">{item.title}</span>
                             {item.label && (
                               <span className="ml-1 rounded-full px-1.5 py-1 text-[9px] font-medium bg-brand-gradient text-background dark:text-background shrink-0 leading-none whitespace-nowrap">

@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { components } from "@/lib/registry/components";
+import { registry, getComponent } from "@/lib/registry";
 import { Heading } from "@/components/docs/shared/heading";
 import { InstallBlock } from "@/components/docs/blocks/install-block";
 import { UsageBlock } from "@/components/docs/blocks/usage-block";
@@ -16,7 +16,7 @@ interface ComponentPageProps {
 
 export async function generateMetadata({ params }: ComponentPageProps) {
   const { slug } = await params;
-  const component = components.find((c) => c.slug === slug);
+  const component = getComponent(slug);
 
   if (!component) {
     return {
@@ -51,15 +51,20 @@ export async function generateMetadata({ params }: ComponentPageProps) {
   };
 }
 
+/**
+ * generateStaticParams — pre-renders every component docs page at build time.
+ * This is the key to Aceternity/shadcn-level snappiness:
+ * pages land on Vercel's CDN as static HTML, zero runtime latency.
+ */
 export async function generateStaticParams() {
-  return components.map((component) => ({
-    slug: component.slug,
+  return registry.map((component) => ({
+    slug: component.name,
   }));
 }
 
 export default async function ComponentPage({ params }: ComponentPageProps) {
   const { slug } = await params;
-  const component = components.find((c) => c.slug === slug);
+  const component = getComponent(slug);
 
   if (!component) {
     notFound();
@@ -81,8 +86,8 @@ export default async function ComponentPage({ params }: ComponentPageProps) {
         </p>
         <div className="flex flex-wrap gap-2 mt-1">
           {component.tags.map((tag) => (
-            <span 
-              key={tag} 
+            <span
+              key={tag}
               className="px-2 py-0.5 rounded-md bg-secondary/50 text-muted-foreground text-xs tracking-wider border border-border"
             >
               {tag}
@@ -94,8 +99,12 @@ export default async function ComponentPage({ params }: ComponentPageProps) {
       <div className="grid gap-12">
         <section className="scroll-m-20 w-full min-w-0" id="preview">
           <Heading id="preview" title="Preview" className="sr-only" />
-          <PreviewContainer code={component.usage.code} registryUrl={component.registryUrl}>
-            <ComponentPreview slug={component.slug} />
+          <PreviewContainer 
+            usageCode={component.usage.code} 
+            componentCode={component.files?.[0]?.content}
+            registryUrl={component.registryUrl}
+          >
+            <ComponentPreview slug={component.name} />
           </PreviewContainer>
         </section>
 
@@ -106,9 +115,9 @@ export default async function ComponentPage({ params }: ComponentPageProps) {
 
         <section className="scroll-m-20 w-full min-w-0">
           <Heading title="Usage" />
-          <UsageBlock 
-            importCode={component.usage.import} 
-            usageCode={component.usage.code} 
+          <UsageBlock
+            importCode={component.usage.import}
+            usageCode={component.usage.code}
           />
         </section>
 
@@ -117,10 +126,10 @@ export default async function ComponentPage({ params }: ComponentPageProps) {
           <PropsTable props={component.props} />
         </section>
 
-        {component.dependencies && component.dependencies.length > 0 && (
+        {component.npmDependencies && component.npmDependencies.length > 0 && (
           <section className="scroll-m-20 w-full min-w-0">
             <Heading title="Dependencies" />
-            <DependenciesBlock dependencies={component.dependencies} />
+            <DependenciesBlock dependencies={component.npmDependencies} />
           </section>
         )}
       </div>

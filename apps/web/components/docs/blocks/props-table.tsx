@@ -1,7 +1,7 @@
-import { Prop } from "@/lib/registry/types";
+import type { PropDefinition } from "@workspace/ui/types/registry";
 import { Check, X } from "lucide-react";
 
-export function PropsTable({ props }: { props: Prop[] }) {
+export function PropsTable({ props }: { props: PropDefinition[] }) {
   if (!props || props.length === 0) {
     return (
       <div className="mt-4 rounded-lg border border-dashed p-8 text-center">
