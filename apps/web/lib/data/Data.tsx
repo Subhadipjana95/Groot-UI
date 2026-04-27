@@ -241,8 +241,8 @@ export const DATA = {
     NAV_LINKS: [
         { href: "/components", label: "Components" },
         { href: "/templates", label: "Templates" },
-        { href: "/pricing", label: "Pricing" },
         { href: "/changelog", label: "Changelog" },
+        { href: "/sponsors", label: "Sponsors" },
     ],
 
     // Search Quick Actions Data
