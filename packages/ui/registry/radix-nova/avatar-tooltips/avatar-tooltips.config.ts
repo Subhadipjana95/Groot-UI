@@ -1,0 +1,50 @@
+import type { ComponentConfig } from "@workspace/ui/types/registry";
+
+export const config: ComponentConfig = {
+  name: "avatar-tooltips",
+  title: "Avatar Tooltips",
+  description: "Interactive overlapping avatars that reveal animated, spring-based tooltips on hover.",
+  category: { name: "Popups", slug: "popups" },
+  tier: "free",
+  status: "stable",
+  tags: ["avatar", "tooltip", "motion", "interactive", "stack"],
+  preview: { disableSSR: true, height: 200 },
+  registryUrl: "https://grootui.vercel.app/r/avatar-tooltips.json",
+  npmDependencies: ["motion"],
+  registryDependencies: [],
+  usage: {
+    import: `import { AvatarTooltips } from "@/components/avatar-tooltips"`,
+    code: `import { Github, Twitter, Linkedin, Mail } from "lucide-react"
+
+export default function Demo() {
+  const items = [
+    { id: 1, name: "GitHub", designation: "Developer Platform", icon: Github },
+    { id: 2, name: "Twitter", designation: "Social Media", icon: Twitter },
+    { id: 3, name: "LinkedIn", designation: "Professional Network", icon: Linkedin },
+    { id: 4, name: "Email", designation: "Contact Us", icon: Mail },
+  ]
+
+  return (
+    <main className="flex items-center justify-center">
+      <AvatarTooltips items={items} />
+    </main>
+  )
+}`,
+  },
+  props: [
+    {
+      name: "items",
+      type: "AvatarItem[]",
+      default: "[]",
+      required: true,
+      description: "Array of items containing id, name, designation and a React icon component.",
+    },
+    {
+      name: "className",
+      type: "string",
+      default: "undefined",
+      required: false,
+      description: "Additional CSS classes for the container element.",
+    },
+  ],
+};

@@ -1,12 +1,65 @@
 // ─────────────────────────────────────────────────────────────────
 // AUTO-GENERATED — do not edit manually.
 // Run: npm run registry:index
-// Last generated: 2026-04-26T07:03:55.896Z
+// Last generated: 2026-04-27T18:38:46.966Z
 // ─────────────────────────────────────────────────────────────────
 
 import type { ComponentConfig } from "@workspace/ui/types/registry";
 
 export const registry: ComponentConfig[] = [
+  {
+    "name": "avatar-tooltips",
+    "title": "Avatar Tooltips",
+    "description": "Interactive overlapping avatars that reveal animated, spring-based tooltips on hover.",
+    "category": {
+      "name": "Popups",
+      "slug": "popups"
+    },
+    "tier": "free",
+    "status": "stable",
+    "tags": [
+      "avatar",
+      "tooltip",
+      "motion",
+      "interactive",
+      "stack"
+    ],
+    "preview": {
+      "disableSSR": true,
+      "height": 200
+    },
+    "registryUrl": "https://grootui.vercel.app/r/avatar-tooltips.json",
+    "npmDependencies": [
+      "motion"
+    ],
+    "registryDependencies": [],
+    "usage": {
+      "import": "import { AvatarTooltips } from \"@/components/avatar-tooltips\"",
+      "code": "import { Github, Twitter, Linkedin, Mail } from \"lucide-react\"\n\nexport default function Demo() {\n  const items = [\n    { id: 1, name: \"GitHub\", designation: \"Developer Platform\", icon: Github },\n    { id: 2, name: \"Twitter\", designation: \"Social Media\", icon: Twitter },\n    { id: 3, name: \"LinkedIn\", designation: \"Professional Network\", icon: Linkedin },\n    { id: 4, name: \"Email\", designation: \"Contact Us\", icon: Mail },\n  ]\n\n  return (\n    <main className=\"flex items-center justify-center\">\n      <AvatarTooltips items={items} />\n    </main>\n  )\n}"
+    },
+    "props": [
+      {
+        "name": "items",
+        "type": "AvatarItem[]",
+        "default": "[]",
+        "required": true,
+        "description": "Array of items containing id, name, designation and a React icon component."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "default": "undefined",
+        "required": false,
+        "description": "Additional CSS classes for the container element."
+      }
+    ],
+    "files": [
+      {
+        "name": "avatar-tooltips.tsx",
+        "content": "\"use client\";\r\n\r\nimport React, { useState } from \"react\";\r\nimport { motion, useTransform, useMotionValue, useSpring, AnimatePresence } from \"motion/react\";\r\nimport { cn } from \"@/lib/utils\";\r\n\r\nexport type AvatarItem = {\r\n  readonly id: string | number;\r\n  readonly name: string;\r\n  readonly designation?: string;\r\n  readonly icon: React.ElementType;\r\n};\r\n\r\nconst AvatarTooltipItem = ({ item }: { item: AvatarItem }) => {\r\n  const x = useMotionValue(0);\r\n  const [isHovered, setIsHovered] = useState(false);\r\n  const Icon = item.icon;\r\n\r\n  const rotate = useSpring(useTransform(x, [-100, 100], [-45, 45]), {\r\n    stiffness: 100,\r\n    damping: 15,\r\n  });\r\n\r\n  const translateX = useSpring(useTransform(x, [-100, 100], [-50, 50]), {\r\n    stiffness: 100,\r\n    damping: 15,\r\n  });\r\n\r\n  return (\r\n    <div\r\n      className=\"group relative -mr-2\"\r\n      onMouseEnter={() => setIsHovered(true)}\r\n      onMouseLeave={() => setIsHovered(false)}\r\n      onMouseMove={(e) => {\r\n        const rect = e.currentTarget.getBoundingClientRect();\r\n        x.set(e.clientX - rect.left - rect.width / 2);\r\n      }}\r\n    >\r\n      <AnimatePresence mode=\"popLayout\">\r\n        {isHovered && (\r\n          <motion.div\r\n            initial={{ opacity: 0, y: 10, scale: 0.95 }}\r\n            animate={{ opacity: 1, y: 0, scale: 1 }}\r\n            exit={{ opacity: 0, y: 10, scale: 0.95 }}\r\n            transition={{\r\n              type: \"spring\",\r\n              stiffness: 260,\r\n              damping: 20,\r\n            }}\r\n            style={{\r\n              left: \"50%\",\r\n              translateX: \"-50%\",\r\n              rotate: rotate,\r\n              x: translateX,\r\n            }}\r\n            className=\"pointer-events-none absolute bottom-full mb-3 z-50 flex flex-col items-center rounded-md border bg-popover px-3 py-1.5 text-xs text-popover-foreground shadow-xl backdrop-blur-sm\"\r\n          >\r\n            <div className=\"absolute bottom-[-4.73px] left-1/2 -translate-x-1/2 h-2 w-2 rotate-45 border-b border-r rounded-[1px] bg-popover\" />\r\n            <p className=\"relative z-10 whitespace-nowrap text-sm font-semibold leading-none\">\r\n              {item.name}\r\n            </p>\r\n            {item.designation && (\r\n              <p className=\"relative z-10 mt-1 whitespace-nowrap text-[10px] text-muted-foreground leading-none\">\r\n                {item.designation}\r\n              </p>\r\n            )}\r\n          </motion.div>\r\n        )}\r\n      </AnimatePresence>\r\n\r\n      <div className=\"relative flex h-12 w-12 cursor-pointer items-center justify-center rounded-full border border-border bg-background shadow-sm transition-transform duration-300 group-hover:z-30 group-hover:scale-110 active:scale-95\">\r\n        <Icon className=\"size-6 text-foreground\" />\r\n      </div>\r\n    </div>\r\n  );\r\n};\r\n\r\nexport function AvatarTooltips({ items, className }: { items: readonly AvatarItem[], className?: string }) {\r\n  return (\r\n    <div className={cn(\"flex flex-col items-center gap-3 mt-4 relative\", className)}>\r\n      <div className=\"flex items-center justify-center -space-x-2\">\r\n        {items.map((item) => (\r\n          <AvatarTooltipItem key={item.id} item={item} />\r\n        ))}\r\n      </div>\r\n    </div>\r\n  );\r\n}"
+      }
+    ]
+  },
   {
     "name": "client-grid",
     "title": "Client Grid",
