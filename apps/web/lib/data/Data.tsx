@@ -5,6 +5,7 @@ export const DATA = {
     title: "Groot UI",
     description: "Hand-crafted, high-performing, SEO friendly & accessible components designed for modern developers.",
     donateURL: "https://a063.xyz/support",
+    GITHUB_USER_NAME:"Subhadipjana95",
     GITHUB_REPO_LINK:"Subhadipjana95/Groot-UI",
     DISCORD_SERVER_ID:"1487752291602665574",
     DISCORD_INVITE_LINK:"https://discord.gg/BtXPr8aFf",
@@ -249,7 +250,7 @@ export const DATA = {
     SEARCH_DATA: [
         { id: "nav-home", title: "Go to Home", description: "Navigate to the home page", category: "Navigation", destination: "/", icon: Home },
         { id: "nav-components", title: "Go to Components", description: "Browse all components", category: "Navigation", destination: "/components", icon: Info },
-        { id: "nav-pricing", title: "Go to Pricing", description: "Check out our pricing", category: "Navigation", destination: "/pricing", icon: Globe },
+        { id: "nav-sponsors", title: "Go to Sponsors", description: "Check out our sponsors", category: "Navigation", destination: "/sponsors", icon: Globe },
         { id: "social-github", title: "Open GitHub", description: "Visit our GitHub repository", category: "Social", destination: "https://github.com/Subhadipjana95/Groot-UI", icon: GitBranch },
     ],
     
@@ -264,7 +265,7 @@ export const DATA = {
         { name: "Docs", href: "/components/installation" },
         { name: "Blog", href: "https://www.a063.xyz/blog" },
         { name: "Changelog", href: "/changelog" },
-        { name: "Support", href: "https://www.a063.xyz/support" },
+        { name: "Sponsors", href: "/sponsors" },
     ],
     company: [
         { name: "About Us", href: "/about" },

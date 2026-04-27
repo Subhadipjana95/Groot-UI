@@ -2,17 +2,16 @@
 
 import * as React from "react";
 import { cn } from "@workspace/ui/lib/utils";
-import { CodeBlock } from "@/components/docs/blocks/usage-block";
+import { CodeBlock } from "@/components/docs/shared/code-block";
 import { PreviewToggle } from "./preview-toggle";
 import { CopyPromptButton } from "./copy-prompt-button";
 
-export function PreviewContainer({ 
+export function PreviewContainer({
   children,
   className,
-  usageCode,
   componentCode,
   registryUrl
-}: { 
+}: {
   children: React.ReactNode;
   className?: string;
   usageCode?: string;
@@ -20,52 +19,22 @@ export function PreviewContainer({
   registryUrl?: string;
 }) {
   const [view, setView] = React.useState<"preview" | "code">("preview");
-  const [codeType, setCodeType] = React.useState<"usage" | "source">("usage");
-
-  const displayCode = codeType === "usage" ? usageCode : componentCode;
 
   return (
     <div className="space-y-2 mt-4">
-      {(usageCode || componentCode) && (
+      {componentCode && (
         <div className="flex items-center justify-between w-full">
           <div className="flex items-center gap-2">
             <PreviewToggle view={view} onViewChange={setView} />
-            
-            {view === "code" && usageCode && componentCode && (
-              <div className="flex items-center bg-muted/50 p-1 rounded-lg border ml-2">
-                <button
-                  onClick={() => setCodeType("usage")}
-                  className={cn(
-                    "px-3 py-1 text-xs font-medium rounded-md transition-all",
-                    codeType === "usage" 
-                      ? "bg-background text-foreground shadow-sm" 
-                      : "text-muted-foreground hover:text-foreground"
-                  )}
-                >
-                  Usage
-                </button>
-                <button
-                  onClick={() => setCodeType("source")}
-                  className={cn(
-                    "px-3 py-1 text-xs font-medium rounded-md transition-all",
-                    codeType === "source" 
-                      ? "bg-background text-foreground shadow-sm" 
-                      : "text-muted-foreground hover:text-foreground"
-                  )}
-                >
-                  Source
-                </button>
-              </div>
-            )}
           </div>
           <div className="flex items-center gap-2">
             <CopyPromptButton registryUrl={registryUrl} />
           </div>
         </div>
       )}
-      
-      {view === "preview" ? (
-        <div 
+
+      <div className={cn(view !== "preview" && "hidden")}>
+        <div
           className={cn(
             "relative mt-2 max-w-3xl mx-auto w-full overflow-hidden rounded-xl border bg-muted/30 dark:bg-card flex items-center justify-center p-2",
             className
@@ -75,11 +44,20 @@ export function PreviewContainer({
             {children}
           </div>
         </div>
-      ) : (
+      </div>
+
+      <div className={cn(view !== "code" && "hidden")}>
         <div className="relative mt-2 max-w-3xl mx-auto w-full">
-          {displayCode && <CodeBlock code={displayCode} className="my-0 w-full min-h-[400px]" />}
+          {componentCode && (
+            <CodeBlock
+              code={componentCode}
+              className="my-0 w-full"
+              expandable={true}
+              collapsedHeight={400}
+            />
+          )}
         </div>
-      )}
+      </div>
     </div>
   );
 }

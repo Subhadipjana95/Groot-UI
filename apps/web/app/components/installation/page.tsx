@@ -1,5 +1,5 @@
 import { InstallBlock } from "@/components/docs/blocks/install-block";
-import { CodeBlock } from "@/components/docs/blocks/usage-block";
+import { CodeBlock } from "@/components/docs/shared/code-block";
 
 export default function InstallationPage() {
   return (

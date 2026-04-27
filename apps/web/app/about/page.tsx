@@ -72,11 +72,9 @@ export default function AboutPage() {
 
                 {/* Footer note */}
                 <p className="mt-14 text-xs text-muted-foreground/50 text-center">
-                    Groot Labs © {new Date().getFullYear()} · Made with care ·{" "}
+                    Groot Labs © {new Date().getFullYear()} · Open Source & privacy-first ·{" "}
                     <Link
-                        href="https://a063.xyz/support"
-                        target="_blank"
-                        rel="noopener noreferrer"
+                        href="/sponsors"
                         className="hover:text-transparent hover:bg-clip-text hover:bg-brand-gradient transition-colors duration-200"
                     >
                         Support the project →
