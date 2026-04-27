@@ -186,6 +186,21 @@
           "type": "registry:component"
         }
       ]
+    },
+    {
+      "name": "avatar-tooltips",
+      "type": "registry:block",
+      "title": "Avatar Tooltips",
+      "description": "Interactive overlapping avatars that reveal animated, spring-based tooltips on hover.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "registry/radix-nova/avatar-tooltips/avatar-tooltips.tsx",
+          "type": "registry:component"
+        }
+      ]
     }
   ]
-}
+}
