@@ -201,6 +201,19 @@
           "type": "registry:component"
         }
       ]
+    },
+    {
+      "name": "3d-button",
+      "type": "registry:block",
+      "title": "3D Button",
+      "description": "A premium 3D button component with customizable dual-tone gradients, shimmer effects and depth shadows.",
+      "files": [
+        {
+          "path": "registry/radix-nova/3d-button/3d-button.tsx",
+          "type": "registry:component"
+        }
+      ]
     }
   ]
-}
+}
+

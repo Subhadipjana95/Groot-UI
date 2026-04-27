@@ -1,12 +1,85 @@
 // ─────────────────────────────────────────────────────────────────
 // AUTO-GENERATED — do not edit manually.
 // Run: npm run registry:index
-// Last generated: 2026-04-27T18:38:46.966Z
+// Last generated: 2026-04-27T19:21:16.528Z
 // ─────────────────────────────────────────────────────────────────
 
 import type { ComponentConfig } from "@workspace/ui/types/registry";
 
 export const registry: ComponentConfig[] = [
+  {
+    "name": "3d-button",
+    "title": "3D Button",
+    "description": "A premium 3D button component with customizable dual-tone gradients, shimmer effects, and depth shadows.",
+    "category": {
+      "name": "Buttons",
+      "slug": "buttons"
+    },
+    "tier": "free",
+    "status": "stable",
+    "label": "New",
+    "tags": [
+      "button",
+      "3d",
+      "gradient",
+      "shimmer",
+      "ui"
+    ],
+    "preview": {
+      "disableSSR": false,
+      "height": 200
+    },
+    "registryUrl": "https://grootui.vercel.app/r/3d-button.json",
+    "npmDependencies": [],
+    "registryDependencies": [],
+    "usage": {
+      "import": "import { ThreeDButton } from \"@/components/3d-button\"",
+      "code": "export default function Demo() {\n  return (\n    <div className=\"flex items-center gap-4\">\n      <ThreeDButton color1=\"#cc0066\" color2=\"#660033\">\n        Pink Button\n      </ThreeDButton>\n      <ThreeDButton color1=\"#004d99\" color2=\"#00264d\">\n        Blue Button\n      </ThreeDButton>\n    </div>\n  )\n}"
+    },
+    "props": [
+      {
+        "name": "color1",
+        "type": "string",
+        "default": "undefined",
+        "required": true,
+        "description": "The primary light color for the top of the gradient."
+      },
+      {
+        "name": "color2",
+        "type": "string",
+        "default": "undefined",
+        "required": true,
+        "description": "The secondary dark color for the bottom of the gradient and shadows."
+      },
+      {
+        "name": "href",
+        "type": "string",
+        "default": "undefined",
+        "required": false,
+        "description": "Optional URL for navigation."
+      },
+      {
+        "name": "openInNewTab",
+        "type": "boolean",
+        "default": "false",
+        "required": false,
+        "description": "Whether to open the link in a new tab."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "default": "undefined",
+        "required": false,
+        "description": "Optional class names for custom styling."
+      }
+    ],
+    "files": [
+      {
+        "name": "3d-button.tsx",
+        "content": "import * as React from \"react\";\r\n\r\nimport { cn } from \"@/lib/utils\";\r\n\r\ninterface ThreeDButtonProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {\r\n  href?: string;\r\n  color1: string; // Keep this light color\r\n  color2: string; // Keep this dark color\r\n  children: React.ReactNode;\r\n  openInNewTab?: boolean;\r\n  className?: string;\r\n}\r\n\r\nconst BUTTON_GRADIENT_STYLE = {\r\n  boxShadow:\r\n    \"0 2px 8px 0 rgba(204,0,102,0.35), 0 1.5px 0 0 rgba(255,255,255,0.25) inset, 0 -2px 8px 0 rgba(204,0,102,0.5) inset, 0 0 0 1px rgba(0,0,0,0.08)\",\r\n} as const;\r\n\r\nconst SHIMMER_STYLE = {\r\n  background:\r\n    \"linear-gradient(180deg,rgba(255,255,255,0.4) 0%,rgba(255,255,255,0) 80%,transparent 100%)\",\r\n  filter: \"blur(0.5px)\",\r\n} as const;\r\n\r\nconst INNER_SHADOW_STYLE = {\r\n  boxShadow:\r\n    \"0 0 0 1px rgba(255,255,255,0.15) inset, 0 1.5px 0 0 rgba(255,255,255,0.2) inset, 0 -2px 4px 0 rgba(204,0,102,0.2) inset\",\r\n} as const;\r\n\r\nexport const ThreeDButton = React.forwardRef<HTMLAnchorElement, ThreeDButtonProps>(\r\n  ({ href, color1, color2, children, openInNewTab = false, className, style, ...props }, ref) => {\r\n    return (\r\n      <a\r\n        ref={ref}\r\n        href={href}\r\n        target={openInNewTab ? \"_blank\" : undefined}\r\n        rel={openInNewTab ? \"noopener noreferrer\" : undefined}\r\n        className={cn(\r\n          \"relative flex h-9 px-4 items-center justify-center rounded-lg text-white cursor-pointer transition-all duration-200 ease-in-out hover:brightness-110 active:scale-95\",\r\n          className\r\n        )}\r\n        style={{\r\n          ...BUTTON_GRADIENT_STYLE,\r\n          \"--color1\": color1,\r\n          \"--color2\": color2,\r\n          background: `linear-gradient(to top, ${color1}, ${color2})`,\r\n          ...style,\r\n        } as React.CSSProperties}\r\n        {...props}\r\n      >\r\n        <span\r\n          className=\"pointer-events-none absolute left-1/2 top-0 z-20 h-2/5 w-[80%] -translate-x-1/2 rounded-t-[inherit]\"\r\n          style={SHIMMER_STYLE}\r\n        />\r\n        <span\r\n          className=\"pointer-events-none absolute inset-0 z-0 rounded-[inherit]\"\r\n          style={INNER_SHADOW_STYLE}\r\n        />\r\n        <span className=\"relative z-30 flex items-center justify-center drop-shadow-sm text-sm font-medium tracking-wide\">\r\n          {children}\r\n        </span>\r\n      </a>\r\n    );\r\n  }\r\n);\r\n\r\nThreeDButton.displayName = \"ThreeDButton\";\r\n"
+      }
+    ]
+  },
   {
     "name": "avatar-tooltips",
     "title": "Avatar Tooltips",

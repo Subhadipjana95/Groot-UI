@@ -1,7 +1,7 @@
 // ─────────────────────────────────────────────────────────────────
 // AUTO-GENERATED — do not edit manually.
 // Run: npm run registry:previews
-// Last generated: 2026-04-27T18:38:48.011Z
+// Last generated: 2026-04-27T19:21:17.257Z
 // ─────────────────────────────────────────────────────────────────
 
 import dynamic from "next/dynamic";
@@ -15,6 +15,10 @@ import dynamic from "next/dynamic";
  * - Server components (github-stars, discord-online): ssr: true (default)
  */
 export const previewRegistry = {
+  "3d-button": dynamic(
+    () => import("./previews/3d-button.preview"),
+    { loading: () => null }
+  ),
   "avatar-tooltips": dynamic(
     () => import("./previews/avatar-tooltips.preview"),
     { ssr: false, loading: () => null }
