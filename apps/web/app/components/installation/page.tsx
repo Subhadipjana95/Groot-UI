@@ -51,7 +51,7 @@ export default function InstallationPage() {
             <p className="text-muted-foreground">
               You can now start adding components to your project.
             </p>
-            <InstallBlock command="https://grootui.vercel.app/r/hero-glare.json" type="add" />
+            <InstallBlock command="https://grootui.vercel.app/r/3d-button.json" type="add" />
           </div>
         </section>
 
@@ -66,16 +66,21 @@ export default function InstallationPage() {
           <div className="flex flex-col gap-4 w-full min-w-0">
             <h2 id="import-component" className="text-2xl font-semibold tracking-tight scroll-m-20">Import component</h2>
             <p className="text-muted-foreground">
-              The command above will add the <code className="bg-muted px-1.5 py-0.5 rounded-sm font-mono text-sm">HeroGlare</code> component to your project. You can then import it like this:
+              The command above will add the <code className="bg-muted px-1.5 py-0.5 rounded-sm font-mono text-sm">ThreeDButton</code> component to your project. You can then import it like this:
             </p>
             <div className="mt-2 text-sm">
               <CodeBlock
-                code={`import { HeroGlare } from "@/components/hero-glare"
+                code={`import { ThreeDButton } from "@/components/3d-button"
 
 export default function Demo() {
   return (
-    <div className="relative w-full h-[500px] bg-background">
-      <HeroGlare />
+    <div className="flex items-center justify-center min-h-[400px]">
+      <ThreeDButton 
+        color1="oklch(79.5% 0.184 86.047)" 
+        color2="oklch(50.5% 0.213 27.518)"
+      >
+        Get Started
+      </ThreeDButton>
     </div>
   )}`}
               />
