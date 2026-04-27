@@ -218,7 +218,6 @@ const ReactIcon = (props: SVGProps<SVGSVGElement>) => (
   </svg>
 );
 
-
 const TailwindCSSIcon = (props: SVGProps<SVGSVGElement>) => (
   <svg {...props} fill="none" viewBox="0 0 54 33">
     <g clipPath="url(#tailwindcss__a)">
