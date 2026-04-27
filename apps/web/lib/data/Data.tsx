@@ -1,14 +1,14 @@
-import { Twitter, Github, MessageCircle, Youtube } from "@workspace/ui/components/icons/icon"
-import { Shield, Eye, Share2, Lock, RefreshCw, Mail, FileText, Cpu, ShieldAlert, Scale, GitFork, Users, Cookie, BarChart2, Settings, Sparkles, Zap, ShieldCheck, Home, Info, Globe, Moon, Copy, HelpCircle, GitBranch } from "lucide-react"
+import { Twitter, Github, DiscordIcon, Youtube, MotionIcon, TypeScriptIcon, ReactIcon, TailwindCSSIcon, NextjsIcon, RadixUIIcon, ShadcnuiIcon } from "@workspace/ui/components/icons/icon"
+import { Shield, Eye, Share2, Lock, RefreshCw, Mail, FileText, Cpu, ShieldAlert, Scale, GitFork, Users, Cookie, BarChart2, Settings, Sparkles, Zap, ShieldCheck, Home, Info, Globe, GitBranch } from "lucide-react"
 
 export const DATA = {
     title: "Groot UI",
     description: "Hand-crafted, high-performing, SEO friendly & accessible components designed for modern developers.",
     donateURL: "https://a063.xyz/support",
-    GITHUB_USER_NAME:"Subhadipjana95",
-    GITHUB_REPO_LINK:"Subhadipjana95/Groot-UI",
-    DISCORD_SERVER_ID:"1487752291602665574",
-    DISCORD_INVITE_LINK:"https://discord.gg/BtXPr8aFf",
+    GITHUB_USER_NAME: "Subhadipjana95",
+    GITHUB_REPO_LINK: "Subhadipjana95/Groot-UI",
+    DISCORD_SERVER_ID: "1487752291602665574",
+    DISCORD_INVITE_LINK: "https://discord.gg/BtXPr8aFf",
 
 
     // Changelog Data
@@ -253,7 +253,7 @@ export const DATA = {
         { id: "nav-sponsors", title: "Go to Sponsors", description: "Check out our sponsors", category: "Navigation", destination: "/sponsors", icon: Globe },
         { id: "social-github", title: "Open GitHub", description: "Visit our GitHub repository", category: "Social", destination: "https://github.com/Subhadipjana95/Groot-UI", icon: GitBranch },
     ],
-    
+
     // Footer Links
     product: [
         { name: "Components", href: "/components", tag: "New" },
@@ -276,8 +276,20 @@ export const DATA = {
     socials: [
         { name: "Twitter", href: "https://x.com/Subhadip53874", icon: Twitter },
         { name: "GitHub", href: "https://github.com/Subhadipjana95/Groot-UI", icon: Github },
-        { name: "Discord", href: "https://discord.com/channels/1487752291602665574", icon: MessageCircle },
+        { name: "Discord", href: "https://discord.com/channels/1487752291602665574", icon: DiscordIcon },
         { name: "YouTube", href: "#", icon: Youtube },
+    ],
+
+
+    // Tech Stacks
+    TECH_STACK: [
+        { id: 1, name: "React", designation: "UI Library", icon: ReactIcon },
+        { id: 2, name: "Next.js", designation: "Framework", icon: NextjsIcon },
+        { id: 3, name: "TypeScript", designation: "Language", icon: TypeScriptIcon },
+        { id: 4, name: "Tailwind CSS", designation: "Styling", icon: TailwindCSSIcon },
+        { id: 5, name: "Radix UI", designation: "Primitives", icon: RadixUIIcon },
+        { id: 6, name: "Motion", designation: "Animations", icon: MotionIcon },
+        { id: 7, name: "Shadcn UI", designation: "Components", icon: ShadcnuiIcon },
     ],
 
     // Stats for about page

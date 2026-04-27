@@ -7,6 +7,7 @@ import { BadgeTag } from "@workspace/ui/components/badge-tag"
 import Link from "next/link"
 import { TechStacks } from "@workspace/ui/components/otherBlocks/tech-stacks"
 import { HeroGlare } from "@workspace/ui/components/otherBlocks/hero-glare"
+import { DATA } from "@/lib/data/Data"
 
 export function Hero() {
   return (
@@ -56,7 +57,7 @@ export function Hero() {
           />
         </Link>
       </div>
-      <TechStacks />
+      <TechStacks items={DATA.TECH_STACK} />
     </section>
   )
 }
