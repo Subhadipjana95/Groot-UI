@@ -154,7 +154,7 @@ export function TOC() {
                     
                     <AnimatePresence initial={false}>
                       {!isCollapsed && hasChildren && (
-                        <motion.li
+                        <motion.div
                           initial={{ height: 0, opacity: 0 }}
                           animate={{ height: "auto", opacity: 1 }}
                           exit={{ height: 0, opacity: 0 }}
@@ -178,7 +178,7 @@ export function TOC() {
                               </li>
                             ))}
                           </ul>
-                        </motion.li>
+                        </motion.div>
                       )}
                     </AnimatePresence>
                   </li>
