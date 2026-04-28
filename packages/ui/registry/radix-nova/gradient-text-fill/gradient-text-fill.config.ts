@@ -11,6 +11,8 @@ export const config: ComponentConfig = {
   tier: "free",
   status: "stable",
   label: "new",
+  image: "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1777377361/gradient-text-fill_light_mvkhox.webp",
+  imageDark: "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1777377361/gradient-text-fill_dark_vp5qbx.webp",
   tags: ["text", "gradient", "animation", "motion"],
   preview: { disableSSR: true, height: 400 },
   registryUrl: "https://grootui.vercel.app/r/gradient-text-fill.json",

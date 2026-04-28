@@ -1,7 +1,7 @@
 // ─────────────────────────────────────────────────────────────────
 // AUTO-GENERATED — do not edit manually.
 // Run: npm run registry:index
-// Last generated: 2026-04-27T19:21:16.528Z
+// Last generated: 2026-04-28T12:22:26.361Z
 // ─────────────────────────────────────────────────────────────────
 
 import type { ComponentConfig } from "@workspace/ui/types/registry";
@@ -17,7 +17,9 @@ export const registry: ComponentConfig[] = [
     },
     "tier": "free",
     "status": "stable",
-    "label": "New",
+    "label": "new",
+    "image": "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1777376141/3d-button_light_owphex.webp",
+    "imageDark": "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1777376141/3d-button_dark_xbvhmf.webp",
     "tags": [
       "button",
       "3d",
@@ -90,6 +92,8 @@ export const registry: ComponentConfig[] = [
     },
     "tier": "free",
     "status": "stable",
+    "image": "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1777376434/avatar-tooltip_light_pvqzhq.webp",
+    "imageDark": "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1777376434/avatar-tooltip_dark_uaapdx.webp",
     "tags": [
       "avatar",
       "tooltip",
@@ -143,6 +147,8 @@ export const registry: ComponentConfig[] = [
     },
     "tier": "free",
     "status": "stable",
+    "image": "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1777378066/client-grid_lighht_iglnwa.webp",
+    "imageDark": "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1777378066/client-grid_dark_ei9qu3.webp",
     "tags": [
       "grid",
       "logos",
@@ -192,6 +198,8 @@ export const registry: ComponentConfig[] = [
     },
     "tier": "free",
     "status": "stable",
+    "image": "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1777378484/client-marquee_light_f6d3se.webp",
+    "imageDark": "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1777378486/client-marquee_dark_vbkxfs.webp",
     "tags": [
       "marquee",
       "logos",
@@ -243,6 +251,8 @@ export const registry: ComponentConfig[] = [
     "tier": "free",
     "status": "stable",
     "label": "New",
+    "image": "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1777378662/client-marquee-blur_light_u1omgi.webp",
+    "imageDark": "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1777378662/client-marquee-blur_dark_duu30j.webp",
     "tags": [
       "marquee",
       "logos",
@@ -294,6 +304,8 @@ export const registry: ComponentConfig[] = [
     },
     "tier": "free",
     "status": "stable",
+    "image": "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1777377565/discord-online_light_aiynof.webp",
+    "imageDark": "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1777377565/discord-online_dark_mwjdlu.webp",
     "tags": [
       "discord",
       "presence"
@@ -354,6 +366,8 @@ export const registry: ComponentConfig[] = [
     },
     "tier": "free",
     "status": "stable",
+    "image": "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1777377565/discord-online_light_aiynof.webp",
+    "imageDark": "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1777377565/discord-online_dark_mwjdlu.webp",
     "tags": [
       "discord",
       "presence",
@@ -415,6 +429,8 @@ export const registry: ComponentConfig[] = [
     },
     "tier": "free",
     "status": "stable",
+    "image": "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1777376845/github-calender_light_dfldr4.webp",
+    "imageDark": "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1777376846/github-calender_dark_zwpype.webp",
     "label": "New",
     "tags": [
       "github",
@@ -522,6 +538,8 @@ export const registry: ComponentConfig[] = [
     },
     "tier": "free",
     "status": "stable",
+    "image": "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1777377805/github-star_light_jf47tx.webp",
+    "imageDark": "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1777377805/github-star_dark_an1u1z.webp",
     "tags": [
       "github",
       "stars"
@@ -576,6 +594,8 @@ export const registry: ComponentConfig[] = [
     },
     "tier": "free",
     "status": "stable",
+    "image": "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1777377805/github-star_light_jf47tx.webp",
+    "imageDark": "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1777377805/github-star_dark_an1u1z.webp",
     "tags": [
       "github",
       "stars",
@@ -631,6 +651,8 @@ export const registry: ComponentConfig[] = [
     },
     "tier": "free",
     "status": "stable",
+    "image": "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1777378888/glow-card_light_ucxzze.webp",
+    "imageDark": "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1777378889/glow-card_dark_lzl9me.webp",
     "tags": [
       "card",
       "glow",
@@ -683,6 +705,8 @@ export const registry: ComponentConfig[] = [
     },
     "tier": "free",
     "status": "stable",
+    "image": "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1777377127/gradient-background-text_light_z4h7zf.webp",
+    "imageDark": "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1777377127/gradient-background-text_dark_jyhqpj.webp",
     "tags": [
       "text",
       "gradient",
@@ -739,6 +763,8 @@ export const registry: ComponentConfig[] = [
     "tier": "free",
     "status": "stable",
     "label": "new",
+    "image": "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1777377361/gradient-text-fill_light_mvkhox.webp",
+    "imageDark": "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1777377361/gradient-text-fill_dark_vp5qbx.webp",
     "tags": [
       "text",
       "gradient",

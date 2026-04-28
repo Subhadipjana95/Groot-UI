@@ -8,6 +8,8 @@ export const config: ComponentConfig = {
   category: { name: "Social", slug: "social" },
   tier: "free",
   status: "stable",
+  image: "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1777377805/github-star_light_jf47tx.webp",
+  imageDark: "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1777377805/github-star_dark_an1u1z.webp",
   tags: ["github", "stars"],
   // Server component — fetches data server-side, so SSR must stay enabled
   preview: { disableSSR: false, height: 300 },

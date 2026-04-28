@@ -8,6 +8,8 @@ export const config: ComponentConfig = {
   category: { name: "Animations", slug: "animations" },
   tier: "free",
   status: "stable",
+  image: "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1777377127/gradient-background-text_light_z4h7zf.webp",
+  imageDark: "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1777377127/gradient-background-text_dark_jyhqpj.webp",
   tags: ["text", "gradient", "background", "3d"],
   preview: { disableSSR: true, height: 400 },
   registryUrl: "https://grootui.vercel.app/r/gradient-background-text.json",

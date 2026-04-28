@@ -9,6 +9,8 @@ export const config: ComponentConfig = {
   tier: "free",
   status: "stable",
   label: "New",
+  image: "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1777378662/client-marquee-blur_light_u1omgi.webp",
+  imageDark: "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1777378662/client-marquee-blur_dark_duu30j.webp",
   tags: ["marquee", "logos", "blur"],
   preview: { disableSSR: true, height: 300 },
   registryUrl: "https://grootui.vercel.app/r/client-marquee-blur.json",

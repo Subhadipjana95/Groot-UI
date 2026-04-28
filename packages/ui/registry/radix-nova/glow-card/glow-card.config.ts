@@ -7,6 +7,8 @@ export const config: ComponentConfig = {
   category: { name: "Blocks", slug: "blocks" },
   tier: "free",
   status: "stable",
+  image: "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1777378888/glow-card_light_ucxzze.webp",
+  imageDark: "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1777378889/glow-card_dark_lzl9me.webp",
   tags: ["card", "glow", "effect"],
   preview: { disableSSR: true, height: 400 },
   registryUrl: "https://grootui.vercel.app/r/glow-card.json",

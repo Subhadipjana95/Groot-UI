@@ -8,6 +8,8 @@ export const config: ComponentConfig = {
   category: { name: "Marquee", slug: "marquee" },
   tier: "free",
   status: "stable",
+  image: "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1777378484/client-marquee_light_f6d3se.webp",
+  imageDark: "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1777378486/client-marquee_dark_vbkxfs.webp",
   tags: ["marquee", "logos", "slider"],
   preview: { disableSSR: true, height: 300 },
   registryUrl: "https://grootui.vercel.app/r/client-marquee.json",

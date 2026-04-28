@@ -8,6 +8,8 @@ export const config: ComponentConfig = {
   category: { name: "Social", slug: "social" },
   tier: "free",
   status: "stable",
+  image: "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1777377565/discord-online_light_aiynof.webp",
+  imageDark: "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1777377565/discord-online_dark_mwjdlu.webp",
   tags: ["discord", "presence"],
   // Server component — fetches data server-side, SSR must stay on
   preview: { disableSSR: false, height: 300 },

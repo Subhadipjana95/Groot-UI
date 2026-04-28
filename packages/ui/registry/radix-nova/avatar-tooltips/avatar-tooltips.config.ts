@@ -7,6 +7,8 @@ export const config: ComponentConfig = {
   category: { name: "Popups", slug: "popups" },
   tier: "free",
   status: "stable",
+  image: "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1777376434/avatar-tooltip_light_pvqzhq.webp",
+  imageDark: "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1777376434/avatar-tooltip_dark_uaapdx.webp",
   tags: ["avatar", "tooltip", "motion", "interactive", "stack"],
   preview: { disableSSR: true, height: 200 },
   registryUrl: "https://grootui.vercel.app/r/avatar-tooltips.json",

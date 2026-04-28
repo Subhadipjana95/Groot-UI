@@ -8,6 +8,8 @@ export const config: ComponentConfig = {
   category: { name: "Blocks", slug: "blocks" },
   tier: "free",
   status: "stable",
+  image: "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1777376845/github-calender_light_dfldr4.webp",
+  imageDark: "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1777376846/github-calender_dark_zwpype.webp",
   label: "New",
   tags: ["github", "calendar", "contributions"],
   preview: { disableSSR: true, height: 400 },

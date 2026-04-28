@@ -7,6 +7,8 @@ export const config: ComponentConfig = {
   category: { name: "Blocks", slug: "blocks" },
   tier: "free",
   status: "stable",
+  image: "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1777378066/client-grid_lighht_iglnwa.webp",
+  imageDark: "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1777378066/client-grid_dark_ei9qu3.webp",
   tags: ["grid", "logos", "layout"],
   preview: { disableSSR: true, height: 400 },
   registryUrl: "https://grootui.vercel.app/r/client-grid.json",
