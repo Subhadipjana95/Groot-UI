@@ -213,6 +213,25 @@
           "type": "registry:component"
         }
       ]
+    },
+    {
+      "name": "sliding-button",
+      "type": "registry:block",
+      "title": "Sliding Button",
+      "description": "A high-performance interactive button that slides an icon into view on hover with spring animations and depth shadows.",
+      "dependencies": [
+        "motion",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button"
+      ],
+      "files": [
+        {
+          "path": "registry/radix-nova/sliding-button/sliding-button.tsx",
+          "type": "registry:component"
+        }
+      ]
     }
   ]
 }

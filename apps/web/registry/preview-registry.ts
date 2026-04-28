@@ -1,7 +1,7 @@
 // ─────────────────────────────────────────────────────────────────
 // AUTO-GENERATED — do not edit manually.
 // Run: npm run registry:previews
-// Last generated: 2026-04-27T19:21:17.257Z
+// Last generated: 2026-04-28T23:43:27.420Z
 // ─────────────────────────────────────────────────────────────────
 
 import dynamic from "next/dynamic";
@@ -69,6 +69,10 @@ export const previewRegistry = {
   ),
   "groot-starter": dynamic(
     () => import("./previews/groot-starter.preview"),
+    { loading: () => null }
+  ),
+  "sliding-button": dynamic(
+    () => import("./previews/sliding-button.preview"),
     { loading: () => null }
   )
 } as const;
