@@ -38,6 +38,8 @@ export interface ComponentConfig {
   tier: ComponentTier;
   status: ComponentStatus;
   label?: string;        // Optional badge text (e.g. "New", "Beta")
+  image?: string;        // Optional preview image URL (Light mode or default)
+  imageDark?: string;    // Optional preview image URL (Dark mode)
   publishedAt?: string;  // ISO date string
 
   // ── Discovery
