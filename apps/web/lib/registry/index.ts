@@ -1,7 +1,7 @@
 // ─────────────────────────────────────────────────────────────────
 // AUTO-GENERATED — do not edit manually.
 // Run: npm run registry:index
-// Last generated: 2026-04-28T12:22:26.361Z
+// Last generated: 2026-04-28T23:50:00.697Z
 // ─────────────────────────────────────────────────────────────────
 
 import type { ComponentConfig } from "@workspace/ui/types/registry";
@@ -848,6 +848,79 @@ export const registry: ComponentConfig[] = [
       {
         "name": "groot-starter.tsx",
         "content": "import { Button } from \"@/components/ui/button\"\r\n\r\nexport function ExampleComponent() {\r\n  return (\r\n    <Button className=\"rounded-full px-8\">\r\n      Hello from groot-ui\r\n    </Button>\r\n  )\r\n}"
+      }
+    ]
+  },
+  {
+    "name": "sliding-button",
+    "title": "Sliding Button",
+    "description": "A high-performance interactive button that slides an icon into view on hover with spring animations and depth shadows.",
+    "category": {
+      "name": "Buttons",
+      "slug": "buttons"
+    },
+    "tier": "free",
+    "status": "stable",
+    "label": "new",
+    "image": "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1777419754/sliding-button_light_ishowx.webp",
+    "imageDark": "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1777419755/sliding-button_dark_pwd8ks.webp",
+    "tags": [
+      "button",
+      "sliding",
+      "animation",
+      "motion",
+      "ui"
+    ],
+    "preview": {
+      "disableSSR": false,
+      "height": 200
+    },
+    "registryUrl": "https://grootui.vercel.app/r/sliding-button.json",
+    "npmDependencies": [
+      "motion",
+      "lucide-react"
+    ],
+    "registryDependencies": [
+      "button"
+    ],
+    "usage": {
+      "import": "import { SlidingButton } from \"@/components/sliding-button\"",
+      "code": "export default function Demo() {\n  return (\n    <div className=\"flex items-center gap-4\">\n      <SlidingButton variant=\"default\">\n        Get Started\n      </SlidingButton>\n      <SlidingButton variant=\"outline\" iconPosition=\"left\">\n        Contact Us\n      </SlidingButton>\n    </div>\n  )\n}"
+    },
+    "props": [
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "default": "undefined",
+        "required": true,
+        "description": "The content to display inside the button."
+      },
+      {
+        "name": "variant",
+        "type": "'default' | 'outline'",
+        "default": "'default'",
+        "required": false,
+        "description": "The visual style of the button."
+      },
+      {
+        "name": "iconPosition",
+        "type": "'left' | 'right'",
+        "default": "'right'",
+        "required": false,
+        "description": "Which side the sliding icon should appear on."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "default": "undefined",
+        "required": false,
+        "description": "Optional class names for custom styling."
+      }
+    ],
+    "files": [
+      {
+        "name": "sliding-button.tsx",
+        "content": "\"use client\";\r\n\r\nimport React from \"react\";\r\nimport { Button } from \"@/components/ui/button\";\r\nimport { ArrowUpRight } from \"lucide-react\";\r\nimport { cn } from \"@/lib/utils\";\r\nimport { motion } from \"motion/react\";\r\n\r\nexport interface SlidingButtonProps\r\n  extends Omit<React.ComponentProps<typeof Button>, \"variant\"> {\r\n  children: React.ReactNode;\r\n  iconPosition?: \"left\" | \"right\";\r\n  variant?: keyof typeof BOX_SHADOW;\r\n  className?: string;\r\n}\r\n\r\nconst ICON_PX = 40;\r\nconst GAP_PX = 4;\r\n\r\nconst SPRING_SLIDE = { type: \"spring\", stiffness: 300, damping: 28 } as const;\r\nconst SPRING_ROTATE = { type: \"spring\", stiffness: 400, damping: 20 } as const;\r\n\r\nconst ICON_STYLE = {\r\n  background: \"linear-gradient(to top, #f5f56b, #cc0066)\",\r\n  boxShadow:\r\n    \"0 2px 8px 0 rgba(204,0,102,0.35), 0 1.5px 0 0 rgba(255,255,255,0.25) inset, 0 -2px 8px 0 rgba(204,0,102,0.5) inset, 0 0 0 1px rgba(0,0,0,0.08)\",\r\n} as const;\r\n\r\nconst SHIMMER_STYLE = {\r\n  background:\r\n    \"linear-gradient(180deg,rgba(255,255,255,0.4) 0%,rgba(255,255,255,0) 80%,transparent 100%)\",\r\n  filter: \"blur(0.5px)\",\r\n} as const;\r\n\r\nconst INNER_SHADOW_STYLE = {\r\n  boxShadow:\r\n    \"0 0 0 1px rgba(255,255,255,0.15) inset, 0 1.5px 0 0 rgba(255,255,255,0.2) inset, 0 -2px 4px 0 rgba(204,0,102,0.2) inset\",\r\n} as const;\r\n\r\nconst BOX_SHADOW = {\r\n  default:\r\n    \"inset 0 2px 3px 0 rgba(255,255,255,0.15), inset 0 -3px 6px 0 rgba(0,0,0,0.4), inset 0 0 0 1px rgba(255,255,255,0.1)\",\r\n  outline:\r\n    \"inset 0 2px 4px 0 rgba(0,0,0,0.12), inset 0 -2px 2px 0 rgba(255,255,255,0.3), inset 0 0 0 1px rgba(0,0,0,0.06)\",\r\n} as const;\r\n\r\nexport const SlidingButton = React.forwardRef<\r\n  HTMLButtonElement,\r\n  SlidingButtonProps\r\n>(\r\n  (\r\n    { children, className, variant = \"default\", iconPosition = \"right\", ...props },\r\n    externalRef\r\n  ) => {\r\n    const [isHovered, setIsHovered] = React.useState(false);\r\n    const [travelDistance, setTravelDistance] = React.useState(0);\r\n\r\n    const mergedRef = React.useCallback(\r\n      (node: HTMLButtonElement | null) => {\r\n        if (typeof externalRef === \"function\") externalRef(node);\r\n        else if (externalRef)\r\n          (\r\n            externalRef as React.MutableRefObject<HTMLButtonElement | null>\r\n          ).current = node;\r\n\r\n        if (!node) return;\r\n\r\n        const measure = () =>\r\n          setTravelDistance(node.clientWidth - ICON_PX - GAP_PX * 2);\r\n\r\n        measure();\r\n\r\n        const ro = new ResizeObserver(measure);\r\n        ro.observe(node);\r\n      },\r\n      [externalRef]\r\n    );\r\n\r\n    const slideX = isHovered\r\n      ? iconPosition === \"right\"\r\n        ? -travelDistance\r\n        : travelDistance\r\n      : 0;\r\n    const rotateX = isHovered ? 360 : 0;\r\n\r\n    return (\r\n      <Button\r\n        ref={mergedRef}\r\n        variant={variant}\r\n        aria-label={children?.toString()}\r\n        onMouseEnter={() => setIsHovered(true)}\r\n        onMouseLeave={() => setIsHovered(false)}\r\n        className={cn(\r\n          \"relative h-12 w-fit cursor-pointer overflow-hidden rounded-xl p-1 text-sm font-medium transition-all duration-500 flex items-center active:scale-[0.98]\",\r\n          iconPosition === \"right\"\r\n            ? \"ps-6 pe-14 hover:ps-14 hover:pe-6\"\r\n            : \"ps-14 pe-6 hover:ps-6 hover:pe-14\",\r\n          className\r\n        )}\r\n        style={{ boxShadow: BOX_SHADOW[variant as keyof typeof BOX_SHADOW] }}\r\n        {...props}\r\n      >\r\n        <span\r\n          className=\"relative z-10 transition-all duration-500 text-shadow-black/10 text-shadow-lg\"\r\n        >\r\n          {children}\r\n        </span>\r\n\r\n        <motion.div\r\n          aria-hidden\r\n          className={cn(\r\n            \"absolute z-20 flex h-10 w-10 items-center justify-center rounded-lg text-white\",\r\n            iconPosition === \"right\" ? \"right-1\" : \"left-1\"\r\n          )}\r\n          style={ICON_STYLE}\r\n          animate={{ x: slideX, rotate: rotateX }}\r\n          transition={SPRING_SLIDE}\r\n        >\r\n          <span\r\n            className=\"pointer-events-none absolute left-1/2 top-0 z-20 h-2/5 w-[80%] -translate-x-1/2 rounded-t-[inherit]\"\r\n            style={SHIMMER_STYLE}\r\n          />\r\n          <span\r\n            className=\"pointer-events-none absolute inset-0 z-0 rounded-[inherit]\"\r\n            style={INNER_SHADOW_STYLE}\r\n          />\r\n          <motion.span\r\n            className=\"relative z-30 flex items-center justify-center drop-shadow-sm\"\r\n            animate={{ rotate: isHovered ? 45 : 0 }}\r\n            transition={SPRING_ROTATE}\r\n          >\r\n            <ArrowUpRight size={16} />\r\n          </motion.span>\r\n        </motion.div>\r\n      </Button>\r\n    );\r\n  }\r\n);\r\n\r\nSlidingButton.displayName = \"SlidingButton\";\r\n"
       }
     ]
   }
