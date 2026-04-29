@@ -7,7 +7,6 @@ export const config: ComponentConfig = {
   category: { name: "Buttons", slug: "buttons" },
   tier: "free",
   status: "stable",
-  label: "new",
   image: "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1777376141/3d-button_light_owphex.webp",
   imageDark: "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1777376141/3d-button_dark_xbvhmf.webp",
   tags: ["button", "3d", "gradient", "shimmer", "ui"],
