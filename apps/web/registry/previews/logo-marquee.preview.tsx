@@ -1,4 +1,4 @@
-import { ClientMarquee } from "@workspace/ui/registry/radix-nova/client-marquee/client-marquee";
+import { LogoMarquee } from "@workspace/ui/registry/radix-nova/logo-marquee/logo-marquee";
 
 const logos = [
   { src: "https://svgl.app/library/nvidia-wordmark-light.svg", alt: "Nvidia" },
@@ -11,6 +11,10 @@ const logos = [
   { src: "https://svgl.app/library/claude-ai-wordmark-icon_light.svg", alt: "Claude" },
 ];
 
-export default function ClientMarqueePreview() {
-  return <ClientMarquee logos={logos} />;
+export default function LogoMarqueePreview() {
+  return (
+    <div className="w-full">
+      <LogoMarquee logos={logos} />
+    </div>
+  )
 }

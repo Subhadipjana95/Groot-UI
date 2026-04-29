@@ -127,7 +127,7 @@ const LogoImage = memo(function LogoImage({ logo }: { logo: Logo }) {
   )
 })
 
-export const ClientMarquee = memo(function ClientMarquee({
+export const LogoMarquee = memo(function LogoMarquee({
   logos,
   className,
 }: {
@@ -150,4 +150,4 @@ export const ClientMarquee = memo(function ClientMarquee({
   )
 })
 
-ClientMarquee.displayName = "ClientMarquee"
+LogoMarquee.displayName = "LogoMarquee"
