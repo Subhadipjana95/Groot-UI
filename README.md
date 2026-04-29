@@ -1,7 +1,6 @@
 
 <h1>Groot UI</h1>
-A premium, open-source component registry for high-performance React applications.
-
+<p>A premium, open-source component registry for high-performance React applications.</p>
 <br/>
 
 <img src="https://res.cloudinary.com/dfjuuwtr6/image/upload/v1776286912/Groot_UI_Preview_Dark_in5qww.webp" alt="Groot UI Banner" width="100%" />
