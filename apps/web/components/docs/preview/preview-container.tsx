@@ -36,11 +36,11 @@ export function PreviewContainer({
       <div className={cn(view !== "preview" && "hidden")}>
         <div
           className={cn(
-            "relative mt-2 max-w-3xl mx-auto w-full overflow-hidden rounded-xl border bg-muted/30 dark:bg-card flex items-center justify-center p-2",
+            "relative mt-2 max-w-3xl mx-auto w-full overflow-hidden rounded-xl border bg-muted/30 dark:bg-card flex items-center justify-center p-1 md:p-2",
             className
           )}
         >
-          <div className="relative z-10 w-full min-h-[400px] rounded-lg flex items-center justify-center bg-background p-2 overflow-hidden">
+          <div className="relative z-10 w-full min-h-[250px] md:min-h-[400px] rounded-lg flex items-center justify-center bg-background p-1 md:p-2 overflow-hidden">
             {children}
           </div>
         </div>
