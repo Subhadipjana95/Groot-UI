@@ -57,7 +57,7 @@ export function CodeBlock({
 
       {mounted && (
         <div className={cn(
-          "h-full overflow-auto scrollbar-hide py-3 transition-all",
+          "h-full overflow-x-auto scrollbar-hide py-3 transition-all",
           "mask-[linear-gradient(to_right,black_85%,transparent_100%)]",
           expandable && !isExpanded && "mask-[linear-gradient(to_bottom,black_60%,transparent_100%),linear-gradient(to_right,black_85%,transparent_100%)] mask-intersect"
         )}>
