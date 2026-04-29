@@ -283,7 +283,7 @@ export const DATA = {
 
     // Tech Stacks
     TECH_STACK: [
-        { id: 1, name: "React", designation: "UI Library", icon: ReactIcon },
+        { id: 1, name: "React", designation: "JS Library", icon: ReactIcon },
         { id: 2, name: "Next.js", designation: "Framework", icon: NextjsIcon },
         { id: 3, name: "TypeScript", designation: "Language", icon: TypeScriptIcon },
         { id: 4, name: "Tailwind CSS", designation: "Styling", icon: TailwindCSSIcon },

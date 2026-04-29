@@ -16,8 +16,8 @@ export function Hero() {
 
       <Link href="/components">
         <BadgeTag
-          version="v1.0.0"
-          text="Check them out initial blocks "
+          version="v1.0.1"
+          text="Check out initial blocks "
         />
       </Link>
 
