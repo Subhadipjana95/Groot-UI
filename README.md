@@ -1,203 +1,114 @@
 <div>
-  <img src="https://res.cloudinary.com/dfjuuwtr6/image/upload/v1776286912/Groot_UI_Preview_Dark_in5qww.webp" alt="Groot UI" width="100%" style="border-radius: 20px;" />
   <h1>Groot UI</h1>
-  <p>A modern, accessible component library built on shadcn/ui, React 19, Next.js 16, and Tailwind CSS v4.<br/>Install any component directly into your project with a single CLI command.</p>
+  <p>A premium, open-source component registry for high-performance React applications.</p>
 
-  <p>
-    <a href="https://github.com/Subhadipjana95/Groot-UI/stargazers">
-      <img src="https://img.shields.io/github/stars/Subhadipjana95/Groot-UI?style=for-the-badge&color=8D44AD" alt="Stars" />
-    </a>
-    <a href="https://github.com/Subhadipjana95/Groot-UI/network/members">
-      <img src="https://img.shields.io/github/forks/Subhadipjana95/Groot-UI?style=for-the-badge&color=2ECC71" alt="Forks" />
-    </a>
-    <a href="https://github.com/Subhadipjana95/Groot-UI/issues">
-      <img src="https://img.shields.io/github/issues/Subhadipjana95/Groot-UI?style=for-the-badge&color=E74C3C" alt="Issues" />
-    </a>
-    <a href="https://github.com/Subhadipjana95/Groot-UI/blob/main/LICENSE">
-      <img src="https://img.shields.io/github/license/Subhadipjana95/Groot-UI?style=for-the-badge&color=3498DB" alt="License" />
-    </a>
-  </p>
+  <img src="https://res.cloudinary.com/dfjuuwtr6/image/upload/v1776286912/Groot_UI_Preview_Dark_in5qww.webp" alt="Groot UI Banner" width="100%" style="border-radius: 20px;" />
 
-  <p>
-    <a href="https://grootui.vercel.app">Website</a> ·
-    <a href="https://grootui.vercel.app/docs">Documentation</a> ·
-    <a href="https://github.com/Subhadipjana95/Groot-UI/issues/new">Report a Bug</a> ·
-    <a href="https://github.com/Subhadipjana95/Groot-UI/issues/new">Request a Component</a>
-  </p>
+ <br/>
+ <br/>
+  
+  [![Stars](https://img.shields.io/github/stars/Subhadipjana95/Groot-UI?style=flat-square&color=8D44AD&labelColor=1a1a1a)](https://github.com/Subhadipjana95/Groot-UI/stargazers) [![Forks](https://img.shields.io/github/forks/Subhadipjana95/Groot-UI?style=flat-square&color=2ECC71&labelColor=1a1a1a)](https://github.com/Subhadipjana95/Groot-UI/network/members) [![Issues](https://img.shields.io/github/issues/Subhadipjana95/Groot-UI?style=flat-square&color=E74C3C&labelColor=1a1a1a)](https://github.com/Subhadipjana95/Groot-UI/issues) [![License](https://img.shields.io/github/license/Subhadipjana95/Groot-UI?style=flat-square&color=3498DB&labelColor=1a1a1a)](https://github.com/Subhadipjana95/Groot-UI/blob/main/LICENSE)
+ 
 
-  <br />
+  [Website](https://grootui.vercel.app) • [Documentation](https://grootui.vercel.app/docs) • [Report Bug](https://github.com/Subhadipjana95/Groot-UI/issues/new) • [Request Feature](https://github.com/Subhadipjana95/Groot-UI/issues/new)
+
+  ---
 </div>
 
----
+## ✦ What is Groot UI?
 
-## What is Groot UI?
+Groot UI is a decentralized component registry built on top of **shadcn/ui**. Unlike traditional component libraries that bundle everything into a heavy `node_modules` package, Groot UI allows you to **own your code**. 
 
-Groot UI is a component registry built on top of [shadcn/ui](https://ui.shadcn.com). Instead of installing a package, components are copied directly into your project — giving you full ownership of the code, full customizability, and zero version lock-in.
-
-Every component is:
-- Built with **React 19** and **TypeScript**
-- Styled with **Tailwind CSS v4**
-- Accessible with full **WAI-ARIA** compliance
-- Compatible with **Next.js App Router** and **Vite**
-- Dark mode ready out of the box
+By using our registry, you can copy components directly into your project with a single command. This architecture ensures:
+- **Zero Version Lock-in**: You control the source code of every component.
+- **Maximum Performance**: No unused code or bloated dependencies.
+- **Full Customizability**: Every pixel is under your control via Tailwind CSS v4.
 
 ---
 
-## Components
+## 🛠️ Tech Stack
 
-| Component            | Description                              | Install                                                    |
-| -------------------- | ---------------------------------------- | ---------------------------------------------------------- |
-| `groot-starter`      | Starter template component               | [Docs](https://grootui.vercel.app/docs/groot-starter)      |
-| `glow-card`          | Card with animated glow hover effect     | [Docs](https://grootui.vercel.app/docs/glow-card)          |
-| `github-stars`       | GitHub star count for Next.js App Router | [Docs](https://grootui.vercel.app/docs/github-stars)       |
-| `github-stars-react` | GitHub star count for Vite / React       | [Docs](https://grootui.vercel.app/docs/github-stars-react) |
+Groot UI is built with the latest industry standards to ensure longevity and performance:
 
-> More components are added regularly. Star the repo to stay updated.
+- **Core**: [Next.js 16](https://nextjs.org/) (App Router), [React 19](https://react.dev/)
+- **Logic**: [TypeScript](https://www.typescriptlang.org/)
+- **Styling**: [Tailwind CSS v4](https://tailwindcss.com/)
+- **Primitives**: [Radix UI](https://www.radix-ui.com/)
+- **Animations**: [Motion](https://motion.dev/)
+- **Base Components**: [shadcn/ui](https://ui.shadcn.com/)
 
 ---
 
-## Installation
+## 📂 Project Structure
 
-### Requirements
+This repository is a **Turborepo** monorepo designed for scale and developer velocity:
 
-- Next.js 15+ (Optional)
-- Node.js 18+
-- React 18 or 19
-- TypeScript
-- Tailwind CSS v4
-- shadcn/ui initialized in your project
-
-### Initialize shadcn/ui (if not already done)
 ```bash
-npx shadcn@latest init
-```
-
-### Install a component
-
-Pick any component and run its install command:
-```bash
-# Glow Card
-npx shadcn@latest add https://grootui.vercel.app/r/glow-card.json
-
-# GitHub Stars (Next.js)
-npx shadcn@latest add https://grootui.vercel.app/r/github-stars.json
-
-# GitHub Stars (Vite / React)
-npx shadcn@latest add https://grootui.vercel.app/r/github-stars-react.json
-
-# Gradient Text Fill
-npx shadcn@latest add https://grootui.vercel.app/r/gradient-text-fill.json
-
-# Gradient Background Text
-npx shadcn@latest add https://grootui.vercel.app/r/gradient-background-text.json
-
-# Client Grid
-npx shadcn@latest add https://grootui.vercel.app/r/client-grid.json
-
-# Client Marquee
-npx shadcn@latest add https://grootui.vercel.app/r/client-marquee.json
-
-# Client Marquee Blur
-npx shadcn@latest add https://grootui.vercel.app/r/client-marquee-blur.json
-
-# Discord Online (Next.js)
-npx shadcn@latest add https://grootui.vercel.app/r/discord-online.json
-
-# Discord Online (React / Vite)
-npx shadcn@latest add https://grootui.vercel.app/r/discord-online-react.json
-
-# GitHub Calendar
-npx shadcn@latest add https://grootui.vercel.app/r/github-calendar.json
-```
-
-The CLI copies the component source directly into your project under `components/`. No `node_modules`, no hidden abstractions.
-
----
-
-## Usage
-```tsx
-import { GlowCard } from "@/components/glow-card"
-
-export default function Example() {
-  return (
-    <GlowCard>
-      <h2>Hello from Groot UI</h2>
-      <p>This card has a glowing hover effect.</p>
-    </GlowCard>
-  )
-}
-```
-```tsx
-// Next.js App Router
-import { GitHubStars } from "@/components/github-stars"
-
-export default function Navbar() {
-  return <GitHubStars repo="Subhadipjana95/Groot-UI" />
-}
-```
-
----
-
-## Project Structure
-
-This is a Turborepo monorepo managed with npm workspaces.
-```
 groot-ui/
 ├── apps/
-│   └── web/                  # Docs + landing page (Next.js 16)
+│   └── web/                  # Documentation & Landing Page (Next.js 16)
 ├── packages/
-│   ├── ui/                   # Component library
-│   │   ├── registry/
-│   │   │   └── radix-nova/   # All groot-ui components live here
-│   │   ├── src/
-│   │   │   └── components/   # shadcn base components
-│   │   └── registry.json     # Registry manifest
-│   ├── eslint-config/        # Shared ESLint config
-│   └── typescript-config/    # Shared TypeScript config
-├── turbo.json
-└── package.json
+│   ├── ui/                   # The Core Registry
+│   │   ├── registry/         # High-fidelity component implementations
+│   │   ├── src/components/   # Foundational shadcn base components
+│   │   └── registry.json     # Registry manifest for CLI integration
+│   ├── eslint-config/        # Shared code quality standards
+│   └── typescript-config/    # Shared compiler configurations
+└── turbo.json                # Monorepo orchestration
 ```
 
 ---
 
-## Local Development
+## 🚀 Installation
 
-Clone the repo and install dependencies:
+### 1. Requirements
+Ensure your project environment meets the following:
+- **Node.js**: 18+
+- **Tailwind CSS**: v4
+- **shadcn/ui**: Initialized (`npx shadcn@latest init`)
+
+### 2. Add a Component
+Groot UI components are installed via the shadcn CLI using their registry URLs. For example, to add the **Sliding Button**:
+
 ```bash
-git clone https://github.com/Subhadipjana95/Groot-UI.git
-cd Groot-UI
-npm install
-```
-
-Start the development server:
-```bash
-npm run dev
-```
-
-Visit `http://localhost:3000` for the docs site.
-
-Build the component registry:
-```bash
-npm run registry
-```
-
-Build for production:
-```bash
-npm run build
+npx shadcn@latest add https://grootui.vercel.app/r/sliding-button.json
 ```
 
 ---
 
-## Contributing
+## 💻 Local Development
 
-Contributions are welcome. Please read [CONTRIBUTING.md](./CONTRIBUTING.md) before submitting a pull request.
+Follow these steps to contribute or run Groot UI locally:
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/Subhadipjana95/Groot-UI.git
+   cd Groot-UI
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Start development server**
+   ```bash
+   npm run dev
+   ```
+   Access the documentation at `http://localhost:3000`.
+
+4. **Build the registry**
+   ```bash
+   npm run registry
+   ```
 
 ---
 
-## License
+## ⚖️ License
 
-MIT — see [LICENSE](./LICENSE) for details.
+Distributed under the **MIT License**. See `LICENSE` for more information.
 
----
-
-<p align="center">Built with 💚 by <a href="https://github.com/Subhadipjana95">Subhadip</a></p>
+<div align="center">
+  <br />
+  <p>Built with 💚 by <a href="https://github.com/Subhadipjana95">Subhadip Jana</a></p>
+</div>
