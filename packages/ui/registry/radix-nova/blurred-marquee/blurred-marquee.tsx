@@ -189,7 +189,7 @@ const LogoImage = memo(function LogoImage({ logo }: { logo: Logo }) {
   )
 })
 
-export const ClientMarqueeBlur = memo(function ClientMarqueeBlur({
+export const BlurredMarquee = memo(function BlurredMarquee({
   logos,
   className,
 }: {
@@ -236,4 +236,4 @@ export const ClientMarqueeBlur = memo(function ClientMarqueeBlur({
   )
 })
 
-ClientMarqueeBlur.displayName = "ClientMarqueeBlur"
+BlurredMarquee.displayName = "BlurredMarquee"

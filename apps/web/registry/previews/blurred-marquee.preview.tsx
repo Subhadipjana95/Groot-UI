@@ -1,4 +1,4 @@
-import { ClientMarqueeBlur } from "@workspace/ui/registry/radix-nova/client-marquee-blur/client-marquee-blur";
+import { BlurredMarquee } from "@workspace/ui/registry/radix-nova/blurred-marquee/blurred-marquee";
 
 const logos = [
   { src: "https://svgl.app/library/nvidia-wordmark-light.svg", alt: "Nvidia" },
@@ -11,6 +11,10 @@ const logos = [
   { src: "https://svgl.app/library/claude-ai-wordmark-icon_light.svg", alt: "Claude" },
 ];
 
-export default function ClientMarqueeBlurPreview() {
-  return <ClientMarqueeBlur logos={logos} />;
+export default function BlurredMarqueePreview() {
+  return (
+    <div className="w-full">
+      <BlurredMarquee logos={logos} />
+    </div>
+  )
 }
