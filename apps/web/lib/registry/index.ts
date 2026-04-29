@@ -1,7 +1,7 @@
 // ─────────────────────────────────────────────────────────────────
 // AUTO-GENERATED — do not edit manually.
 // Run: npm run registry:index
-// Last generated: 2026-04-28T23:50:00.697Z
+// Last generated: 2026-04-29T09:31:03.867Z
 // ─────────────────────────────────────────────────────────────────
 
 import type { ComponentConfig } from "@workspace/ui/types/registry";
@@ -138,111 +138,8 @@ export const registry: ComponentConfig[] = [
     ]
   },
   {
-    "name": "client-grid",
-    "title": "Client Grid",
-    "description": "Clean grid of client logos with dashed plus-sign separators.",
-    "category": {
-      "name": "Blocks",
-      "slug": "blocks"
-    },
-    "tier": "free",
-    "status": "stable",
-    "image": "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1777378066/client-grid_lighht_iglnwa.webp",
-    "imageDark": "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1777378066/client-grid_dark_ei9qu3.webp",
-    "tags": [
-      "grid",
-      "logos",
-      "layout"
-    ],
-    "preview": {
-      "disableSSR": true,
-      "height": 400
-    },
-    "registryUrl": "https://grootui.vercel.app/r/client-grid.json",
-    "npmDependencies": [
-      "lucide-react"
-    ],
-    "registryDependencies": [],
-    "usage": {
-      "import": "import { ClientGrid } from \"@/components/client-grid\"",
-      "code": "export default function Demo() {\n  return <ClientGrid />\n}"
-    },
-    "props": [
-      {
-        "name": "items",
-        "type": "Logo[]",
-        "default": "DEFAULT_ITEMS",
-        "required": true,
-        "description": "Array of logos (src, alt, width, height)"
-      },
-      {
-        "name": "className",
-        "type": "string",
-        "description": "Container styling"
-      }
-    ],
-    "files": [
-      {
-        "name": "client-grid.tsx",
-        "content": "\"use client\"\r\n\r\nimport React, { memo, useMemo } from \"react\"\r\nimport { cn } from \"@/lib/utils\"\r\nimport { PlusIcon } from \"lucide-react\"\r\n\r\nexport type Logo = {\r\n  src: string\r\n  alt: string\r\n  width?: number\r\n  height?: number\r\n}\r\n\r\nconst LogoImage = memo(function LogoImage({ logo }: { logo: Logo }) {\r\n  return (\r\n    <img\r\n      alt={logo.alt}\r\n      src={logo.src}\r\n      width={logo.width}\r\n      height={logo.height}\r\n      loading=\"lazy\"\r\n      className=\"pointer-events-none h-4 select-none md:h-5 dark:brightness-0 dark:invert\"\r\n    />\r\n  )\r\n})\r\n\r\ntype LogoCardProps = React.ComponentProps<\"div\"> & { logo: Logo }\r\n\r\nconst LogoCard = memo(function LogoCard({\r\n  logo,\r\n  className,\r\n  children,\r\n  ...props\r\n}: LogoCardProps) {\r\n  return (\r\n    <div\r\n      className={cn(\r\n        \"relative flex items-center justify-center bg-background px-4 py-8 md:p-8\",\r\n        className\r\n      )}\r\n      {...props}\r\n    >\r\n      <LogoImage logo={logo} />\r\n      {children}\r\n    </div>\r\n  )\r\n})\r\n\r\nexport const ClientGrid = memo(function ClientGrid({\r\n  logos,\r\n  className,\r\n}: {\r\n  logos: Logo[]\r\n  className?: string\r\n}) {\r\n  const gridLogos = useMemo(() => logos.slice(0, 8), [logos])\r\n\r\n  return (\r\n    <div\r\n      className={cn(\r\n        \"relative grid grid-cols-2 border-x md:grid-cols-4\",\r\n        className\r\n      )}\r\n    >\r\n      <div className=\"-translate-x-1/2 -top-px pointer-events-none absolute left-1/2 w-screen border-t\" />\r\n\r\n      {gridLogos.map((logo, i) => {\r\n        const isHighlighted = i === 0 || i === 2 || i === 5 || i === 7\r\n\r\n        return (\r\n          <LogoCard\r\n            key={logo.alt}\r\n            logo={logo}\r\n            className={cn(\r\n              i < 4 && \"border-b\",\r\n              (i === 4 || i === 5) && \"border-b md:border-b-0\",\r\n              (i === 0 || i === 2 || i === 4 || i === 6) && \"border-r\",\r\n              (i === 1 || i === 5) && \"md:border-r\",\r\n              isHighlighted\r\n                ? \"bg-secondary dark:bg-secondary/30\"\r\n                : \"bg-background\"\r\n            )}\r\n          >\r\n            {(i === 0 || i === 1 || i === 2) && (\r\n              <PlusIcon\r\n                className=\"-right-[12.5px] -bottom-[12.5px] absolute z-10 hidden size-6 md:block text-slate-800 dark:text-slate-300\"\r\n                strokeWidth={1}\r\n              />\r\n            )}\r\n            {(i === 0 || i === 2 || i === 4) && (\r\n              <PlusIcon\r\n                className=\"-right-[12.5px] -bottom-[12.5px] absolute z-10 size-6 md:hidden text-slate-800 dark:text-slate-300\"\r\n                strokeWidth={1}\r\n              />\r\n            )}\r\n          </LogoCard>\r\n        )\r\n      })}\r\n\r\n      <div className=\"-translate-x-1/2 -bottom-px pointer-events-none absolute left-1/2 w-screen border-b\" />\r\n    </div>\r\n  )\r\n})\r\n\r\nClientGrid.displayName = \"ClientGrid\""
-      }
-    ]
-  },
-  {
-    "name": "client-marquee",
-    "title": "Client Marquee",
-    "description": "Premium infinite marquee slider with automatic brand fallback and mask fades.",
-    "category": {
-      "name": "Marquee",
-      "slug": "marquee"
-    },
-    "tier": "free",
-    "status": "stable",
-    "image": "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1777378484/client-marquee_light_f6d3se.webp",
-    "imageDark": "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1777378486/client-marquee_dark_vbkxfs.webp",
-    "tags": [
-      "marquee",
-      "logos",
-      "slider"
-    ],
-    "preview": {
-      "disableSSR": true,
-      "height": 300
-    },
-    "registryUrl": "https://grootui.vercel.app/r/client-marquee.json",
-    "npmDependencies": [
-      "motion/react",
-      "react-use-measure"
-    ],
-    "registryDependencies": [],
-    "usage": {
-      "import": "import { ClientMarquee } from \"@/components/client-marquee\"",
-      "code": "export default function Demo() {\n  return <ClientMarquee />\n}"
-    },
-    "props": [
-      {
-        "name": "items",
-        "type": "Logo[]",
-        "default": "DEFAULT_ITEMS",
-        "required": true,
-        "description": "Array of logo items (src, alt, width, height)"
-      },
-      {
-        "name": "className",
-        "type": "string",
-        "description": "Container styling"
-      }
-    ],
-    "files": [
-      {
-        "name": "client-marquee.tsx",
-        "content": "\"use client\"\r\n\r\nimport React, { memo, useState, useEffect } from \"react\"\r\nimport { cn } from \"@/lib/utils\"\r\nimport { useMotionValue, animate, motion } from \"motion/react\"\r\nimport useMeasure from \"react-use-measure\"\r\n\r\nexport type Logo = {\r\n  src: string\r\n  alt: string\r\n  width?: number\r\n  height?: number\r\n}\r\n\r\ntype InfiniteSliderProps = {\r\n  children: React.ReactNode\r\n  gap?: number\r\n  duration?: number\r\n  durationOnHover?: number\r\n  direction?: \"horizontal\" | \"vertical\"\r\n  reverse?: boolean\r\n  className?: string\r\n}\r\n\r\nconst InfiniteSlider = memo(function InfiniteSlider({\r\n  children,\r\n  gap = 16,\r\n  duration = 25,\r\n  durationOnHover,\r\n  direction = \"horizontal\",\r\n  reverse = false,\r\n  className,\r\n}: InfiniteSliderProps) {\r\n  const [currentDuration, setCurrentDuration] = useState(duration)\r\n  const [ref, { width, height }] = useMeasure()\r\n  const translation = useMotionValue(0)\r\n  const [isTransitioning, setIsTransitioning] = useState(false)\r\n  const [key, setKey] = useState(0)\r\n\r\n  useEffect(() => {\r\n    const size = direction === \"horizontal\" ? width : height\r\n    const contentSize = size + gap\r\n    const from = reverse ? -contentSize / 2 : 0\r\n    const to = reverse ? 0 : -contentSize / 2\r\n\r\n    let controls\r\n\r\n    if (isTransitioning) {\r\n      controls = animate(translation, [translation.get(), to], {\r\n        ease: \"linear\",\r\n        duration:\r\n          currentDuration *\r\n          Math.abs((translation.get() - to) / contentSize),\r\n        onComplete: () => {\r\n          setIsTransitioning(false)\r\n          setKey((prev) => prev + 1)\r\n        },\r\n      })\r\n    } else {\r\n      controls = animate(translation, [from, to], {\r\n        ease: \"linear\",\r\n        duration: currentDuration,\r\n        repeat: Infinity,\r\n        repeatType: \"loop\",\r\n        repeatDelay: 0,\r\n        onRepeat: () => translation.set(from),\r\n      })\r\n    }\r\n\r\n    return controls?.stop\r\n  }, [\r\n    key,\r\n    translation,\r\n    currentDuration,\r\n    width,\r\n    height,\r\n    gap,\r\n    isTransitioning,\r\n    direction,\r\n    reverse,\r\n  ])\r\n\r\n  const hoverProps = durationOnHover\r\n    ? {\r\n        onHoverStart: () => {\r\n          setIsTransitioning(true)\r\n          setCurrentDuration(durationOnHover)\r\n        },\r\n        onHoverEnd: () => {\r\n          setIsTransitioning(true)\r\n          setCurrentDuration(duration)\r\n        },\r\n      }\r\n    : {}\r\n\r\n  return (\r\n    <div className={cn(\"overflow-hidden\", className)}>\r\n      <motion.div\r\n        ref={ref}\r\n        className=\"flex w-max\"\r\n        style={{\r\n          ...(direction === \"horizontal\"\r\n            ? { x: translation }\r\n            : { y: translation }),\r\n          gap: `${gap}px`,\r\n          flexDirection: direction === \"horizontal\" ? \"row\" : \"column\",\r\n        }}\r\n        {...hoverProps}\r\n      >\r\n        {children}\r\n        {children}\r\n      </motion.div>\r\n    </div>\r\n  )\r\n})\r\n\r\nconst LogoImage = memo(function LogoImage({ logo }: { logo: Logo }) {\r\n  return (\r\n    <img\r\n      alt={logo.alt}\r\n      src={logo.src}\r\n      width={logo.width ?? \"auto\"}\r\n      height={logo.height ?? \"auto\"}\r\n      loading=\"lazy\"\r\n      className=\"pointer-events-none h-4 select-none md:h-5 dark:brightness-0 dark:invert\"\r\n    />\r\n  )\r\n})\r\n\r\nexport const ClientMarquee = memo(function ClientMarquee({\r\n  logos,\r\n  className,\r\n}: {\r\n  logos: Logo[]\r\n  className?: string\r\n}) {\r\n  return (\r\n    <div\r\n      className={cn(\r\n        \"max-w-7xl mx-auto overflow-hidden py-4 mask-[linear-gradient(to_right,transparent,black_25%,black_75%,transparent)]\",\r\n        className\r\n      )}\r\n    >\r\n      <InfiniteSlider gap={42} reverse duration={80} durationOnHover={25}>\r\n        {[...logos, ...logos].map((logo, i) => (\r\n          <LogoImage key={`${logo.alt}-${i}`} logo={logo} />\r\n        ))}\r\n      </InfiniteSlider>\r\n    </div>\r\n  )\r\n})\r\n\r\nClientMarquee.displayName = \"ClientMarquee\""
-      }
-    ]
-  },
-  {
-    "name": "client-marquee-blur",
-    "title": "Client Marquee Blur",
+    "name": "blurred-marquee",
+    "title": "Blurred Marquee",
     "description": "Infinite marquee with sophisticated radial blurring and masked logo transitions.",
     "category": {
       "name": "Marquee",
@@ -262,7 +159,7 @@ export const registry: ComponentConfig[] = [
       "disableSSR": true,
       "height": 300
     },
-    "registryUrl": "https://grootui.vercel.app/r/client-marquee-blur.json",
+    "registryUrl": "https://grootui.vercel.app/r/blurred-marquee.json",
     "npmDependencies": [
       "motion/react",
       "react-use-measure",
@@ -270,8 +167,8 @@ export const registry: ComponentConfig[] = [
     ],
     "registryDependencies": [],
     "usage": {
-      "import": "import { ClientMarqueeBlur } from \"@/components/client-marquee-blur\"",
-      "code": "export default function Demo() {\n  return <ClientMarqueeBlur />\n}"
+      "import": "import { BlurredMarquee } from \"@/components/blurred-marquee\"",
+      "code": "const logos = [\n  { src: \"https://svgl.app/library/nvidia-wordmark-light.svg\", alt: \"Nvidia\" },\n  { src: \"https://svgl.app/library/claude-ai-wordmark-icon_light.svg\", alt: \"Claude\" },\n  { src: \"https://svgl.app/library/stripe-wordmark-light.svg\", alt: \"Stripe\" },\n  { src: \"https://svgl.app/library/rails-wordmark-light.svg\", alt: \"Rails\" },\n  { src: \"https://svgl.app/library/deno-wordmark-icon_light.svg\", alt: \"Deno\" },\n  { src: \"https://svgl.app/library/github-wordmark-light.svg\", alt: \"Github\" },\n  { src: \"https://svgl.app/library/tailwindcss-wordmark-light.svg\", alt: \"Tailwindcss\" },\n  { src: \"https://svgl.app/library/shadcn-ui-logo_light.svg\", alt: \"Shadcn ui\" },\n];\n\nexport default function Demo() {\n  return (\n    <div className=\"w-full\">\n      <BlurredMarquee logos={logos} />\n    </div>\n  )\n}"
     },
     "props": [
       {
@@ -289,8 +186,8 @@ export const registry: ComponentConfig[] = [
     ],
     "files": [
       {
-        "name": "client-marquee-blur.tsx",
-        "content": "\"use client\"\r\n\r\nimport React, { memo, useState, useEffect } from \"react\"\r\nimport { cn } from \"@/lib/utils\"\r\nimport { PlusIcon } from \"lucide-react\"\r\nimport {\r\n  useMotionValue,\r\n  animate,\r\n  motion,\r\n  HTMLMotionProps,\r\n} from \"motion/react\"\r\nimport useMeasure from \"react-use-measure\"\r\n\r\nexport type Logo = {\r\n  src: string\r\n  alt: string\r\n  width?: number\r\n  height?: number\r\n}\r\n\r\ntype InfiniteSliderProps = {\r\n  children: React.ReactNode\r\n  gap?: number\r\n  duration?: number\r\n  durationOnHover?: number\r\n  direction?: \"horizontal\" | \"vertical\"\r\n  reverse?: boolean\r\n  className?: string\r\n}\r\n\r\nconst InfiniteSlider = memo(function InfiniteSlider({\r\n  children,\r\n  gap = 16,\r\n  duration = 25,\r\n  durationOnHover,\r\n  direction = \"horizontal\",\r\n  reverse = false,\r\n  className,\r\n}: InfiniteSliderProps) {\r\n  const [currentDuration, setCurrentDuration] = useState(duration)\r\n  const [ref, { width, height }] = useMeasure()\r\n  const translation = useMotionValue(0)\r\n  const [isTransitioning, setIsTransitioning] = useState(false)\r\n  const [key, setKey] = useState(0)\r\n\r\n  useEffect(() => {\r\n    const size = direction === \"horizontal\" ? width : height\r\n    const contentSize = size + gap\r\n    const from = reverse ? -contentSize / 2 : 0\r\n    const to = reverse ? 0 : -contentSize / 2\r\n\r\n    let controls\r\n\r\n    if (isTransitioning) {\r\n      controls = animate(translation, [translation.get(), to], {\r\n        ease: \"linear\",\r\n        duration:\r\n          currentDuration *\r\n          Math.abs((translation.get() - to) / contentSize),\r\n        onComplete: () => {\r\n          setIsTransitioning(false)\r\n          setKey((prev) => prev + 1)\r\n        },\r\n      })\r\n    } else {\r\n      controls = animate(translation, [from, to], {\r\n        ease: \"linear\",\r\n        duration: currentDuration,\r\n        repeat: Infinity,\r\n        repeatType: \"loop\",\r\n        repeatDelay: 0,\r\n        onRepeat: () => translation.set(from),\r\n      })\r\n    }\r\n\r\n    return controls?.stop\r\n  }, [\r\n    key,\r\n    translation,\r\n    currentDuration,\r\n    width,\r\n    height,\r\n    gap,\r\n    isTransitioning,\r\n    direction,\r\n    reverse,\r\n  ])\r\n\r\n  const hoverProps = durationOnHover\r\n    ? {\r\n        onHoverStart: () => {\r\n          setIsTransitioning(true)\r\n          setCurrentDuration(durationOnHover)\r\n        },\r\n        onHoverEnd: () => {\r\n          setIsTransitioning(true)\r\n          setCurrentDuration(duration)\r\n        },\r\n      }\r\n    : {}\r\n\r\n  return (\r\n    <div className={cn(\"overflow-hidden\", className)}>\r\n      <motion.div\r\n        ref={ref}\r\n        className=\"flex w-max\"\r\n        style={{\r\n          ...(direction === \"horizontal\"\r\n            ? { x: translation }\r\n            : { y: translation }),\r\n          gap: `${gap}px`,\r\n          flexDirection: direction === \"horizontal\" ? \"row\" : \"column\",\r\n        }}\r\n        {...hoverProps}\r\n      >\r\n        {children}\r\n        {children}\r\n      </motion.div>\r\n    </div>\r\n  )\r\n})\r\n\r\nconst GRADIENT_ANGLES = { top: 0, right: 90, bottom: 180, left: 270 }\r\n\r\ntype ProgressiveBlurProps = {\r\n  direction?: keyof typeof GRADIENT_ANGLES\r\n  blurLayers?: number\r\n  blurIntensity?: number\r\n  className?: string\r\n} & HTMLMotionProps<\"div\">\r\n\r\nconst ProgressiveBlur = memo(function ProgressiveBlur({\r\n  direction = \"bottom\",\r\n  blurLayers = 8,\r\n  blurIntensity = 0.25,\r\n  className,\r\n  ...props\r\n}: ProgressiveBlurProps) {\r\n  const layers = Math.max(blurLayers, 2)\r\n  const segmentSize = 1 / (blurLayers + 1)\r\n  const angle = GRADIENT_ANGLES[direction]\r\n\r\n  return (\r\n    <div className={cn(\"relative\", className)}>\r\n      {Array.from({ length: layers }).map((_, index) => {\r\n        const gradientStops = [\r\n          index * segmentSize,\r\n          (index + 1) * segmentSize,\r\n          (index + 2) * segmentSize,\r\n          (index + 3) * segmentSize,\r\n        ]\r\n          .map(\r\n            (pos, posIndex) =>\r\n              `rgba(255,255,255,${\r\n                posIndex === 1 || posIndex === 2 ? 1 : 0\r\n              }) ${pos * 100}%`\r\n          )\r\n          .join(\", \")\r\n\r\n        const gradient = `linear-gradient(${angle}deg, ${gradientStops})`\r\n\r\n        return (\r\n          <motion.div\r\n            key={index}\r\n            className=\"pointer-events-none absolute inset-0 rounded-[inherit]\"\r\n            style={{\r\n              maskImage: gradient,\r\n              WebkitMaskImage: gradient,\r\n              backdropFilter: `blur(${index * blurIntensity}px)`,\r\n            }}\r\n            {...props}\r\n          />\r\n        )\r\n      })}\r\n    </div>\r\n  )\r\n})\r\n\r\nconst LogoImage = memo(function LogoImage({ logo }: { logo: Logo }) {\r\n  return (\r\n    <img\r\n      alt={logo.alt}\r\n      src={logo.src}\r\n      width={logo.width ?? \"auto\"}\r\n      height={logo.height ?? \"auto\"}\r\n      loading=\"lazy\"\r\n      className=\"pointer-events-none h-4 select-none md:h-5 dark:brightness-0 dark:invert\"\r\n    />\r\n  )\r\n})\r\n\r\nexport const ClientMarqueeBlur = memo(function ClientMarqueeBlur({\r\n  logos,\r\n  className,\r\n}: {\r\n  logos: Logo[]\r\n  className?: string\r\n}) {\r\n  return (\r\n    <div\r\n      className={cn(\r\n        \"relative mx-auto max-w-6xl bg-linear-to-r from-secondary via-transparent to-secondary py-6 md:border-x\",\r\n        className\r\n      )}\r\n    >\r\n      <div className=\"-translate-x-1/2 -top-px pointer-events-none absolute left-1/2 w-screen border-t\" />\r\n\r\n      <InfiniteSlider gap={52} reverse duration={60} durationOnHover={20}>\r\n        {logos.map((logo) => (\r\n          <LogoImage key={logo.alt} logo={logo} />\r\n        ))}\r\n      </InfiniteSlider>\r\n\r\n      <ProgressiveBlur\r\n        blurIntensity={1}\r\n        className=\"pointer-events-none absolute top-0 left-0 h-full w-40\"\r\n        direction=\"left\"\r\n      />\r\n      <ProgressiveBlur\r\n        blurIntensity={1}\r\n        className=\"pointer-events-none absolute top-0 right-0 h-full w-40\"\r\n        direction=\"right\"\r\n      />\r\n\r\n      <div className=\"-translate-x-1/2 -bottom-px pointer-events-none absolute left-1/2 w-screen border-b\" />\r\n\r\n      <PlusIcon\r\n        className=\"-top-[12.5px] -right-[12.5px] absolute z-10 hidden size-6 md:block text-slate-800 dark:text-slate-300\"\r\n        strokeWidth={1}\r\n      />\r\n      <PlusIcon\r\n        className=\"-bottom-[12.5px] -left-[12.5px] absolute z-10 hidden size-6 md:block text-slate-800 dark:text-slate-300\"\r\n        strokeWidth={1}\r\n      />\r\n    </div>\r\n  )\r\n})\r\n\r\nClientMarqueeBlur.displayName = \"ClientMarqueeBlur\""
+        "name": "blurred-marquee.tsx",
+        "content": "\"use client\"\r\n\r\nimport React, { memo, useState, useEffect } from \"react\"\r\nimport { cn } from \"@/lib/utils\"\r\nimport { PlusIcon } from \"lucide-react\"\r\nimport {\r\n  useMotionValue,\r\n  animate,\r\n  motion,\r\n  HTMLMotionProps,\r\n} from \"motion/react\"\r\nimport useMeasure from \"react-use-measure\"\r\n\r\nexport type Logo = {\r\n  src: string\r\n  alt: string\r\n  width?: number\r\n  height?: number\r\n}\r\n\r\ntype InfiniteSliderProps = {\r\n  children: React.ReactNode\r\n  gap?: number\r\n  duration?: number\r\n  durationOnHover?: number\r\n  direction?: \"horizontal\" | \"vertical\"\r\n  reverse?: boolean\r\n  className?: string\r\n}\r\n\r\nconst InfiniteSlider = memo(function InfiniteSlider({\r\n  children,\r\n  gap = 16,\r\n  duration = 25,\r\n  durationOnHover,\r\n  direction = \"horizontal\",\r\n  reverse = false,\r\n  className,\r\n}: InfiniteSliderProps) {\r\n  const [currentDuration, setCurrentDuration] = useState(duration)\r\n  const [ref, { width, height }] = useMeasure()\r\n  const translation = useMotionValue(0)\r\n  const [isTransitioning, setIsTransitioning] = useState(false)\r\n  const [key, setKey] = useState(0)\r\n\r\n  useEffect(() => {\r\n    const size = direction === \"horizontal\" ? width : height\r\n    const contentSize = size + gap\r\n    const from = reverse ? -contentSize / 2 : 0\r\n    const to = reverse ? 0 : -contentSize / 2\r\n\r\n    let controls\r\n\r\n    if (isTransitioning) {\r\n      controls = animate(translation, [translation.get(), to], {\r\n        ease: \"linear\",\r\n        duration:\r\n          currentDuration *\r\n          Math.abs((translation.get() - to) / contentSize),\r\n        onComplete: () => {\r\n          setIsTransitioning(false)\r\n          setKey((prev) => prev + 1)\r\n        },\r\n      })\r\n    } else {\r\n      controls = animate(translation, [from, to], {\r\n        ease: \"linear\",\r\n        duration: currentDuration,\r\n        repeat: Infinity,\r\n        repeatType: \"loop\",\r\n        repeatDelay: 0,\r\n        onRepeat: () => translation.set(from),\r\n      })\r\n    }\r\n\r\n    return controls?.stop\r\n  }, [\r\n    key,\r\n    translation,\r\n    currentDuration,\r\n    width,\r\n    height,\r\n    gap,\r\n    isTransitioning,\r\n    direction,\r\n    reverse,\r\n  ])\r\n\r\n  const hoverProps = durationOnHover\r\n    ? {\r\n        onHoverStart: () => {\r\n          setIsTransitioning(true)\r\n          setCurrentDuration(durationOnHover)\r\n        },\r\n        onHoverEnd: () => {\r\n          setIsTransitioning(true)\r\n          setCurrentDuration(duration)\r\n        },\r\n      }\r\n    : {}\r\n\r\n  return (\r\n    <div className={cn(\"overflow-hidden\", className)}>\r\n      <motion.div\r\n        ref={ref}\r\n        className=\"flex w-max\"\r\n        style={{\r\n          ...(direction === \"horizontal\"\r\n            ? { x: translation }\r\n            : { y: translation }),\r\n          gap: `${gap}px`,\r\n          flexDirection: direction === \"horizontal\" ? \"row\" : \"column\",\r\n        }}\r\n        {...hoverProps}\r\n      >\r\n        {children}\r\n        {children}\r\n      </motion.div>\r\n    </div>\r\n  )\r\n})\r\n\r\nconst GRADIENT_ANGLES = { top: 0, right: 90, bottom: 180, left: 270 }\r\n\r\ntype ProgressiveBlurProps = {\r\n  direction?: keyof typeof GRADIENT_ANGLES\r\n  blurLayers?: number\r\n  blurIntensity?: number\r\n  className?: string\r\n} & HTMLMotionProps<\"div\">\r\n\r\nconst ProgressiveBlur = memo(function ProgressiveBlur({\r\n  direction = \"bottom\",\r\n  blurLayers = 8,\r\n  blurIntensity = 0.25,\r\n  className,\r\n  ...props\r\n}: ProgressiveBlurProps) {\r\n  const layers = Math.max(blurLayers, 2)\r\n  const segmentSize = 1 / (blurLayers + 1)\r\n  const angle = GRADIENT_ANGLES[direction]\r\n\r\n  return (\r\n    <div className={cn(\"relative\", className)}>\r\n      {Array.from({ length: layers }).map((_, index) => {\r\n        const gradientStops = [\r\n          index * segmentSize,\r\n          (index + 1) * segmentSize,\r\n          (index + 2) * segmentSize,\r\n          (index + 3) * segmentSize,\r\n        ]\r\n          .map(\r\n            (pos, posIndex) =>\r\n              `rgba(255,255,255,${\r\n                posIndex === 1 || posIndex === 2 ? 1 : 0\r\n              }) ${pos * 100}%`\r\n          )\r\n          .join(\", \")\r\n\r\n        const gradient = `linear-gradient(${angle}deg, ${gradientStops})`\r\n\r\n        return (\r\n          <motion.div\r\n            key={index}\r\n            className=\"pointer-events-none absolute inset-0 rounded-[inherit]\"\r\n            style={{\r\n              maskImage: gradient,\r\n              WebkitMaskImage: gradient,\r\n              backdropFilter: `blur(${index * blurIntensity}px)`,\r\n            }}\r\n            {...props}\r\n          />\r\n        )\r\n      })}\r\n    </div>\r\n  )\r\n})\r\n\r\nconst LogoImage = memo(function LogoImage({ logo }: { logo: Logo }) {\r\n  return (\r\n    <img\r\n      alt={logo.alt}\r\n      src={logo.src}\r\n      width={logo.width ?? \"auto\"}\r\n      height={logo.height ?? \"auto\"}\r\n      loading=\"lazy\"\r\n      className=\"pointer-events-none h-4 select-none md:h-5 dark:brightness-0 dark:invert\"\r\n    />\r\n  )\r\n})\r\n\r\nexport const BlurredMarquee = memo(function BlurredMarquee({\r\n  logos,\r\n  className,\r\n}: {\r\n  logos: Logo[]\r\n  className?: string\r\n}) {\r\n  return (\r\n    <div\r\n      className={cn(\r\n        \"relative mx-auto max-w-6xl bg-linear-to-r from-secondary via-transparent to-secondary py-6 md:border-x\",\r\n        className\r\n      )}\r\n    >\r\n      <div className=\"-translate-x-1/2 -top-px pointer-events-none absolute left-1/2 w-screen border-t\" />\r\n\r\n      <InfiniteSlider gap={52} reverse duration={60} durationOnHover={20}>\r\n        {logos.map((logo) => (\r\n          <LogoImage key={logo.alt} logo={logo} />\r\n        ))}\r\n      </InfiniteSlider>\r\n\r\n      <ProgressiveBlur\r\n        blurIntensity={1}\r\n        className=\"pointer-events-none absolute top-0 left-0 h-full w-40\"\r\n        direction=\"left\"\r\n      />\r\n      <ProgressiveBlur\r\n        blurIntensity={1}\r\n        className=\"pointer-events-none absolute top-0 right-0 h-full w-40\"\r\n        direction=\"right\"\r\n      />\r\n\r\n      <div className=\"-translate-x-1/2 -bottom-px pointer-events-none absolute left-1/2 w-screen border-b\" />\r\n\r\n      <PlusIcon\r\n        className=\"-top-[12.5px] -right-[12.5px] absolute z-10 hidden size-6 md:block text-slate-800 dark:text-slate-300\"\r\n        strokeWidth={1}\r\n      />\r\n      <PlusIcon\r\n        className=\"-bottom-[12.5px] -left-[12.5px] absolute z-10 hidden size-6 md:block text-slate-800 dark:text-slate-300\"\r\n        strokeWidth={1}\r\n      />\r\n    </div>\r\n  )\r\n})\r\n\r\nBlurredMarquee.displayName = \"BlurredMarquee\""
       }
     ]
   },
@@ -848,6 +745,110 @@ export const registry: ComponentConfig[] = [
       {
         "name": "groot-starter.tsx",
         "content": "import { Button } from \"@/components/ui/button\"\r\n\r\nexport function ExampleComponent() {\r\n  return (\r\n    <Button className=\"rounded-full px-8\">\r\n      Hello from groot-ui\r\n    </Button>\r\n  )\r\n}"
+      }
+    ]
+  },
+  {
+    "name": "logo-grid",
+    "title": "Logo Grid",
+    "description": "Clean grid of client logos with dashed plus-sign separators.",
+    "category": {
+      "name": "Blocks",
+      "slug": "blocks"
+    },
+    "tier": "free",
+    "status": "stable",
+    "label": "New",
+    "image": "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1777378066/client-grid_lighht_iglnwa.webp",
+    "imageDark": "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1777378066/client-grid_dark_ei9qu3.webp",
+    "tags": [
+      "grid",
+      "logos",
+      "layout"
+    ],
+    "preview": {
+      "disableSSR": true,
+      "height": 400
+    },
+    "registryUrl": "https://grootui.vercel.app/r/logo-grid.json",
+    "npmDependencies": [
+      "lucide-react"
+    ],
+    "registryDependencies": [],
+    "usage": {
+      "import": "import { LogoGrid } from \"@/components/logo-grid\"",
+      "code": "export default function Demo() {\n  return (\n  <LogoGrid \n  logos={[\n    {\n      src: \"https://res.cloudinary.com/dfjuuwtr6/image/upload/v1777378066/nvidia-wordmark-light_rby94r.webp\",\n      alt: \"NVIDIA\",\n    },\n    {\n      src: \"https://res.cloudinary.com/dfjuuwtr6/image/upload/v1777378067/github-wordmark-light_b6f50g.webp\",\n      alt: \"GitHub\",\n    },\n    {\n      src: \"https://res.cloudinary.com/dfjuuwtr6/image/upload/v1777378067/python-wordmark-light_b0o0x8.webp\",\n      alt: \"Python\",\n    },\n    {\n      src: \"https://res.cloudinary.com/dfjuuwtr6/image/upload/v1777378066/vercel-wordmark-light_y4v7h8.webp\",\n      alt: \"Vercel\",\n    },\n    {\n      src: \"https://res.cloudinary.com/dfjuuwtr6/image/upload/v1777378067/nodejs-wordmark-light_y30xga.webp\",\n      alt: \"Node.js\",\n    },\n    {\n      src: \"https://res.cloudinary.com/dfjuuwtr6/image/upload/v1777378066/typescript-wordmark-light_zmyr6r.webp\",\n      alt: \"TypeScript\",\n    }\n  ]}\n  />\n  )\n}"
+    },
+    "props": [
+      {
+        "name": "items",
+        "type": "Logo[]",
+        "default": "DEFAULT_ITEMS",
+        "required": true,
+        "description": "Array of logos (src, alt, width, height)"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "description": "Container styling"
+      }
+    ],
+    "files": [
+      {
+        "name": "logo-grid.tsx",
+        "content": "\"use client\"\r\n\r\nimport React, { memo, useMemo } from \"react\"\r\nimport { cn } from \"@/lib/utils\"\r\nimport { PlusIcon } from \"lucide-react\"\r\n\r\nexport type Logo = {\r\n  src: string\r\n  alt: string\r\n  width?: number\r\n  height?: number\r\n}\r\n\r\nconst LogoImage = memo(function LogoImage({ logo }: { logo: Logo }) {\r\n  return (\r\n    <img\r\n      alt={logo.alt}\r\n      src={logo.src}\r\n      width={logo.width}\r\n      height={logo.height}\r\n      loading=\"lazy\"\r\n      className=\"pointer-events-none h-4 select-none md:h-5 dark:brightness-0 dark:invert\"\r\n    />\r\n  )\r\n})\r\n\r\ntype LogoCardProps = React.ComponentProps<\"div\"> & { logo: Logo }\r\n\r\nconst LogoCard = memo(function LogoCard({\r\n  logo,\r\n  className,\r\n  children,\r\n  ...props\r\n}: LogoCardProps) {\r\n  return (\r\n    <div\r\n      className={cn(\r\n        \"relative flex items-center justify-center bg-background px-4 py-8 md:p-8\",\r\n        className\r\n      )}\r\n      {...props}\r\n    >\r\n      <LogoImage logo={logo} />\r\n      {children}\r\n    </div>\r\n  )\r\n})\r\n\r\nexport const LogoGrid = memo(function LogoGrid({\r\n  logos,\r\n  className,\r\n}: {\r\n  logos: Logo[]\r\n  className?: string\r\n}) {\r\n  const gridLogos = useMemo(() => logos.slice(0, 8), [logos])\r\n\r\n  return (\r\n    <div\r\n      className={cn(\r\n        \"relative grid grid-cols-2 border-x md:grid-cols-4\",\r\n        className\r\n      )}\r\n    >\r\n      <div className=\"-translate-x-1/2 -top-px pointer-events-none absolute left-1/2 w-screen border-t\" />\r\n\r\n      {gridLogos.map((logo, i) => {\r\n        const isHighlighted = i === 0 || i === 2 || i === 5 || i === 7\r\n\r\n        return (\r\n          <LogoCard\r\n            key={logo.alt}\r\n            logo={logo}\r\n            className={cn(\r\n              i < 4 && \"border-b\",\r\n              (i === 4 || i === 5) && \"border-b md:border-b-0\",\r\n              (i === 0 || i === 2 || i === 4 || i === 6) && \"border-r\",\r\n              (i === 1 || i === 5) && \"md:border-r\",\r\n              isHighlighted\r\n                ? \"bg-secondary dark:bg-secondary/30\"\r\n                : \"bg-background\"\r\n            )}\r\n          >\r\n            {(i === 0 || i === 1 || i === 2) && (\r\n              <PlusIcon\r\n                className=\"-right-[12.5px] -bottom-[12.5px] absolute z-10 hidden size-6 md:block text-slate-800 dark:text-slate-300\"\r\n                strokeWidth={1}\r\n              />\r\n            )}\r\n            {(i === 0 || i === 2 || i === 4) && (\r\n              <PlusIcon\r\n                className=\"-right-[12.5px] -bottom-[12.5px] absolute z-10 size-6 md:hidden text-slate-800 dark:text-slate-300\"\r\n                strokeWidth={1}\r\n              />\r\n            )}\r\n          </LogoCard>\r\n        )\r\n      })}\r\n\r\n      <div className=\"-translate-x-1/2 -bottom-px pointer-events-none absolute left-1/2 w-screen border-b\" />\r\n    </div>\r\n  )\r\n})\r\n\r\nLogoGrid.displayName = \"LogoGrid\""
+      }
+    ]
+  },
+  {
+    "name": "logo-marquee",
+    "title": "Logo Marquee",
+    "description": "Premium infinite marquee slider with automatic brand fallback and mask fades.",
+    "category": {
+      "name": "Marquee",
+      "slug": "marquee"
+    },
+    "tier": "free",
+    "status": "stable",
+    "image": "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1777378484/client-marquee_light_f6d3se.webp",
+    "imageDark": "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1777378486/client-marquee_dark_vbkxfs.webp",
+    "tags": [
+      "marquee",
+      "logos",
+      "slider"
+    ],
+    "preview": {
+      "disableSSR": true,
+      "height": 300
+    },
+    "registryUrl": "https://grootui.vercel.app/r/logo-marquee.json",
+    "npmDependencies": [
+      "motion/react",
+      "react-use-measure"
+    ],
+    "registryDependencies": [],
+    "usage": {
+      "import": "import { LogoMarquee } from \"@/components/logo-marquee\"",
+      "code": "const logos = [\n  { src: \"https://svgl.app/library/nvidia-wordmark-light.svg\", alt: \"Nvidia\" },\n  { src: \"https://svgl.app/library/claude-ai-wordmark-icon_light.svg\", alt: \"Claude\" },\n  { src: \"https://svgl.app/library/stripe-wordmark-light.svg\", alt: \"Stripe\" },\n  { src: \"https://svgl.app/library/rails-wordmark-light.svg\", alt: \"Rails\" },\n  { src: \"https://svgl.app/library/deno-wordmark-icon_light.svg\", alt: \"Deno\" },\n  { src: \"https://svgl.app/library/github-wordmark-light.svg\", alt: \"Github\" },\n  { src: \"https://svgl.app/library/tailwindcss-wordmark-light.svg\", alt: \"Tailwindcss\" },\n  { src: \"https://svgl.app/library/shadcn-ui-logo_light.svg\", alt: \"Shadcn ui\" },\n];\n\nexport default function Demo() {\n  return (\n    <div className=\"w-full\">\n      <LogoMarquee logos={logos} />\n    </div>\n  )\n}"
+    },
+    "props": [
+      {
+        "name": "items",
+        "type": "Logo[]",
+        "default": "DEFAULT_ITEMS",
+        "required": true,
+        "description": "Array of logo items (src, alt, width, height)"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "description": "Container styling"
+      }
+    ],
+    "files": [
+      {
+        "name": "logo-marquee.tsx",
+        "content": "\"use client\"\r\n\r\nimport React, { memo, useState, useEffect } from \"react\"\r\nimport { cn } from \"@/lib/utils\"\r\nimport { useMotionValue, animate, motion } from \"motion/react\"\r\nimport useMeasure from \"react-use-measure\"\r\n\r\nexport type Logo = {\r\n  src: string\r\n  alt: string\r\n  width?: number\r\n  height?: number\r\n}\r\n\r\ntype InfiniteSliderProps = {\r\n  children: React.ReactNode\r\n  gap?: number\r\n  duration?: number\r\n  durationOnHover?: number\r\n  direction?: \"horizontal\" | \"vertical\"\r\n  reverse?: boolean\r\n  className?: string\r\n}\r\n\r\nconst InfiniteSlider = memo(function InfiniteSlider({\r\n  children,\r\n  gap = 16,\r\n  duration = 25,\r\n  durationOnHover,\r\n  direction = \"horizontal\",\r\n  reverse = false,\r\n  className,\r\n}: InfiniteSliderProps) {\r\n  const [currentDuration, setCurrentDuration] = useState(duration)\r\n  const [ref, { width, height }] = useMeasure()\r\n  const translation = useMotionValue(0)\r\n  const [isTransitioning, setIsTransitioning] = useState(false)\r\n  const [key, setKey] = useState(0)\r\n\r\n  useEffect(() => {\r\n    const size = direction === \"horizontal\" ? width : height\r\n    const contentSize = size + gap\r\n    const from = reverse ? -contentSize / 2 : 0\r\n    const to = reverse ? 0 : -contentSize / 2\r\n\r\n    let controls\r\n\r\n    if (isTransitioning) {\r\n      controls = animate(translation, [translation.get(), to], {\r\n        ease: \"linear\",\r\n        duration:\r\n          currentDuration *\r\n          Math.abs((translation.get() - to) / contentSize),\r\n        onComplete: () => {\r\n          setIsTransitioning(false)\r\n          setKey((prev) => prev + 1)\r\n        },\r\n      })\r\n    } else {\r\n      controls = animate(translation, [from, to], {\r\n        ease: \"linear\",\r\n        duration: currentDuration,\r\n        repeat: Infinity,\r\n        repeatType: \"loop\",\r\n        repeatDelay: 0,\r\n        onRepeat: () => translation.set(from),\r\n      })\r\n    }\r\n\r\n    return controls?.stop\r\n  }, [\r\n    key,\r\n    translation,\r\n    currentDuration,\r\n    width,\r\n    height,\r\n    gap,\r\n    isTransitioning,\r\n    direction,\r\n    reverse,\r\n  ])\r\n\r\n  const hoverProps = durationOnHover\r\n    ? {\r\n        onHoverStart: () => {\r\n          setIsTransitioning(true)\r\n          setCurrentDuration(durationOnHover)\r\n        },\r\n        onHoverEnd: () => {\r\n          setIsTransitioning(true)\r\n          setCurrentDuration(duration)\r\n        },\r\n      }\r\n    : {}\r\n\r\n  return (\r\n    <div className={cn(\"overflow-hidden\", className)}>\r\n      <motion.div\r\n        ref={ref}\r\n        className=\"flex w-max\"\r\n        style={{\r\n          ...(direction === \"horizontal\"\r\n            ? { x: translation }\r\n            : { y: translation }),\r\n          gap: `${gap}px`,\r\n          flexDirection: direction === \"horizontal\" ? \"row\" : \"column\",\r\n        }}\r\n        {...hoverProps}\r\n      >\r\n        {children}\r\n        {children}\r\n      </motion.div>\r\n    </div>\r\n  )\r\n})\r\n\r\nconst LogoImage = memo(function LogoImage({ logo }: { logo: Logo }) {\r\n  return (\r\n    <img\r\n      alt={logo.alt}\r\n      src={logo.src}\r\n      width={logo.width ?? \"auto\"}\r\n      height={logo.height ?? \"auto\"}\r\n      loading=\"lazy\"\r\n      className=\"pointer-events-none h-4 select-none md:h-5 dark:brightness-0 dark:invert\"\r\n    />\r\n  )\r\n})\r\n\r\nexport const LogoMarquee = memo(function LogoMarquee({\r\n  logos,\r\n  className,\r\n}: {\r\n  logos: Logo[]\r\n  className?: string\r\n}) {\r\n  return (\r\n    <div\r\n      className={cn(\r\n        \"max-w-7xl mx-auto overflow-hidden py-4 mask-[linear-gradient(to_right,transparent,black_25%,black_75%,transparent)]\",\r\n        className\r\n      )}\r\n    >\r\n      <InfiniteSlider gap={42} reverse duration={80} durationOnHover={25}>\r\n        {[...logos, ...logos].map((logo, i) => (\r\n          <LogoImage key={`${logo.alt}-${i}`} logo={logo} />\r\n        ))}\r\n      </InfiniteSlider>\r\n    </div>\r\n  )\r\n})\r\n\r\nLogoMarquee.displayName = \"LogoMarquee\""
       }
     ]
   },

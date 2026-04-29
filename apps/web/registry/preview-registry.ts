@@ -1,7 +1,7 @@
 // ─────────────────────────────────────────────────────────────────
 // AUTO-GENERATED — do not edit manually.
 // Run: npm run registry:previews
-// Last generated: 2026-04-28T23:43:27.420Z
+// Last generated: 2026-04-29T09:31:04.860Z
 // ─────────────────────────────────────────────────────────────────
 
 import dynamic from "next/dynamic";
@@ -23,16 +23,8 @@ export const previewRegistry = {
     () => import("./previews/avatar-tooltips.preview"),
     { ssr: false, loading: () => null }
   ),
-  "client-grid": dynamic(
-    () => import("./previews/client-grid.preview"),
-    { ssr: false, loading: () => null }
-  ),
-  "client-marquee-blur": dynamic(
-    () => import("./previews/client-marquee-blur.preview"),
-    { ssr: false, loading: () => null }
-  ),
-  "client-marquee": dynamic(
-    () => import("./previews/client-marquee.preview"),
+  "blurred-marquee": dynamic(
+    () => import("./previews/blurred-marquee.preview"),
     { ssr: false, loading: () => null }
   ),
   "discord-online-react": dynamic(
@@ -70,6 +62,14 @@ export const previewRegistry = {
   "groot-starter": dynamic(
     () => import("./previews/groot-starter.preview"),
     { loading: () => null }
+  ),
+  "logo-grid": dynamic(
+    () => import("./previews/logo-grid.preview"),
+    { ssr: false, loading: () => null }
+  ),
+  "logo-marquee": dynamic(
+    () => import("./previews/logo-marquee.preview"),
+    { ssr: false, loading: () => null }
   ),
   "sliding-button": dynamic(
     () => import("./previews/sliding-button.preview"),

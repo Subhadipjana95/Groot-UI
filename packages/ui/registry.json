@@ -125,9 +125,9 @@
       ]
     },
     {
-      "name": "client-marquee",
+      "name": "logo-marquee",
       "type": "registry:block",
-      "title": "Client Marquee",
+      "title": "Logo Marquee",
       "description": "Infinite marquee logo slider with mask fade edges and hover speed control.",
       "dependencies": [
         "motion",
@@ -135,15 +135,15 @@
       ],
       "files": [
         {
-          "path": "registry/radix-nova/client-marquee/client-marquee.tsx",
+          "path": "registry/radix-nova/logo-marquee/logo-marquee.tsx",
           "type": "registry:component"
         }
       ]
     },
     {
-      "name": "client-marquee-blur",
+      "name": "blurred-marquee",
       "type": "registry:block",
-      "title": "Client Marquee Blur",
+      "title": "Blurred Marquee",
       "description": "Infinite marquee logo slider with mask blurred edges and hover speed control.",
       "dependencies": [
         "motion",
@@ -152,22 +152,22 @@
       ],
       "files": [
         {
-          "path": "registry/radix-nova/client-marquee-blur/client-marquee-blur.tsx",
+          "path": "registry/radix-nova/blurred-marquee/blurred-marquee.tsx",
           "type": "registry:component"
         }
       ]
     },
     {
-      "name": "client-grid",
+      "name": "logo-grid",
       "type": "registry:block",
-      "title": "Client Grid",
+      "title": "Logo Grid",
       "description": "Grid of client logos with plus-sign separators and highlighted rows.",
       "dependencies": [
         "lucide-react"
       ],
       "files": [
         {
-          "path": "registry/radix-nova/client-grid/client-grid.tsx",
+          "path": "registry/radix-nova/logo-grid/logo-grid.tsx",
           "type": "registry:component"
         }
       ]
