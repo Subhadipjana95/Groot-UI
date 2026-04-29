@@ -1,7 +1,7 @@
 // ─────────────────────────────────────────────────────────────────
 // AUTO-GENERATED — do not edit manually.
 // Run: npm run registry:index
-// Last generated: 2026-04-29T09:31:03.867Z
+// Last generated: 2026-04-29T12:11:21.828Z
 // ─────────────────────────────────────────────────────────────────
 
 import type { ComponentConfig } from "@workspace/ui/types/registry";
@@ -313,6 +313,94 @@ export const registry: ComponentConfig[] = [
       {
         "name": "discord-online-react.tsx",
         "content": "\"use client\";\r\n\r\nimport { useEffect, useState } from \"react\";\r\nimport { cn } from \"@/lib/utils\";\r\nimport {\r\n  Tooltip,\r\n  TooltipContent,\r\n  TooltipProvider,\r\n  TooltipTrigger,\r\n} from \"@/components/ui/tooltip\";\r\nimport { Button } from \"@/components/ui/button\";\r\n\r\ninterface DiscordOnlineProps {\r\n  guildId: string;\r\n  className?: string;\r\n  label?: string;\r\n  inviteURL?: string;\r\n}\r\n\r\nconst CACHE_KEY = (id: string) => `groot-ui:discord-online:${id}`;\r\nconst CACHE_TTL = 60 * 1000;\r\n\r\nfunction getCached(guildId: string): number | null {\r\n  try {\r\n    const raw = localStorage.getItem(CACHE_KEY(guildId));\r\n    if (!raw) return null;\r\n    const { value, timestamp } = JSON.parse(raw);\r\n    if (Date.now() - timestamp > CACHE_TTL) return null;\r\n    return value;\r\n  } catch {\r\n    return null;\r\n  }\r\n}\r\n\r\nfunction setCache(guildId: string, value: number) {\r\n  try {\r\n    localStorage.setItem(\r\n      CACHE_KEY(guildId),\r\n      JSON.stringify({ value, timestamp: Date.now() }),\r\n    );\r\n  } catch {}\r\n}\r\n\r\nexport function DiscordOnline({\r\n  guildId,\r\n  className,\r\n  label = \"members online in our Discord\",\r\n  inviteURL = \"https://discord.com/invite\",\r\n}: DiscordOnlineProps) {\r\n  const [count, setCount] = useState<number | null>(null);\r\n\r\n  useEffect(() => {\r\n    const cached = getCached(guildId);\r\n    if (cached !== null) {\r\n      setCount(cached);\r\n      return;\r\n    }\r\n\r\n    fetch(`https://discord.com/api/guilds/${guildId}/widget.json`)\r\n      .then((res) => res.json())\r\n      .then((data) => {\r\n        const presence = Number(data?.presence_count) || 0;\r\n        setCount(presence);\r\n        setCache(guildId, presence);\r\n      })\r\n      .catch(() => setCount(0));\r\n  }, [guildId]);\r\n\r\n  return (\r\n    <TooltipProvider>\r\n      <Tooltip>\r\n        <TooltipTrigger asChild>\r\n          <Button\r\n            variant=\"ghost\"\r\n            className={cn(\"h-9 gap-1.5 pr-1.5 pl-2 border-border dark:border-input hover:bg-input\", className)}\r\n            asChild\r\n          >\r\n            <a href={inviteURL} target=\"_blank\" rel=\"noopener noreferrer\">\r\n              <svg\r\n                width=\"16\"\r\n                height=\"16\"\r\n                viewBox=\"0 0 24 24\"\r\n                fill=\"currentColor\"\r\n                className=\"shrink-0\"\r\n                aria-hidden=\"true\"\r\n              >\r\n                <path d=\"M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.030zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z\" />\r\n              </svg>\r\n              <span className=\"inline-flex items-center gap-1.5\">\r\n                <span className=\"relative flex h-1.5 w-1.5 shrink-0\">\r\n                  <span className=\"absolute inline-flex h-full w-full animate-ping rounded-full bg-blue-500 opacity-75\" />\r\n                  <span className=\"relative inline-flex h-1.5 w-1.5 rounded-full bg-blue-600\" />\r\n                </span>\r\n                <span className=\"text-[0.8125rem] text-muted-foreground tabular-nums\">\r\n                  {count === null ? \"—\" : count.toLocaleString()}\r\n                </span>\r\n              </span>\r\n            </a>\r\n          </Button>\r\n        </TooltipTrigger>\r\n        <TooltipContent className=\"font-sans\">\r\n          {count === null ? \"Loading...\" : `${count.toLocaleString()} ${label}`}\r\n        </TooltipContent>\r\n      </Tooltip>\r\n    </TooltipProvider>\r\n  );\r\n}\r\n"
+      }
+    ]
+  },
+  {
+    "name": "drag-button",
+    "title": "Drag Button",
+    "description": "An interactive draggable button requiring a left-to-right swipe to confirm actions, featuring optional success animations and spring physics.",
+    "category": {
+      "name": "Buttons",
+      "slug": "buttons"
+    },
+    "tier": "free",
+    "status": "stable",
+    "label": "new",
+    "image": "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1777464486/drag-button_light_u5kvmb.webp",
+    "imageDark": "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1777464486/drag-button_dark_k8kt8l.webp",
+    "tags": [
+      "button",
+      "drag",
+      "swipe",
+      "animation",
+      "motion",
+      "ui"
+    ],
+    "preview": {
+      "disableSSR": false,
+      "height": 250
+    },
+    "registryUrl": "https://grootui.vercel.app/r/drag-button.json",
+    "npmDependencies": [
+      "motion",
+      "lucide-react"
+    ],
+    "registryDependencies": [
+      "button"
+    ],
+    "usage": {
+      "import": "import { DragButton } from \"@/components/drag-button\"",
+      "code": "export default function Demo() {\n  const [status, setStatus] = React.useState(\"Slide to Checkout\");\n\n  const handleComplete = () => {\n    setStatus(\"Order Placed!\");\n    setTimeout(() => {\n      setStatus(\"Slide to Pay\");\n    }, 1500);\n  };\n\n  return (\n    <div className=\"flex justify-center items-center gap-8\">\n      <DragButton \n          onDragComplete={handleComplete}\n          colorLight=\"#a5b4fc\"\n          colorDark=\"#4338ca\"\n        >\n          {status}\n        </DragButton>\n    </div>\n  );\n}"
+    },
+    "props": [
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "default": "undefined",
+        "required": true,
+        "description": "The content to display inside the button."
+      },
+      {
+        "name": "onDragComplete",
+        "type": "() => void",
+        "default": "undefined",
+        "required": false,
+        "description": "Callback triggered when the handle reaches the end of the button."
+      },
+      {
+        "name": "showConfirmation",
+        "type": "boolean",
+        "default": "true",
+        "required": false,
+        "description": "Whether to show the success animation after a successful drag."
+      },
+      {
+        "name": "successIcon",
+        "type": "ReactNode",
+        "default": "<Check />",
+        "required": false,
+        "description": "Custom icon to show during the success animation."
+      },
+      {
+        "name": "variant",
+        "type": "'default' | 'outline'",
+        "default": "'default'",
+        "required": false,
+        "description": "The visual style of the button."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "default": "undefined",
+        "required": false,
+        "description": "Optional class names for custom styling."
+      }
+    ],
+    "files": [
+      {
+        "name": "drag-button.tsx",
+        "content": "\"use client\";\n\nimport React from \"react\";\nimport { Button } from \"@/components/ui/button\";\nimport { ArrowRight, Check } from \"lucide-react\";\nimport { cn } from \"@/lib/utils\";\nimport { motion, useMotionValue, useTransform, AnimatePresence } from \"motion/react\";\n\nexport interface DragButtonProps\n    extends Omit<React.ComponentProps<typeof Button>, \"variant\"> {\n    children: React.ReactNode;\n    onDragComplete?: () => void; // callback function to be called when the drag is completed\n    showConfirmation?: boolean; // whether to show the confirmation animation\n    variant?: keyof typeof BOX_SHADOW; // \"default\" | \"outline\"\n    className?: string;\n    successIcon?: React.ReactNode; // optional icon to be shown when the drag is completed\n    colorLight?: string; // light color of gradient drag-handle(use hex color code)\n    colorDark?: string; // dark color of gradient drag-handle(use hex color code)\n}\n\nconst DEFAULT_COLORS = {\n    light: \"#f5f56b\",\n    dark: \"#cc0066\"\n} as const;\n\nconst HANDLE_SIZE = 40;\nconst GAP_PX = 4;\n\nconst SPRING_TRANSITION = { type: \"spring\", stiffness: 600, damping: 40 } as const;\n\nconst SHIMMER_STYLE = {\n    background:\n        \"linear-gradient(180deg,rgba(255,255,255,0.4) 0%,rgba(255,255,255,0) 80%,transparent 100%)\",\n    filter: \"blur(0.5px)\",\n} as const;\n\nconst BOX_SHADOW = {\n    default:\n        \"inset 0 2px 3px 0 rgba(255,255,255,0.15), inset 0 -3px 6px 0 rgba(0,0,0,0.4), inset 0 0 0 1px rgba(255,255,255,0.1)\",\n    outline:\n        \"inset 0 2px 4px 0 rgba(0,0,0,0.12), inset 0 -2px 2px 0 rgba(255,255,255,0.3), inset 0 0 0 1px rgba(0,0,0,0.06)\",\n} as const;\n\nexport const DragButton = React.forwardRef<\n    HTMLButtonElement,\n    DragButtonProps\n>(\n    (\n        {\n            children,\n            className,\n            variant = \"default\",\n            onDragComplete,\n            showConfirmation = true,\n            successIcon = <Check className=\"size-5\" />,\n            colorLight = DEFAULT_COLORS.light,\n            colorDark = DEFAULT_COLORS.dark,\n            ...props\n        },\n        externalRef\n    ) => {\n        const [isSuccess, setIsSuccess] = React.useState(false);\n        const [travelDistance, setTravelDistance] = React.useState(0);\n        const dragX = useMotionValue(0);\n        const textOpacity = useTransform(dragX, [0, travelDistance], [1, 0.1]);\n\n        const gradient = `linear-gradient(to top, ${colorLight}, ${colorDark})`;\n\n        const iconStyle = {\n            background: gradient,\n            boxShadow: `0 2px 8px 0 ${colorDark}59, 0 1.5px 0 0 rgba(255,255,255,0.25) inset, 0 -2px 8px 0 ${colorDark}80 inset, 0 0 0 1px rgba(0,0,0,0.08)`,\n        };\n\n        const innerShadowStyle = {\n            boxShadow: `0 0 0 1px rgba(255,255,255,0.15) inset, 0 1.5px 0 0 rgba(255,255,255,0.2) inset, 0 -2px 4px 0 ${colorDark}33 inset`,\n        };\n\n        const containerRef = React.useRef<HTMLButtonElement | null>(null);\n\n        const mergedRef = React.useCallback(\n            (node: HTMLButtonElement | null) => {\n                containerRef.current = node;\n                if (typeof externalRef === \"function\") externalRef(node);\n                else if (externalRef)\n                    (\n                        externalRef as React.MutableRefObject<HTMLButtonElement | null>\n                    ).current = node;\n\n                if (!node) return;\n\n                const measure = () => {\n                    setTravelDistance(node.offsetWidth - HANDLE_SIZE - GAP_PX * 2.5);\n                };\n\n                measure();\n                const ro = new ResizeObserver(measure);\n                ro.observe(node);\n            },\n            [externalRef]\n        );\n\n        const handleDragEnd = () => {\n            if (dragX.get() >= travelDistance - 5) {\n                if (showConfirmation) {\n                    setIsSuccess(true);\n                    onDragComplete?.();\n\n                    setTimeout(() => {\n                        setIsSuccess(false);\n                        dragX.set(0);\n                    }, 1500);\n                } else {\n                    onDragComplete?.();\n                    dragX.set(0);\n                }\n            } else {\n                dragX.set(0);\n            }\n        };\n\n        return (\n            <Button\n                ref={mergedRef}\n                variant={variant}\n                className={cn(\n                    \"relative h-12 min-w-[200px] cursor-grab overflow-hidden rounded-xl p-1 text-sm font-medium transition-all duration-300 flex items-center select-none\",\n                    isSuccess && \"pointer-events-none\",\n                    className\n                )}\n                {...props}\n            >\n                {/* Progress bar background */}\n                <motion.div\n                    className=\"absolute left-1 top-1 bottom-1 bg-white/10 rounded-lg pointer-events-none z-0\"\n                    style={{ width: useTransform(dragX, (v) => v + HANDLE_SIZE) }}\n                />\n\n                {/* Background text */}\n                <motion.span\n                    style={{ opacity: textOpacity }}\n                    className=\"relative z-10 mx-auto transition-all duration-500 text-shadow-black/10 text-shadow-lg pointer-events-none pl-8\"\n                >\n                    {children}\n                </motion.span>\n\n                {/* Draggable Handle */}\n                <motion.div\n                    drag={!isSuccess ? \"x\" : false}\n                    dragConstraints={{ left: 0, right: travelDistance }}\n                    dragElastic={0}\n                    dragMomentum={false}\n                    onDragEnd={handleDragEnd}\n                    style={{\n                        x: dragX,\n                        ...iconStyle,\n                        zIndex: 40,\n                        width: HANDLE_SIZE,\n                        height: HANDLE_SIZE,\n                        left: 4,\n                        position: \"absolute\",\n                        borderRadius: \"10px\",\n                        top: 0,\n                        bottom: 0,\n                        marginTop: \"auto\",\n                        marginBottom: \"auto\",\n                    }}\n                    animate={{\n                        opacity: isSuccess ? 0 : 1,\n                        scale: isSuccess ? 0.8 : 1,\n                    }}\n                    transition={SPRING_TRANSITION}\n                    className={cn(\n                        \"flex items-center justify-center text-white cursor-grab active:cursor-grabbing\",\n                        isSuccess && \"cursor-default\"\n                    )}\n                >\n                    <span\n                        className=\"pointer-events-none absolute left-1/2 top-0 z-20 h-2/5 w-[80%] -translate-x-1/2 rounded-t-[inherit]\"\n                        style={SHIMMER_STYLE}\n                    />\n                    <span\n                        className=\"pointer-events-none absolute inset-0 z-0 rounded-[inherit]\"\n                        style={innerShadowStyle}\n                    />\n                    <ArrowRight size={20} className=\"drop-shadow-sm relative z-30\" />\n                </motion.div>\n\n                {/* Success Overlay */}\n                <AnimatePresence>\n                    {isSuccess && (\n                        <motion.div\n                            initial={{ scale: 0, opacity: 0 }}\n                            animate={{ scale: 1, opacity: 1 }}\n                            exit={{ scale: 0, opacity: 0 }}\n                            transition={{ ...SPRING_TRANSITION, bounce: 0.1 }}\n                            className=\"absolute inset-0 z-50 flex items-center justify-center text-white shadow-lg\"\n                            style={{\n                                background: gradient,\n                                borderRadius: \"8px\"\n                            }}\n                        >\n                            <motion.div\n                                initial={{ scale: 0.5, rotate: -45, opacity: 0 }}\n                                animate={{ scale: 1, rotate: 0, opacity: 1 }}\n                                transition={{ delay: 0.1, type: \"spring\", stiffness: 300, damping: 20 }}\n                            >\n                                {successIcon}\n                            </motion.div>\n                        </motion.div>\n                    )}\n                </AnimatePresence>\n            </Button>\n        );\n    }\n);\n\nDragButton.displayName = \"DragButton\";\n"
       }
     ]
   },

@@ -1,7 +1,7 @@
 // ─────────────────────────────────────────────────────────────────
 // AUTO-GENERATED — do not edit manually.
 // Run: npm run registry:previews
-// Last generated: 2026-04-29T09:31:04.860Z
+// Last generated: 2026-04-29T12:11:23.606Z
 // ─────────────────────────────────────────────────────────────────
 
 import dynamic from "next/dynamic";
@@ -33,6 +33,10 @@ export const previewRegistry = {
   ),
   "discord-online": dynamic(
     () => import("./previews/discord-online.preview"),
+    { loading: () => null }
+  ),
+  "drag-button": dynamic(
+    () => import("./previews/drag-button.preview"),
     { loading: () => null }
   ),
   "github-calendar": dynamic(

@@ -232,6 +232,25 @@
           "type": "registry:component"
         }
       ]
+    },
+    {
+      "name": "drag-button",
+      "type": "registry:block",
+      "title": "Drag Button",
+      "description": "An interactive draggable button requiring a left-to-right swipe to confirm actions, featuring optional success animations and spring physics.",
+      "dependencies": [
+        "motion",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button"
+      ],
+      "files": [
+        {
+          "path": "registry/radix-nova/drag-button/drag-button.tsx",
+          "type": "registry:component"
+        }
+      ]
     }
   ]
 }
