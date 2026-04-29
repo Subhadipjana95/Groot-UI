@@ -1,4 +1,4 @@
-import { ClientGrid } from "@workspace/ui/registry/radix-nova/client-grid/client-grid";
+import { LogoGrid } from "@workspace/ui/registry/radix-nova/logo-grid/logo-grid";
 
 const logos = [
   { src: "https://svgl.app/library/nvidia-wordmark-light.svg", alt: "Nvidia" },
@@ -11,6 +11,10 @@ const logos = [
   { src: "https://svgl.app/library/claude-ai-wordmark-icon_light.svg", alt: "Claude" },
 ];
 
-export default function ClientGridPreview() {
-  return <ClientGrid logos={logos} />;
+export default function LogoGridPreview() {
+  return (
+    <div className="p-2 w-full">
+      <LogoGrid logos={logos} />
+    </div>
+  );
 }

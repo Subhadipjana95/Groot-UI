@@ -46,7 +46,7 @@ const LogoCard = memo(function LogoCard({
   )
 })
 
-export const ClientGrid = memo(function ClientGrid({
+export const LogoGrid = memo(function LogoGrid({
   logos,
   className,
 }: {
@@ -102,4 +102,4 @@ export const ClientGrid = memo(function ClientGrid({
   )
 })
 
-ClientGrid.displayName = "ClientGrid"
+LogoGrid.displayName = "LogoGrid"
