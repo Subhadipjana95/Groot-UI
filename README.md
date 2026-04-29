@@ -1,19 +1,17 @@
-<div>
-  <h1>Groot UI</h1>
-  <p>A premium, open-source component registry for high-performance React applications.</p>
 
-  <img src="https://res.cloudinary.com/dfjuuwtr6/image/upload/v1776286912/Groot_UI_Preview_Dark_in5qww.webp" alt="Groot UI Banner" width="100%" style="border-radius: 20px;" />
+<h1>Groot UI</h1>
+A premium, open-source component registry for high-performance React applications.
 
- <br/>
- <br/>
+<img src="https://res.cloudinary.com/dfjuuwtr6/image/upload/v1776286912/Groot_UI_Preview_Dark_in5qww.webp" alt="Groot UI Banner" width="100%" />
+<br/>
+<br/>
   
-  [![Stars](https://img.shields.io/github/stars/Subhadipjana95/Groot-UI?style=flat-square&color=8D44AD&labelColor=1a1a1a)](https://github.com/Subhadipjana95/Groot-UI/stargazers) [![Forks](https://img.shields.io/github/forks/Subhadipjana95/Groot-UI?style=flat-square&color=2ECC71&labelColor=1a1a1a)](https://github.com/Subhadipjana95/Groot-UI/network/members) [![Issues](https://img.shields.io/github/issues/Subhadipjana95/Groot-UI?style=flat-square&color=E74C3C&labelColor=1a1a1a)](https://github.com/Subhadipjana95/Groot-UI/issues) [![License](https://img.shields.io/github/license/Subhadipjana95/Groot-UI?style=flat-square&color=3498DB&labelColor=1a1a1a)](https://github.com/Subhadipjana95/Groot-UI/blob/main/LICENSE)
+[![Stars](https://img.shields.io/github/stars/Subhadipjana95/Groot-UI?style=flat-square&color=8D44AD&labelColor=1a1a1a)](https://github.com/Subhadipjana95/Groot-UI/stargazers) [![Forks](https://img.shields.io/github/forks/Subhadipjana95/Groot-UI?style=flat-square&color=2ECC71&labelColor=1a1a1a)](https://github.com/Subhadipjana95/Groot-UI/network/members) [![Issues](https://img.shields.io/github/issues/Subhadipjana95/Groot-UI?style=flat-square&color=E74C3C&labelColor=1a1a1a)](https://github.com/Subhadipjana95/Groot-UI/issues) [![License](https://img.shields.io/github/license/Subhadipjana95/Groot-UI?style=flat-square&color=3498DB&labelColor=1a1a1a)](https://github.com/Subhadipjana95/Groot-UI/blob/main/LICENSE)
  
 
-  [Website](https://grootui.vercel.app) • [Documentation](https://grootui.vercel.app/docs) • [Report Bug](https://github.com/Subhadipjana95/Groot-UI/issues/new) • [Request Feature](https://github.com/Subhadipjana95/Groot-UI/issues/new)
+[Website](https://grootui.vercel.app) • [Documentation](https://grootui.vercel.app/docs) • [Report Bug](https://github.com/Subhadipjana95/Groot-UI/issues/new) • [Request Feature](https://github.com/Subhadipjana95/Groot-UI/issues/new)
 
-  ---
-</div>
+---
 
 ## ✦ What is Groot UI?
 
