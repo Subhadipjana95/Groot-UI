@@ -54,7 +54,7 @@ const TechTooltipItem = ({ item }: { item: TechItem }) => {
         onMouseMove={(e) =>
           x.set(e.nativeEvent.offsetX - e.currentTarget.offsetWidth / 2)
         }
-        className="relative flex h-12 w-12 cursor-pointer items-center justify-center rounded-full border border-border bg-background shadow-sm transition duration-500 group-hover:z-30 group-hover:scale-105"
+        className="relative flex h-12 w-12 cursor-default items-center justify-center rounded-full border border-border bg-background shadow-sm transition duration-500 group-hover:z-30 group-hover:scale-105"
       >
         <Icon className="size-6" />
       </div>
