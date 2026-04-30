@@ -251,6 +251,18 @@
           "type": "registry:component"
         }
       ]
+    },
+    {
+      "name": "press-button",
+      "type": "registry:block",
+      "title": "Press Button",
+      "description": "An industry-grade neobrutalist button with a 3D press effect.",
+      "files": [
+        {
+          "path": "registry/radix-nova/press-button/press-button.tsx",
+          "type": "registry:component"
+        }
+      ]
     }
   ]
 }

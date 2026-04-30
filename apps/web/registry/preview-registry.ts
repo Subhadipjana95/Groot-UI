@@ -1,7 +1,7 @@
 // ─────────────────────────────────────────────────────────────────
 // AUTO-GENERATED — do not edit manually.
 // Run: npm run registry:previews
-// Last generated: 2026-04-29T12:18:58.543Z
+// Last generated: 2026-04-30T07:20:46.179Z
 // ─────────────────────────────────────────────────────────────────
 
 import dynamic from "next/dynamic";
@@ -74,6 +74,10 @@ export const previewRegistry = {
   "logo-marquee": dynamic(
     () => import("./previews/logo-marquee.preview"),
     { ssr: false, loading: () => null }
+  ),
+  "press-button": dynamic(
+    () => import("./previews/press-button.preview"),
+    { loading: () => null }
   ),
   "sliding-button": dynamic(
     () => import("./previews/sliding-button.preview"),

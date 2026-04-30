@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "press-button",
+  "title": "Press Button",
+  "description": "An industry-grade neobrutalist button with a 3D press effect.",
+  "files": [
+    {
+      "path": "registry/radix-nova/press-button/press-button.tsx",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\nimport { Slot } from \"@radix-ui/react-slot\";\nimport { cva, type VariantProps } from \"class-variance-authority\";\nimport { cn } from \"@/lib/utils\";\n\nconst buttonVariants = cva(\n  \"inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-bold ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 active:translate-x-[1px] active:translate-y-[1px] active:shadow-none bg-secondary text-secondary-foreground shadow-[4px_4px_0_0_rgba(0,0,0,1)] border-2 border-foreground hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none\",\n  {\n    variants: {\n      \n      size: {\n        default: \"h-11 px-6 py-2\",\n        sm: \"h-9 px-4 text-xs\",\n        lg: \"h-14 px-10 text-base\",\n        icon: \"h-11 w-11\",\n      },\n    },\n    defaultVariants: {\n      size: \"default\",\n    },\n  }\n);\n\nexport interface PressButtonProps\n  extends React.ButtonHTMLAttributes<HTMLButtonElement>,\n    VariantProps<typeof buttonVariants> {\n  asChild?: boolean;\n}\n\nconst PressButton = React.forwardRef<HTMLButtonElement, PressButtonProps>(\n  ({ className, size, asChild = false, ...props }, ref) => {\n    const Comp = asChild ? Slot : \"button\";\n    return (\n      <Comp\n        className={cn(buttonVariants({ size, className }))}\n        ref={ref}\n        {...props}\n      />\n    );\n  }\n);\nPressButton.displayName = \"PressButton\";\n\nexport { PressButton, buttonVariants };",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:block"
+}
