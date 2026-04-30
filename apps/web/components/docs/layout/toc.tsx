@@ -100,7 +100,7 @@ export function TOC() {
       <div className="flex flex-col gap-6 pb-4">
       {/* Table of Contents Section */}
       <div className="space-y-2">
-        <p className="flex items-center rounded-md px-2 text-sm font-medium text-muted-foreground/80 hover:text-muted-foreground/60 active:text-muted-foreground/60 text-shadow-sm cursor-default bg-muted/50 border w-fit h-7 mb-1">
+        <p className="flex items-center rounded-md px-2 text-sm font-medium text-muted-foreground/80 hover:text-muted-foreground/60 active:text-muted-foreground/60 cursor-default bg-muted/50 border w-fit h-7 mb-1">
           On This Page
         </p>
         {headings.length > 0 ? (() => {

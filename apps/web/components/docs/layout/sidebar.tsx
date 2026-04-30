@@ -36,7 +36,7 @@ export function Sidebar() {
           <SidebarGroup className="pt-0 min-w-full w-max pr-6">
             <SidebarMenu>
               <SidebarMenuItem>
-                <SidebarMenuButton className="font-medium text-muted-foreground/80 hover:text-muted-foreground/60 text-shadow-sm cursor-default bg-muted/50 border hover:border-dashed w-fit h-7 mb-1">
+                <SidebarMenuButton className="font-medium text-muted-foreground/80 hover:text-muted-foreground/60 cursor-default bg-muted/50 border hover:border-dashed w-fit h-7 mb-1">
                   Getting Started
                 </SidebarMenuButton>
                 <SidebarMenuSub>
@@ -59,7 +59,7 @@ export function Sidebar() {
 
               {Object.entries(categories).map(([category, items]) => (
                 <SidebarMenuItem key={category} className="group">
-                  <SidebarMenuButton className="font-medium text-muted-foreground/80 hover:text-muted-foreground/60 active:text-muted-foreground/60 text-shadow-sm cursor-default bg-muted/50 border hover:border-dashed w-fit h-7 my-1">
+                  <SidebarMenuButton className="font-medium text-muted-foreground/80 hover:text-muted-foreground/60 active:text-muted-foreground/60 cursor-default bg-muted/50 border hover:border-dashed w-fit h-7 my-1">
                     {category}
                   </SidebarMenuButton>
                   <SidebarMenuSub>
