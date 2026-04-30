@@ -10,7 +10,7 @@ export const config: ComponentConfig = {
   label: "new",
   image: "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1777464486/drag-button_light_u5kvmb.webp",
   imageDark:"https://res.cloudinary.com/dfjuuwtr6/image/upload/v1777464486/drag-button_dark_k8kt8l.webp",
-  tags: ["button", "drag", "swipe", "animation", "motion", "ui"],
+  tags: ["button", "drag", "swipe", "motion"],
   preview: { disableSSR: false, height: 250 },
   registryUrl: "https://grootui.vercel.app/r/drag-button.json",
   npmDependencies: ["motion", "lucide-react"],

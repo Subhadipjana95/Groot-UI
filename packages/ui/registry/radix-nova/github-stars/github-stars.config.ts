@@ -5,12 +5,12 @@ export const config: ComponentConfig = {
   title: "GitHub Stars",
   description:
     "Displays a GitHub repo star count with server-side fetching and tooltips.",
-  category: { name: "Social", slug: "social" },
+  category: { name: "Components", slug: "components" },
   tier: "free",
   status: "stable",
   image: "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1777377805/github-star_light_jf47tx.webp",
   imageDark: "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1777377805/github-star_dark_an1u1z.webp",
-  tags: ["github", "stars"],
+  tags: ["github", "stars", "stats"],
   // Server component — fetches data server-side, so SSR must stay enabled
   preview: { disableSSR: false, height: 300 },
   registryUrl: "https://grootui.vercel.app/r/github-stars.json",

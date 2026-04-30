@@ -4,7 +4,7 @@ export const config: ComponentConfig = {
   name: "logo-grid",
   title: "Logo Grid",
   description: "Clean grid of client logos with dashed plus-sign separators.",
-  category: { name: "Blocks", slug: "blocks" },
+  category: { name: "Components", slug: "components" },
   tier: "free",
   status: "stable",
   label: "New",

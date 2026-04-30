@@ -5,7 +5,7 @@ export const config: ComponentConfig = {
   title: "Discord Online (React)",
   description:
     "Client-side Discord presence tracker for general React applications.",
-  category: { name: "Social", slug: "social" },
+  category: { name: "Components", slug: "components" },
   tier: "free",
   status: "stable",
   image: "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1777377565/discord-online_light_aiynof.webp",

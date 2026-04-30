@@ -4,7 +4,7 @@ export const config: ComponentConfig = {
   name: "glow-card",
   title: "Glow Card",
   description: "A card with a dynamic glowing cursor-tracking hover effect.",
-  category: { name: "Blocks", slug: "blocks" },
+  category: { name: "Components", slug: "components" },
   tier: "free",
   status: "stable",
   image: "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1777378888/glow-card_light_ucxzze.webp",

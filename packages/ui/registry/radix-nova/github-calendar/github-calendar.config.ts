@@ -5,7 +5,7 @@ export const config: ComponentConfig = {
   title: "GitHub Calendar",
   description:
     "Fully interactive GitHub contribution calendar with year-switching and tooltips.",
-  category: { name: "Blocks", slug: "blocks" },
+  category: { name: "Components", slug: "components" },
   tier: "free",
   status: "stable",
   image: "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1777376845/github-calender_light_dfldr4.webp",

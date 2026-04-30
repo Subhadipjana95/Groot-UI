@@ -10,7 +10,7 @@ export const config: ComponentConfig = {
   label: "new",
   image: "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1777419754/sliding-button_light_ishowx.webp",
   imageDark: "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1777419755/sliding-button_dark_pwd8ks.webp",
-  tags: ["button", "sliding", "animation", "motion", "ui"],
+  tags: ["button", "sliding", "motion"],
   preview: { disableSSR: false, height: 200 },
   registryUrl: "https://grootui.vercel.app/r/sliding-button.json",
   npmDependencies: ["motion", "lucide-react"],
