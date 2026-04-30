@@ -70,6 +70,13 @@ export interface ComponentConfig {
     code: string;
   };
 
+  // ── Examples (Variants)
+  examples?: {
+    title: string;
+    slug: string; // The slug in the previewRegistry (e.g. "icon-cloud-images")
+    previewHeight?: number;
+  }[];
+
   // ── Props table
   props: PropDefinition[];
 

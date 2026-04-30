@@ -138,6 +138,30 @@ export default async function ComponentPage({ params }: ComponentPageProps) {
           registryDependencies={component.registryDependencies}
         />
 
+        {component.examples && component.examples.length > 0 && (
+          <section className="scroll-m-20 w-full min-w-0" id="examples">
+            <Heading title="Examples" className="mb-4" />
+            <div className="space-y-4">
+              {component.examples.map((example) => (
+                <div key={example.slug} className="space-y-2 pt-8 border-t border-border/40 first:border-t-0 first:pt-0">
+                  <h3 className="text-lg font-medium tracking-tight">
+                    {example.title}
+                  </h3>
+                  <PreviewContainer
+                    previewCode={getPreviewCode(example.slug)}
+                    componentCode={component.files?.[0]?.content}
+                    registryUrl={component.registryUrl}
+                    showCopyPrompt={false}
+                    className="mt-0"
+                  >
+                    <ComponentPreview slug={example.slug} />
+                  </PreviewContainer>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
+
         <section className="scroll-m-20 w-full min-w-0">
           <Heading title="Usage" />
           <UsageBlock

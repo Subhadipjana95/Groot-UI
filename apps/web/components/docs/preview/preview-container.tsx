@@ -12,7 +12,8 @@ export function PreviewContainer({
   className,
   componentCode,
   previewCode,
-  registryUrl
+  registryUrl,
+  showCopyPrompt = true
 }: {
   children: React.ReactNode;
   className?: string;
@@ -20,6 +21,7 @@ export function PreviewContainer({
   componentCode?: string;
   previewCode?: string;
   registryUrl?: string;
+  showCopyPrompt?: boolean;
 }) {
   const [view, setView] = React.useState<"preview" | "code">("preview");
   const [previewKey, setPreviewKey] = React.useState(0);
@@ -31,7 +33,7 @@ export function PreviewContainer({
   const codeToShow = previewCode || componentCode;
 
   return (
-    <div className="space-y-2 mt-4">
+    <div className={cn("space-y-2", className)}>
       {componentCode && (
         <div className="flex items-center justify-between w-full">
           <div className="flex items-center gap-2">
@@ -39,7 +41,7 @@ export function PreviewContainer({
           </div>
           <div className="flex items-center gap-2">
             <ReloadButton onReload={handleReload} />
-            <CopyPromptButton registryUrl={registryUrl} />
+            {showCopyPrompt && <CopyPromptButton registryUrl={registryUrl} />}
           </div>
         </div>
       )}
