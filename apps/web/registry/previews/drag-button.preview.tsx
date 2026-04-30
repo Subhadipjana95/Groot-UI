@@ -15,7 +15,7 @@ export default function DragButtonPreview() {
   };
 
   return (
-    <div className="flex justify-center items-center gap-8">
+    <div className="flex flex-col md:flex-row justify-center items-center gap-8">
       <DragButton
         onDragComplete={handleComplete}
         colorLight="#a5b4fc" // Indigo 300
