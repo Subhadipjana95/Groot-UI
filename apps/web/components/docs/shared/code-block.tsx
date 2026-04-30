@@ -72,11 +72,11 @@ export function CodeBlock({
             </span>
           </div>
         ) : <div />}
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-1.5">
           {expandable && isExpanded && (
             <button
               onClick={() => setIsExpanded(false)}
-              className="h-7 px-2 text-xs font-medium rounded-sm bg-background/50 border border-input/60 text-muted-foreground hover:bg-muted hover:text-foreground transition-all"
+              className="h-7 px-2 text-xs font-medium rounded-sm bg-background border border-input/60 text-muted-foreground hover:bg-muted hover:text-foreground transition-all"
             >
               Collapse
             </button>

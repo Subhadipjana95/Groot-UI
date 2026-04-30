@@ -10,7 +10,7 @@ export function DocsLayout({ children }: { children: ReactNode }) {
       <div className="md:grid md:grid-cols-[220px_minmax(0,1fr)] xl:grid-cols-[240px_minmax(0,1fr)_260px] gap-10 items-start">
         {/* Navigation Sidebar */}
         <InnerLenisScroll
-          className="sticky top-16 hidden h-[calc(100vh-4rem)] w-full md:block overflow-y-auto scrollbar-hide border-r border-border/60 pr-4 pt-8 mask-[linear-gradient(to_bottom,black_85%,transparent)]"
+          className="sticky top-16 hidden h-[calc(100vh-4rem)] w-full md:block overflow-y-auto scrollbar-hide border-r border-border/60 pr-4 pt-8 mask-[linear-gradient(to_bottom,black_90%,transparent_100%)]"
         >
           <div className="w-full">
             <Sidebar />
