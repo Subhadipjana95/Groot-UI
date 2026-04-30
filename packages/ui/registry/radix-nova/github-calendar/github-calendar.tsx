@@ -417,8 +417,8 @@ export const GithubCalendar = memo(function GithubCalendar({
     const cellRx = cellShape === "circle" ? cellSize / 2 : cellSize * 0.2
 
     return (
-        <div className={cn("w-full overflow-x-hidden", className)}>
-            <div className="w-fit mx-auto max-w-full flex flex-col gap-3 border border-input p-3 rounded-sm">
+        <div className={cn("w-full overflow-x-hidden border rounded-sm", className)}>
+            <div className="w-fit mx-auto max-w-full flex flex-col gap-3 p-3">
                 <div
                     ref={scrollRef}
                     className="relative overflow-x-auto"
