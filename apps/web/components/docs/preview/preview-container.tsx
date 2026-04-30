@@ -11,12 +11,14 @@ export function PreviewContainer({
   children,
   className,
   componentCode,
+  previewCode,
   registryUrl
 }: {
   children: React.ReactNode;
   className?: string;
   usageCode?: string;
   componentCode?: string;
+  previewCode?: string;
   registryUrl?: string;
 }) {
   const [view, setView] = React.useState<"preview" | "code">("preview");
@@ -25,6 +27,8 @@ export function PreviewContainer({
   const handleReload = React.useCallback(() => {
     setPreviewKey((prev) => prev + 1);
   }, []);
+
+  const codeToShow = previewCode || componentCode;
 
   return (
     <div className="space-y-2 mt-4">
@@ -58,9 +62,9 @@ export function PreviewContainer({
 
       <div className={cn(view !== "code" && "hidden")}>
         <div className="relative mt-2 max-w-3xl mx-auto w-full">
-          {componentCode && (
+          {codeToShow && (
             <CodeBlock
-              code={componentCode}
+              code={codeToShow}
               className="my-0 w-full"
               expandable={true}
               collapsedHeight={400}

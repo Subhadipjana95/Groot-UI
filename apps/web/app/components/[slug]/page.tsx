@@ -1,7 +1,9 @@
 import { notFound } from "next/navigation";
+import fs from "fs";
+import path from "path";
 import { registry, getComponent } from "@/lib/registry";
 import { Heading } from "@/components/docs/shared/heading";
-import { InstallBlock } from "@/components/docs/blocks/install-block";
+import { InstallationSection } from "@/components/docs/blocks/installation-section";
 import { UsageBlock } from "@/components/docs/blocks/usage-block";
 import { PropsTable } from "@/components/docs/blocks/props-table";
 import { DependenciesBlock } from "@/components/docs/blocks/dependencies-block";
@@ -49,6 +51,25 @@ export async function generateMetadata({ params }: ComponentPageProps) {
       images: [`https://grootui.vercel.app/api/og?title=${encodeURIComponent(component.title)}`],
     },
   };
+}
+
+
+/**
+ * Reads the preview file source code for a given component slug.
+ * Runs at build time (server component), so fs access is safe.
+ */
+function getPreviewCode(slug: string): string | undefined {
+  try {
+    const previewPath = path.join(
+      process.cwd(),
+      "registry",
+      "previews",
+      `${slug}.preview.tsx`
+    );
+    return fs.readFileSync(previewPath, "utf-8");
+  } catch {
+    return undefined;
+  }
 }
 
 /**
@@ -102,16 +123,20 @@ export default async function ComponentPage({ params }: ComponentPageProps) {
           <PreviewContainer 
             usageCode={component.usage.code} 
             componentCode={component.files?.[0]?.content}
+            previewCode={getPreviewCode(component.name)}
             registryUrl={component.registryUrl}
           >
             <ComponentPreview slug={component.name} />
           </PreviewContainer>
         </section>
 
-        <section className="scroll-m-20 w-full min-w-0">
-          <Heading title="Installation" />
-          <InstallBlock command={component.registryUrl} />
-        </section>
+        <InstallationSection
+          registryUrl={component.registryUrl}
+          componentName={component.name}
+          componentCode={component.files?.[0]?.content}
+          npmDependencies={component.npmDependencies}
+          registryDependencies={component.registryDependencies}
+        />
 
         <section className="scroll-m-20 w-full min-w-0">
           <Heading title="Usage" />
