@@ -55,7 +55,7 @@ export function PropsTable({ props }: { props: PropDefinition[] }) {
                   <X className="mx-auto h-4 w-4 text-muted-foreground/30" />
                 )}
               </td>
-              <td className="p-2 md:p-4 align-middle text-muted-foreground leading-relaxed">
+              <td className="p-2 md:p-4 align-middle text-muted-foreground leading-tight md:leading-relaxed">
                 {prop.description}
               </td>
             </tr>

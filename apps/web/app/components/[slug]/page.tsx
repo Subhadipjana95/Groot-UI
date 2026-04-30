@@ -73,18 +73,18 @@ export default async function ComponentPage({ params }: ComponentPageProps) {
   return (
     <div className="container max-w-5xl py-10 lg:py-12">
       <div className="flex flex-col gap-2 mb-6">
-        <div className="flex items-center gap-2 text-sm text-muted-foreground mb-1">
+        <div className="flex items-center gap-2 text-sm text-muted-foreground">
           <span className="hover:text-foreground transition-colors cursor-default">Components</span>
           <span className="text-muted-foreground/40">/</span>
           <span className="text-foreground font-medium">{component.category.name}</span>
         </div>
-        <h1 className="text-3xl font-semibold tracking-tight lg:text-4xl text-foreground">
+        <h1 className="text-3xl font-medium tracking-tight lg:text-4xl text-foreground">
           {component.title}
         </h1>
-        <p className="text-xl text-muted-foreground leading-snug max-w-[85ch]">
+        <p className="text-sm md:text-lg text-muted-foreground leading-tight line-clamp-2 max-w-[85ch]">
           {component.description}
         </p>
-        <div className="flex flex-wrap gap-2 mt-1">
+        <div className="flex flex-wrap gap-2">
           {component.tags.map((tag) => (
             <span
               key={tag}
@@ -96,7 +96,7 @@ export default async function ComponentPage({ params }: ComponentPageProps) {
         </div>
       </div>
 
-      <div className="grid gap-12">
+      <div className="grid gap-6 md:gap-10">
         <section className="scroll-m-20 w-full min-w-0" id="preview">
           <Heading id="preview" title="Preview" className="sr-only" />
           <PreviewContainer 

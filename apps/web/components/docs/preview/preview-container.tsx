@@ -3,6 +3,7 @@
 import * as React from "react";
 import { cn } from "@workspace/ui/lib/utils";
 import { CodeBlock } from "@/components/docs/shared/code-block";
+import { ReloadButton } from "@/components/docs/shared/reload-button";
 import { PreviewToggle } from "./preview-toggle";
 import { CopyPromptButton } from "./copy-prompt-button";
 
@@ -19,6 +20,11 @@ export function PreviewContainer({
   registryUrl?: string;
 }) {
   const [view, setView] = React.useState<"preview" | "code">("preview");
+  const [previewKey, setPreviewKey] = React.useState(0);
+
+  const handleReload = React.useCallback(() => {
+    setPreviewKey((prev) => prev + 1);
+  }, []);
 
   return (
     <div className="space-y-2 mt-4">
@@ -28,6 +34,7 @@ export function PreviewContainer({
             <PreviewToggle view={view} onViewChange={setView} />
           </div>
           <div className="flex items-center gap-2">
+            <ReloadButton onReload={handleReload} />
             <CopyPromptButton registryUrl={registryUrl} />
           </div>
         </div>
@@ -40,7 +47,10 @@ export function PreviewContainer({
             className
           )}
         >
-          <div className="relative z-10 w-full min-h-[250px] md:min-h-[400px] rounded-lg flex items-center justify-center bg-background p-1 md:p-2 overflow-hidden">
+          <div
+            key={previewKey}
+            className="relative z-10 w-full min-h-[250px] md:min-h-[400px] rounded-lg flex items-center justify-center bg-background p-1 md:p-2 overflow-hidden"
+          >
             {children}
           </div>
         </div>

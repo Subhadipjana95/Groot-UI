@@ -16,8 +16,8 @@ export default function ComponentsPage() {
   return (
     <div className="container max-w-5xl py-10">
       <div className="flex flex-col gap-1 mb-6 ">
-        <h1 className="text-3xl font-medium tracking-tight lg:text-4xl"><span className="text-transparent bg-clip-text bg-brand-gradient">Blocks</span> & <span className="text-transparent bg-clip-text bg-brand-gradient">Components</span></h1>
-        <p className="text-lg text-muted-foreground">
+        <h1 className="text-3xl font-medium tracking-tight lg:text-5xl text-transparent bg-clip-text bg-brand-gradient">Components</h1>
+        <p className="text-sm md:text-lg text-muted-foreground">
           Premium UI components built with Radix UI and Tailwind CSS.
         </p>
       </div>

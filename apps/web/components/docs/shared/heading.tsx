@@ -14,7 +14,7 @@ export function Heading({
     <h2
       id={generatedId}
       className={cn(
-        "font-heading mt-12 scroll-m-20 text-2xl font-semibold tracking-tight first:mt-0",
+        "font-heading mt-12 scroll-m-20 text-2xl font-medium tracking-tight first:mt-0",
         className
       )}
     >
