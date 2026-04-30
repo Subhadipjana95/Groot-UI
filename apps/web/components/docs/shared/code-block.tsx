@@ -13,14 +13,16 @@ interface CodeBlockProps {
   language?: string;
   expandable?: boolean;
   collapsedHeight?: number;
+  fileName?: string;
 }
 
-export function CodeBlock({ 
-  code, 
-  className, 
+export function CodeBlock({
+  code,
+  className,
   language = "tsx",
   expandable = false,
-  collapsedHeight = 400
+  collapsedHeight = 400,
+  fileName
 }: CodeBlockProps) {
   const { resolvedTheme } = useTheme();
   const [mounted, setMounted] = React.useState(false);
@@ -33,33 +35,50 @@ export function CodeBlock({
   const style = resolvedTheme === "dark" ? atelierForestDark : atelierForestLight;
 
   return (
-    <div 
+    <div
       className={cn(
-        "group relative my-4 overflow-hidden rounded-lg border border-input/60 bg-muted/30 dark:bg-muted/50 transition-all duration-300", 
+        "group relative my-4 flex flex-col overflow-hidden rounded-lg border border-input/60 bg-muted/30 dark:bg-muted/50 transition-all duration-300",
         className,
         !isExpanded && "overflow-hidden"
       )}
       style={!isExpanded ? { height: collapsedHeight } : { height: "auto" }}
     >
-      <div className="absolute right-2 top-2 z-40 flex items-center gap-2">
-        {expandable && isExpanded && (
-          <button
-            onClick={() => setIsExpanded(false)}
-            className="h-7 px-2 text-xs font-medium rounded-sm bg-background/50 border border-input/60 text-muted-foreground hover:bg-muted hover:text-foreground transition-all"
-          >
-            Collapse
-          </button>
-        )}
-        <div className="rounded-sm bg-background">
-          <CopyButton variant="outline" value={code} className="h-7 w-7 rounded-sm bg-background hover:bg-muted" />
+      <div className={cn(
+        "z-40 flex items-center justify-between pl-3 pr-1 py-1",
+        fileName
+          ? "border-b border-input/60"
+          : "absolute inset-x-2 top-2"
+      )}>
+        {fileName ? (
+          <div className="flex items-center gap-2">
+            <span className="flex h-5 items-center rounded-sm bg-blue-500/15 px-1.5 text-[10px] font-bold tracking-wide text-blue-600 dark:text-blue-400">
+              TS
+            </span>
+            <span className="text-sm font-mono text-muted-foreground">
+              {fileName}
+            </span>
+          </div>
+        ) : <div />}
+        <div className="flex items-center gap-2">
+          {expandable && isExpanded && (
+            <button
+              onClick={() => setIsExpanded(false)}
+              className="h-7 px-2 text-xs font-medium rounded-sm bg-background/50 border border-input/60 text-muted-foreground hover:bg-muted hover:text-foreground transition-all"
+            >
+              Collapse
+            </button>
+          )}
+          <div className="rounded-sm bg-background">
+            <CopyButton variant="outline" value={code} className="h-7 w-7 rounded-sm bg-background hover:bg-muted" />
+          </div>
         </div>
       </div>
 
       {mounted && (
         <div className={cn(
-          "h-full overflow-x-auto scrollbar-hide py-3 transition-all",
+          "flex-1 min-h-0 overflow-x-auto scrollbar-hide py-3 transition-all",
           "mask-[linear-gradient(to_right,black_85%,transparent_100%)]",
-          expandable && !isExpanded && "mask-[linear-gradient(to_bottom,black_60%,transparent_100%),linear-gradient(to_right,black_85%,transparent_100%)] mask-intersect"
+          expandable && !isExpanded && "mask-[linear-gradient(to_bottom,black_65%,transparent_100%),linear-gradient(to_right,black_85%,transparent_100%)] mask-intersect"
         )}>
           <SyntaxHighlighter
             language={language}
@@ -92,7 +111,7 @@ export function CodeBlock({
         <div className="absolute inset-x-0 bottom-0 flex h-24 items-end justify-center p-6 pointer-events-none">
           <button
             onClick={() => setIsExpanded(true)}
-            className="pointer-events-auto h-7 px-2 text-xs font-medium rounded-sm bg-background/50 border border-input/60 text-muted-foreground hover:bg-muted hover:text-foreground transition-all"
+            className="pointer-events-auto h-7 px-2 text-xs font-medium rounded-sm bg-background border border-input/60 text-muted-foreground hover:bg-muted hover:text-foreground transition-all"
           >
             Expand
           </button>
