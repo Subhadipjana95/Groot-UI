@@ -1,7 +1,7 @@
 // ─────────────────────────────────────────────────────────────────
 // AUTO-GENERATED — do not edit manually.
 // Run: npm run registry:index
-// Last generated: 2026-04-30T19:17:04.105Z
+// Last generated: 2026-04-30T19:42:20.089Z
 // ─────────────────────────────────────────────────────────────────
 
 import type { ComponentConfig } from "@workspace/ui/types/registry";
@@ -204,6 +204,7 @@ export const registry: ComponentConfig[] = [
       "discord",
       "presence"
     ],
+    "hasReactVariant": true,
     "preview": {
       "disableSSR": false,
       "height": 300
@@ -211,8 +212,8 @@ export const registry: ComponentConfig[] = [
     "registryUrl": "https://grootui.vercel.app/r/discord-online.json",
     "npmDependencies": [
       "lucide-react",
-      "Button(shadcn)",
-      "Tooltip(shadcn)"
+      "Button",
+      "Tooltip"
     ],
     "registryDependencies": [],
     "usage": {
@@ -247,69 +248,6 @@ export const registry: ComponentConfig[] = [
       {
         "name": "discord-online.tsx",
         "content": "import { cn } from \"@/lib/utils\";\r\nimport {\r\n  Tooltip,\r\n  TooltipContent,\r\n  TooltipProvider,\r\n  TooltipTrigger,\r\n} from \"@/components/ui/tooltip\";\r\nimport { Button } from \"@/components/ui/button\";\r\n\r\ninterface DiscordOnlineProps {\r\n  guildId: string; // Discord server ID to fetch presence count for\r\n  inviteURL?: string; // Optional custom invite URL    \r\n  className?: string;\r\n  label?: string; // Optional label for the tooltip (default: \"members online in our Discord\")\r\n}\r\n\r\nasync function getPresenceCount(guildId: string): Promise<number> {\r\n  try {\r\n    const res = await fetch(\r\n      `https://discord.com/api/guilds/${guildId}/widget.json`,\r\n      { next: { revalidate: 60 } },\r\n    );\r\n    if (!res.ok) return 0;\r\n    const data = (await res.json()) as { presence_count?: number };\r\n    return Number(data?.presence_count) || 0;\r\n  } catch {\r\n    return 0;\r\n  }\r\n}\r\n\r\nexport async function DiscordOnline({\r\n  guildId,\r\n  inviteURL,\r\n  className,\r\n  label = \"members online in our Discord\",\r\n}: DiscordOnlineProps) {\r\n  const count = await getPresenceCount(guildId);\r\n\r\n  return (\r\n    <TooltipProvider>\r\n      <Tooltip>\r\n        <TooltipTrigger asChild>\r\n          <Button\r\n            variant=\"ghost\"\r\n            className={cn(\"h-9 gap-1.5 pr-1.5 pl-2 border-border dark:border-input hover:bg-input\", className)}\r\n            asChild\r\n          >\r\n            <a\r\n              href={inviteURL || `https://discord.com/invite/${guildId}`}\r\n              target=\"_blank\"\r\n              rel=\"noopener noreferrer\"\r\n            >\r\n              <svg\r\n                width=\"16\"\r\n                height=\"16\"\r\n                viewBox=\"0 0 24 24\"\r\n                fill=\"currentColor\"\r\n                className=\"shrink-0\"\r\n                aria-hidden=\"true\"\r\n              >\r\n                <path d=\"M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z\" />\r\n              </svg>\r\n              <span className=\"inline-flex items-center gap-1.5\">\r\n                <span className=\"relative flex h-1.5 w-1.5 shrink-0\">\r\n                  <span className=\"absolute inline-flex h-full w-full animate-ping rounded-full bg-blue-500 opacity-75\" />\r\n                  <span className=\"relative inline-flex h-1.5 w-1.5 rounded-full bg-blue-600\" />\r\n                </span>\r\n                <span className=\"text-[0.8125rem] text-muted-foreground tabular-nums\">\r\n                  {count.toLocaleString()}\r\n                </span>\r\n              </span>\r\n            </a>\r\n          </Button>\r\n        </TooltipTrigger>\r\n        <TooltipContent className=\"font-sans\">\r\n          {count.toLocaleString()} {label}\r\n        </TooltipContent>\r\n      </Tooltip>\r\n    </TooltipProvider>\r\n  );\r\n}"
-      }
-    ]
-  },
-  {
-    "name": "discord-online-react",
-    "title": "Discord Online (React)",
-    "description": "Client-side Discord presence tracker for general React applications.",
-    "category": {
-      "name": "Components",
-      "slug": "components"
-    },
-    "tier": "free",
-    "status": "stable",
-    "image": "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1777377565/discord-online_light_aiynof.webp",
-    "imageDark": "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1777377565/discord-online_dark_mwjdlu.webp",
-    "tags": [
-      "discord",
-      "presence",
-      "react"
-    ],
-    "preview": {
-      "disableSSR": true,
-      "height": 300
-    },
-    "registryUrl": "https://grootui.vercel.app/r/discord-online-react.json",
-    "npmDependencies": [
-      "lucide-react",
-      "Button(shadcn)",
-      "Tooltip(shadcn)"
-    ],
-    "registryDependencies": [],
-    "usage": {
-      "import": "import { DiscordOnlineReact } from \"@/components/discord-online-react\"",
-      "code": "export default function Demo() {\n  return <DiscordOnlineReact guildId=\"1234567891487752291602665574\" />\n}"
-    },
-    "props": [
-      {
-        "name": "guildId",
-        "type": "string",
-        "required": true,
-        "description": "Target Discord Guild ID"
-      },
-      {
-        "name": "inviteURL",
-        "type": "string",
-        "required": true,
-        "description": "Target Discord Guild Invite URL"
-      },
-      {
-        "name": "label",
-        "type": "string",
-        "description": "Label to display"
-      },
-      {
-        "name": "className",
-        "type": "string",
-        "description": "Optional Class name to style the component"
-      }
-    ],
-    "files": [
-      {
-        "name": "discord-online-react.tsx",
-        "content": "\"use client\";\r\n\r\nimport { useEffect, useState } from \"react\";\r\nimport { cn } from \"@/lib/utils\";\r\nimport {\r\n  Tooltip,\r\n  TooltipContent,\r\n  TooltipProvider,\r\n  TooltipTrigger,\r\n} from \"@/components/ui/tooltip\";\r\nimport { Button } from \"@/components/ui/button\";\r\n\r\ninterface DiscordOnlineProps {\r\n  guildId: string;\r\n  className?: string;\r\n  label?: string;\r\n  inviteURL?: string;\r\n}\r\n\r\nconst CACHE_KEY = (id: string) => `groot-ui:discord-online:${id}`;\r\nconst CACHE_TTL = 60 * 1000;\r\n\r\nfunction getCached(guildId: string): number | null {\r\n  try {\r\n    const raw = localStorage.getItem(CACHE_KEY(guildId));\r\n    if (!raw) return null;\r\n    const { value, timestamp } = JSON.parse(raw);\r\n    if (Date.now() - timestamp > CACHE_TTL) return null;\r\n    return value;\r\n  } catch {\r\n    return null;\r\n  }\r\n}\r\n\r\nfunction setCache(guildId: string, value: number) {\r\n  try {\r\n    localStorage.setItem(\r\n      CACHE_KEY(guildId),\r\n      JSON.stringify({ value, timestamp: Date.now() }),\r\n    );\r\n  } catch {}\r\n}\r\n\r\nexport function DiscordOnline({\r\n  guildId,\r\n  className,\r\n  label = \"members online in our Discord\",\r\n  inviteURL = \"https://discord.com/invite\",\r\n}: DiscordOnlineProps) {\r\n  const [count, setCount] = useState<number | null>(null);\r\n\r\n  useEffect(() => {\r\n    const cached = getCached(guildId);\r\n    if (cached !== null) {\r\n      setCount(cached);\r\n      return;\r\n    }\r\n\r\n    fetch(`https://discord.com/api/guilds/${guildId}/widget.json`)\r\n      .then((res) => res.json())\r\n      .then((data) => {\r\n        const presence = Number(data?.presence_count) || 0;\r\n        setCount(presence);\r\n        setCache(guildId, presence);\r\n      })\r\n      .catch(() => setCount(0));\r\n  }, [guildId]);\r\n\r\n  return (\r\n    <TooltipProvider>\r\n      <Tooltip>\r\n        <TooltipTrigger asChild>\r\n          <Button\r\n            variant=\"ghost\"\r\n            className={cn(\"h-9 gap-1.5 pr-1.5 pl-2 border-border dark:border-input hover:bg-input\", className)}\r\n            asChild\r\n          >\r\n            <a href={inviteURL} target=\"_blank\" rel=\"noopener noreferrer\">\r\n              <svg\r\n                width=\"16\"\r\n                height=\"16\"\r\n                viewBox=\"0 0 24 24\"\r\n                fill=\"currentColor\"\r\n                className=\"shrink-0\"\r\n                aria-hidden=\"true\"\r\n              >\r\n                <path d=\"M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.030zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z\" />\r\n              </svg>\r\n              <span className=\"inline-flex items-center gap-1.5\">\r\n                <span className=\"relative flex h-1.5 w-1.5 shrink-0\">\r\n                  <span className=\"absolute inline-flex h-full w-full animate-ping rounded-full bg-blue-500 opacity-75\" />\r\n                  <span className=\"relative inline-flex h-1.5 w-1.5 rounded-full bg-blue-600\" />\r\n                </span>\r\n                <span className=\"text-[0.8125rem] text-muted-foreground tabular-nums\">\r\n                  {count === null ? \"—\" : count.toLocaleString()}\r\n                </span>\r\n              </span>\r\n            </a>\r\n          </Button>\r\n        </TooltipTrigger>\r\n        <TooltipContent className=\"font-sans\">\r\n          {count === null ? \"Loading...\" : `${count.toLocaleString()} ${label}`}\r\n        </TooltipContent>\r\n      </Tooltip>\r\n    </TooltipProvider>\r\n  );\r\n}\r\n"
       }
     ]
   },
@@ -525,6 +463,7 @@ export const registry: ComponentConfig[] = [
       "stars",
       "stats"
     ],
+    "hasReactVariant": true,
     "preview": {
       "disableSSR": false,
       "height": 300
@@ -532,8 +471,8 @@ export const registry: ComponentConfig[] = [
     "registryUrl": "https://grootui.vercel.app/r/github-stars.json",
     "npmDependencies": [
       "lucide-react",
-      "Tooltip(shadcn)",
-      "Button(shadcn)"
+      "Tooltip",
+      "Button"
     ],
     "registryDependencies": [],
     "usage": {
@@ -562,64 +501,6 @@ export const registry: ComponentConfig[] = [
       {
         "name": "github-stars.tsx",
         "content": "import { cva, type VariantProps } from \"class-variance-authority\";\r\nimport { cn } from \"@/lib/utils\";\r\nimport { Button } from \"@/components/ui/button\";\r\nimport {\r\n  Tooltip,\r\n  TooltipContent,\r\n  TooltipProvider,\r\n  TooltipTrigger,\r\n} from \"@/components/ui/tooltip\";\r\n\r\nconst githubStarsVariants = cva(\"gap-1.5 pr-1.5 pl-2\", {\r\n  variants: {\r\n    size: {\r\n      default: \"h-9 text-sm\",\r\n      sm: \"h-8 text-xs\",\r\n      lg: \"h-10 text-base pr-2 pl-2.5\",\r\n    },\r\n  },\r\n  defaultVariants: {\r\n    size: \"default\",\r\n  }\r\n});\r\n\r\ninterface GitHubStarsProps extends VariantProps<typeof githubStarsVariants> {\r\n  repo: string;\r\n  locales?: Intl.LocalesArgument;\r\n  className?: string;\r\n}\r\n\r\nasync function getStarCount(repo: string): Promise<number> {\r\n  try {\r\n    const res = await fetch(`https://api.github.com/repos/${repo}`, {\r\n      next: { revalidate: 86400 },\r\n    });\r\n\r\n    if (!res.ok) return 0;\r\n\r\n    const data = (await res.json()) as { stargazers_count?: number };\r\n    return Number(data?.stargazers_count) || 0;\r\n  } catch {\r\n    return 0;\r\n  }\r\n}\r\n\r\nexport async function GitHubStars({\r\n  repo, // GitHub repository in `owner/repo` format.\r\n  locales = \"en-US\", // Optional locales for number formatting\r\n  className, // Optional class name for Styling\r\n  size // Optional size for the button\r\n}: GitHubStarsProps) {\r\n  const count = await getStarCount(repo);\r\n\r\n  const formatted = new Intl.NumberFormat(locales, {\r\n    notation: \"compact\",\r\n    compactDisplay: \"short\",\r\n  })\r\n    .format(count)\r\n    .toLowerCase();\r\n\r\n  const full = new Intl.NumberFormat(locales).format(count);\r\n\r\n  return (\r\n    <TooltipProvider>\r\n      <Tooltip>\r\n        <TooltipTrigger asChild>\r\n          <Button\r\n            className={cn(githubStarsVariants({ size }), \"border-border dark:border-input hover:bg-input\", className)}\r\n            variant=\"ghost\"\r\n            asChild\r\n          >\r\n            <a\r\n              href={`https://github.com/${repo}`}\r\n              target=\"_blank\"\r\n              rel=\"noopener noreferrer\"\r\n            >\r\n              <svg\r\n                className=\"-translate-y-px\"\r\n                viewBox=\"0 0 24 24\"\r\n                width=\"16\"\r\n                height=\"16\"\r\n                aria-hidden=\"true\"\r\n              >\r\n                <path\r\n                  d=\"M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12\"\r\n                  fill=\"currentColor\"\r\n                />\r\n              </svg>\r\n              <span className=\"text-[0.8125rem] text-muted-foreground tabular-nums\">\r\n                {formatted}\r\n              </span>\r\n            </a>\r\n          </Button>\r\n        </TooltipTrigger>\r\n        <TooltipContent className=\"font-sans\">{full} stars</TooltipContent>\r\n      </Tooltip>\r\n    </TooltipProvider>\r\n  );\r\n}\r\n"
-      }
-    ]
-  },
-  {
-    "name": "github-stars-react",
-    "title": "GitHub Stars (React)",
-    "description": "Client-side GitHub star counter for standard React/Vite projects.",
-    "category": {
-      "name": "Components",
-      "slug": "components"
-    },
-    "tier": "free",
-    "status": "stable",
-    "image": "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1777377805/github-star_light_jf47tx.webp",
-    "imageDark": "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1777377805/github-star_dark_an1u1z.webp",
-    "tags": [
-      "github",
-      "stars",
-      "stats",
-      "react"
-    ],
-    "preview": {
-      "disableSSR": true,
-      "height": 300
-    },
-    "registryUrl": "https://grootui.vercel.app/r/github-stars-react.json",
-    "npmDependencies": [
-      "lucide-react",
-      "Tooltip(shadcn)",
-      "Button(shadcn)"
-    ],
-    "registryDependencies": [],
-    "usage": {
-      "import": "import { GitHubStarsReact } from \"@/components/github-stars-react\"",
-      "code": "export default function Demo() {\n  return <GitHubStarsReact repo=\"Subhadipjana95/Groot-UI\" />\n}"
-    },
-    "props": [
-      {
-        "name": "repo",
-        "type": "string",
-        "required": true,
-        "description": "Repository path (owner/repo)"
-      },
-      {
-        "name": "label",
-        "type": "string",
-        "description": "Label to display"
-      },
-      {
-        "name": "className",
-        "type": "string",
-        "description": "Optional Class name to style the component"
-      }
-    ],
-    "files": [
-      {
-        "name": "github-stars-react.tsx",
-        "content": "\"use client\";\r\n\r\nimport { cva, type VariantProps } from \"class-variance-authority\";\r\nimport { cn } from \"@/lib/utils\";\r\nimport { useEffect, useState } from \"react\";\r\nimport { Button } from \"@/components/ui/button\";\r\nimport {\r\n  Tooltip,\r\n  TooltipContent,\r\n  TooltipProvider,\r\n  TooltipTrigger,\r\n} from \"@/components/ui/tooltip\";\r\n\r\nconst githubStarsVariants = cva(\"gap-1.5 pr-1.5 pl-2\", {\r\n  variants: {\r\n    size: {\r\n      default: \"h-9 text-sm\",\r\n      sm: \"h-8 text-xs\",\r\n      lg: \"h-10 text-base pr-2 pl-2.5\",\r\n    },\r\n  },\r\n  defaultVariants: {\r\n    size: \"default\",\r\n  }\r\n});\r\n\r\ninterface GitHubStarsProps extends VariantProps<typeof githubStarsVariants> {\r\n  repo: string; // GitHub repository in `owner/repo` format.\r\n  locales?: Intl.LocalesArgument; // Optional locales for number formatting. See [MDN - Intl - locales argument](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Intl#locales_argument).\r\n  className?: string; // Optional class name for Styling\r\n}\r\n\r\nconst CACHE_KEY = (repo: string) => `groot-ui:github-stars:${repo}`;\r\nconst CACHE_TTL = 86400 * 1000;\r\n\r\nfunction getCached(repo: string): number | null {\r\n  try {\r\n    const raw = localStorage.getItem(CACHE_KEY(repo));\r\n    if (!raw) return null;\r\n    const { value, timestamp } = JSON.parse(raw);\r\n    if (Date.now() - timestamp > CACHE_TTL) return null;\r\n    return value;\r\n  } catch {\r\n    return null;\r\n  }\r\n}\r\n\r\nfunction setCache(repo: string, value: number) {\r\n  try {\r\n    localStorage.setItem(\r\n      CACHE_KEY(repo),\r\n      JSON.stringify({ value, timestamp: Date.now() }),\r\n    );\r\n  } catch { }\r\n}\r\n\r\nexport function GitHubStars({\r\n  repo,\r\n  locales = \"en-US\",\r\n  className,\r\n  size\r\n}: GitHubStarsProps) {\r\n  const [count, setCount] = useState<number | null>(null);\r\n\r\n  useEffect(() => {\r\n    const cached = getCached(repo);\r\n    if (cached !== null) {\r\n      setCount(cached);\r\n      return;\r\n    }\r\n\r\n    fetch(`https://api.github.com/repos/${repo}`)\r\n      .then((res) => res.json())\r\n      .then((data) => {\r\n        const stars = Number(data?.stargazers_count) || 0;\r\n        setCount(stars);\r\n        setCache(repo, stars);\r\n      })\r\n      .catch(() => setCount(0));\r\n  }, [repo]);\r\n\r\n  const formatted =\r\n    count === null\r\n      ? \"...\"\r\n      : new Intl.NumberFormat(locales, {\r\n        notation: \"compact\",\r\n        compactDisplay: \"short\",\r\n      })\r\n        .format(count)\r\n        .toLowerCase();\r\n\r\n  const full =\r\n    count === null\r\n      ? \"Loading...\"\r\n      : `${new Intl.NumberFormat(locales).format(count)} stars`;\r\n\r\n  return (\r\n    <TooltipProvider>\r\n      <Tooltip>\r\n        <TooltipTrigger asChild>\r\n          <Button\r\n            className={cn(githubStarsVariants({ size }), \"border-border dark:border-input hover:bg-input\", className)}\r\n            variant=\"ghost\"\r\n            asChild\r\n          >\r\n            <a\r\n              href={`https://github.com/${repo}`}\r\n              target=\"_blank\"\r\n              rel=\"noopener noreferrer\"\r\n            >\r\n              <svg\r\n                className=\"-translate-y-px\"\r\n                viewBox=\"0 0 24 24\"\r\n                width=\"16\"\r\n                height=\"16\"\r\n                aria-hidden=\"true\"\r\n              >\r\n                <path\r\n                  d=\"M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12\"\r\n                  fill=\"currentColor\"\r\n                />\r\n              </svg>\r\n              <span className=\"text-[0.8125rem] text-muted-foreground tabular-nums\">\r\n                {formatted}\r\n              </span>\r\n            </a>\r\n          </Button>\r\n        </TooltipTrigger>\r\n        <TooltipContent className=\"font-sans\">{full}</TooltipContent>\r\n      </Tooltip>\r\n    </TooltipProvider>\r\n  );\r\n}\r\n"
       }
     ]
   },

@@ -11,10 +11,11 @@ export const config: ComponentConfig = {
   image: "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1777377565/discord-online_light_aiynof.webp",
   imageDark: "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1777377565/discord-online_dark_mwjdlu.webp",
   tags: ["discord", "presence"],
+  hasReactVariant: true,
   // Server component — fetches data server-side, SSR must stay on
   preview: { disableSSR: false, height: 300 },
   registryUrl: "https://grootui.vercel.app/r/discord-online.json",
-  npmDependencies: ["lucide-react", "Button(shadcn)", "Tooltip(shadcn)"],
+  npmDependencies: ["lucide-react", "Button", "Tooltip"],
   registryDependencies: [],
   usage: {
     import: `import { DiscordOnline } from "@/components/discord-online"`,

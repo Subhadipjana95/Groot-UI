@@ -77,6 +77,9 @@ export interface ComponentConfig {
     previewHeight?: number;
   }[];
 
+  // ── Framework Support
+  hasReactVariant?: boolean;
+
   // ── Props table
   props: PropDefinition[];
 

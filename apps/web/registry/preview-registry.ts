@@ -1,7 +1,7 @@
 // ─────────────────────────────────────────────────────────────────
 // AUTO-GENERATED — do not edit manually.
 // Run: npm run registry:previews
-// Last generated: 2026-04-30T19:17:04.959Z
+// Last generated: 2026-04-30T19:42:20.843Z
 // ─────────────────────────────────────────────────────────────────
 
 import dynamic from "next/dynamic";
@@ -19,10 +19,6 @@ export const previewRegistry = {
     () => import("./previews/3d-button/3d-button.preview"),
     { loading: () => null }
   ),
-  "3d-button-variants": dynamic(
-    () => import("./previews/3d-button/3d-button-variants.preview"),
-    { loading: () => null }
-  ),
   "avatar-tooltips": dynamic(
     () => import("./previews/avatar-tooltips/avatar-tooltips.preview"),
     { ssr: false, loading: () => null }
@@ -35,10 +31,6 @@ export const previewRegistry = {
     () => import("./previews/discord-online/discord-online.preview"),
     { loading: () => null }
   ),
-  "discord-online-react": dynamic(
-    () => import("./previews/discord-online-react/discord-online-react.preview"),
-    { ssr: false, loading: () => null }
-  ),
   "drag-button": dynamic(
     () => import("./previews/drag-button/drag-button.preview"),
     { loading: () => null }
@@ -50,10 +42,6 @@ export const previewRegistry = {
   "github-stars": dynamic(
     () => import("./previews/github-stars/github-stars.preview"),
     { loading: () => null }
-  ),
-  "github-stars-react": dynamic(
-    () => import("./previews/github-stars-react/github-stars-react.preview"),
-    { ssr: false, loading: () => null }
   ),
   "glow-card": dynamic(
     () => import("./previews/glow-card/glow-card.preview"),

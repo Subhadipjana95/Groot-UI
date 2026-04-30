@@ -11,10 +11,11 @@ export const config: ComponentConfig = {
   image: "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1777377805/github-star_light_jf47tx.webp",
   imageDark: "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1777377805/github-star_dark_an1u1z.webp",
   tags: ["github", "stars", "stats"],
+  hasReactVariant: true,
   // Server component — fetches data server-side, so SSR must stay enabled
   preview: { disableSSR: false, height: 300 },
   registryUrl: "https://grootui.vercel.app/r/github-stars.json",
-  npmDependencies: ["lucide-react", "Tooltip(shadcn)", "Button(shadcn)"],
+  npmDependencies: ["lucide-react", "Tooltip", "Button"],
   registryDependencies: [],
   usage: {
     import: `import { GitHubStars } from "@/components/github-stars"`,

@@ -136,6 +136,7 @@ export default async function ComponentPage({ params }: ComponentPageProps) {
           componentCode={component.files?.[0]?.content}
           npmDependencies={component.npmDependencies}
           registryDependencies={component.registryDependencies}
+          hasReactVariant={component.hasReactVariant}
         />
 
         {component.examples && component.examples.length > 0 && (

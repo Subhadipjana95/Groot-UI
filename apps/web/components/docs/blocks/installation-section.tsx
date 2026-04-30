@@ -13,6 +13,7 @@ interface InstallationSectionProps {
   componentCode?: string;
   npmDependencies?: string[];
   registryDependencies?: string[];
+  hasReactVariant?: boolean;
 }
 
 export function InstallationSection({
@@ -21,6 +22,7 @@ export function InstallationSection({
   componentCode,
   npmDependencies,
   registryDependencies,
+  hasReactVariant = false,
 }: InstallationSectionProps) {
   const [mode, setMode] = React.useState<InstallMode>("cli");
 
@@ -60,7 +62,7 @@ export function InstallationSection({
       </div>
 
       {mode === "cli" ? (
-        <InstallBlock command={registryUrl} />
+        <InstallBlock command={registryUrl} hasReactVariant={hasReactVariant} />
       ) : (
         componentCode && (
           <ManualInstallBlock
