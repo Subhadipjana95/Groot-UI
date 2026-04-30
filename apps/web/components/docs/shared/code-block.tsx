@@ -2,8 +2,8 @@
 
 import * as React from "react";
 import { useTheme } from "next-themes";
-import SyntaxHighlighter from "react-syntax-highlighter";
-import { atelierForestDark, atelierForestLight } from "react-syntax-highlighter/dist/esm/styles/hljs";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { materialDark, materialLight } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { CopyButton } from "./copy-button";
 import { cn } from "@workspace/ui/lib/utils";
 
@@ -32,7 +32,20 @@ export function CodeBlock({
     setMounted(true);
   }, []);
 
-  const style = resolvedTheme === "dark" ? atelierForestDark : atelierForestLight;
+  const style = React.useMemo(() => {
+    const baseStyle = resolvedTheme === "dark" ? materialDark : materialLight;
+    const cleanStyle = { ...baseStyle };
+
+    // Remove background from all elements in the style object
+    Object.keys(cleanStyle).forEach(key => {
+      if (cleanStyle[key]) {
+        delete cleanStyle[key].background;
+        delete cleanStyle[key].backgroundColor;
+      }
+    });
+
+    return cleanStyle;
+  }, [resolvedTheme]);
 
   return (
     <div
@@ -51,7 +64,7 @@ export function CodeBlock({
       )}>
         {fileName ? (
           <div className="flex items-center gap-2">
-            <span className="flex h-5 items-center rounded-sm bg-blue-500/15 px-1.5 text-[10px] font-bold tracking-wide text-blue-600 dark:text-blue-400">
+            <span className="flex h-5 items-end justify-end rounded-[3px] bg-blue-500/15 pl-1.5 pr-[2px] text-xs font-bold tracking-wide text-blue-600 dark:text-blue-400">
               TS
             </span>
             <span className="text-sm font-mono text-muted-foreground">
@@ -84,6 +97,11 @@ export function CodeBlock({
             language={language}
             style={style}
             className="scrollbar-hide"
+            codeTagProps={{
+              style: {
+                background: "transparent",
+              },
+            }}
             customStyle={{
               margin: 0,
               padding: "0 1rem",
@@ -97,7 +115,7 @@ export function CodeBlock({
               paddingRight: "1rem",
               textAlign: "right",
               color: "var(--primary)",
-              opacity: 0.5,
+              opacity: 0.8,
               userSelect: "none",
               borderRight: "none",
             }}
