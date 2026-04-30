@@ -1,7 +1,7 @@
 // ─────────────────────────────────────────────────────────────────
 // AUTO-GENERATED — do not edit manually.
 // Run: npm run registry:previews
-// Last generated: 2026-04-30T07:20:46.179Z
+// Last generated: 2026-04-30T09:51:59.754Z
 // ─────────────────────────────────────────────────────────────────
 
 import dynamic from "next/dynamic";
@@ -62,10 +62,6 @@ export const previewRegistry = {
   "gradient-text-fill": dynamic(
     () => import("./previews/gradient-text-fill.preview"),
     { ssr: false, loading: () => null }
-  ),
-  "groot-starter": dynamic(
-    () => import("./previews/groot-starter.preview"),
-    { loading: () => null }
   ),
   "logo-grid": dynamic(
     () => import("./previews/logo-grid.preview"),
