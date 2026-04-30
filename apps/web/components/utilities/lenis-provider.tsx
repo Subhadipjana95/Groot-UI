@@ -4,7 +4,7 @@ import { ReactLenis } from "lenis/react";
 
 export function LenisProvider({ children }: { children: React.ReactNode }) {
   return (
-    <ReactLenis root options={{ lerp: 0.3, duration: 1.0, smoothWheel: true }}>
+    <ReactLenis root options={{ lerp: 0.3, duration: 0.5, smoothWheel: true }}>
       {children}
     </ReactLenis>
   );
@@ -13,7 +13,7 @@ export function LenisProvider({ children }: { children: React.ReactNode }) {
 export function InnerLenisScroll({ children, className, ...props }: { children: React.ReactNode, className?: string } & React.HTMLAttributes<HTMLElement>) {
   return (
     <ReactLenis 
-      options={{ lerp: 0.2, duration: 1, smoothWheel: true }} 
+      options={{ lerp: 0.5, duration: 0.5, smoothWheel: true }} 
       className={className} 
       {...props}
     >
