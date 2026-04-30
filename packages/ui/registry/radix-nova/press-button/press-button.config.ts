@@ -8,7 +8,7 @@ export const config: ComponentConfig = {
     tier: "free",
     status: "stable",
     image:"https://res.cloudinary.com/dfjuuwtr6/image/upload/v1777533103/press-button_light_zlxjzv.webp",
-    tags: ["button", "3d", "press", "neobrutalist", "ui"],
+    tags: ["button", "3d", "press", "neobrutalism"],
     preview: { disableSSR: false, height: 200 },
     registryUrl: "https://grootui.vercel.app/r/press-button.json",
     usage: {
