@@ -16,14 +16,30 @@ const packageManagers: { id: PackageManager; label: string }[] = [
 
 export function InstallBlock({ 
   command: slug, 
-  type = "add" 
+  type = "add",
+  className
 }: { 
   command: string; 
-  type?: "add" | "init" 
+  type?: "add" | "init" | "install";
+  className?: string;
 }) {
   const [selectedPm, setSelectedPm] = React.useState<PackageManager>("npm");
 
   const getCommand = (pm: PackageManager) => {
+    if (type === "install") {
+      switch (pm) {
+        case "npm":
+          return `npm install ${slug}`.trim();
+        case "pnpm":
+          return `pnpm add ${slug}`.trim();
+        case "yarn":
+          return `yarn add ${slug}`.trim();
+        case "bun":
+          return `bun add ${slug}`.trim();
+        default:
+          return `npm install ${slug}`.trim();
+      }
+    }
     switch (pm) {
       case "npm":
         return `npx shadcn@latest ${type} ${slug}`.trim();
@@ -41,7 +57,7 @@ export function InstallBlock({
   const currentCommand = getCommand(selectedPm);
 
   return (
-    <div className="relative mt-6 overflow-hidden rounded-lg border border-input/60 bg-muted/30 dark:bg-muted/50">
+    <div className={cn("relative mt-6 overflow-hidden rounded-lg border border-input/60 bg-muted/30 dark:bg-muted/50", className)}>
       <div className="flex items-center justify-between border-b border-border/50 pl-3 pr-1 pt-1.5 pb-1">
         <div className="flex items-center gap-3">
           <div className="flex h-5 w-5 items-center justify-center rounded-xs bg-muted-foreground">
