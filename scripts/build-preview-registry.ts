@@ -27,9 +27,27 @@ async function buildPreviewRegistry() {
     process.exit(1);
   }
 
-  const previewFiles = readdirSync(PREVIEWS_DIR)
-    .filter((f) => f.endsWith(".preview.tsx"))
-    .sort();
+  const previewFolders = readdirSync(PREVIEWS_DIR, { withFileTypes: true })
+    .filter((d) => d.isDirectory())
+    .map((d) => d.name);
+
+  const allPreviewFiles: { slug: string; folder: string; filename: string }[] = [];
+
+  for (const folder of previewFolders) {
+    const folderPath = join(PREVIEWS_DIR, folder);
+    const files = readdirSync(folderPath).filter((f) => f.endsWith(".preview.tsx"));
+    
+    for (const file of files) {
+      allPreviewFiles.push({
+        slug: file.replace(".preview.tsx", ""),
+        folder,
+        filename: file.replace(".tsx", "")
+      });
+    }
+  }
+
+  // Sort by slug for deterministic output
+  allPreviewFiles.sort((a, b) => a.slug.localeCompare(b.slug));
 
   // Build a map of { componentName -> disableSSR } from config files
   const ssrFlags: Record<string, boolean> = {};
@@ -51,17 +69,17 @@ async function buildPreviewRegistry() {
     }
   }
 
-  const entries = previewFiles.map((file) => {
-    const name = file.replace(".preview.tsx", "");
-    const disableSSR = ssrFlags[name] ?? true;
+  const entries = allPreviewFiles.map((item) => {
+    // Inherit SSR flag from the base component folder name
+    const disableSSR = ssrFlags[item.folder] ?? true;
 
     const dynamicOptions = disableSSR
       ? `{ ssr: false, loading: () => null }`
       : `{ loading: () => null }`;
 
     return (
-      `  "${name}": dynamic(\n` +
-      `    () => import("./previews/${name}.preview"),\n` +
+      `  "${item.slug}": dynamic(\n` +
+      `    () => import("./previews/${item.folder}/${item.filename}"),\n` +
       `    ${dynamicOptions}\n` +
       `  )`
     );
@@ -92,11 +110,10 @@ export type PreviewName = keyof typeof previewRegistry;
 
   writeFileSync(OUTPUT_FILE, output, "utf-8");
 
-  console.log(`  ✅  ${previewFiles.length} previews registered`);
-  previewFiles.forEach((f) => {
-    const name = f.replace(".preview.tsx", "");
-    const ssr  = ssrFlags[name] ?? true;
-    console.log(`      ${name}  (ssr: ${!ssr})`);
+  console.log(`  ✅  ${allPreviewFiles.length} previews registered`);
+  allPreviewFiles.forEach((item) => {
+    const ssr  = ssrFlags[item.folder] ?? true;
+    console.log(`      ${item.slug.padEnd(30)}  (ssr: ${!ssr})`);
   });
   console.log(`\n🎉  Preview registry built → ${OUTPUT_FILE}\n`);
 }

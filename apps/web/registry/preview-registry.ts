@@ -1,7 +1,7 @@
 // ─────────────────────────────────────────────────────────────────
 // AUTO-GENERATED — do not edit manually.
 // Run: npm run registry:previews
-// Last generated: 2026-04-30T09:51:59.754Z
+// Last generated: 2026-04-30T19:17:04.959Z
 // ─────────────────────────────────────────────────────────────────
 
 import dynamic from "next/dynamic";
@@ -16,67 +16,71 @@ import dynamic from "next/dynamic";
  */
 export const previewRegistry = {
   "3d-button": dynamic(
-    () => import("./previews/3d-button.preview"),
+    () => import("./previews/3d-button/3d-button.preview"),
+    { loading: () => null }
+  ),
+  "3d-button-variants": dynamic(
+    () => import("./previews/3d-button/3d-button-variants.preview"),
     { loading: () => null }
   ),
   "avatar-tooltips": dynamic(
-    () => import("./previews/avatar-tooltips.preview"),
+    () => import("./previews/avatar-tooltips/avatar-tooltips.preview"),
     { ssr: false, loading: () => null }
   ),
   "blurred-marquee": dynamic(
-    () => import("./previews/blurred-marquee.preview"),
-    { ssr: false, loading: () => null }
-  ),
-  "discord-online-react": dynamic(
-    () => import("./previews/discord-online-react.preview"),
+    () => import("./previews/blurred-marquee/blurred-marquee.preview"),
     { ssr: false, loading: () => null }
   ),
   "discord-online": dynamic(
-    () => import("./previews/discord-online.preview"),
+    () => import("./previews/discord-online/discord-online.preview"),
     { loading: () => null }
   ),
+  "discord-online-react": dynamic(
+    () => import("./previews/discord-online-react/discord-online-react.preview"),
+    { ssr: false, loading: () => null }
+  ),
   "drag-button": dynamic(
-    () => import("./previews/drag-button.preview"),
+    () => import("./previews/drag-button/drag-button.preview"),
     { loading: () => null }
   ),
   "github-calendar": dynamic(
-    () => import("./previews/github-calendar.preview"),
-    { ssr: false, loading: () => null }
-  ),
-  "github-stars-react": dynamic(
-    () => import("./previews/github-stars-react.preview"),
+    () => import("./previews/github-calendar/github-calendar.preview"),
     { ssr: false, loading: () => null }
   ),
   "github-stars": dynamic(
-    () => import("./previews/github-stars.preview"),
+    () => import("./previews/github-stars/github-stars.preview"),
     { loading: () => null }
   ),
+  "github-stars-react": dynamic(
+    () => import("./previews/github-stars-react/github-stars-react.preview"),
+    { ssr: false, loading: () => null }
+  ),
   "glow-card": dynamic(
-    () => import("./previews/glow-card.preview"),
+    () => import("./previews/glow-card/glow-card.preview"),
     { ssr: false, loading: () => null }
   ),
   "gradient-background-text": dynamic(
-    () => import("./previews/gradient-background-text.preview"),
+    () => import("./previews/gradient-background-text/gradient-background-text.preview"),
     { ssr: false, loading: () => null }
   ),
   "gradient-text-fill": dynamic(
-    () => import("./previews/gradient-text-fill.preview"),
+    () => import("./previews/gradient-text-fill/gradient-text-fill.preview"),
     { ssr: false, loading: () => null }
   ),
   "logo-grid": dynamic(
-    () => import("./previews/logo-grid.preview"),
+    () => import("./previews/logo-grid/logo-grid.preview"),
     { ssr: false, loading: () => null }
   ),
   "logo-marquee": dynamic(
-    () => import("./previews/logo-marquee.preview"),
+    () => import("./previews/logo-marquee/logo-marquee.preview"),
     { ssr: false, loading: () => null }
   ),
   "press-button": dynamic(
-    () => import("./previews/press-button.preview"),
+    () => import("./previews/press-button/press-button.preview"),
     { loading: () => null }
   ),
   "sliding-button": dynamic(
-    () => import("./previews/sliding-button.preview"),
+    () => import("./previews/sliding-button/sliding-button.preview"),
     { loading: () => null }
   )
 } as const;
