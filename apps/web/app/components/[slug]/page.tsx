@@ -59,17 +59,29 @@ export async function generateMetadata({ params }: ComponentPageProps) {
  * Runs at build time (server component), so fs access is safe.
  */
 function getPreviewCode(slug: string): string | undefined {
+  const previewsDir = path.join(process.cwd(), "registry", "previews");
+  const fileName = `${slug}.preview.tsx`;
+
+  // 1. Try the component's own subfolder first: previews/{slug}/{slug}.preview.tsx
   try {
-    const previewPath = path.join(
-      process.cwd(),
-      "registry",
-      "previews",
-      `${slug}.preview.tsx`
-    );
-    return fs.readFileSync(previewPath, "utf-8");
-  } catch {
-    return undefined;
-  }
+    const directPath = path.join(previewsDir, slug, fileName);
+    return fs.readFileSync(directPath, "utf-8");
+  } catch { /* not found — continue */ }
+
+  // 2. Scan all subdirectories (handles variants like "github-calendar-variant01"
+  //    living inside the "github-calendar" folder)
+  try {
+    const dirs = fs.readdirSync(previewsDir, { withFileTypes: true })
+      .filter((d) => d.isDirectory());
+    for (const dir of dirs) {
+      const candidate = path.join(previewsDir, dir.name, fileName);
+      if (fs.existsSync(candidate)) {
+        return fs.readFileSync(candidate, "utf-8");
+      }
+    }
+  } catch { /* fallthrough */ }
+
+  return undefined;
 }
 
 /**

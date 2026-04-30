@@ -1,7 +1,7 @@
 // ─────────────────────────────────────────────────────────────────
 // AUTO-GENERATED — do not edit manually.
 // Run: npm run registry:index
-// Last generated: 2026-04-30T19:42:20.089Z
+// Last generated: 2026-04-30T20:14:30.377Z
 // ─────────────────────────────────────────────────────────────────
 
 import type { ComponentConfig } from "@workspace/ui/types/registry";
@@ -364,6 +364,24 @@ export const registry: ComponentConfig[] = [
       "lucide-react"
     ],
     "registryDependencies": [],
+    "examples": [
+      {
+        "title": "Blue Theme",
+        "slug": "github-calendar-variant01"
+      },
+      {
+        "title": "Circular Cells",
+        "slug": "github-calendar-variant03"
+      },
+      {
+        "title": "Minimal Layout",
+        "slug": "github-calendar-variant02"
+      },
+      {
+        "title": "Custom Range (Sunday Start)",
+        "slug": "github-calendar-variant04"
+      }
+    ],
     "usage": {
       "import": "import { GitHubCalendar } from \"@/components/github-calendar\"",
       "code": "export default function Demo() {\n  return <GitHubCalendar username=\"Subhadipjana95\" />\n}"

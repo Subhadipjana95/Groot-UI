@@ -1,7 +1,7 @@
 // ─────────────────────────────────────────────────────────────────
 // AUTO-GENERATED — do not edit manually.
 // Run: npm run registry:previews
-// Last generated: 2026-04-30T19:42:20.843Z
+// Last generated: 2026-04-30T20:14:31.240Z
 // ─────────────────────────────────────────────────────────────────
 
 import dynamic from "next/dynamic";
@@ -37,6 +37,22 @@ export const previewRegistry = {
   ),
   "github-calendar": dynamic(
     () => import("./previews/github-calendar/github-calendar.preview"),
+    { ssr: false, loading: () => null }
+  ),
+  "github-calendar-variant01": dynamic(
+    () => import("./previews/github-calendar/github-calendar-variant01.preview"),
+    { ssr: false, loading: () => null }
+  ),
+  "github-calendar-variant02": dynamic(
+    () => import("./previews/github-calendar/github-calendar-variant02.preview"),
+    { ssr: false, loading: () => null }
+  ),
+  "github-calendar-variant03": dynamic(
+    () => import("./previews/github-calendar/github-calendar-variant03.preview"),
+    { ssr: false, loading: () => null }
+  ),
+  "github-calendar-variant04": dynamic(
+    () => import("./previews/github-calendar/github-calendar-variant04.preview"),
     { ssr: false, loading: () => null }
   ),
   "github-stars": dynamic(

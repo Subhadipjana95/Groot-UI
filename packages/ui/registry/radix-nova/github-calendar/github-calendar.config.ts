@@ -16,6 +16,24 @@ export const config: ComponentConfig = {
   registryUrl: "https://grootui.vercel.app/r/github-calendar.json",
   npmDependencies: ["lucide-react"],
   registryDependencies: [],
+  examples: [
+    {
+      title: "Blue Theme",
+      slug: "github-calendar-variant01",
+    },
+    {
+      title: "Circular Cells",
+      slug: "github-calendar-variant03",
+    },
+    {
+      title: "Minimal Layout",
+      slug: "github-calendar-variant02",
+    },
+    {
+      title: "Custom Range (Sunday Start)",
+      slug: "github-calendar-variant04",
+    },
+  ],
   usage: {
     import: `import { GitHubCalendar } from "@/components/github-calendar"`,
     code: `export default function Demo() {
