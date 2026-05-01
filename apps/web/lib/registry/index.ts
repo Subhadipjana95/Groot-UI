@@ -1,7 +1,7 @@
 // ─────────────────────────────────────────────────────────────────
 // AUTO-GENERATED — do not edit manually.
 // Run: npm run registry:index
-// Last generated: 2026-04-30T20:14:30.377Z
+// Last generated: 2026-05-01T04:09:40.404Z
 // ─────────────────────────────────────────────────────────────────
 
 import type { ComponentConfig } from "@workspace/ui/types/registry";
@@ -104,7 +104,7 @@ export const registry: ComponentConfig[] = [
     },
     "registryUrl": "https://grootui.vercel.app/r/avatar-tooltips.json",
     "npmDependencies": [
-      "motion"
+      "motion/react"
     ],
     "registryDependencies": [],
     "usage": {
@@ -211,11 +211,12 @@ export const registry: ComponentConfig[] = [
     },
     "registryUrl": "https://grootui.vercel.app/r/discord-online.json",
     "npmDependencies": [
-      "lucide-react",
+      "lucide-react"
+    ],
+    "registryDependencies": [
       "Button",
       "Tooltip"
     ],
-    "registryDependencies": [],
     "usage": {
       "import": "import { DiscordOnline } from \"@/components/discord-online\"",
       "code": "export default function Demo() {\n  return <DiscordOnline guildId=\"1234567891487752291602665574\" />\n}"
@@ -276,7 +277,7 @@ export const registry: ComponentConfig[] = [
     },
     "registryUrl": "https://grootui.vercel.app/r/drag-button.json",
     "npmDependencies": [
-      "motion",
+      "motion/react",
       "lucide-react"
     ],
     "registryDependencies": [
@@ -488,11 +489,12 @@ export const registry: ComponentConfig[] = [
     },
     "registryUrl": "https://grootui.vercel.app/r/github-stars.json",
     "npmDependencies": [
-      "lucide-react",
+      "lucide-react"
+    ],
+    "registryDependencies": [
       "Tooltip",
       "Button"
     ],
-    "registryDependencies": [],
     "usage": {
       "import": "import { GitHubStars } from \"@/components/github-stars\"",
       "code": "export default function Demo() {\n  return <GitHubStars repo=\"Subhadipjana95/Groot-UI\" />\n}"
@@ -875,7 +877,7 @@ export const registry: ComponentConfig[] = [
     },
     "registryUrl": "https://grootui.vercel.app/r/sliding-button.json",
     "npmDependencies": [
-      "motion",
+      "motion/react",
       "lucide-react"
     ],
     "registryDependencies": [

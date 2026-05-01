@@ -12,7 +12,7 @@ export const config: ComponentConfig = {
   tags: ["avatar", "tooltip", "popups", "motion"],
   preview: { disableSSR: true, height: 200 },
   registryUrl: "https://grootui.vercel.app/r/avatar-tooltips.json",
-  npmDependencies: ["motion"],
+  npmDependencies: ["motion/react"],
   registryDependencies: [],
   usage: {
     import: `import { AvatarTooltips } from "@/components/avatar-tooltips"`,

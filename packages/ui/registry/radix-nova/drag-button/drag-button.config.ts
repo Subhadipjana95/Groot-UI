@@ -13,7 +13,7 @@ export const config: ComponentConfig = {
   tags: ["button", "drag", "swipe", "motion"],
   preview: { disableSSR: false, height: 250 },
   registryUrl: "https://grootui.vercel.app/r/drag-button.json",
-  npmDependencies: ["motion", "lucide-react"],
+  npmDependencies: ["motion/react", "lucide-react"],
   registryDependencies: ["button"],
   usage: {
     import: `import { DragButton } from "@/components/drag-button"`,

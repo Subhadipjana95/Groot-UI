@@ -13,7 +13,7 @@ export const config: ComponentConfig = {
   tags: ["button", "sliding", "motion"],
   preview: { disableSSR: false, height: 200 },
   registryUrl: "https://grootui.vercel.app/r/sliding-button.json",
-  npmDependencies: ["motion", "lucide-react"],
+  npmDependencies: ["motion/react", "lucide-react"],
   registryDependencies: ["button"],
   usage: {
     import: `import { SlidingButton } from "@/components/sliding-button"`,
