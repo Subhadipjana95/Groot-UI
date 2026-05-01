@@ -7,6 +7,7 @@ import { InstallationSection } from "@/components/docs/blocks/installation-secti
 import { UsageBlock } from "@/components/docs/blocks/usage-block";
 import { PropsTable } from "@/components/docs/blocks/props-table";
 import { DependenciesBlock } from "@/components/docs/blocks/dependencies-block";
+import { ExamplesSection } from "@/components/docs/blocks/examples-section";
 import { PreviewContainer } from "@/components/docs/preview/preview-container";
 import { ComponentPreview } from "@/components/docs/preview/component-preview";
 
@@ -151,29 +152,14 @@ export default async function ComponentPage({ params }: ComponentPageProps) {
           hasReactVariant={component.hasReactVariant}
         />
 
-        {component.examples && component.examples.length > 0 && (
-          <section className="scroll-m-20 w-full min-w-0" id="examples">
-            <Heading title="Examples" className="mb-4" />
-            <div className="space-y-4">
-              {component.examples.map((example) => (
-                <div key={example.slug} className="space-y-2 pt-8 border-t border-border/40 first:border-t-0 first:pt-0">
-                  <h3 className="text-lg font-medium tracking-tight">
-                    {example.title}
-                  </h3>
-                  <PreviewContainer
-                    previewCode={getPreviewCode(example.slug)}
-                    componentCode={component.files?.[0]?.content}
-                    registryUrl={component.registryUrl}
-                    showCopyPrompt={false}
-                    className="mt-0"
-                  >
-                    <ComponentPreview slug={example.slug} />
-                  </PreviewContainer>
-                </div>
-              ))}
-            </div>
-          </section>
-        )}
+        <ExamplesSection
+          examples={component.examples?.map((ex) => ({
+            ...ex,
+            previewCode: getPreviewCode(ex.slug),
+          }))}
+          componentCode={component.files?.[0]?.content}
+          registryUrl={component.registryUrl}
+        />
 
         <section className="scroll-m-20 w-full min-w-0">
           <Heading title="Usage" />
