@@ -3,7 +3,7 @@ import { GitHubStars } from "@workspace/ui/registry/radix-nova/github-stars-reac
 export default function GitHubStarsPreview() {
   return (
     <GitHubStars
-      repo="Subhadipjana95/Groot-UI"
+      repo="vercel/next.js"
     />
   )
 }
