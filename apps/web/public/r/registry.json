@@ -387,6 +387,22 @@
           "target": "@components/grootstudio/pebble-toast.tsx"
         }
       ]
+    },
+    {
+      "name": "text-frame",
+      "type": "registry:block",
+      "title": "Text Frame",
+      "description": "A canvas boundary like frame for texts to wrap around with blur effect and dashed or solid line style.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "registry/radix-nova/text-frame/text-frame.tsx",
+          "type": "registry:component",
+          "target": "@components/grootstudio/text-frame.tsx"
+        }
+      ]
     }
   ]
 }
