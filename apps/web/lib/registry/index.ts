@@ -1,7 +1,7 @@
 // ─────────────────────────────────────────────────────────────────
 // AUTO-GENERATED — do not edit manually.
 // Run: npm run registry:index
-// Last generated: 2026-07-18T02:38:51.710Z
+// Last generated: 2026-07-26T14:27:26.112Z
 // ─────────────────────────────────────────────────────────────────
 
 import type { ComponentConfig } from "@workspace/ui/types/registry";
@@ -876,7 +876,6 @@ export const fullRegistry: ComponentConfig[] = [
     },
     "tier": "free",
     "status": "stable",
-    "label": "new",
     "image": "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1777377361/gradient-text-fill_light_mvkhox.webp",
     "imageDark": "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1777377361/gradient-text-fill_dark_vp5qbx.webp",
     "tags": [
@@ -1414,6 +1413,82 @@ export const fullRegistry: ComponentConfig[] = [
       {
         "name": "styled-button.tsx",
         "content": "import * as React from \"react\";\r\nimport Link from \"next/link\";\r\nimport {cva, VariantProps} from \"class-variance-authority\";\r\nimport {cn} from \"@/lib/utils\";\r\n\r\nconst buttonVariants = cva(\r\n    \"inline-flex shrink-0 items-center justify-center rounded-md text-sm font-semibold text-shadow-lg shadow-accent border active:scale-95 transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 select-none antialiased\",\r\n    {\r\n        variants: {\r\n            size: {\r\n                sm: \"h-8 px-3\",\r\n                md: \"h-10 px-4\",\r\n                lg: \"h-12 px-6\",\r\n            },\r\n            variant:{\r\n                default: \"bg-radial from-foreground/50 to-muted/80 ring-2 ring-foreground/20 border-foreground/60\",\r\n                rose: \"text-background bg-radial from-rose-500 to-rose-800 border-rose-400 ring-2 ring-rose-800 hover:bg-radial hover:from-rose-600 hover:to-rose-900\",\r\n                blue: \"text-background bg-radial from-blue-500 to-blue-800 border-blue-400 ring-2 ring-blue-800 hover:bg-radial hover:from-blue-500 hover:to-blue-900\",\r\n            }\r\n        },\r\n        defaultVariants: {\r\n            size: \"md\",\r\n            variant: \"default\"\r\n        },\r\n    }\r\n);\r\n\r\ntype StyledButtonProps = VariantProps<typeof buttonVariants> & {\r\n    href: string;\r\n    children: React.ReactNode;\r\n    className?: string;\r\n};\r\n\r\nconst StyledButton = React.forwardRef<HTMLAnchorElement, StyledButtonProps>(\r\n    ({ href, children, className, size, variant, ...props }, ref) => {\r\n        return (\r\n            <Link\r\n                href={href}\r\n                className={cn(buttonVariants({ size, variant, className }))}\r\n                ref={ref}\r\n                {...props}\r\n            >\r\n                {children}\r\n            </Link>\r\n        );\r\n    }\r\n);\r\n\r\nStyledButton.displayName = \"StyledButton\";\r\n\r\nexport { StyledButton, buttonVariants };"
+      }
+    ]
+  },
+  {
+    "name": "text-frame",
+    "title": "Text Frame",
+    "description": "A canvas boundary like frame for texts to wrap around with blur effect and dashed or solid line style.",
+    "category": {
+      "name": "Text Animations",
+      "slug": "text-animations"
+    },
+    "tier": "free",
+    "status": "stable",
+    "label": "new",
+    "image": "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1785075311/text-frame_light_j4w3m6.webp",
+    "imageDark": "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1785075311/text-frame_dark_agqifr.webp",
+    "tags": [
+      "frame",
+      "blur",
+      "canvas",
+      "dashed"
+    ],
+    "preview": {
+      "disableSSR": false,
+      "height": 300
+    },
+    "registryUrl": "https://grootstudio.vercel.app/r/text-frame.json",
+    "installAlias": "text-frame",
+    "npmDependencies": [
+      "motion"
+    ],
+    "registryDependencies": [],
+    "usage": {
+      "import": "import { TextFrame } from \"@/components/grootstudio/text-frame\"",
+      "code": "export default function Demo() {\n  return (\n    <div className=\"flex items-center justify-center h-75 w-full\">\n      <h1 className='text-7xl max-w-3xl'>\n        <TextFrame className=\"[&_svg]:text-blue-400 dark:text-blue-300 text-blue-500 tracking-normal\" lineStyle=\"solid\">Groot Studio</TextFrame>\n      </h1>\n    </div>\n  )\n}"
+    },
+    "props": [
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "default": "undefined",
+        "required": true,
+        "description": "The text to display and animate."
+      },
+      {
+        "name": "as",
+        "type": "React.ElementType",
+        "default": "span",
+        "required": false,
+        "description": "The element to display the text in."
+      },
+      {
+        "name": "lineStyle",
+        "type": "solid | dashed",
+        "default": "solid",
+        "required": false,
+        "description": "The style of the frame line."
+      },
+      {
+        "name": "accessible",
+        "type": "boolean",
+        "default": "true",
+        "required": false,
+        "description": "Whether the text frame should be accessible."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Additional Tailwind classes for custom styling."
+      }
+    ],
+    "files": [
+      {
+        "name": "text-frame.tsx",
+        "content": "import React, { useId, memo, useMemo } from \"react\";\r\nimport { motion, MotionProps, Variants } from \"motion/react\";\r\nimport { cn } from \"@/lib/utils\";\r\n\r\ninterface TextFrameProps extends Omit<\r\n  React.HTMLAttributes<HTMLElement>,\r\n  keyof MotionProps | \"style\"\r\n> {\r\n  children: React.ReactNode;\r\n  as?: React.ElementType;\r\n  lineStyle?: \"dashed\" | \"solid\";\r\n  accessible?: boolean;\r\n  className?: string;\r\n}\r\n\r\nconst CornerRectangleDimentions = [\r\n  {\r\n    id: 1,\r\n    x: \"0\",\r\n    y: \"0\",\r\n  },\r\n  {\r\n    id: 2,\r\n    x: \"0\",\r\n    y: \"calc(100% - 0.16em)\",\r\n  },\r\n  {\r\n    id: 3,\r\n    x: \"calc(100% - 0.16em)\",\r\n    y: \"calc(100% - 0.16em)\",\r\n  },\r\n  {\r\n    id: 4,\r\n    x: \"calc(100% - 0.16em)\",\r\n    y: \"0\",\r\n  }\r\n]\r\n\r\nconst blurInContainerVariants: Variants = {\r\n  hidden: { opacity: 1 },\r\n  show: {\r\n    opacity: 1,\r\n    transition: {\r\n      delayChildren: 0,\r\n      staggerChildren: 0.05,\r\n    },\r\n  },\r\n  exit: {\r\n    opacity: 0,\r\n    transition: {\r\n      staggerChildren: 0.05,\r\n      staggerDirection: -1 as const,\r\n    },\r\n  },\r\n}\r\n\r\nconst blurInItemVariants: Variants = {\r\n  hidden: { opacity: 0, filter: \"blur(10px)\" },\r\n  show: {\r\n    opacity: 1,\r\n    filter: \"blur(0px)\",\r\n    transition: {\r\n      duration: 0.5,\r\n      ease: [0.16, 1, 0.3, 1],\r\n    },\r\n  },\r\n  exit: {\r\n    opacity: 0,\r\n    filter: \"blur(10px)\",\r\n    transition: { duration: 0.3 },\r\n  },\r\n}\r\n\r\nconst TextFrame = memo(function TextFrame({\r\n  children,\r\n  as: Component = \"span\",\r\n  lineStyle = \"solid\",\r\n  accessible = true,\r\n  className,\r\n}: TextFrameProps) {\r\n  const MotionComponent = useMemo(() => motion.create(Component), [Component]);\r\n  const gradientId = useId();\r\n  const clipId = useId();\r\n\r\n  return (\r\n    <MotionComponent\r\n      className={cn(\r\n        \"relative inline-flex items-center justify-center px-[0.2em] pt-[0.20em] pb-[0.25em] -mx-[0.1em] text-foreground italic font-[Libre_Baskerville] **:leading-none [&_svg]:text-foreground whitespace-nowrap selection:bg-foreground/10\",\r\n        className\r\n      )}\r\n      aria-label={accessible ? children : undefined}\r\n    >\r\n      <style jsx>{`@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400..700;1,400..700&display=swap');`}</style>\r\n      <svg\r\n        fill=\"none\"\r\n        xmlns=\"http://www.w3.org/2000/svg\"\r\n        className=\"absolute inset-0 w-full h-full pointer-events-none overflow-visible\"\r\n      >\r\n        <defs>\r\n          <linearGradient id={gradientId} x1=\"100%\" y1=\"0%\" x2=\"0%\" y2=\"100%\">\r\n            <stop offset=\"0%\" stopColor=\"var(--color-background)\" stopOpacity=\"0.01\" />\r\n            <stop offset=\"60%\" stopColor=\"currentColor\" stopOpacity=\"0.10\" />\r\n            <stop offset=\"100%\" stopColor=\"currentColor\" stopOpacity=\"0.40\" />\r\n          </linearGradient>\r\n          <clipPath id={clipId}>\r\n            <motion.rect\r\n              x=\"0\"\r\n              y=\"0\"\r\n              width=\"100%\"\r\n              height=\"100%\"\r\n              initial={{ x: \"100%\" }}\r\n              animate={{ x: \"0%\" }}\r\n              transition={{ delay: 0.5, duration: 1, type: \"spring\", damping: 18, stiffness: 100 }}\r\n            />\r\n          </clipPath>\r\n        </defs>\r\n        {/* Frame Line */}\r\n        <rect\r\n          x=\"0.08em\"\r\n          y=\"0.08em\"\r\n          width=\"calc(100% - 0.16em)\"\r\n          height=\"calc(100% - 0.16em)\"\r\n          strokeWidth={lineStyle === \"dashed\" ? \"0.012em\" : \"0.015em\"}\r\n          stroke=\"currentColor\"\r\n          strokeDasharray={lineStyle === \"dashed\" ? \"0.16em 0.12em\" : undefined}\r\n          fill={`url(#${gradientId})`}\r\n          clipPath={`url(#${clipId})`}\r\n        />\r\n        {/* Corner Rectangles */}\r\n        {\r\n          CornerRectangleDimentions.map((item) => (\r\n            <motion.rect\r\n              key={item.id}\r\n              x={item.x}\r\n              y={item.y}\r\n              width=\"0.16em\"\r\n              height=\"0.16em\"\r\n              rx=\"0.015em\"\r\n              strokeWidth={lineStyle === \"dashed\" ? \"0.012em\" : \"0.015em\"}\r\n              stroke=\"currentColor\"\r\n              fill=\"var(--color-background)\"\r\n              initial={{ scale: 0 }}\r\n              animate={{ scale: 1 }}\r\n              transition={{\r\n                delay: 0.8 +  0.08,\r\n                duration: 0.45,\r\n                type: \"spring\",\r\n                damping: 16,\r\n                stiffness: 200\r\n              }}\r\n              style={{ transformOrigin: \"center\" }}\r\n            />\r\n          ))\r\n        }\r\n      </svg>\r\n      <motion.span\r\n        variants={blurInContainerVariants}\r\n        initial=\"hidden\"\r\n        animate=\"show\"\r\n        exit=\"exit\"\r\n        style={{ display: \"inline-block\" }}\r\n      >\r\n        <motion.span\r\n          variants={blurInItemVariants}\r\n          style={{ display: \"inline-block\" }}\r\n          aria-hidden={accessible ? true : undefined}\r\n        >\r\n          {children}\r\n        </motion.span>\r\n      </motion.span>\r\n    </MotionComponent>\r\n  )\r\n});\r\n\r\nTextFrame.displayName = \"TextFrame\";\r\nexport { TextFrame };\r\n"
       }
     ]
   },

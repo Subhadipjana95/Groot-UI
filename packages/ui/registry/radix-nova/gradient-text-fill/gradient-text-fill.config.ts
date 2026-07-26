@@ -10,7 +10,6 @@ export const config: ComponentConfig = {
   category: { name: "Text Animations", slug: "text-animations" },
   tier: "free",
   status: "stable",
-  label: "new",
   image: "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1777377361/gradient-text-fill_light_mvkhox.webp",
   imageDark: "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1777377361/gradient-text-fill_dark_vp5qbx.webp",
   tags: ["text", "gradient", "motion"],
