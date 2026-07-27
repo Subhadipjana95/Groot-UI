@@ -1,7 +1,7 @@
 // ─────────────────────────────────────────────────────────────────
 // AUTO-GENERATED — do not edit manually.
 // Run: npm run registry:previews
-// Last generated: 2026-07-27T00:58:27.712Z
+// Last generated: 2026-07-27T11:55:57.054Z
 // ─────────────────────────────────────────────────────────────────
 
 import dynamic from "next/dynamic";
@@ -109,6 +109,10 @@ export const previewRegistry = {
   ),
   "press-button": dynamic(
     () => import("./previews/press-button/press-button.preview"),
+    { loading: () => null }
+  ),
+  "shimmer-text-flip": dynamic(
+    () => import("./previews/shimmer-text-flip/shimmer-text-flip.preview"),
     { loading: () => null }
   ),
   "sliding-button": dynamic(
