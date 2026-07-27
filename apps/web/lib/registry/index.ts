@@ -1,7 +1,7 @@
 // ─────────────────────────────────────────────────────────────────
 // AUTO-GENERATED — do not edit manually.
 // Run: npm run registry:index
-// Last generated: 2026-07-26T14:27:26.112Z
+// Last generated: 2026-07-27T00:58:26.673Z
 // ─────────────────────────────────────────────────────────────────
 
 import type { ComponentConfig } from "@workspace/ui/types/registry";
@@ -1447,7 +1447,10 @@ export const fullRegistry: ComponentConfig[] = [
     "registryDependencies": [],
     "usage": {
       "import": "import { TextFrame } from \"@/components/grootstudio/text-frame\"",
-      "code": "export default function Demo() {\n  return (\n    <div className=\"flex items-center justify-center h-75 w-full\">\n      <h1 className='text-7xl max-w-3xl'>\n        <TextFrame className=\"[&_svg]:text-blue-400 dark:text-blue-300 text-blue-500 tracking-normal\" lineStyle=\"solid\">Groot Studio</TextFrame>\n      </h1>\n    </div>\n  )\n}"
+      "code": "export default function Demo() {\n  return (\n    <div className=\"flex items-center justify-center h-75 w-full\">\n      <h1 className='text-7xl max-w-3xl'>\n        <TextFrame className=\"[&_svg]:text-blue-400 dark:text-blue-300 text-blue-500\" lineStyle=\"solid\">Groot Studio</TextFrame>\n      </h1>\n    </div>\n  )\n}",
+      "codeHighlightLines": [
+        5
+      ]
     },
     "props": [
       {
