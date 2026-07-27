@@ -403,6 +403,23 @@
           "target": "@components/grootstudio/text-frame.tsx"
         }
       ]
+    },
+    {
+      "name": "shimmer-text-flip",
+      "type": "registry:block",
+      "title": "Shimmer Text Flip",
+      "description": "A sequence of texts cycles through fliping transition with shimmer glow effect.",
+      "dependencies": [
+        "motion",
+        "shadcn"
+      ],
+      "files": [
+        {
+          "path": "registry/radix-nova/shimmer-text-flip/shimmer-text-flip.tsx",
+          "type": "registry:component",
+          "target": "@components/grootstudio/shimmer-text-flip.tsx"
+        }
+      ]
     }
   ]
 }
