@@ -22,11 +22,12 @@ export const config: ComponentConfig = {
   return (
     <div className="flex items-center justify-center h-75 w-full">
       <h1 className='text-7xl max-w-3xl'>
-        <TextFrame className="[&_svg]:text-blue-400 dark:text-blue-300 text-blue-500 tracking-normal" lineStyle="solid">Groot Studio</TextFrame>
+        <TextFrame className="[&_svg]:text-blue-400 dark:text-blue-300 text-blue-500" lineStyle="solid">Groot Studio</TextFrame>
       </h1>
     </div>
   )
 }`,
+codeHighlightLines: [5],
   },
   props: [
     {
