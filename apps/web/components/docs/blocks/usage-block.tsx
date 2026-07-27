@@ -30,7 +30,7 @@ export function UsageBlock({ usage }: UsageBlockProps) {
     }
     if (key === "code") {
       return [{
-        title: "Use the component",
+        title: "Use like this",
         code: usage.code,
         fileName: usage.codeFileName,
         highlightLines: usage.codeHighlightLines
