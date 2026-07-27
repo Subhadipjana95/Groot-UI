@@ -96,7 +96,7 @@ const PREVIEW_ITEMS: BentoItem[] = [
                     onDragComplete={() => console.log("Successful ✅")}
                     colorLight="#f5f56b"
                     colorDark="#cc0066"
-                    className="w-full max-w-[200px]"
+                    className="w-full max-w-50"
                 >
                     Slide to Checkout
                 </DragButton>

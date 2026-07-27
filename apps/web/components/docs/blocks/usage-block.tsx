@@ -53,7 +53,7 @@ export function UsageBlock({ usage }: UsageBlockProps) {
                 {i + 1}
               </div>
               {!isLast && (
-                <div className="absolute top-7 bottom-[-32px] w-px bg-border" />
+                <div className="absolute top-7 -bottom-8 w-px bg-border" />
               )}
             </div>
             <div className="w-full min-w-0 flex flex-col gap-2">
