@@ -1,7 +1,7 @@
 // ─────────────────────────────────────────────────────────────────
 // AUTO-GENERATED — do not edit manually.
 // Run: npm run registry:index
-// Last generated: 2026-07-27T00:58:26.673Z
+// Last generated: 2026-07-27T11:46:48.803Z
 // ─────────────────────────────────────────────────────────────────
 
 import type { ComponentConfig } from "@workspace/ui/types/registry";
@@ -1275,6 +1275,125 @@ export const fullRegistry: ComponentConfig[] = [
       {
         "name": "press-button.tsx",
         "content": "\"use client\";\r\n\r\nimport * as React from \"react\";\r\nimport { Slot } from \"@radix-ui/react-slot\";\r\nimport { cva, type VariantProps } from \"class-variance-authority\";\r\nimport { cn } from \"@/lib/utils\";\r\n\r\nconst buttonVariants = cva(\r\n  \"inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-bold ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 active:translate-x-[1px] active:translate-y-[1px] active:shadow-none bg-secondary text-secondary-foreground shadow-[4px_4px_0_0_rgba(0,0,0,1)] border-2 border-foreground hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none\",\r\n  {\r\n    variants: {\r\n      \r\n      size: {\r\n        default: \"h-11 px-6 py-2\",\r\n        sm: \"h-9 px-4 text-xs\",\r\n        lg: \"h-14 px-10 text-base\",\r\n        icon: \"h-11 w-11\",\r\n      },\r\n    },\r\n    defaultVariants: {\r\n      size: \"default\",\r\n    },\r\n  }\r\n);\r\n\r\nexport interface PressButtonProps\r\n  extends React.ButtonHTMLAttributes<HTMLButtonElement>,\r\n    VariantProps<typeof buttonVariants> {\r\n  asChild?: boolean;\r\n}\r\n\r\nconst PressButton = React.forwardRef<HTMLButtonElement, PressButtonProps>(\r\n  ({ className, size, asChild = false, ...props }, ref) => {\r\n    const Comp = asChild ? Slot : \"button\";\r\n    return (\r\n      <Comp\r\n        className={cn(buttonVariants({ size, className }))}\r\n        ref={ref}\r\n        {...props}\r\n      />\r\n    );\r\n  }\r\n);\r\nPressButton.displayName = \"PressButton\";\r\n\r\nexport { PressButton, buttonVariants };"
+      }
+    ]
+  },
+  {
+    "name": "shimmer-text-flip",
+    "title": "Shimmer Text Flip",
+    "description": "A sequence of texts cycles through fliping transition with shimmer glow effect.",
+    "category": {
+      "name": "Text Animations",
+      "slug": "text-animations"
+    },
+    "tier": "free",
+    "status": "stable",
+    "label": "new",
+    "image": "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1785075311/text-frame_light_j4w3m6.webp",
+    "imageDark": "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1785075311/text-frame_dark_agqifr.webp",
+    "tags": [
+      "flip",
+      "shimmer",
+      "blur"
+    ],
+    "preview": {
+      "disableSSR": false,
+      "height": 300
+    },
+    "registryUrl": "https://grootstudio.vercel.app/r/shimmer-text-flip.json",
+    "installAlias": "shimmer-text-flip",
+    "npmDependencies": [
+      "motion",
+      "shadcn"
+    ],
+    "registryDependencies": [],
+    "usage": {
+      "import": "import { ShimmerTextFlip } from \"@/components/grootstudio/shimmer-text-flip\"",
+      "code": "const role = [\n  \"Design Engineer.\",\n  \"Full Stack Developer.\",\n  \"UI/UX Designer.\",\n  \"Open Source Contributer.\",\n]\nexport default function Demo() {\n  return (\n    <div className=\"flex items-center justify-center h-75 w-full\">\n      <ShimmerTextFlip\n          interval={2.8}\n          as={motion.span}\n          className=\"text-xl font-mono\"\n        >\n          {role}\n        </ShimmerTextFlip>\n    </div>\n  )\n}",
+      "codeHighlightLines": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ]
+    },
+    "props": [
+      {
+        "name": "children",
+        "type": "React.ReactNode[]",
+        "default": "undefined",
+        "required": true,
+        "description": "Array of children to cycle through."
+      },
+      {
+        "name": "as",
+        "type": "MotionElement",
+        "default": "motion.p",
+        "required": false,
+        "description": "Motion element to render."
+      },
+      {
+        "name": "glowColor",
+        "type": "string",
+        "default": "text-muted-foreground",
+        "required": false,
+        "description": "Color of the shimmer glow effect."
+      },
+      {
+        "name": "interval",
+        "type": "number",
+        "default": "2",
+        "required": false,
+        "description": "Time in seconds between each flip."
+      },
+      {
+        "name": "play",
+        "type": "boolean",
+        "default": "true",
+        "required": false,
+        "description": "Controls whether the flip animation runs."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Additional Tailwind classes for custom styling."
+      },
+      {
+        "name": "variants",
+        "type": "Variants",
+        "default": "undefined",
+        "required": false,
+        "description": "Motion variants for enter/exit animations."
+      },
+      {
+        "name": "transition",
+        "type": "Transition",
+        "default": "undefined",
+        "required": false,
+        "description": "Transition configuration for the flip animation."
+      },
+      {
+        "name": "onIndexChange",
+        "type": "() => void",
+        "default": "undefined",
+        "required": false,
+        "description": "Callback function called with the new index after each flip."
+      }
+    ],
+    "files": [
+      {
+        "name": "shimmer-text-flip.tsx",
+        "content": "\"use client\";\r\n\r\nimport React, { Children, useEffect, useState, memo } from \"react\";\r\nimport { AnimatePresence, motion } from \"motion/react\";\r\nimport type { Transition, Variants } from \"motion/react\";\r\nimport { cn } from \"@/lib/utils\";\r\n\r\ntype MotionElement = typeof motion.p | typeof motion.span | typeof motion.code\r\n\r\nconst defaultVariants: Variants = {\r\n  initial: { \r\n    y: \"-40%\",\r\n    opacity: 0,\r\n    scale: 0.98,\r\n    filter: \"blur(4px)\" },\r\n  animate: {\r\n    y: \"0%\",\r\n    opacity: 1,\r\n    scale: 1,\r\n    filter: \"blur(0px)\",\r\n  },\r\n  exit: {\r\n    y: \"40%\",\r\n    opacity: 0,\r\n    scale: 0.98,\r\n    filter: \"blur(4px)\",\r\n    transition: { ease: \"easeOut\" },\r\n  },\r\n}\r\n\r\nexport type ShimmerTextFlipProps = {\r\n  /**\r\n   * Motion element to render.\r\n   * @defaultValue motion.p\r\n   * */\r\n  as?: MotionElement\r\n  className?: string\r\n  /** Array of children to cycle through. */\r\n  children: React.ReactNode[]\r\n\r\n  /**\r\n   * Glow Color for the shimmer effect.\r\n   * @defaultValue \"text-muted-foreground\"\r\n   * */\r\n  glowColor?: string\r\n\r\n  /**\r\n   * Time in seconds between each flip.\r\n   * @defaultValue 2\r\n   * */\r\n  interval?: number\r\n  /**\r\n   * Motion transition configuration.\r\n   * @defaultValue { duration: 0.3 }\r\n   * */\r\n  transition?: Transition\r\n  /** Motion variants for enter/exit animations. */\r\n  variants?: Variants\r\n\r\n  /** Controls whether the flip animation runs. */\r\n  play?: boolean\r\n\r\n  /** Called with the new index after each flip. */\r\n  onIndexChange?: (index: number) => void\r\n}\r\n\r\nconst ShimmerTextFlip = memo(function ShimmerTextFlip({\r\n  as: Component = motion.p,\r\n  className,\r\n  children,\r\n  glowColor,\r\n  interval = 2,\r\n  transition = { duration: 0.3 },\r\n  variants = defaultVariants,\r\n  play = true,\r\n\r\n  onIndexChange,\r\n}: ShimmerTextFlipProps) {\r\n  const [currentIndex, setCurrentIndex] = useState(0)\r\n\r\n  const items = Children.toArray(children)\r\n\r\n  useEffect(() => {\r\n    if (!play) return\r\n\r\n    const timer = setInterval(() => {\r\n      setCurrentIndex((prev) => {\r\n        const next = (prev + 1) % items.length\r\n        onIndexChange?.(next)\r\n        return next\r\n      })\r\n    }, interval * 1000)\r\n\r\n    return () => clearInterval(timer)\r\n  }, [play, interval, items.length, onIndexChange])\r\n\r\n  return (\r\n    <AnimatePresence mode=\"wait\" initial={false}>\r\n      <Component\r\n        key={currentIndex}\r\n        className={cn(\r\n          `inline-block shimmer shimmer-once text-muted-foreground font-light tracking-tighter`,\r\n          className\r\n        )}\r\n        style={{ \"--shimmer-color\": glowColor } as React.CSSProperties}\r\n        initial=\"initial\"\r\n        animate=\"animate\"\r\n        exit=\"exit\"\r\n        transition={transition}\r\n        variants={variants}\r\n      >\r\n        {items[currentIndex]}\r\n      </Component>\r\n    </AnimatePresence>\r\n  )\r\n});\r\n\r\nShimmerTextFlip.displayName = \"ShimmerTextFlip\";\r\nexport { ShimmerTextFlip };\r\n"
       }
     ]
   },
