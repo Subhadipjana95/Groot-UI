@@ -1,7 +1,7 @@
 // ─────────────────────────────────────────────────────────────────
 // AUTO-GENERATED — do not edit manually.
 // Run: npm run registry:index
-// Last generated: 2026-07-27T11:46:48.803Z
+// Last generated: 2026-07-27T11:55:56.083Z
 // ─────────────────────────────────────────────────────────────────
 
 import type { ComponentConfig } from "@workspace/ui/types/registry";
@@ -1289,8 +1289,8 @@ export const fullRegistry: ComponentConfig[] = [
     "tier": "free",
     "status": "stable",
     "label": "new",
-    "image": "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1785075311/text-frame_light_j4w3m6.webp",
-    "imageDark": "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1785075311/text-frame_dark_agqifr.webp",
+    "image": "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1785153306/Screenshot_2026-07-27_162233_thj4r3.webp",
+    "imageDark": "https://res.cloudinary.com/dfjuuwtr6/image/upload/v1785153306/Screenshot_2026-07-27_162219_uex8wp.webp",
     "tags": [
       "flip",
       "shimmer",
